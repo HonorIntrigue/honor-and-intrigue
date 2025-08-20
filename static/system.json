@@ -1,0 +1,76 @@
+{
+  "id": "honor-and-intrigue",
+  "title": "Honor + Intrigue",
+  "description": "The Honor + Intrigue system by Basic Action Games for Foundry Virtual Tabletop",
+  "authors": [
+    {
+      "name": "anathemort",
+      "discord": "anathemort"
+    }
+  ],
+
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.347"
+  },
+  "documentTypes": {},
+  "esmodules": [
+    "honor-and-intrigue.mjs"
+  ],
+  "flags": {
+    "hotReload": {
+      "extensions": [
+        "css",
+        "hbs",
+        "json"
+      ],
+      "paths": [
+        "static/lang",
+        "static/styles",
+        "static/templates"
+      ]
+    }
+  },
+  "initiative": "1d6 + @Savvy",
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "media": [
+    {
+      "type": "setup",
+      "url": "systems/honor-and-intrigue/assets/anvil-impact.png",
+      "thumbnail": "systems/honor-and-intrigue/assets/anvil-impact.png"
+    }
+  ],
+  "primaryTokenAttribute": "hero.lifeblood",
+  "secondaryTokenAttribute": "hero.composure",
+  "socket": true,
+  "styles": [
+    {
+      "src": "css/honor-and-intrigue.css",
+      "layer": "system"
+    },
+    {
+      "src": "css/honor-and-intrigue-variables.css",
+      "layer": "variables"
+    },
+    {
+      "src": "css/honor-and-intrigue-elements.css",
+      "layer": "elements"
+    }
+  ],
+
+  "background": "systems/honor-and-intrigue/assets/background.png",
+  "changelog": "CHANGELOG.md",
+  "license": "LICENSE.md",
+  "readme": "README.md",
+  "bugs": "https://github.com/eryon/honor-and-intrigue/issues",
+  "download": "https://github.com/eryon/honor-and-intrigue/releases/download",
+  "manifest": "https://raw.githubusercontent.com/eryon/honor-and-intrigue/releases/latest/download/system.json",
+  "url": "https://github.com/eryon/honor-and-intrigue",
+  "version": "0.0.0"
+}

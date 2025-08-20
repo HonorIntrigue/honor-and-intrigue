@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "paths": {
+      "@client/*": [
+        "./foundry/client/*"
+      ],
+      "@common/*": [
+        "./foundry/common/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ],
+  "include": [
+    "foundry/client/client.mjs",
+    "honor-and-intrigue.mjs",
+    "honor-and-intrigue.d.ts"
+  ],
+  "typeAcquisition": {
+    "include": [
+      "jquery"
+    ]
+  }
+}

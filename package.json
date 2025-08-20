@@ -1,0 +1,49 @@
+{
+  "name": "honor-and-intrigue",
+  "version": "0.0.0",
+  "description": "A system for the Honor + Intrigue Swashbuckling RPG on Foundry Virtual Tabletop",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eryon/honor-and-intrigue.git"
+  },
+  "scripts": {
+    "build": "yarn build:clean && yarn build:code & yarn build:css & yarn build:packs",
+    "build:clean": "rm -fr public/",
+    "build:code": "rollup -c",
+    "build:css": "npx sass -s compressed --update --no-source-map static/styles:public/css",
+    "build:packs": "node ./tools/pullJSONtoLDB.mjs",
+    "createSymlinks": "node ./tools/create-symlinks.mjs",
+    "dev": "yarn build:clean && node ./tools/start-dev.mjs",
+    "dev:code": "rollup -c --watch",
+    "dev:css": "npx sass -w static/styles:public/css",
+    "dev:setup": "node ./tools/setup-dev.mjs",
+    "lint": "eslint honor-and-intrigue.mjs src/module/**/* templates/**/*",
+    "lint:fix": "eslint --fix honor-and-intrigue.mjs src/module/**/* templates/**/*",
+    "unpack": "node ./tools/pushLDBtoJSON.mjs"
+  },
+  "browserslist": [
+    "last 3 versions"
+  ],
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.33.0",
+    "@eslint/json": "^0.13.1",
+    "@foundryvtt/foundryvtt-cli": "^2.0.0",
+    "@html-eslint/eslint-plugin": "^0.45.0",
+    "@html-eslint/parser": "^0.45.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@stylistic/eslint-plugin": "^5.2.3",
+    "eslint": "^9.33.0",
+    "eslint-plugin-jsdoc": "^54.1.1",
+    "globals": "^16.3.0",
+    "readline": "^1.3.0",
+    "rollup": "^4.46.4",
+    "rollup-plugin-copy": "^3.5.0",
+    "sass": "^1.90.0",
+    "showdown": "^2.1.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.40.0"
+  },
+  "packageManager": "yarn@4.4.1"
+}

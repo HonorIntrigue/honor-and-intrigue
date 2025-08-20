@@ -1,0 +1,17 @@
+import copy from 'rollup-plugin-copy';
+
+export default [{
+  input: 'src/scripts/honor-and-intrigue.mjs',
+  output: {
+    file: 'public/honor-and-intrigue.mjs',
+    sourcemap: true,
+  },
+  plugins: [
+    copy({
+      targets: [
+        { src: 'static/lang', dest: 'public' },
+        { src: 'static/system.json', dest: 'public' },
+      ],
+    }),
+  ],
+}];
