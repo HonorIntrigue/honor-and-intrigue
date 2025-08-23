@@ -13,7 +13,28 @@
     "minimum": "13",
     "verified": "13.347"
   },
-  "documentTypes": {},
+  "documentTypes": {
+    "Actor": {
+      "hero": {
+        "htmlFields": ["notes", "description", "motivation", "origin", "friendsAndContacts", "rivalsAndEnemies"]
+      },
+      "pawn": {
+        "htmlFields": ["notes"]
+      },
+      "retainer": {
+        "htmlFields": ["notes"]
+      },
+      "villain": {
+        "htmlFields": ["notes"]
+      }
+    },
+    "Item": {
+      "boon": {},
+      "career": {},
+      "flaw": {},
+      "style": {}
+    }
+  },
   "esmodules": [
     "honor-and-intrigue.mjs"
   ],

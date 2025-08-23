@@ -19,9 +19,9 @@ if (!foundryPath || !dataPath) {
   throw 'Could not find Foundry application and/or data path';
 }
 
-const args = ['yarn dev:code', 'yarn dev:css', `node "${foundryPath}" --dataPath="${dataPath}" --hotReload --noupnp`];
+const args = ['yarn dev:code', 'yarn dev:css', `npx wait-on file:./public/honor-and-intrigue.mjs file:./public/css/honor-and-intrigue.css && node "${foundryPath}" --dataPath="${dataPath}" --hotReload --noupnp --world="hidev"`];
 
-spawn('npx', ['concurrently', ...args.map(arg => `"${arg}"`)], {
+spawn('npx', ['concurrently', '-n "code,css,fvtt" -c "blue,magenta,yellow"', ...args.map(arg => `"${arg}"`)], {
   cwd: process.cwd(),
   shell: true,
   stdio: 'inherit',

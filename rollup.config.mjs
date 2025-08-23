@@ -1,4 +1,4 @@
-import copy from 'rollup-plugin-copy';
+import copy from '@guanghechen/rollup-plugin-copy';
 
 export default [{
   input: 'src/scripts/honor-and-intrigue.mjs',

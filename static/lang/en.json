@@ -1,3 +1,40 @@
 {
-  "HonorAndIntrigue": {}
+  "HONOR_INTRIGUE": {
+    "DAMAGE_TYPE": {
+      "energy": "Energy",
+      "physical": "Physical"
+    },
+    "Actor": {
+      "combatAbilities": {
+        "brawl":  "Brawl",
+        "melee": "Melee",
+        "ranged":  "Ranged",
+        "defense": "Defense"
+      },
+      "qualities": {
+        "daring": "Daring",
+        "flair": "Flair",
+        "might": "Might",
+        "savvy": "Savvy"
+      }
+    },
+    "Setting": {
+      "AlternateRules": {
+        "d10": {
+          "label": "2d10 Dice System",
+          "hint": "Change the default dice rolls to use 2d10 with a base Target Number of 12"
+        }
+      }
+    },
+    "Sheet": {
+      "Labels": {
+        "Character": "Hero"
+      }
+    }
+  },
+  "TYPES": {
+    "Actor": {
+      "hero": "Hero"
+    }
+  }
 }
