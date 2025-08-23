@@ -46,9 +46,9 @@
         "json"
       ],
       "paths": [
-        "static/lang",
-        "static/styles",
-        "static/templates"
+        "css",
+        "lang",
+        "templates"
       ]
     }
   },
