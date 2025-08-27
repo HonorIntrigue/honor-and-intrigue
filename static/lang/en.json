@@ -28,13 +28,21 @@
     },
     "Sheet": {
       "Labels": {
-        "Character": "Hero"
+        "AdvancementPoints": "Advancement Points",
+        "Character": "Hero",
+        "Composure": "Composure",
+        "FortunePoints": "Fortune",
+        "Lifeblood": "Lifeblood",
+        "Motivation": "Motivation"
       }
     }
   },
   "TYPES": {
     "Actor": {
-      "hero": "Hero"
+      "hero": "Hero",
+      "pawn": "Pawn",
+      "retainer": "Retainer",
+      "villain": "Villain"
     }
   }
 }

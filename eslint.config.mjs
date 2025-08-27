@@ -78,20 +78,13 @@ export default defineConfig([
       '@stylistic/no-mixed-operators': ['error', {
         allowSamePrecedence: true,
 
-        groups: [[
-          '==',
-          '!=',
-          '===',
-          '!==',
-          '>',
-          '>=',
-          '<',
-          '<=',
-          '&&',
-          '||',
-          'in',
-          'instanceof',
-        ]],
+        groups: [
+          ['+', '-', '*', '/', '%', '**'],
+          ['&', '|', '^', '~', '<<', '>>', '>>>'],
+          ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
+          ['&&', '||'],
+          ['in', 'instanceof'],
+        ],
       }],
 
       '@jsdoc/require-jsdoc': ['warn', {

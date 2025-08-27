@@ -4,9 +4,26 @@ export default base => {
     /** @inheritDoc */
     static DEFAULT_OPTIONS = {
       classes: ['honor-intrigue'],
+      form: {
+        closeOnSubmit: false,
+        submitOnChange: true,
+      },
       window: {
         resizable: true,
       },
     };
+
+    /** @inheritDoc */
+    async _prepareContext(options) {
+      const ctx = await super._prepareContext(options);
+
+      return {
+        ...ctx,
+        gm: game.user.isGM,
+        system: this.document.system,
+        systemFields: this.document.system.schema.fields,
+        systemSource: this.document.system._source,
+      };
+    }
   };
 };

@@ -1,0 +1,64 @@
+@use 'header';
+@use 'sidebar';
+
+.sheet.actor.hero {
+  --portrait-size: 275px;
+
+  .window-header {
+    background: transparent;
+    border: none;
+    justify-content: flex-end;
+    position: absolute;
+    width: 100%;
+  }
+
+  .window-content {
+    background: light-dark(var(--background), var(--color-navy));
+    display: grid;
+    grid-template-columns: var(--portrait-size) 1fr;
+    grid-template-rows: auto 1fr;
+    padding: 0;
+  }
+
+  &.minimized .window-content {
+    opacity: 0;
+    transition-duration: 0.1s;
+  }
+
+  &:not(.minimized) {
+    .window-title,
+    .window-icon {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .window-content {
+      opacity: 1;
+    }
+  }
+
+  .sheet-header {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .sheet-sidebar {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .label-bar {
+    > span {
+      font-family: Asul, serif;
+      font-size: var(--font-size-13);
+      padding-left: 0.5rem;
+    }
+
+    > hr {
+      background: linear-gradient(90deg, transparent 0%, light-dark(var(--color-navy), var(--color-gold)) 50%, transparent 100%);
+      height: 2px;
+      margin: 0;
+    }
+  }
+}

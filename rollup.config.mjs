@@ -11,7 +11,7 @@ export default [{
       targets: [
         { src: 'static/lang', dest: 'public' },
         { src: 'static/system.json', dest: 'public' },
-        { src: 'static/templates', dest: 'public' },
+        { src: 'static/templates', dest: 'public', flatten: false },
       ],
     }),
   ],

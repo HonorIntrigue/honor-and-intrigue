@@ -15,8 +15,27 @@ export default class PawnModel extends BaseActorModel {
   static defineSchema() {
     const schema = super.defineSchema();
 
-    schema.competence = new fields.NumberField({ initial: 0, integer: true, nullable: false });
+    schema.competence = new fields.SchemaField({
+      value: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
+    });
 
     return schema;
+  }
+
+  /** @inheritDoc */
+  prepareDerivedData() {
+    this.lifeblood.max = 1;
+  }
+
+  /** @inheritDoc */
+  async _preCreate(data, options, user) {
+    const allowed = await super._preCreate(data, options, user);
+    if (allowed === false) return false;
+
+    this.parent.updateSource({
+      prototypeToken: {
+        disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
+      },
+    });
   }
 }

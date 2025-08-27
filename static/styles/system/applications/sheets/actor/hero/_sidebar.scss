@@ -1,0 +1,87 @@
+.sheet.actor.hero {
+  .sheet-sidebar {
+    border-right: 1px solid light-dark(var(--color-navy), var(--color-gold));
+    display: flex;
+    flex-direction: column;
+    min-width: var(--portrait-size);
+    position: relative;
+    width: var(--portrait-size);
+  }
+
+  .portrait {
+    border-bottom: 1px solid light-dark(var(--color-navy), var(--color-gold));
+    cursor: pointer;
+    position: relative;
+
+    img {
+      height: var(--portrait-size);
+      object-fit: cover;
+      object-position: top center;
+      width: 100%;
+    }
+  }
+
+  .characteristics {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+
+    .primary-resources {
+      position: absolute;
+      top: -20px;
+      width: 100%;
+    }
+
+    .resources {
+      display: flex;
+      justify-content: space-evenly;
+
+      .resource-item {
+        background: light-dark(var(--color-gold), var(--color-navy));
+        border: 1px solid light-dark(var(--color-navy), var(--color-gold));
+        display: flex;
+        height: 40px;
+        justify-content: center;
+        position: relative;
+        width: 100px;
+
+        .resource-label {
+          background: light-dark(var(--color-navy), var(--color-gold));
+          color: light-dark(var(--color-gold), var(--color-navy));
+          font-size: var(--font-size-16);
+          font-variant: small-caps;
+          font-weight: 700;
+          height: 22px;
+          position: absolute;
+          text-align: center;
+          top: 39px;
+          width: 86px;
+        }
+
+        .resource-value {
+          align-items: center;
+          display: flex;
+          font-size: var(--font-size-18);
+          justify-content: center;
+
+          input[type='number'] {
+            background: transparent;
+            border: none;
+            color: var(--color-text-primary);
+            font-size: var(--font-size-18);
+            height: 30px;
+            outline: 2px solid transparent;
+            text-align: center;
+            width: 40px;
+          }
+
+          &-label {
+            text-align: center;
+            width: 40px;
+          }
+        }
+      }
+    }
+  }
+}

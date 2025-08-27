@@ -1,0 +1,29 @@
+<aside class='sheet-sidebar'>
+  <div class='portrait'>
+    <img src='{{document.img}}' alt='{{document.name}}' data-action='editImage'>
+  </div>
+
+  <div class='characteristics'>
+    <div class='primary-resources'>
+      <div class='resources'>
+        <div class='resource-item'>
+          <div class='resource-value'>
+            {{formInput systemFields.lifeblood.fields.value value=this.system.lifeblood.value type='number' max=this.system.lifeblood.max}}
+            <p>/</p>
+            <p class='resource-value-label'>{{this.system.lifeblood.max}}</p>
+          </div>
+          <span class='resource-label'>{{localize 'HONOR_INTRIGUE.Sheet.Labels.Lifeblood'}}</span>
+        </div>
+
+        <div class='resource-item'>
+          <div class='resource-value'>
+            {{formInput systemFields.composure value=systemSource.composure type='number' max=systemFields.composure.max}}
+            <p>/</p>
+            <p class='resource-value-label'>{{systemFields.composure.max}}</p>
+          </div>
+          <span class='resource-label'>{{localize 'HONOR_INTRIGUE.Sheet.Labels.Composure'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>

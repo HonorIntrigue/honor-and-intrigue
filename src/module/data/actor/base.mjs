@@ -29,8 +29,9 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       }, {}),
     );
 
-    schema.lifeblood = new fields.NumberField({ min: -6, initial: 1, integer: true, nullable: false });
-    schema.name = new fields.StringField({ trim: true });
+    schema.lifeblood = new fields.SchemaField({
+      value: new fields.NumberField({ min: -6, initial: 1, integer: true, nullable: false }),
+    });
     schema.notes = new fields.HTMLField({ textSearch: true, trim: true });
 
     return schema;
