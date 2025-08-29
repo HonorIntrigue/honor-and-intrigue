@@ -1,4 +1,5 @@
-import { systemPath } from '../../constants.mjs'
+import { systemPath } from '../../constants.mjs';
+import { HonorIntrigueRoll } from '../../rolls/_module.mjs';
 import HonorIntrigueActorSheet from './actor-sheet.mjs';
 
 export default class HeroSheet extends HonorIntrigueActorSheet {
@@ -8,6 +9,7 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
       adjustAdvancementPoints: { handler: this.#adjustAdvancementPoints, buttons: [0, 2] },
       adjustFortune: { handler: this.#adjustFortune, buttons: [0, 2] },
       editImage: this.#onEditImage,
+      rollCharacteristic: this.#onRollCharacteristic,
     },
     classes: ['hero'],
   };
@@ -21,6 +23,10 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     header: {
       id: 'header',
       template: systemPath('templates/sheets/actor/hero/header.hbs'),
+    },
+    content: {
+      id: 'content',
+      template: systemPath('templates/sheets/actor/hero/sheet.hbs'),
     },
   };
 
@@ -58,5 +64,42 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
       current: foundry.utils.getProperty(this.document, 'img'),
       callback: (path) => this.document.update({ img: path }),
     }).render(true);
+  }
+
+  /**
+   * Begin rolling a characteristic such as a Quality or Combat Ability.
+   * @param event
+   * @param target Should have the target characteristic in its "dataset" field, such as <code>dataset.characteristic.qualities.might</code>.
+   * @returns {Promise<void>}
+   */
+  static async #onRollCharacteristic(event, target) {
+    const { characteristic: field } = target.dataset;
+    const value = foundry.utils.getProperty(this.actor.system, field)?.value ?? 0;
+
+    const { rollMode, rolls } = await HonorIntrigueRoll.prompt({
+      title: foundry.utils.getProperty(hi.CONFIG, field)?.label ?? '',
+      bonus: (value > 0 ? '+' : '-') + value,
+    });
+    const messageData = {
+      flags: { core: { canPopout: true } },
+      rolls,
+      sound: CONFIG.sounds.dice,
+      speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+      title: foundry.utils.getProperty(hi.CONFIG, field)?.label ?? '',
+    };
+
+    ChatMessage.applyRollMode(messageData, rollMode);
+    return ChatMessage.create(messageData);
+  }
+
+  /** @inheritDoc */
+  async _prepareContext(options) {
+    const ctx = await super._prepareContext(options);
+
+    return {
+      ...ctx,
+      getValueField: (type, name) => this.document.system.schema.getField(`${type}.${name}.value`),
+      getValueFieldValue: (type, name) => foundry.utils.getProperty(this.document.system, `${type}.${name}.value`),
+    };
   }
 }

@@ -22,7 +22,6 @@ export default base => {
         gm: game.user.isGM,
         system: this.document.system,
         systemFields: this.document.system.schema.fields,
-        systemSource: this.document.system._source,
       };
     }
   };

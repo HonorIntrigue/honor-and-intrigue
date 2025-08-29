@@ -1,1 +1,17 @@
 @use 'system/system';
+
+.honor-intrigue {
+  .label-bar {
+    > span {
+      font-family: Asul, serif;
+      font-size: var(--font-size-13);
+      padding-left: 0.5rem;
+    }
+
+    > hr {
+      background: linear-gradient(90deg, transparent 0%, light-dark(var(--color-navy), var(--color-gold)) 50%, transparent 100%);
+      height: 2px;
+      margin: 0;
+    }
+  }
+}

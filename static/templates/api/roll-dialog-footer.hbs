@@ -1,0 +1,16 @@
+<footer class="form-footer">
+  <button type="submit">
+    <i class="fa-solid {{#if useAlternateD10}}fa-dice-d10{{else}}fa-dice-d6{{/if}}"></i> {{localize "HONOR_INTRIGUE.Dialog.Roll.Button"}}
+  </button>
+  <div class="roll-mode-buttons split-button">
+    {{#each rollModes as |rollMode|}}
+      <button
+        type="button"
+        class="{{ifThen (eq @root.rollMode @key) "selected" ""}} ui-control icon {{rollMode.icon}}"
+        data-action="setRollMode"
+        data-roll-mode="{{@key}}"
+        data-tooltip="{{rollMode.label}}">
+      </button>
+    {{/each}}
+  </div>
+</footer>

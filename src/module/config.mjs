@@ -3,9 +3,9 @@ import { preLocalize } from './helpers/localization.mjs';
 export const HONOR_INTRIGUE = {};
 
 HONOR_INTRIGUE.qualities = {
+  might: { label: 'HONOR_INTRIGUE.Actor.qualities.might' },
   daring: { label: 'HONOR_INTRIGUE.Actor.qualities.daring' },
   flair: { label: 'HONOR_INTRIGUE.Actor.qualities.flair' },
-  might: { label: 'HONOR_INTRIGUE.Actor.qualities.might' },
   savvy: { label: 'HONOR_INTRIGUE.Actor.qualities.savvy' },
 };
 preLocalize('qualities', { keys: ['label'] });

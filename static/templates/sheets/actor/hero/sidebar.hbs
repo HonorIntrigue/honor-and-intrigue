@@ -17,13 +17,37 @@
 
         <div class='resource-item'>
           <div class='resource-value'>
-            {{formInput systemFields.composure value=systemSource.composure type='number' max=systemFields.composure.max}}
+            {{formInput systemFields.composure value=this.system.composure type='number' max=systemFields.composure.max}}
             <p>/</p>
             <p class='resource-value-label'>{{systemFields.composure.max}}</p>
           </div>
           <span class='resource-label'>{{localize 'HONOR_INTRIGUE.Sheet.Labels.Composure'}}</span>
         </div>
       </div>
+    </div>
+
+    <div class='qualities-container'>
+      {{> "systems/honor-and-intrigue/templates/sheets/actor/partials/label-bar.hbs" label="HONOR_INTRIGUE.Sheet.Labels.Qualities"}}
+
+      {{#each this.system.qualities as |quality key|}}
+        {{> "systems/honor-and-intrigue/templates/sheets/actor/partials/rollable-characteristic.hbs"
+          dotkey=(concat "qualities." key)
+          field_type="qualities"
+          field_name=key
+        }}
+      {{/each}}
+    </div>
+
+    <div class='abilities-container'>
+      {{> "systems/honor-and-intrigue/templates/sheets/actor/partials/label-bar.hbs" label="HONOR_INTRIGUE.Sheet.Labels.CombatAbilities"}}
+
+      {{#each this.system.combatAbilities as |ability key|}}
+        {{> "systems/honor-and-intrigue/templates/sheets/actor/partials/rollable-characteristic.hbs"
+          dotkey=(concat "combatAbilities." key)
+          field_type="combatAbilities"
+          field_name=key
+        }}
+      {{/each}}
     </div>
   </div>
 </aside>

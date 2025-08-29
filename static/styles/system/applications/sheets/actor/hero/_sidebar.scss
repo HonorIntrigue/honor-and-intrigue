@@ -1,9 +1,10 @@
-.sheet.actor.hero {
+.honor-intrigue.sheet.hero {
   .sheet-sidebar {
-    border-right: 1px solid light-dark(var(--color-navy), var(--color-gold));
+    border-right: 2px solid light-dark(var(--color-navy), var(--color-gold));
     display: flex;
     flex-direction: column;
     min-width: var(--portrait-size);
+    overflow-y: auto;
     position: relative;
     width: var(--portrait-size);
   }
@@ -66,7 +67,6 @@
           justify-content: center;
 
           input[type='number'] {
-            background: transparent;
             border: none;
             color: var(--color-text-primary);
             font-size: var(--font-size-18);
@@ -79,6 +79,52 @@
           &-label {
             text-align: center;
             width: 40px;
+          }
+        }
+      }
+    }
+
+    .qualities-container {
+      margin-top: 60px;
+    }
+
+    .qualities-container, .abilities-container {
+      display: flex;
+      flex-direction: column;
+
+      .rollable-characteristic {
+        align-items: center;
+        display: flex;
+        gap: 1rem;
+        padding: 0 1rem;
+
+        &-value {
+          input {
+            text-align: center;
+          }
+        }
+
+        &-label {
+          font-family: var(--font-bold);
+          font-size: var(--font-size-18);
+        }
+      }
+    }
+
+    .roll-icon {
+      width: 24px;
+
+      &:hover {
+        i {
+          transform: scale(1.25);
+        }
+
+        svg {
+          animation: rotation 2s infinite linear;
+
+          @keyframes rotation {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(359deg); }
           }
         }
       }

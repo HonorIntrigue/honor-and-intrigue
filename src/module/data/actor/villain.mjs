@@ -10,8 +10,8 @@ export default class VillainModel extends CharacterActorModel {
   }
 
   /** @inheritDoc */
-  prepareDerivedData() {
-    this.lifeblood.max = 10 + this.qualities.might.value;
+  calcLifebloodMax() {
+    return 10 + this.qualities.might.value;
   }
 
   /** @inheritDoc */
@@ -19,11 +19,6 @@ export default class VillainModel extends CharacterActorModel {
     const allowed = await super._preCreate(data, options, user);
     if (allowed === false) return false;
 
-    this.parent.updateSource({
-      prototypeToken: {
-        actorLink: true,
-        disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
-      },
-    });
+    this.parent.updateSource({ prototypeToken: { actorLink: true } });
   }
 }

@@ -36,4 +36,54 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
 
     return schema;
   }
+
+  /**
+   * Calculate the maximum value of the lifeblood field.
+   * @returns {number}
+   */
+  calcLifebloodMax() {
+    return 1;
+  }
+
+  /** @inheritDoc */
+  prepareDerivedData() {
+    this.lifeblood.max = this.calcLifebloodMax();
+  }
+
+  /** @inheritDoc */
+  async _preCreate(data, options, user) {
+    const allowed = await super._preCreate(data, options, user);
+    if (allowed === false) return false;
+
+    this.parent.updateSource({
+      system: { lifeblood: { value: this.calcLifebloodMax() } },
+      prototypeToken: {
+        disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
+      } },
+    );
+
+    return true;
+  }
+
+  /** @inheritDoc */
+  async _preUpdate(changes, options, user) {
+    if (changes.system?.lifeblood) {
+      changes.system.lifeblood = {
+        value: Math.clamp(changes.system.lifeblood?.value ?? 0, 0, this.calcLifebloodMax()),
+      };
+    }
+
+    return super._preUpdate(changes, options, user);
+  }
+
+  /** @inheritDoc */
+  async _onUpdate(changes, options, user) {
+    if (changes.system?.qualities?.might) {
+      this.parent.update({
+        system: { lifeblood: { value: Math.clamp(this.lifeblood.value, 0, this.calcLifebloodMax()) } },
+      });
+    }
+
+    return super._onUpdate(changes, options, user);
+  }
 }

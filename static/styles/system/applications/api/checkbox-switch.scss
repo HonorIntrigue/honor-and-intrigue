@@ -1,0 +1,69 @@
+.honor-intrigue.toggle {
+  background: light-dark(var(--color-navy), var(--color-gold));
+  border-radius: 50px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  display: inline-block;
+  height: 19px;
+  position: relative;
+  vertical-align: bottom;
+  width: 46px;
+
+  &:has(input:not(:checked)) {
+    background: rgba(black, 0.4);
+
+    input[type='checkbox'] + label {
+      right: 26px;
+    }
+  }
+
+  &::before {
+    color: light-dark(var(--color-gold), var(--color-navy));
+    content: 'ON';
+    left: 6px;
+    position: absolute;
+    z-index: 0;
+  }
+
+  &::after {
+    color: var(--text-dark);
+    content: 'OFF';
+    position: absolute;
+    right: 4px;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.15);
+    z-index: 0;
+  }
+
+  &::before,
+  &::after {
+    font-size: var(--font-size-10);
+    letter-spacing: 0.05em;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    top: 4px;
+  }
+
+  .widget {
+    background: #FCFFF4;
+    background: linear-gradient(to bottom, #FCFFF4 0%, #DFE5D7 40%, #B3BEAD 100%);
+    border-radius: 50px;
+    box-shadow: 0 0 0 1px rgba(black, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: block;
+    height: 16px;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    transition: all 0.4s ease;
+    width: 19px;
+    z-index: 1;
+  }
+
+  input[type='checkbox'] {
+    visibility: hidden;
+
+    &:not(:checked) + .widget {
+      right: 25px;
+    }
+  }
+}

@@ -18,8 +18,8 @@
     "dev:code": "rollup -c --watch",
     "dev:css": "npx sass -w --update static/styles:public/css",
     "dev:setup": "node ./tools/setup-dev.mjs",
-    "lint": "eslint honor-and-intrigue.mjs src/module/**/* static/templates/**/*",
-    "lint:fix": "eslint --fix honor-and-intrigue.mjs src/module/**/* static/templates/**/*",
+    "lint": "eslint src/scripts/honor-and-intrigue.mjs src/module/**/*",
+    "lint:fix": "eslint --fix src/scripts/honor-and-intrigue.mjs src/module/**/*",
     "unpack": "node ./tools/pushLDBtoJSON.mjs"
   },
   "browserslist": [

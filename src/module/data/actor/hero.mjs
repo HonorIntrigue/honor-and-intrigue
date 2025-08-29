@@ -32,8 +32,8 @@ export default class HeroModel extends CharacterActorModel {
   }
 
   /** @inheritDoc */
-  prepareDerivedData() {
-    this.lifeblood.max = 10 + this.qualities.might.value;
+  calcLifebloodMax() {
+    return 10 + this.qualities.might.value;
   }
 
   /** @inheritDoc */
@@ -42,10 +42,6 @@ export default class HeroModel extends CharacterActorModel {
     if (allowed === false) return false;
 
     this.parent.updateSource({
-      system: {
-        composure: 3,
-        lifeblood: { value: 10 + this.qualities.might.value },
-      },
       prototypeToken: {
         actorLink: true,
         disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,

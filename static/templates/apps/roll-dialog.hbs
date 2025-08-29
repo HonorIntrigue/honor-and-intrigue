@@ -1,0 +1,21 @@
+<div class='roll-dialog-content'>
+  <div class='modifiers-table'>
+    <div class='modifiers-table-header'>
+      {{> "systems/honor-and-intrigue/templates/sheets/actor/partials/label-bar.hbs" label="HONOR_INTRIGUE.Dialog.Roll.Modifiers"}}
+    </div>
+    <div class='modifiers-table-items'>
+      <div class='modifiers-table-item'>
+        <span>{{localize title}}</span>
+        <span>{{bonus}}</span>
+      </div>
+      <div class='modifiers-table-item'>
+        <span>{{localize "HONOR_INTRIGUE.Dialog.Roll.BonusDie"}}</span>
+        {{> "systems/honor-and-intrigue/templates/api/checkbox-switch.hbs" isChecked=false}}
+      </div>
+      <div class='modifiers-table-item'>
+        <span>{{localize "HONOR_INTRIGUE.Dialog.Roll.PenaltyDie"}}</span>
+        {{> "systems/honor-and-intrigue/templates/api/checkbox-switch.hbs" isChecked=false}}
+      </div>
+    </div>
+  </div>
+</div>

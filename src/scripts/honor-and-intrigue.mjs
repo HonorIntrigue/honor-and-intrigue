@@ -5,6 +5,7 @@ import * as applications from '../module/applications/_module.mjs';
 import * as data from '../module/data/_module.mjs';
 import * as documents from '../module/documents/_module.mjs';
 import * as helpers from '../module/helpers/_module.mjs';
+import * as rolls from '../module/rolls/_module.mjs';
 
 globalThis.hi = {
   applications,
@@ -43,6 +44,7 @@ Hooks.once('init', () => {
 
   foundry.applications.handlebars.loadTemplates(templates.map(t => systemPath(t))).catch(console.error);
 
+  CONFIG.Dice.rolls = [rolls.HonorIntrigueRoll];
   CONFIG.statusEffects = [];
 
   const { Actors } = foundry.documents.collections;

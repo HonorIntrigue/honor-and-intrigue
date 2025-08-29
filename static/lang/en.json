@@ -18,6 +18,14 @@
         "savvy": "Savvy"
       }
     },
+    "Dialog": {
+      "Roll": {
+        "BonusDie": "Bonus Die",
+        "Button": "Roll",
+        "Modifiers": "Modifiers",
+        "PenaltyDie": "Penalty Die"
+      }
+    },
     "Setting": {
       "AlternateRules": {
         "d10": {
@@ -27,13 +35,29 @@
       }
     },
     "Sheet": {
+      "Hints": {
+        "combatAbilities": {
+          "brawl":  "Punching",
+          "melee": "Sword fighting",
+          "ranged":  "Shooting and throwing",
+          "defense": "Enemy's difficulty, or added to Save rolls"
+        },
+        "qualities": {
+          "daring": "Agility and courage",
+          "flair": "Personality and luck",
+          "might": "Brawn and toughness",
+          "savvy": "Intellect, subtlety, and fine motor skills"
+        }
+      },
       "Labels": {
         "AdvancementPoints": "Advancement Points",
         "Character": "Hero",
+        "CombatAbilities": "Combat Abilities",
         "Composure": "Composure",
         "FortunePoints": "Fortune",
         "Lifeblood": "Lifeblood",
-        "Motivation": "Motivation"
+        "Motivation": "Motivation",
+        "Qualities": "Qualities"
       }
     }
   },
