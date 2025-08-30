@@ -42,15 +42,24 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
     options.actor ??= ChatMessage.getSpeakerActor(ChatMessage.getSpeaker());
     this.applyActorModifiers(options);
 
-    const promptResult = await hi.applications.apps.RollDialog.create({
+    const { rollMode } = await hi.applications.apps.RollDialog.create({
       context: options,
     });
 
     const roll = new this(options.formula, options.data, {});
+
+    if (options.bonus) {
+      roll.terms.push(
+        new foundry.dice.terms.OperatorTerm({ operator: (options.bonus > 0 ? '+' : '-') }),
+        new foundry.dice.terms.NumericTerm({ number: Math.abs(options.bonus) }),
+      );
+    }
+
+    roll.resetFormula();
     await roll.evaluate();
 
     return {
-      rollMode: promptResult.rollMode,
+      rollMode,
       rolls: [roll],
     };
   }

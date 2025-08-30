@@ -98,6 +98,14 @@
         gap: 1rem;
         padding: 0 1rem;
 
+        .roll-icon {
+          svg {
+            color: var(--color-text-primary);
+            height: 32px;
+            width: 32px;
+          }
+        }
+
         &-value {
           input {
             text-align: center;

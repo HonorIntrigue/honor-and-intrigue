@@ -1,12 +1,12 @@
 <div class='roll-dialog-content'>
   <div class='modifiers-table'>
     <div class='modifiers-table-header'>
-      {{> "systems/honor-and-intrigue/templates/sheets/actor/partials/label-bar.hbs" label="HONOR_INTRIGUE.Dialog.Roll.Modifiers"}}
+      {{> "systems/honor-and-intrigue/templates/api/label-bar.hbs" label="HONOR_INTRIGUE.Dialog.Roll.Modifiers"}}
     </div>
     <div class='modifiers-table-items'>
       <div class='modifiers-table-item'>
-        <span>{{localize title}}</span>
-        <span>{{bonus}}</span>
+        <span>{{localize flavor}}</span>
+        <span>{{ifThen (gt bonus 0) '+' ''}}{{bonus}}</span>
       </div>
       <div class='modifiers-table-item'>
         <span>{{localize "HONOR_INTRIGUE.Dialog.Roll.BonusDie"}}</span>

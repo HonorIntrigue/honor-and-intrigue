@@ -1,0 +1,14 @@
+.chat-message {
+  .flavor-text {
+    margin-bottom: 0.5rem;
+
+    h4 {
+      margin: 0;
+    }
+
+    hr {
+      border-top: 2px groove var(--color-gold);
+      margin: 0;
+    }
+  }
+}

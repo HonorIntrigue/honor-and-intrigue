@@ -1,6 +1,5 @@
-import { systemPath } from '../../constants.mjs';
-import { HonorIntrigueRoll } from '../../rolls/_module.mjs';
-import HonorIntrigueActorSheet from './actor-sheet.mjs';
+import { systemPath } from '../../constants.mjs'
+import HonorIntrigueActorSheet from './actor-sheet.mjs'
 
 export default class HeroSheet extends HonorIntrigueActorSheet {
   /** @inheritDoc */
@@ -73,23 +72,7 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
    * @returns {Promise<void>}
    */
   static async #onRollCharacteristic(event, target) {
-    const { characteristic: field } = target.dataset;
-    const value = foundry.utils.getProperty(this.actor.system, field)?.value ?? 0;
-
-    const { rollMode, rolls } = await HonorIntrigueRoll.prompt({
-      title: foundry.utils.getProperty(hi.CONFIG, field)?.label ?? '',
-      bonus: (value > 0 ? '+' : '-') + value,
-    });
-    const messageData = {
-      flags: { core: { canPopout: true } },
-      rolls,
-      sound: CONFIG.sounds.dice,
-      speaker: ChatMessage.getSpeaker({ actor: this.parent }),
-      title: foundry.utils.getProperty(hi.CONFIG, field)?.label ?? '',
-    };
-
-    ChatMessage.applyRollMode(messageData, rollMode);
-    return ChatMessage.create(messageData);
+    return this.actor.rollCharacteristic(target.dataset.characteristic);
   }
 
   /** @inheritDoc */

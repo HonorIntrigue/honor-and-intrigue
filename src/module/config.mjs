@@ -3,18 +3,18 @@ import { preLocalize } from './helpers/localization.mjs';
 export const HONOR_INTRIGUE = {};
 
 HONOR_INTRIGUE.qualities = {
-  might: { label: 'HONOR_INTRIGUE.Actor.qualities.might' },
-  daring: { label: 'HONOR_INTRIGUE.Actor.qualities.daring' },
-  flair: { label: 'HONOR_INTRIGUE.Actor.qualities.flair' },
-  savvy: { label: 'HONOR_INTRIGUE.Actor.qualities.savvy' },
+  might: { label: 'HONOR_INTRIGUE.Actor.qualities.might', rollKey: 'might' },
+  daring: { label: 'HONOR_INTRIGUE.Actor.qualities.daring', rollKey: 'daring' },
+  flair: { label: 'HONOR_INTRIGUE.Actor.qualities.flair', rollKey: 'flair' },
+  savvy: { label: 'HONOR_INTRIGUE.Actor.qualities.savvy', rollKey: 'savvy' },
 };
 preLocalize('qualities', { keys: ['label'] });
 
 HONOR_INTRIGUE.combatAbilities = {
-  brawl: { label: 'HONOR_INTRIGUE.Actor.combatAbilities.brawl' },
-  melee: { label: 'HONOR_INTRIGUE.Actor.combatAbilities.melee' },
-  ranged: { label: 'HONOR_INTRIGUE.Actor.combatAbilities.ranged' },
-  defense: { label: 'HONOR_INTRIGUE.Actor.combatAbilities.defense' },
+  brawl: { label: 'HONOR_INTRIGUE.Actor.combatAbilities.brawl', rollKey: 'brawl' },
+  melee: { label: 'HONOR_INTRIGUE.Actor.combatAbilities.melee', rollKey: 'melee' },
+  ranged: { label: 'HONOR_INTRIGUE.Actor.combatAbilities.ranged', rollKey: 'ranged' },
+  defense: { label: 'HONOR_INTRIGUE.Actor.combatAbilities.defense', rollKey: 'defense' },
 };
 preLocalize('combatAbilities', { keys: ['label'] });
 

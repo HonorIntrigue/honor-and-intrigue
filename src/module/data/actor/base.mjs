@@ -1,3 +1,5 @@
+import { systemPath } from '../../constants.mjs';
+import { HonorIntrigueRoll } from '../../rolls/_module.mjs';
 import HonorIntrigueSystemModel from '../system-model.mjs';
 
 const fields = foundry.data.fields;
@@ -43,6 +45,49 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
    */
   calcLifebloodMax() {
     return 1;
+  }
+
+  /**
+   * Adjust roll data for the actor subtype.
+   * @param rollData
+   */
+  modifyRollData(rollData) {
+    for (const [key, obj] of Object.entries(this.qualities)) {
+      rollData[hi.CONFIG.qualities[key].rollKey] = obj.value;
+    }
+
+    for (const [key, obj] of Object.entries(this.combatAbilities)) {
+      rollData[hi.CONFIG.combatAbilities[key].rollKey] = obj.value;
+    }
+  }
+
+  /**
+   * Prompt the user to roll a characteristic.
+   * @param characteristic
+   * @param options
+   * @returns {Promise<messageData>}
+   */
+  async rollCharacteristic(characteristic, options = {}) {
+    const data = this.parent.getRollData();
+    const flavor = game.i18n.localize(`HONOR_INTRIGUE.Actor.${characteristic}`);
+    const value = foundry.utils.getProperty(this, characteristic)?.value ?? 0;
+
+    // TODO enrich header with:
+    // speakerActor.img
+    // user.name
+
+    const { rollMode, rolls } = await HonorIntrigueRoll.prompt({ actor: this.parent, bonus: value, characteristic, data, flavor, title: flavor });
+    const messageData = {
+      flags: { core: { canPopout: true } },
+      flavor: await foundry.applications.handlebars.renderTemplate(systemPath('templates/rolls/chat-message-flavor.hbs'), { characteristic: flavor }),
+      rolls,
+      sound: CONFIG.sounds.dice,
+      speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+      title: flavor,
+    };
+
+    ChatMessage.applyRollMode(messageData, rollMode);
+    return ChatMessage.create(messageData);
   }
 
   /** @inheritDoc */

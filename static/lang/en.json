@@ -18,6 +18,11 @@
         "savvy": "Savvy"
       }
     },
+    "Chat": {
+      "Roll": {
+        "Flavor": "Ability Check: "
+      }
+    },
     "Dialog": {
       "Roll": {
         "BonusDie": "Bonus Die",

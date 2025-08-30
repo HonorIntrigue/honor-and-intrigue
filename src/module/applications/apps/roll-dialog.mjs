@@ -17,10 +17,10 @@ export default class RollDialog extends FormApplicationMixin(foundry.application
   /** @inheritDoc */
   static PARTS = {
     content: {
-      template: systemPath('templates/apps/roll-dialog.hbs'),
+      template: systemPath('templates/rolls/roll-dialog.hbs'),
     },
     footer: {
-      template: systemPath('templates/api/roll-dialog-footer.hbs'),
+      template: systemPath('templates/rolls/roll-dialog-footer.hbs'),
     },
   };
 

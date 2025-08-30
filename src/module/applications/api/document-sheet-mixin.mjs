@@ -1,3 +1,5 @@
+import { systemID } from '../../constants.mjs';
+
 export default base => {
   // eslint-disable-next-line @jsdoc/require-jsdoc
   return class DocumentSheet extends foundry.applications.api.HandlebarsApplicationMixin(base) {
@@ -22,6 +24,7 @@ export default base => {
         gm: game.user.isGM,
         system: this.document.system,
         systemFields: this.document.system.schema.fields,
+        useAlternateD10: game.settings.get(systemID, 'd10') === true,
       };
     }
   };

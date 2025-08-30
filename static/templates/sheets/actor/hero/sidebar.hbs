@@ -27,7 +27,7 @@
     </div>
 
     <div class='qualities-container'>
-      {{> "systems/honor-and-intrigue/templates/sheets/actor/partials/label-bar.hbs" label="HONOR_INTRIGUE.Sheet.Labels.Qualities"}}
+      {{> "systems/honor-and-intrigue/templates/api/label-bar.hbs" label="HONOR_INTRIGUE.Sheet.Labels.Qualities"}}
 
       {{#each this.system.qualities as |quality key|}}
         {{> "systems/honor-and-intrigue/templates/sheets/actor/partials/rollable-characteristic.hbs"
@@ -39,7 +39,7 @@
     </div>
 
     <div class='abilities-container'>
-      {{> "systems/honor-and-intrigue/templates/sheets/actor/partials/label-bar.hbs" label="HONOR_INTRIGUE.Sheet.Labels.CombatAbilities"}}
+      {{> "systems/honor-and-intrigue/templates/api/label-bar.hbs" label="HONOR_INTRIGUE.Sheet.Labels.CombatAbilities"}}
 
       {{#each this.system.combatAbilities as |ability key|}}
         {{> "systems/honor-and-intrigue/templates/sheets/actor/partials/rollable-characteristic.hbs"
