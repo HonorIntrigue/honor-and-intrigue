@@ -1,5 +1,4 @@
-import { systemPath } from '../../constants.mjs';
-import { HonorIntrigueRoll } from '../../rolls/_module.mjs';
+import { systemID, systemPath } from '../../constants.mjs';
 import { FormApplicationMixin } from '../api/_module.mjs';
 
 export default class RollDialog extends FormApplicationMixin(foundry.applications.api.ApplicationV2) {
@@ -7,6 +6,8 @@ export default class RollDialog extends FormApplicationMixin(foundry.application
   static DEFAULT_OPTIONS = {
     classes: ['roll-dialog', 'd6-dialog'],
     actions: {
+      decrement: this.#decrementStepper,
+      increment: this.#incrementStepper,
       setRollMode: this.#setRollMode,
     },
     window: {
@@ -25,6 +26,34 @@ export default class RollDialog extends FormApplicationMixin(foundry.application
   };
 
   /**
+   * Decrement a field value by a fixed step size.
+   * @param event
+   * @param target
+   */
+  static #decrementStepper(event, target) {
+    const { field } = target.dataset;
+    const input = target.parentNode.querySelector(`input[id=${field}]`);
+    if (!(field in this.options.context.modifiers)) return;
+
+    this.options.context.modifiers[field] = Math.clamp(this.options.context.modifiers[field] - 1, input.min, input.max);
+    this.render({ parts: ['content'] });
+  }
+
+  /**
+   * Increment a field value by a fixed step size.
+   * @param event
+   * @param target
+   */
+  static #incrementStepper(event, target) {
+    const { field } = target.dataset;
+    const input = target.parentNode.querySelector(`input[id=${field}]`);
+    if (!(field in this.options.context.modifiers)) return;
+
+    this.options.context.modifiers[field] = Math.clamp(this.options.context.modifiers[field] + 1, input.min, input.max);
+    this.render({ parts: ['content'] });
+  }
+
+  /**
    * Sets the chosen roll mode.
    * @param {PointerEvent} event
    * @param {HTMLElement} target
@@ -40,7 +69,7 @@ export default class RollDialog extends FormApplicationMixin(foundry.application
 
     result.context ??= {};
     result.context.rollMode = game.settings.get('core', 'rollMode');
-    result.context.useAlternateD10 = (result.context.formula === HonorIntrigueRoll.ROLL_FORMULA.d10);
+    result.context.useAlternateD10 = game.settings.get(systemID, 'd10');
 
     if (result.context.useAlternateD10) {
       result.classes.splice(result.classes.indexOf('d6-dialog'), 1, 'd10-dialog');
@@ -54,7 +83,25 @@ export default class RollDialog extends FormApplicationMixin(foundry.application
 
   /** @inheritDoc */
   async _prepareContext(options) {
-    return { ...this.options.context };
+    return {
+      ...this.options.context,
+      stepperFields: {
+        bonuses: {
+          id: 'bonuses',
+          min: 0,
+          max: Infinity,
+          stepSize: 1,
+          value: this.options.context.modifiers.bonuses,
+        },
+        penalties: {
+          id: 'penalties',
+          min: 0,
+          max: Infinity,
+          stepSize: 1,
+          value: this.options.context.modifiers.penalties,
+        },
+      },
+    };
   }
 
   /** @inheritDoc **/
@@ -73,7 +120,8 @@ export default class RollDialog extends FormApplicationMixin(foundry.application
     formData = super._processFormData(event, form, formData);
 
     return {
-      rollMode: this.options.context.rollMode,
+      ...this.options.context,
+      formData,
     };
   }
 }

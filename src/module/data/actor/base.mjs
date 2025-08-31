@@ -69,25 +69,41 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
    */
   async rollCharacteristic(characteristic, options = {}) {
     const data = this.parent.getRollData();
-    const flavor = game.i18n.localize(`HONOR_INTRIGUE.Actor.${characteristic}`);
+    const flavor = game.i18n.localize(foundry.utils.getProperty(hi.CONFIG, characteristic).label);
     const value = foundry.utils.getProperty(this, characteristic)?.value ?? 0;
 
     // TODO enrich header with:
     // speakerActor.img
     // user.name
 
-    const { rollMode, rolls } = await HonorIntrigueRoll.prompt({ actor: this.parent, bonus: value, characteristic, data, flavor, title: flavor });
+    const { bonuses, penalties, rollMode, rolls } = await HonorIntrigueRoll.prompt({
+      actor: this.parent,
+      bonus: value,
+      characteristic,
+      data,
+      flavor,
+      title: flavor,
+    });
+    const flavorModifiers = [];
+
+    if (value > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', { ability: flavor, number: value }));
+    if (bonuses > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.BonusDice', { number: bonuses }));
+    if (penalties > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.PenaltyDice', { number: penalties }));
+
     const messageData = {
       flags: { core: { canPopout: true } },
-      flavor: await foundry.applications.handlebars.renderTemplate(systemPath('templates/rolls/chat-message-flavor.hbs'), { characteristic: flavor }),
+      flavor: await foundry.applications.handlebars.renderTemplate(systemPath('templates/rolls/chat-message-flavor.hbs'), {
+        characteristic: game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Characteristic', { characteristic: flavor }),
+        modifiers: flavorModifiers,
+      }),
       rolls,
+      rollMode,
       sound: CONFIG.sounds.dice,
       speaker: ChatMessage.getSpeaker({ actor: this.parent }),
       title: flavor,
     };
 
-    ChatMessage.applyRollMode(messageData, rollMode);
-    return ChatMessage.create(messageData);
+    return ChatMessage.create(messageData, { rollMode });
   }
 
   /** @inheritDoc */
@@ -104,7 +120,8 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       system: { lifeblood: { value: this.calcLifebloodMax() } },
       prototypeToken: {
         disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
-      } },
+      },
+    },
     );
 
     return true;

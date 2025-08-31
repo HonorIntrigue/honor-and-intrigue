@@ -1,20 +1,26 @@
 import { systemID } from '../constants.mjs';
 
+const {
+  Die,
+  NumericTerm,
+  OperatorTerm,
+} = foundry.dice.terms;
+
 export default class HonorIntrigueRoll extends foundry.dice.Roll {
-  static ROLL_FORMULA = {
-    d10: '2d10',
-    d6: '2d6',
+  static DICE_FACES = {
+    d10: 10,
+    d6: 6,
   };
 
   /**
-   * Determine the appropriate dice formula for rolling based on the Alternate d10 setting.
-   * @returns {string}
+   * Determine the appropriate die size for rolling based on the Alternate d10 setting.
+   * @returns {Number}
    */
-  static get rollFormula() {
+  static get dieSize() {
     if (game.settings.get(systemID, 'd10') === true)
-      return HonorIntrigueRoll.ROLL_FORMULA.d10;
+      return HonorIntrigueRoll.DICE_FACES.d10;
 
-    return HonorIntrigueRoll.ROLL_FORMULA.d6;
+    return HonorIntrigueRoll.DICE_FACES.d6;
   }
 
   /**
@@ -33,8 +39,6 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
    * @returns {Promise<Object>}
    */
   static async prompt(options = {}) {
-    options.formula = this.rollFormula;
-
     options.modifiers ??= {};
     options.modifiers.bonuses ??= 0;
     options.modifiers.penalties ??= 0;
@@ -42,16 +46,28 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
     options.actor ??= ChatMessage.getSpeakerActor(ChatMessage.getSpeaker());
     this.applyActorModifiers(options);
 
-    const { rollMode } = await hi.applications.apps.RollDialog.create({
+    const { rollMode, modifiers } = await hi.applications.apps.RollDialog.create({
       context: options,
     });
 
-    const roll = new this(options.formula, options.data, {});
+    const baseTerm = new Die({ number: 2, faces: this.dieSize });
+
+    if (modifiers.bonuses > 0) {
+      baseTerm.alter(-1, modifiers.bonuses);
+      baseTerm.modifiers.push(`dl${modifiers.bonuses}`);
+    }
+
+    if (modifiers.penalties > 0) {
+      baseTerm.alter(-1, modifiers.penalties);
+      baseTerm.modifiers.push(`dh${modifiers.penalties}`);
+    }
+
+    const roll = new this(baseTerm.formula, options.data, {});
 
     if (options.bonus) {
       roll.terms.push(
-        new foundry.dice.terms.OperatorTerm({ operator: (options.bonus > 0 ? '+' : '-') }),
-        new foundry.dice.terms.NumericTerm({ number: Math.abs(options.bonus) }),
+        new OperatorTerm({ operator: (options.bonus > 0 ? '+' : '-') }),
+        new NumericTerm({ number: Math.abs(options.bonus) }),
       );
     }
 
@@ -59,6 +75,8 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
     await roll.evaluate();
 
     return {
+      bonuses: modifiers.bonuses,
+      penalties: modifiers.penalties,
       rollMode,
       rolls: [roll],
     };

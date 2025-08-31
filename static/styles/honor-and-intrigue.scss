@@ -1,6 +1,10 @@
 @use 'system/system';
 
 .honor-intrigue {
+  &.minimized .window-title {
+    color: light-dark(var(--color-navy), var(--color-text-primary));
+  }
+
   .label-bar {
     > span {
       font-family: Asul, serif;

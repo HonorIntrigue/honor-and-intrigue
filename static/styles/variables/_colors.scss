@@ -1,5 +1,6 @@
 body {
-  --color-gold: #F6BC00;
-  --color-navy: #100035;
+  --color-gold: hsl(46, 100%, 48%);
+  --color-gold-dull: hsl(46, 25%, 50%);
+  --color-navy: hsl(215, 25%, 21%);
   --color-text-primary: light-dark(var(--color-navy), #DDDDDD);
 }

@@ -20,15 +20,22 @@
     },
     "Chat": {
       "Roll": {
-        "Flavor": "Ability Check: "
+        "Flavor": {
+          "Characteristic": "Ability Check: {characteristic}"
+        },
+        "Modifier": {
+          "Ability": "+{number} {ability}",
+          "BonusDice": "{number} Bonus",
+          "PenaltyDice": "{number} Penalty"
+        }
       }
     },
     "Dialog": {
       "Roll": {
-        "BonusDie": "Bonus Die",
+        "BonusDie": "Bonus Dice",
         "Button": "Roll",
         "Modifiers": "Modifiers",
-        "PenaltyDie": "Penalty Die"
+        "PenaltyDie": "Penalty Dice"
       }
     },
     "Setting": {

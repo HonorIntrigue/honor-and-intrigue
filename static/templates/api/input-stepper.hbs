@@ -1,0 +1,9 @@
+<div class='honor-intrigue input-stepper'>
+  <button type='button' class='icon fa-sharp fa-solid fa-minus' data-action='decrement' data-field='{{input.id}}'>
+  </button>
+  {{#with input}}
+    <input id='{{id}}' type='number' min='{{min}}' max='{{max}}' step='{{stepSize}}' value='{{value}}' />
+  {{/with}}
+  <button type='button' class='icon fa-sharp fa-solid fa-plus' data-action='increment' data-field='{{input.id}}'>
+  </button>
+</div>

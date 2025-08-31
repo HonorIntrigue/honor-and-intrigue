@@ -10,11 +10,11 @@
       </div>
       <div class='modifiers-table-item'>
         <span>{{localize "HONOR_INTRIGUE.Dialog.Roll.BonusDie"}}</span>
-        {{> "systems/honor-and-intrigue/templates/api/checkbox-switch.hbs" isChecked=false}}
+        {{> "systems/honor-and-intrigue/templates/api/input-stepper.hbs" input=stepperFields.bonuses}}
       </div>
       <div class='modifiers-table-item'>
         <span>{{localize "HONOR_INTRIGUE.Dialog.Roll.PenaltyDie"}}</span>
-        {{> "systems/honor-and-intrigue/templates/api/checkbox-switch.hbs" isChecked=false}}
+        {{> "systems/honor-and-intrigue/templates/api/input-stepper.hbs" input=stepperFields.penalties}}
       </div>
     </div>
   </div>
