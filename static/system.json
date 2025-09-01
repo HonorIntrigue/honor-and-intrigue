@@ -30,7 +30,9 @@
     },
     "Item": {
       "boon": {},
-      "career": {},
+      "career": {
+        "htmlFields": ["description"]
+      },
       "flaw": {},
       "style": {}
     }

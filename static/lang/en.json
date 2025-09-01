@@ -6,9 +6,9 @@
     },
     "Actor": {
       "combatAbilities": {
-        "brawl":  "Brawl",
+        "brawl": "Brawl",
         "melee": "Melee",
-        "ranged":  "Ranged",
+        "ranged": "Ranged",
         "defense": "Defense"
       },
       "qualities": {
@@ -16,6 +16,18 @@
         "flair": "Flair",
         "might": "Might",
         "savvy": "Savvy"
+      },
+      "Sheet": {
+        "Labels": {
+          "Careers": "Careers"
+        },
+        "Tabs": {
+          "background": "Background",
+          "character": "Character",
+          "effects": "Effects",
+          "inventory": "Inventory",
+          "maneuvers": "Maneuvers"
+        }
       }
     },
     "Chat": {
@@ -49,9 +61,9 @@
     "Sheet": {
       "Hints": {
         "combatAbilities": {
-          "brawl":  "Punching",
+          "brawl": "Punching",
           "melee": "Sword fighting",
-          "ranged":  "Shooting and throwing",
+          "ranged": "Shooting and throwing",
           "defense": "Enemy's difficulty, or added to Save rolls"
         },
         "qualities": {
@@ -79,6 +91,9 @@
       "pawn": "Pawn",
       "retainer": "Retainer",
       "villain": "Villain"
+    },
+    "Item": {
+      "career": "Career"
     }
   }
 }

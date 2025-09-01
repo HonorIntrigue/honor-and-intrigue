@@ -1,0 +1,9 @@
+<section class='tab {{tabs.character.id}}{{#if tabs.character.cssClass}} {{tabs.character.cssClass}}{{/if}}'
+         data-group='{{tabs.character.group}}'
+         data-tab='{{tabs.character.id}}'>
+  <div class='tab-content'>
+    {{#> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Careers'}}
+      <button type='button' class='icon fa-solid fa-plus' data-action='addCareer'></button>
+    {{/'systems/honor-and-intrigue/templates/api/label-bar.hbs'}}
+  </div>
+</section>

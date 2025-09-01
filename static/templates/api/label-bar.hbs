@@ -1,4 +1,9 @@
 <div class='flexcol flex1 label-bar'>
-  <span>{{localize label}}</span>
-  <hr/>
+  <div class='flexrow'>
+    <span class='flex1'>{{localize label}}</span>
+    {{#if @partial-block}}
+      {{> @partial-block}}
+    {{/if}}
+  </div>
+  <hr />
 </div>

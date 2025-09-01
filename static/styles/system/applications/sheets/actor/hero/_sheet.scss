@@ -19,8 +19,34 @@
     background-size: cover;
     display: grid;
     grid-template-columns: var(--portrait-size) 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
     padding: 0;
+
+    .sheet-header {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .sheet-sidebar {
+      grid-column: 1;
+      grid-row: 1 / span 3;
+    }
+
+    .sheet-tabs {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .tab[data-group='primary'] {
+      grid-column: 2;
+      grid-row: 3;
+
+      .tab-content {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+      }
+    }
   }
 
   &.minimized .window-content {
@@ -39,20 +65,5 @@
     .window-content {
       opacity: 1;
     }
-  }
-
-  .sheet-header {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .sheet-sidebar {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-  }
-
-  .sheet-content {
-    grid-column: 2;
-    grid-row: 2;
   }
 }

@@ -17,8 +17,6 @@ globalThis.hi = {
 };
 
 Hooks.once('init', () => {
-  console.log('Welcome to Honor + Intrigue the swashbuckling RPG!');
-
   CONFIG.HONOR_INTRIGUE = HONOR_INTRIGUE;
   game.system.socketHandler = new helpers.HonorIntrigueSocketHandler();
   helpers.HonorIntrigueSettingsHandler.registerSettings();

@@ -6,10 +6,13 @@
   }
 
   .label-bar {
-    > span {
-      font-family: Asul, serif;
+    span {
       font-size: var(--font-size-13);
       padding-left: 0.5rem;
+    }
+
+    button {
+      --button-size: 20px;
     }
 
     > hr {
