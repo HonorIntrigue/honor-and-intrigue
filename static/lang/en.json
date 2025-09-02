@@ -36,7 +36,7 @@
           "Characteristic": "Ability Check: {characteristic}"
         },
         "Modifier": {
-          "Ability": "+{number} {ability}",
+          "Ability": "{number} {ability}",
           "BonusDice": "{number} Bonus",
           "Flat": "Flat {number}",
           "PenaltyDice": "{number} Penalty"
@@ -47,8 +47,10 @@
       "Roll": {
         "BonusDie": "Bonus Dice",
         "Button": "Roll",
+        "CombatAbility": "Combat Ability",
         "Flat": "Flat Modifier",
         "Modifiers": "Modifiers",
+        "None": "None",
         "PenaltyDie": "Penalty Dice"
       }
     },

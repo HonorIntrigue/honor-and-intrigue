@@ -86,10 +86,20 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     });
     const flavorModifiers = [];
 
-    if (value > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
+    flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
       ability: flavor,
-      number: value,
+      number: `${value >= 0 ? '+' : ''}${value}`,
     }));
+
+    if (modifiers.combatAbility !== 'none') {
+      const abilityValue = this.parent.system.combatAbilities[modifiers.combatAbility].value;
+
+      flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
+        ability: game.i18n.localize(hi.CONFIG.combatAbilities[modifiers.combatAbility].label),
+        number: `${abilityValue >= 0 ? '+' : ''}${abilityValue}`,
+      }));
+    }
+
     if (modifiers.bonuses > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.BonusDice', { number: modifiers.bonuses }));
     if (modifiers.penalties > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.PenaltyDice', { number: modifiers.penalties }));
     if (modifiers.flat !== 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Flat', { number: `${(modifiers.flat > 0 ? '+' : '')}${modifiers.flat}` }));

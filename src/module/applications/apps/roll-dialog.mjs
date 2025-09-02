@@ -82,31 +82,60 @@ export default class RollDialog extends FormApplicationMixin(foundry.application
   }
 
   /** @inheritDoc */
+  _onChangeForm(formConfig, event) {
+    super._onChangeForm(formConfig, event);
+
+    const formData = foundry.utils.expandObject(new foundry.applications.ux.FormDataExtended(this.element).object);
+    foundry.utils.mergeObject(this.options.context.modifiers, formData);
+
+    this.render();
+  }
+
+  /** @inheritDoc */
   async _prepareContext(options) {
+    const { context } = this.options;
+
     return {
-      ...this.options.context,
-      stepperFields: {
-        bonuses: {
+      ...context,
+      selectFields: [
+        {
+          id: 'combatAbility',
+          label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.CombatAbility'),
+          options: [
+            {
+              rollKey: 'none',
+              label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.None'),
+            },
+          ].concat(Object.values(hi.CONFIG.combatAbilities).map(c => ({ ...c, label: game.i18n.localize(c.label) }))),
+          value: context.modifiers.combatAbility,
+          valueAttr: 'rollKey',
+        },
+      ],
+      stepperFields: [
+        {
           id: 'bonuses',
+          label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.BonusDie'),
           min: 0,
           max: 10,
           stepSize: 1,
-          value: this.options.context.modifiers.bonuses,
+          value: context.modifiers.bonuses,
         },
-        penalties: {
+        {
           id: 'penalties',
+          label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.PenaltyDie'),
           min: 0,
           max: 10,
           stepSize: 1,
-          value: this.options.context.modifiers.penalties,
+          value: context.modifiers.penalties,
         },
-        flat: {
+        {
           id: 'flat',
+          label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.Flat'),
           max: 10,
           stepSize: 1,
-          value: this.options.context.modifiers.flat,
+          value: context.modifiers.flat,
         },
-      },
+      ],
     };
   }
 

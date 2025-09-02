@@ -40,6 +40,7 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
    */
   static async prompt(options = {}) {
     options.modifiers ??= {};
+    options.modifiers.combatAbility = 'none';
     options.modifiers.bonuses ??= 0;
     options.modifiers.penalties ??= 0;
     options.modifiers.flat ??= 0;
@@ -64,6 +65,15 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
     }
 
     const roll = new this(baseTerm.formula, options.data, {});
+
+    if (modifiers.combatAbility !== 'none') {
+      const value = options.actor.system.combatAbilities[modifiers.combatAbility].value;
+
+      roll.terms.push(
+        new OperatorTerm({ operator: (value >= 0 ? '+' : '-') }),
+        new NumericTerm({ number: Math.abs(value) }),
+      );
+    }
 
     if (modifiers.flat !== 0) {
       roll.terms.push(

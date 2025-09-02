@@ -66,6 +66,12 @@
       margin-top: 60px;
     }
 
+    .abilities-container {
+      .roll-icon {
+        visibility: hidden;
+      }
+    }
+
     .qualities-container, .abilities-container {
       display: flex;
       flex-direction: column;

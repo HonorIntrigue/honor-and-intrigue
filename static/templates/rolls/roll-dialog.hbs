@@ -8,18 +8,20 @@
         <span>{{localize flavor}}</span>
         <span>{{ifThen (gt bonus 0) '+' ''}}{{bonus}}</span>
       </div>
-      <div class='modifiers-table-item'>
-        <span>{{localize "HONOR_INTRIGUE.Dialog.Roll.BonusDie"}}</span>
-        {{> "systems/honor-and-intrigue/templates/api/input-stepper.hbs" input=stepperFields.bonuses}}
-      </div>
-      <div class='modifiers-table-item'>
-        <span>{{localize "HONOR_INTRIGUE.Dialog.Roll.PenaltyDie"}}</span>
-        {{> "systems/honor-and-intrigue/templates/api/input-stepper.hbs" input=stepperFields.penalties}}
-      </div>
-      <div class='modifiers-table-item'>
-        <span>{{localize "HONOR_INTRIGUE.Dialog.Roll.Flat"}}</span>
-        {{> "systems/honor-and-intrigue/templates/api/input-stepper.hbs" input=stepperFields.flat}}
-      </div>
+      {{#each selectFields as |field|}}
+        <div class='modifiers-table-item'>
+          <span>{{field.label}}</span>
+          <select name='{{field.id}}' data-dtype='String'>
+            {{selectOptions field.options selected=field.value valueAttr=field.valueAttr}}
+          </select>
+        </div>
+      {{/each}}
+      {{#each stepperFields as |field|}}
+        <div class='modifiers-table-item'>
+          <span>{{field.label}}</span>
+          {{> "systems/honor-and-intrigue/templates/api/input-stepper.hbs" input=field}}
+        </div>
+      {{/each}}
     </div>
   </div>
 </div>

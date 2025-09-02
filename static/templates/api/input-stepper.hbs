@@ -2,7 +2,11 @@
   <button type='button' class='icon fa-sharp fa-solid fa-minus' data-action='decrement' data-field='{{input.id}}'>
   </button>
   {{#with input}}
-    <input id='{{id}}' type='number' {{#if min}}min='{{min}}'{{/if}} {{#if max}}max='{{max}}'{{/if}} step='{{stepSize}}' value='{{value}}' />
+    <input id='{{id}}'
+           type='number'
+           {{#if (gte min 0)}}min='{{min}}'{{/if}} {{#if (gte max 0)}}max='{{max}}'{{/if}}
+           step='{{stepSize}}'
+           value='{{value}}' />
   {{/with}}
   <button type='button' class='icon fa-sharp fa-solid fa-plus' data-action='increment' data-field='{{input.id}}'>
   </button>
