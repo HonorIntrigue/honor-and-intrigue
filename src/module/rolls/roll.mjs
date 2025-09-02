@@ -42,6 +42,7 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
     options.modifiers ??= {};
     options.modifiers.bonuses ??= 0;
     options.modifiers.penalties ??= 0;
+    options.modifiers.flat ??= 0;
 
     options.actor ??= ChatMessage.getSpeakerActor(ChatMessage.getSpeaker());
     this.applyActorModifiers(options);
@@ -64,6 +65,13 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
 
     const roll = new this(baseTerm.formula, options.data, {});
 
+    if (modifiers.flat !== 0) {
+      roll.terms.push(
+        new OperatorTerm({ operator: (modifiers.flat > 0 ? '+' : '-') }),
+        new NumericTerm({ number: Math.abs(modifiers.flat) }),
+      );
+    }
+
     if (options.bonus) {
       roll.terms.push(
         new OperatorTerm({ operator: (options.bonus > 0 ? '+' : '-') }),
@@ -75,8 +83,7 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
     await roll.evaluate();
 
     return {
-      bonuses: modifiers.bonuses,
-      penalties: modifiers.penalties,
+      modifiers,
       rollMode,
       rolls: [roll],
     };

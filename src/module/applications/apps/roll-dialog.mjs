@@ -35,7 +35,7 @@ export default class RollDialog extends FormApplicationMixin(foundry.application
     const input = target.parentNode.querySelector(`input[id=${field}]`);
     if (!(field in this.options.context.modifiers)) return;
 
-    this.options.context.modifiers[field] = Math.clamp(this.options.context.modifiers[field] - 1, input.min, input.max);
+    this.options.context.modifiers[field] = Math.clamp(this.options.context.modifiers[field] - 1, input.min || Number.NEGATIVE_INFINITY, input.max || Number.MAX_VALUE);
     this.render({ parts: ['content'] });
   }
 
@@ -89,16 +89,22 @@ export default class RollDialog extends FormApplicationMixin(foundry.application
         bonuses: {
           id: 'bonuses',
           min: 0,
-          max: Infinity,
+          max: 10,
           stepSize: 1,
           value: this.options.context.modifiers.bonuses,
         },
         penalties: {
           id: 'penalties',
           min: 0,
-          max: Infinity,
+          max: 10,
           stepSize: 1,
           value: this.options.context.modifiers.penalties,
+        },
+        flat: {
+          id: 'flat',
+          max: 10,
+          stepSize: 1,
+          value: this.options.context.modifiers.flat,
         },
       },
     };

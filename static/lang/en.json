@@ -38,6 +38,7 @@
         "Modifier": {
           "Ability": "+{number} {ability}",
           "BonusDice": "{number} Bonus",
+          "Flat": "Flat {number}",
           "PenaltyDice": "{number} Penalty"
         }
       }
@@ -46,6 +47,7 @@
       "Roll": {
         "BonusDie": "Bonus Dice",
         "Button": "Roll",
+        "Flat": "Flat Modifier",
         "Modifiers": "Modifiers",
         "PenaltyDie": "Penalty Dice"
       }

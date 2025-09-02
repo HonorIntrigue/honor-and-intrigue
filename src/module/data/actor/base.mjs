@@ -76,7 +76,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     // speakerActor.img
     // user.name
 
-    const { bonuses, penalties, rollMode, rolls } = await HonorIntrigueRoll.prompt({
+    const { modifiers, rollMode, rolls } = await HonorIntrigueRoll.prompt({
       actor: this.parent,
       bonus: value,
       characteristic,
@@ -90,8 +90,9 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       ability: flavor,
       number: value,
     }));
-    if (bonuses > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.BonusDice', { number: bonuses }));
-    if (penalties > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.PenaltyDice', { number: penalties }));
+    if (modifiers.bonuses > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.BonusDice', { number: modifiers.bonuses }));
+    if (modifiers.penalties > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.PenaltyDice', { number: modifiers.penalties }));
+    if (modifiers.flat !== 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Flat', { number: `${(modifiers.flat > 0 ? '+' : '')}${modifiers.flat}` }));
 
     const messageData = {
       flags: { core: { canPopout: true } },
