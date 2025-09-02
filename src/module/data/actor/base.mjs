@@ -86,7 +86,10 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     });
     const flavorModifiers = [];
 
-    if (value > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', { ability: flavor, number: value }));
+    if (value > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
+      ability: flavor,
+      number: value,
+    }));
     if (bonuses > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.BonusDice', { number: bonuses }));
     if (penalties > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.PenaltyDice', { number: penalties }));
 
@@ -121,8 +124,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       prototypeToken: {
         disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
       },
-    },
-    );
+    });
 
     return true;
   }

@@ -4,66 +4,25 @@
 .honor-intrigue.sheet.hero {
   --portrait-size: 275px;
 
-  border-radius: 0;
-
-  .window-header {
-    background: transparent;
-    border: none;
-    justify-content: flex-end;
-    position: absolute;
-    width: 100%;
-  }
-
   .window-content {
-    background: light-dark(var(--background), var(--color-navy));
-    background-size: cover;
-    display: grid;
-    grid-template-columns: var(--portrait-size) 1fr;
     grid-template-rows: auto auto 1fr;
-    padding: 0;
-
-    .sheet-header {
-      grid-column: 2;
-      grid-row: 1;
-    }
 
     .sheet-sidebar {
-      grid-column: 1;
-      grid-row: 1 / span 3;
+      grid-area: 1 / 1 / span 3;
     }
 
     .sheet-tabs {
-      grid-column: 2;
-      grid-row: 2;
+      grid-area: 2 / 2;
     }
 
     .tab[data-group='primary'] {
-      grid-column: 2;
-      grid-row: 3;
+      grid-area: 3 / 2;
 
       .tab-content {
         display: flex;
         flex-direction: column;
         padding: 1rem;
       }
-    }
-  }
-
-  &.minimized .window-content {
-    opacity: 0;
-    transition-duration: 0.1s;
-  }
-
-  &:not(.minimized) {
-    .window-title,
-    .window-icon {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .window-content {
-      opacity: 1;
     }
   }
 }

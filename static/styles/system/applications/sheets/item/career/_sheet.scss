@@ -1,0 +1,19 @@
+.honor-intrigue.sheet.career {
+  --portrait-size: 150px;
+
+  .sheet-content {
+    display: flex;
+
+    prose-mirror {
+      flex: 1;
+
+      &.active {
+        border: 1px solid light-dark(var(--color-navy), var(--color-gold-dull));
+      }
+
+      .editor-content {
+        padding-left: 0.5rem;
+      }
+    }
+  }
+}

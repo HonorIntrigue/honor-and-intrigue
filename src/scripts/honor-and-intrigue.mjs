@@ -1,5 +1,4 @@
 import { HONOR_INTRIGUE } from '../module/config.mjs';
-import { systemID, systemPath } from '../module/constants.mjs';
 import * as HI_CONST from '../module/constants.mjs';
 import * as applications from '../module/applications/_module.mjs';
 import * as data from '../module/data/_module.mjs';
@@ -40,17 +39,24 @@ Hooks.once('init', () => {
     }
   }
 
-  foundry.applications.handlebars.loadTemplates(templates.map(t => systemPath(t))).catch(console.error);
+  foundry.applications.handlebars.loadTemplates(templates.map(t => HI_CONST.systemPath(t))).catch(console.error);
 
   CONFIG.Dice.rolls = [rolls.HonorIntrigueRoll];
   CONFIG.statusEffects = [];
 
-  const { Actors } = foundry.documents.collections;
+  const { Actors, Items } = foundry.documents.collections;
 
-  Actors.registerSheet(systemID, applications.sheets.HeroSheet, {
+  Actors.registerSheet(HI_CONST.systemID, applications.sheets.HeroSheet, {
     types: ['hero'],
     makeDefault: true,
-    label: 'HONOR_INTRIGUE.Sheet.Labels.Character',
+    label: 'TYPES.Actor.hero',
+  });
+
+  Items.unregisterSheet('core', foundry.applications.sheets.ItemSheetV2);
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.CareerItemSheet, {
+    types: ['career'],
+    makeDefault: true,
+    label: 'TYPES.Item.career',
   });
 });
 

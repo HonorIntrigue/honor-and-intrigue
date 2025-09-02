@@ -1,37 +1,13 @@
-@use 'sass:color';
-
 .honor-intrigue.sheet.hero {
   .sheet-header {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
     margin-left: 0.25rem;
-    margin-top: var(--header-height);
 
     .characteristic-row {
       display: flex;
       flex: 1;
-
-      h1 {
-        margin-bottom: 0;
-
-        input[type='text'] {
-          font-family: var(--font-bold);
-          font-size: var(--font-h1-size);
-          height: 60px;
-        }
-      }
-
-      input[type='text'] {
-        border: 1px solid transparent;
-        color: var(--color-text-primary);
-        outline: 2px solid transparent;
-        transition: all 0.25s ease;
-
-        &:hover {
-          outline: 2px solid light-dark(var(--color-navy), var(--color-gold));
-        }
-      }
 
       > div:first-of-type {
         flex: 1;

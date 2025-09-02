@@ -5,8 +5,8 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
   static DEFAULT_OPTIONS = {
     classes: ['actor'],
     position: {
-      width: 900,
       height: 800,
+      width: 900,
     },
   };
 }
