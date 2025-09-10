@@ -9,6 +9,7 @@ export default [{
   plugins: [
     copy({
       targets: [
+        { src: 'static/assets', dest: 'public' },
         { src: 'static/lang', dest: 'public' },
         { src: 'static/system.json', dest: 'public' },
         { src: 'static/templates', dest: 'public', flatten: false },

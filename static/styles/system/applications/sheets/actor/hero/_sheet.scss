@@ -5,24 +5,9 @@
   --portrait-size: 275px;
 
   .window-content {
-    grid-template-rows: auto auto 1fr;
-
-    .sheet-sidebar {
-      grid-area: 1 / 1 / span 3;
-    }
-
-    .sheet-tabs {
-      grid-area: 2 / 2;
-    }
-
-    .tab[data-group='primary'] {
-      grid-area: 3 / 2;
-
-      .tab-content {
-        display: flex;
-        flex-direction: column;
-        padding: 1rem;
-      }
-    }
+    background:
+      url('../assets/backgrounds/lunar_topography.webp') no-repeat scroll top right,
+      light-dark(transparent, var(--color-navy));
+    background-size: contain;
   }
 }

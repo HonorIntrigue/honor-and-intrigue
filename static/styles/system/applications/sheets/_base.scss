@@ -13,7 +13,7 @@
     background: light-dark(var(--background), var(--color-navy));
     display: grid;
     grid-template-columns: var(--portrait-size) 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
     padding: 0;
 
     .sheet-header {
@@ -46,15 +46,27 @@
       border-right: 2px solid light-dark(var(--color-navy), var(--color-gold));
       display: flex;
       flex-direction: column;
-      grid-area: 1 / 1 / span 2;
+      grid-area: 1 / 1 / span 3;
       min-width: var(--portrait-size);
       overflow-y: auto;
       position: relative;
       width: var(--portrait-size);
     }
 
-    .sheet-content {
-      padding: 1rem;
+    .sheet-tabs {
+      grid-area: 2 / 2;
+    }
+
+    .tab[data-group='primary'] {
+      grid-area: 3 / 2;
+      position: relative;
+
+      .tab-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 1rem;
+      }
     }
 
     .portrait {
