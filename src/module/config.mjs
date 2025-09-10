@@ -18,6 +18,19 @@ HONOR_INTRIGUE.combatAbilities = {
 };
 preLocalize('combatAbilities', { keys: ['label'] });
 
+HONOR_INTRIGUE.actionTypes = {
+  free: { label: 'HONOR_INTRIGUE.ACTION_TYPE.free' },
+  major: { label: 'HONOR_INTRIGUE.ACTION_TYPE.major' },
+  minor: { label: 'HONOR_INTRIGUE.ACTION_TYPE.minor' },
+  reaction: { label: 'HONOR_INTRIGUE.ACTION_TYPE.reaction' },
+};
+HONOR_INTRIGUE.actionTypesSorted = [
+  'major',
+  'minor',
+  'reaction',
+  'free',
+];
+
 HONOR_INTRIGUE.speedOptions = ['fly', 'teleport', 'walk'];
 
 HONOR_INTRIGUE.damageTypes = {

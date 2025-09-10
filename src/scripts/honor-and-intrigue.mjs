@@ -58,6 +58,16 @@ Hooks.once('init', () => {
     makeDefault: true,
     label: 'TYPES.Item.career',
   });
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.ManeuverItemSheet, {
+    types: ['maneuver'],
+    makeDefault: true,
+    label: 'TYPES.Item.maneuver',
+  });
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.WeaponItemSheet, {
+    types: ['weapon'],
+    makeDefault: true,
+    label: 'TYPES.Item.weapon',
+  });
 });
 
 Hooks.on('hotReload', helpers.hotReload);

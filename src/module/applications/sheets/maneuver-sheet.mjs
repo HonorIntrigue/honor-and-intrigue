@@ -1,10 +1,10 @@
 import { systemPath } from '../../constants.mjs';
 import HonorIntrigueItemSheet from './item-sheet.mjs';
 
-export default class CareerItemSheet extends HonorIntrigueItemSheet {
+export default class ManeuverItemSheet extends HonorIntrigueItemSheet {
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
-    classes: ['career'],
+    classes: ['maneuver'],
     position: {
       height: 450,
       width: 900,
@@ -17,7 +17,7 @@ export default class CareerItemSheet extends HonorIntrigueItemSheet {
     sidebar: { template: systemPath('templates/sheets/item/base/sidebar.hbs') },
     content: { template: 'templates/generic/tab-navigation.hbs' },
     description: { template: systemPath('templates/sheets/item/base/tabs/description.hbs') },
-    details: { template: systemPath('templates/sheets/item/career/details.hbs') },
+    details: { template: systemPath('templates/sheets/item/maneuver/details.hbs') },
   };
 
   /** @inheritDoc */

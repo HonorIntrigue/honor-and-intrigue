@@ -1,5 +1,11 @@
 {
   "HONOR_INTRIGUE": {
+    "ACTION_TYPE": {
+      "free": "Free Action",
+      "major": "Major Action",
+      "minor": "Minor Action",
+      "reaction": "Reaction"
+    },
     "DAMAGE_TYPE": {
       "energy": "Energy",
       "physical": "Physical"
@@ -54,6 +60,32 @@
         "PenaltyDie": "Penalty Dice"
       }
     },
+    "Item": {
+      "Sheet": {
+        "FIELDS": {
+          "damageFormula": {
+            "label": "Damage Formula",
+            "hint": "Base damage formula"
+          },
+          "handsHeld": {
+            "label": "Hands Held",
+            "hint": "One- or two-handed"
+          },
+          "rangeIncrement": {
+            "label": "Range Increment",
+            "hint": "0 for melee"
+          },
+          "throwable": {
+            "label": "Throwable",
+            "hint": "Set to allow this weapon to be thrown"
+          }
+        },
+        "Tabs": {
+          "description": "Description",
+          "details": "Details"
+        }
+      }
+    },
     "Setting": {
       "AlternateRules": {
         "d10": {
@@ -97,7 +129,9 @@
       "villain": "Villain"
     },
     "Item": {
-      "career": "Career"
+      "career": "Career",
+      "maneuver": "Maneuver",
+      "weapon": "Weapon"
     }
   }
 }

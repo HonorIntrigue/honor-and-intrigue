@@ -34,7 +34,12 @@
         "htmlFields": ["description"]
       },
       "flaw": {},
-      "style": {}
+      "maneuver": {
+        "htmlFields": ["description"]
+      },
+      "weapon": {
+        "htmlFields": ["description"]
+      }
     }
   },
   "esmodules": [

@@ -1,0 +1,7 @@
+<section class='tab {{tabs.description.id}}{{#if tabs.description.cssClass}} {{tabs.description.cssClass}}{{/if}}'
+     data-group='{{tabs.description.group}}'
+     data-tab='{{tabs.description.id}}'>
+  <div class='tab-content'>
+    {{formInput systemFields.description value=system.description enriched=enrichedDescription toggled=true}}
+  </div>
+</section>

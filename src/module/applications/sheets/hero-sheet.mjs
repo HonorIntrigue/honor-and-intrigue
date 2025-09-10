@@ -8,7 +8,6 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
       addCareer: this.#onAddCareer,
       adjustAdvancementPoints: { handler: this.#adjustAdvancementPoints, buttons: [0, 2] },
       adjustFortune: { handler: this.#adjustFortune, buttons: [0, 2] },
-      editImage: this.#onEditImage,
       rollCharacteristic: this.#onRollCharacteristic,
     },
     classes: ['hero'],
@@ -54,17 +53,6 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
    */
   static async #onAddCareer(event, target) {
 
-  }
-
-  /**
-   * Handler to edit the portrait image.
-   */
-  static async #onEditImage(event, target) {
-    return new foundry.applications.apps.FilePicker({
-      type: 'image',
-      current: foundry.utils.getProperty(this.document, 'img'),
-      callback: (path) => this.document.update({ img: path }),
-    }).render(true);
   }
 
   /**

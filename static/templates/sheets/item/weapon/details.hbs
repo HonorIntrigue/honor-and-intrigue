@@ -1,0 +1,16 @@
+<section class='tab {{tabs.details.id}}{{#if tabs.details.cssClass}} {{tabs.details.cssClass}}{{/if}}'
+         data-group='{{tabs.details.group}}'
+         data-tab='{{tabs.details.id}}'>
+  <div class='tab-content standard-form'>
+    <div class='form-group'>
+      <label for='damageString'>{{systemFields.damageFormula.label}}</label>
+      <div class='form-fields'>
+        <input id='damageString' type='text' name='damageString' value='{{damageString}}'/>
+      </div>
+      <p class='hint'>{{systemFields.damageFormula.hint}}</p>
+    </div>
+    {{formGroup systemFields.handsHeld value=system.handsHeld type='number'}}
+    {{formGroup systemFields.rangeIncrement value=system.rangeIncrement type='number'}}
+    {{formGroup systemFields.throwable value=system.throwable}}
+  </div>
+</section>
