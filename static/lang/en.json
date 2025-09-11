@@ -25,7 +25,10 @@
       },
       "Sheet": {
         "Labels": {
-          "Careers": "Careers"
+          "Careers": "Careers",
+          "Inventory": {
+            "Weapons": "Weapons"
+          }
         },
         "Tabs": {
           "background": "Background",
@@ -50,6 +53,10 @@
       }
     },
     "Dialog": {
+      "Confirm": {
+        "DeleteWithPlaceholder": "Delete \"{item}\"?",
+        "DeleteItem": "Are you sure you wish to delete this item?"
+      },
       "Roll": {
         "BonusDie": "Bonus Dice",
         "Button": "Roll",

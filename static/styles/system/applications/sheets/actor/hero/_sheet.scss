@@ -4,10 +4,15 @@
 .honor-intrigue.sheet.hero {
   --portrait-size: 275px;
 
+  &:not(.minimized) {
+    min-height: 710px;
+    min-width: 700px;
+  }
+
   .window-content {
     background:
-      url('../assets/backgrounds/lunar_topography.webp') no-repeat scroll top right,
+      url('../assets/backgrounds/lunar_topography.webp') no-repeat scroll center right,
       light-dark(transparent, var(--color-navy));
-    background-size: contain;
+    background-size: cover;
   }
 }

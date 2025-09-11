@@ -20,6 +20,9 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     content: { template: 'templates/generic/tab-navigation.hbs' },
     character: { template: systemPath('templates/sheets/actor/hero/tabs/character.hbs') },
     maneuvers: { template: systemPath('templates/sheets/actor/hero/tabs/maneuvers.hbs') },
+    inventory: { template: systemPath('templates/sheets/actor/hero/tabs/inventory.hbs') },
+    background: { template: systemPath('templates/sheets/actor/hero/tabs/background.hbs') },
+    effects: { template: systemPath('templates/sheets/actor/hero/tabs/effects.hbs') },
   };
 
   /** @inheritDoc */
@@ -27,7 +30,7 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     primary: {
       initial: 'character',
       labelPrefix: 'HONOR_INTRIGUE.Actor.Sheet.Tabs',
-      tabs: [{ id: 'character' }, { id: 'maneuvers' } ],
+      tabs: [{ id: 'character' }, { id: 'maneuvers' }, { id: 'inventory' }, { id: 'background' }, { id: 'effects' } ],
     },
   };
 

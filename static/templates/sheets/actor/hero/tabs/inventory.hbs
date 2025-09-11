@@ -1,0 +1,35 @@
+<section class='tab {{tabs.inventory.id}}{{#if tabs.inventory.cssClass}} {{tabs.inventory.cssClass}}{{/if}}'
+         data-group='{{tabs.inventory.group}}'
+         data-tab='{{tabs.inventory.id}}'>
+  <section class='tab-content'>
+    {{> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Inventory.Weapons')}}
+    <ol class='item-list'>
+      {{#each inventory as |inventoryContext|}}
+        <li class='item' data-item-id='{{inventoryContext.item.id}}' data-document-class='Item'>
+          <div class='item-row'>
+            <div class='item-drag-handle'>
+              <a class='draggable'>
+                <i class='fa-solid fa-grip-dots-vertical'></i>
+              </a>
+            </div>
+            <img class='item-image' src='{{inventoryContext.item.img}}' alt='{{inventoryContext.item.name}}'>
+            <div class='item-name' data-action='toggleItemExpanded'>{{inventoryContext.item.name}}</div>
+            <div class='item-controls'>
+              <a data-action='openItem'>
+                <i class='fa-solid fa-pen-to-square'></i>
+              </a>
+              <a data-action='deleteItem'>
+                <i class='fa-solid fa-trash'></i>
+              </a>
+            </div>
+            {{#if inventoryContext.expanded}}
+              <div class='item-embed'>
+                {{{inventoryContext.embed.outerHTML}}}
+              </div>
+            {{/if}}
+          </div>
+        </li>
+      {{/each}}
+    </ol>
+  </section>
+</section>
