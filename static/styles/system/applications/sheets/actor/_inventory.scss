@@ -1,41 +1,39 @@
 .honor-intrigue.sheet.actor {
-  .inventory {
-    .item-list {
-      list-style: none;
-      margin: 0.5rem 0;
-      padding: 0;
+  .item-list {
+    list-style: none;
+    margin: 0.5rem 0;
+    padding: 0;
 
-      .item {
-        margin: 0;
+    .item {
+      margin: 0;
 
-        &-row {
-          align-items: center;
-          background: light-dark(var(--background), hsl(var(--color-navy-exp), 0.75));
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-          margin-bottom: 0.25rem;
-          padding: 0.5rem;
-        }
+      &-row {
+        align-items: center;
+        background: light-dark(var(--background), hsl(var(--color-navy-exp), 0.75));
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 0.25rem;
+        padding: 0.5rem;
+      }
 
-        &-image {
-          width: 30px;
-        }
+      &-image {
+        width: 30px;
+      }
 
-        &-name {
-          cursor: pointer;
-          flex: 1;
-          font-size: var(--font-h5-size);
-        }
+      &-name {
+        cursor: pointer;
+        flex: 1;
+        font-size: var(--font-h5-size);
+      }
 
-        &-controls {
-          display: flex;
-          gap: 0.5rem;
-        }
+      &-controls {
+        display: flex;
+        gap: 0.5rem;
+      }
 
-        &-embed {
-          flex: 0 0 100%;
-        }
+      &-embed {
+        flex: 0 0 100%;
       }
     }
   }

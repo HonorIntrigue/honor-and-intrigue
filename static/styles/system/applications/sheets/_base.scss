@@ -43,7 +43,7 @@
     }
 
     .sheet-sidebar {
-      border-right: 2px solid light-dark(var(--color-navy), var(--color-gold));
+      border-right: 1px solid light-dark(var(--color-navy), var(--color-gold));
       display: flex;
       flex-direction: column;
       grid-area: 1 / 1 / span 3;

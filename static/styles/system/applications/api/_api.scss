@@ -1,3 +1,3 @@
-@use 'checkbox-switch';
-@use 'input-stepper';
-@use 'label-bar';
+@forward 'checkbox-switch';
+@forward 'input-stepper';
+@forward 'label-bar';

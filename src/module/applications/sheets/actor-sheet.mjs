@@ -62,11 +62,19 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
   }
 
   /**
-   * Prepare the context for the inventory view.
+   * Prepare the context for an embedded item type.
    */
-  async _prepareInventoryContext() {
-    return Promise.all(this.actor.itemTypes.weapon.map(async (item) => {
-      return await this._prepareItemContext(item);
+  async _prepareEmbeddedItemContext(itemType, additionalContextFn = undefined) {
+    if (!this.actor.itemTypes[itemType]) return {};
+
+    return Promise.all(this.actor.itemTypes[itemType].map(async (item) => {
+      const ctx = await this._prepareItemContext(item);
+
+      if (additionalContextFn) {
+        Object.assign(ctx, (await additionalContextFn.call(item)));
+      }
+
+      return ctx;
     }));
   }
 
@@ -94,7 +102,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
 
     switch (partId) {
       case 'inventory':
-        context.inventory = await this._prepareInventoryContext();
+        context.inventory = await this._prepareEmbeddedItemContext('weapon');
         break;
     }
 

@@ -1,1 +1,11 @@
 @use 'system/system';
+
+.honor-intrigue {
+  .illuminate {
+    color: var(--color-gold);
+
+    &:not(:hover) {
+      text-shadow: 0 0 8px light-dark(var(--color-navy), var(--color-gold));
+    }
+  }
+}

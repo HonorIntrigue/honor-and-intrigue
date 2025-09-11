@@ -1,8 +1,9 @@
-import HonorIntrigueSystemModel from '../system-model.mjs';
+import { systemPath } from '../../constants.mjs';
+import BaseItemModel from './base.mjs';
 
 const fields = foundry.data.fields;
 
-export default class ManeuverModel extends HonorIntrigueSystemModel {
+export default class ManeuverModel extends BaseItemModel {
   /** @inheritDoc */
   static get metadata() {
     return {
@@ -13,19 +14,31 @@ export default class ManeuverModel extends HonorIntrigueSystemModel {
 
   /** @inheritDoc */
   static defineSchema() {
-    const schema = {};
+    const schema = super.defineSchema();
 
     schema.actionType = new fields.NumberField({
+      choices: hi.CONFIG.actionTypes,
       initial: 0,
       integer: true,
-      min: 0,
-      max: hi.CONFIG.actionTypesSorted.length,
-      nullable: true,
     });
-    schema.description = new fields.HTMLField({ textSearch: true, trim: true });
-    schema.mastery = new fields.StringField({ trim: true });
     schema.formulae = new fields.ArrayField(new fields.StringField({ trim: true })); // will hold quality+ability rollKeys to be enriched later
+    schema.isMastered = new fields.BooleanField({ initial: false });
+    schema.mastery = new fields.StringField({ trim: true });
 
     return schema;
+  }
+
+  /** @inheritDoc */
+  async toEmbed() {
+    const embed = await super.toEmbed();
+
+    if (this.mastery) {
+      const masteryTag = await foundry.applications.handlebars.renderTemplate(systemPath('templates/embeds/item/maneuver-mastery.hbs'), {
+        system: this,
+      });
+      embed.insertAdjacentHTML('beforeend', masteryTag);
+    }
+
+    return embed;
   }
 }

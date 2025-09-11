@@ -9,6 +9,7 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
       adjustAdvancementPoints: { handler: this.#adjustAdvancementPoints, buttons: [0, 2] },
       adjustFortune: { handler: this.#adjustFortune, buttons: [0, 2] },
       rollCharacteristic: this.#onRollCharacteristic,
+      toggleManeuverMastery: this.#toggleManeuverMastery,
     },
     classes: ['hero'],
   };
@@ -67,6 +68,16 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     return this.actor.rollCharacteristic(target.dataset.characteristic);
   }
 
+  /**
+   * Toggle the mastery status of a maneuver.
+   */
+  static async #toggleManeuverMastery(event, target) {
+    const { itemId } = target.closest('.item').dataset;
+    const item = this.actor.items.get(itemId);
+
+    await item.update({ system: { isMastered: !item.system.isMastered } });
+  }
+
   /** @inheritDoc */
   async _prepareContext(options) {
     const ctx = await super._prepareContext(options);
@@ -76,5 +87,36 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
       getValueField: (type, name) => this.document.system.schema.getField(`${type}.${name}.value`),
       getValueFieldValue: (type, name) => foundry.utils.getProperty(this.document.system, `${type}.${name}.value`),
     };
+  }
+
+  /**
+   * Prepare the context for the maneuvers view.
+   */
+  async _prepareManeuversContext() {
+    const maneuvers = await this._prepareEmbeddedItemContext('maneuver');
+
+    return maneuvers.reduce((acc, curr) => {
+      switch (curr.item.system.actionType) {
+        case 0: acc.free.push(curr); break;
+        case 1: acc.major.push(curr); break;
+        case 2: acc.minor.push(curr); break;
+        case 3: acc.reaction.push(curr); break;
+      }
+
+      return acc;
+    }, { major: [], minor: [], free: [], reaction: [] });
+  }
+
+  /** @inheritDoc */
+  async _preparePartContext(partId, context, options) {
+    await super._preparePartContext(partId, context, options);
+
+    switch (partId) {
+      case 'maneuvers':
+        context.maneuvers = await this._prepareManeuversContext();
+        break;
+    }
+
+    return context;
   }
 }

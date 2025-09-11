@@ -28,6 +28,12 @@
           "Careers": "Careers",
           "Inventory": {
             "Weapons": "Weapons"
+          },
+          "Maneuvers": {
+            "Major": "Major Action Maneuvers",
+            "MasteryHint": "Maneuver Mastery Bonus",
+            "Minor": "Minor Action Maneuvers",
+            "ToggleMastery": "Change Mastery"
           }
         },
         "Tabs": {
@@ -70,6 +76,9 @@
     "Item": {
       "Sheet": {
         "FIELDS": {
+          "actionType": {
+            "label": "Action Cost"
+          },
           "damageFormula": {
             "label": "Damage Formula",
             "hint": "Base damage formula"
@@ -77,6 +86,9 @@
           "handsHeld": {
             "label": "Hands Held",
             "hint": "One- or two-handed"
+          },
+          "mastery": {
+            "label": "Maneuver Mastery Benefit"
           },
           "rangeIncrement": {
             "label": "Range Increment",
