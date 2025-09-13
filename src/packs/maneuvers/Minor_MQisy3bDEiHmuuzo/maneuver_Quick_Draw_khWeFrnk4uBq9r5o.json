@@ -1,0 +1,33 @@
+{
+  "folder": "MQisy3bDEiHmuuzo",
+  "name": "Quick Draw",
+  "type": "maneuver",
+  "_id": "khWeFrnk4uBq9r5o",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>You try to arm yourself quickly. If you succeed at this roll, you draw your weapon quickly but do not expend the Minor Action. If you fail, you either spend the Minor Action drawing your weapon, or split your action, and take the penalty.</p>",
+    "actionType": 2,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": "Success is Automatic (you always can draw a weapon without expending a Minor Action or taking a penalty)"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757785727267,
+    "modifiedTime": 1757785752886,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!khWeFrnk4uBq9r5o"
+}

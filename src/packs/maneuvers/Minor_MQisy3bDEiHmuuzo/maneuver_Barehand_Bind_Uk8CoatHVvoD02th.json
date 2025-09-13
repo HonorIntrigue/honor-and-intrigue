@@ -1,0 +1,33 @@
+{
+  "folder": "MQisy3bDEiHmuuzo",
+  "name": "Barehand Bind",
+  "type": "maneuver",
+  "_id": "Uk8CoatHVvoD02th",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>You wrap your hand around the enemy's naked steel! Seeing you do this can drive fear into your enemy’s heart. They must make a Daring check or lose 1 Composure. If the opponent lost Composure, you may make a free Bladework or Brawling attack against them with your other hand.</p><p>You take [[/r 1d3+1]] damage when you grab the blade and each round you continue this hold. A heavy glove or metal gauntlet reduces this damage. The enemy may free the hold by spending a Major Action and making a melee attack against your Might (you take +1 damage from this attack, as they yank the weapon out of your hand).</p><p>NOTE: this Maneuver is only for grabbing a blade with the hand. If you are grabbing a weapon haft, treat it as a regular Bind (using Brawl instead of Melee). You may use this as a Reaction following a successful Barehand Parry.</p>",
+    "actionType": 2,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": "You may use this as a free Reaction if you have succeeded on a Barehand Parry"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757785368988,
+    "modifiedTime": 1757785426678,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!Uk8CoatHVvoD02th"
+}

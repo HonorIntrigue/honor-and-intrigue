@@ -1,0 +1,33 @@
+{
+  "folder": "JAnxuphteSSi7oJp",
+  "name": "Glide",
+  "type": "maneuver",
+  "_id": "pTX07NIC4mnRxlYq",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>When your weapon is in a Bind, you slide your sword around theirs and attack anyway. This attack does only half damage, but if you succeed, you free your sword in the process.</p>",
+    "actionType": 1,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": "Bonus Die to Glide rolls, +1 to avoid Glide attacks"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757784650173,
+    "modifiedTime": 1757784664117,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!pTX07NIC4mnRxlYq"
+}

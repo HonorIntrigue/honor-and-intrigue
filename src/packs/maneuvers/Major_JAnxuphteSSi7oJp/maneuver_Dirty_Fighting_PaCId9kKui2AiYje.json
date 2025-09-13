@@ -1,0 +1,33 @@
+{
+  "folder": "JAnxuphteSSi7oJp",
+  "name": "Dirty Fighting",
+  "type": "maneuver",
+  "_id": "PaCId9kKui2AiYje",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>You throw sand in the enemy’s eyes, pull a rug from under their feet, kick them in the groin, etc. The enemy is At a Loss until they expend a Major Action or 1 Advantage to recover.</p>",
+    "actionType": 1,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": "Bonus Die to Attack, +1 to avoid Dirty Fighting attacks"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757784555482,
+    "modifiedTime": 1757784573960,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!PaCId9kKui2AiYje"
+}

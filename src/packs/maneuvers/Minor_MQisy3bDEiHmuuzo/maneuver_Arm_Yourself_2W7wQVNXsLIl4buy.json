@@ -1,0 +1,33 @@
+{
+  "folder": "MQisy3bDEiHmuuzo",
+  "name": "Arm Yourself",
+  "type": "maneuver",
+  "_id": "2W7wQVNXsLIl4buy",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>You can expend a Minor Action to arm yourself and get ready. If the weapon was on the ground, you Yield 1 Advantage in recovering it. You can hastily arm yourself by splitting your action. A person who has mastered the Quick Draw Maneuver can arm themselves without spending any action.</p>",
+    "actionType": 2,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757785028688,
+    "modifiedTime": 1757785038590,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!2W7wQVNXsLIl4buy"
+}

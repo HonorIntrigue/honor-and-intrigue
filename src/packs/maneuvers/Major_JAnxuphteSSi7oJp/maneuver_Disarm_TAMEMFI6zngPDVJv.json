@@ -1,0 +1,33 @@
+{
+  "folder": "JAnxuphteSSi7oJp",
+  "name": "Disarm",
+  "type": "maneuver",
+  "_id": "TAMEMFI6zngPDVJv",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>You must already have your opponent’s weapon in a Bind (or they have you in one), or have the opponent grappled to use this Maneuver. If you are unarmed, use Brawl instead of Melee. If you succeed, your opponent’s weapon falls to the ground [[/r 1d6]] feet away. On a Mighty Success, you have taken the weapon from them. You can also try to do a Quick Disarm (without binding first) trying to whirl the weapon out of the foe’s grip, but this adds a Penalty Die. After a successful Parry, you can try a Quick Disarm as a Reaction or as a free action following a Mighty Success Parry.</p>",
+    "actionType": 1,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": "Bonus Die to Disarm rolls, +1 to avoid being Disarmed"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757784607603,
+    "modifiedTime": 1757784635192,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!TAMEMFI6zngPDVJv"
+}

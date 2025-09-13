@@ -1,0 +1,33 @@
+{
+  "folder": "MQisy3bDEiHmuuzo",
+  "name": "Bind",
+  "type": "maneuver",
+  "_id": "M4J96MGZ96eMkACf",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>You trap the enemy's sword with your own sword. The opponent can spend a Minor Action (rolling Might + Melee vs. your own Might) to break free (or they can simply let go of the weapon, or use the other arm). Of course, you cannot use the weapon you are binding with either.</p><p>NOTE: The target of a Bind will get a +2 Bonus if using a 2-Handed Weapon (unless you are as well). So an opponent with Melee 2 and a Halberd would give a difficulty of -4, not -2. Don’t forget that when you Bind an opponent’s weapon, you draw in Corps-a- Corps with them, and either of you can then try to Disarm the other</p>",
+    "actionType": 2,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": "You may use Bind as a Reaction following a successful Parry"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757785514324,
+    "modifiedTime": 1757785539606,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!M4J96MGZ96eMkACf"
+}

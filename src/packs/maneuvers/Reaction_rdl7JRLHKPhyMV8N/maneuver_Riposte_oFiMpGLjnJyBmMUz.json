@@ -1,0 +1,33 @@
+{
+  "folder": "rdl7JRLHKPhyMV8N",
+  "name": "Riposte",
+  "type": "maneuver",
+  "_id": "oFiMpGLjnJyBmMUz",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>With expert timing, you attack your opponent immediately following your successful Parry or Dodge.</p>",
+    "actionType": 3,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": "You may make 1 free Riposte per round"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757786115037,
+    "modifiedTime": 1757786130796,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!oFiMpGLjnJyBmMUz"
+}

@@ -1,0 +1,33 @@
+{
+  "folder": "JAnxuphteSSi7oJp",
+  "name": "Sword Break",
+  "type": "maneuver",
+  "_id": "RH0Lkzmoc1gTnZ0v",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>You must already have your opponent’s weapon in a Bind, or have some other special circumstances to attempt this Maneuver (such as achieve a Mighty Success when parrying). Roll damage with your weapon, and your opponent does the same (both ignore Might). If your roll is greater than the opponent’s, their weapon is broken. If their roll is equal or greater, the weapon is not broken. A broken sword can function as an improvised dagger.</p><p>NOTE: this Maneuver is used to break any weapon, not only swords. A firearm counts as a club for purposes of this Maneuver.</p>",
+    "actionType": 1,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": "+1 bonus to the damage roll to determine if the weapon breaks"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757784877402,
+    "modifiedTime": 1757784909110,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!RH0Lkzmoc1gTnZ0v"
+}

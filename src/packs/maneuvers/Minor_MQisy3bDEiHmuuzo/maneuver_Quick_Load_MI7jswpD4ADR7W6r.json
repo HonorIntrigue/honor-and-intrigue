@@ -1,0 +1,33 @@
+{
+  "folder": "MQisy3bDEiHmuuzo",
+  "name": "Quick Load",
+  "type": "maneuver",
+  "_id": "MI7jswpD4ADR7W6r",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>You try to load your firearm or crossbow quickly. You may add a Career bonus from Soldier to this roll, as military drill helps. If you succeed, it counts as if you spent two Minor Actions loading the weapon instead of one. If you fail, the action was wasted.</p><p>NOTE: This action cannot be split (effectively, it already has been).</p>",
+    "actionType": 2,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": "You get a Bonus Die to Quick Load rolls"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757785766268,
+    "modifiedTime": 1757785793629,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!MI7jswpD4ADR7W6r"
+}

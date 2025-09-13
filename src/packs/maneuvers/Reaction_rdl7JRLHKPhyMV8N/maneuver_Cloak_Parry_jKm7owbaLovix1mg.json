@@ -1,0 +1,33 @@
+{
+  "folder": "rdl7JRLHKPhyMV8N",
+  "name": "Cloak Parry",
+  "type": "maneuver",
+  "_id": "jKm7owbaLovix1mg",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>Using a cloak, large hat, towel, or some other heavy cloth, you can block an enemy’s attack by spending a Reaction. This is a contested roll against the enemy’s attack, like a Parry.</p>",
+    "actionType": 3,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": "You may make 1 free Cloak Parry per round"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757786064172,
+    "modifiedTime": 1757786076976,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!jKm7owbaLovix1mg"
+}

@@ -7,7 +7,7 @@ const yaml = false;
 const expandAdventures = true;
 const folders = true;
 
-const packs = await fs.readdir('./packs');
+const packs = await fs.readdir('./public/packs');
 for (const pack of packs) {
   if (pack.startsWith('.')) continue;
   console.log('Unpacking ' + pack);
@@ -23,12 +23,11 @@ for (const pack of packs) {
     else console.log(error);
   }
   await extractPack(
-    `${SYSTEM_ID}/packs/${pack}`,
+    `${SYSTEM_ID}/public/packs/${pack}`,
     `${SYSTEM_ID}/src/packs/${pack}`,
     {
       yaml,
       transformName,
-      transformEntry,
       expandAdventures,
       folders,
     },
@@ -60,38 +59,4 @@ function transformName(doc, context) {
   let name = `${doc.name ? `${prefix}_${safeFileName}_${doc._id}` : doc._id}.${yaml ? 'yml' : 'json'}`;
   if (context.folder) name = path.join(context.folder, name);
   return name;
-}
-
-/**
- * Remove text content from wiki journal.
- * @param {object} entry The entry data.
- * @returns {Promise<false|void>}  Return boolean false to indicate that this entry should be discarded.
- */
-async function transformEntry(entry) {
-  // Reducing churn
-  Object.assign(entry._stats, {
-    modifiedTime: null,
-    lastModifiedBy: null,
-  });
-  // Remove module flags
-  for (const key of Object.keys(entry.flags)) if (!['core', 'honor-and-intrigue'].includes(key)) delete entry.flags[key];
-  // Fix ownership (folders don't have ownership)
-  if (!entry._key.startsWith('!folders')) entry.ownership = { default: 0 };
-
-  // Update if we ever start including other document types, e.g. Adventures
-  for (const embeddedCollection of ['items', 'effects', 'pages']) {
-    if (entry[embeddedCollection]) {
-      for (const e of entry[embeddedCollection]) {
-        Object.assign(e._stats, { modifiedTime: null, lastModifiedBy: null });
-        if (e['effects']) for (const grandchild of e['effects']) Object.assign(grandchild, { modifiedTime: null, lastModifiedBy: null });
-      }
-    }
-  }
-  if (entry._key !== '!journal!2OWtCOMKRpGuBxrI') return;
-
-  for (const jep of entry.pages) {
-    const docsPath = path.join('src', 'docs', jep.flags['honor-and-intrigue'].wikiPath);
-    await fs.writeFile(docsPath, jep.text.markdown, { encoding: 'utf8' });
-    jep.text = { format: 2 };
-  }
 }

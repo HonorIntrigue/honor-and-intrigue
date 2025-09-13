@@ -1,0 +1,31 @@
+{
+  "name": "Repartee",
+  "type": "maneuver",
+  "_id": "dAzjKzLbgDDUg1bt",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>Repartee in combat uses a Major Action.</p>",
+    "mastery": "",
+    "actionType": 1
+  },
+  "effects": [],
+  "folder": "JAnxuphteSSi7oJp",
+  "sort": 150000,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1756784656978,
+    "modifiedTime": 1757782929990,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!dAzjKzLbgDDUg1bt"
+}

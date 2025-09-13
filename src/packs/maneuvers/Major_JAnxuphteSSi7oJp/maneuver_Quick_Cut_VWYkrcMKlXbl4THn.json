@@ -1,0 +1,33 @@
+{
+  "folder": "JAnxuphteSSi7oJp",
+  "name": "Quick Cut",
+  "type": "maneuver",
+  "_id": "VWYkrcMKlXbl4THn",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>Rather than a standard attack you make two quick cutting attacks at the foe with a single action. You perform this Maneuver 1 phase sooner than you would normally act. The attacks may be against the same foe or two adjacent ones with no penalty for Splitting your action. Quick Cut only does half damage (Round Down), and may not be used with a heavy or 2-handed weapon.</p>",
+    "actionType": 1,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": "Bonus Die to hit with the first attack, +1 to avoid Quick Cut attacks"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757784822384,
+    "modifiedTime": 1757784840261,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!VWYkrcMKlXbl4THn"
+}

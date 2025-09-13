@@ -1,0 +1,33 @@
+{
+  "folder": "JAnxuphteSSi7oJp",
+  "name": "Staple",
+  "type": "maneuver",
+  "_id": "Y5xRklDmpCAG2pJv",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>You pin an enemy’s clothing to the wall using an impaling weapon such as a dagger, arrow, or rapier. The weapon remains lodged in the wall. Freeing oneself takes a Major Action. If a weapon arm is pinned, it cannot make any Active Defense or attacks with that arm until it is freed. Targeting the sleeve of an opponent’s weapon arm raises the penalty to hit from -2 to -4.</p>",
+    "actionType": 1,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": "Lowers the difficulty by 1"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757784851161,
+    "modifiedTime": 1757784864532,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!Y5xRklDmpCAG2pJv"
+}

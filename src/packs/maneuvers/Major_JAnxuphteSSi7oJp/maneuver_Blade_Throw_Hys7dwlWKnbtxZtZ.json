@@ -1,0 +1,33 @@
+{
+  "folder": "JAnxuphteSSi7oJp",
+  "name": "Blade Throw",
+  "type": "maneuver",
+  "_id": "Hys7dwlWKnbtxZtZ",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>Not exactly the most honorable of moves, but sometimes desperate times call for desperate measures! You throw your sword or main gauche at your opponent. A thrown sword has a very short range (5’ range increment) and halves Might for damage, but you get to go 2 phases sooner than you would normally act. Of course, doing this does leave you unarmed. Targets cannot Yield Advantage to a ranged attack, but can spend 1 Fortune Point for a Close Call.</p>",
+    "actionType": 1,
+    "formulae": [],
+    "isMastered": false,
+    "mastery": "Bonus Die to Attack, +1 to avoid Blade Throw"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757783286917,
+    "modifiedTime": 1757783765187,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!Hys7dwlWKnbtxZtZ"
+}

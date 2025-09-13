@@ -1,4 +1,5 @@
 import copy from '@guanghechen/rollup-plugin-copy';
+import del from 'rollup-plugin-delete';
 
 export default [{
   input: 'src/scripts/honor-and-intrigue.mjs',
@@ -7,6 +8,10 @@ export default [{
     sourcemap: true,
   },
   plugins: [
+    del({
+      runOnce: true,
+      targets: ['public/*', '!public/packs'],
+    }),
     copy({
       targets: [
         { src: 'static/assets', dest: 'public' },
