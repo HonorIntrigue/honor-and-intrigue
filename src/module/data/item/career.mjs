@@ -4,6 +4,9 @@ const fields = foundry.data.fields;
 
 export default class CareerModel extends HonorIntrigueSystemModel {
   /** @inheritDoc */
+  static DEFAULT_ICON = 'icons/svg/jump.svg';
+
+  /** @inheritDoc */
   static get metadata() {
     return {
       ...super.metadata,

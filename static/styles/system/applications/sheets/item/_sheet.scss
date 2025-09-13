@@ -1,6 +1,9 @@
 .honor-intrigue.sheet.item {
   --portrait-size: 150px;
 
+  min-height: 400px;
+  min-width: 750px;
+
   .tab-content {
     display: flex;
 

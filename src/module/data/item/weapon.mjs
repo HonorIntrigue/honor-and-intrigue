@@ -4,6 +4,9 @@ const fields = foundry.data.fields;
 
 export default class WeaponModel extends BaseItemModel {
   /** @inheritDoc */
+  static DEFAULT_ICON = 'icons/svg/sword.svg';
+
+  /** @inheritDoc */
   static get metadata() {
     return {
       ...super.metadata,

@@ -6,6 +6,11 @@
       "minor": "Minor Action",
       "reaction": "Reaction"
     },
+    "COMPENDIUM": {
+      "careers": "Careers",
+      "equipment": "Equipment",
+      "maneuvers": "Maneuvers"
+    },
     "DAMAGE_TYPE": {
       "energy": "Energy",
       "physical": "Physical"
@@ -129,6 +134,7 @@
         }
       },
       "Labels": {
+        "AbilityCheck": "Ability Check",
         "AdvancementPoints": "Advancement Points",
         "Character": "Hero",
         "CombatAbilities": "Combat Abilities",

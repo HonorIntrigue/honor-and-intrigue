@@ -1,11 +1,43 @@
 <section class='tab {{tabs.maneuvers.id}}{{#if tabs.maneuvers.cssClass}} {{tabs.maneuvers.cssClass}}{{/if}}'
          data-group='{{tabs.maneuvers.group}}'
          data-tab='{{tabs.maneuvers.id}}'>
-  {{log this}}
   <section class='tab-content'>
     {{> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Major')}}
     <ol class='item-list'>
       {{#each maneuvers.major as |maneuverContext|}}
+        <li class='item' data-item-id='{{maneuverContext.item.id}}' data-document-class='Item'>
+          <div class='item-row'>
+            <div class='item-drag-handle'>
+              <a class='draggable'>
+                <i class='fa-solid fa-grip-dots-vertical'></i>
+              </a>
+            </div>
+            <img class='item-image' src='{{maneuverContext.item.img}}' alt='{{maneuverContext.item.name}}'>
+            <div class='item-name' data-action='toggleItemExpanded'>{{maneuverContext.item.name}}</div>
+            <div class='item-controls'>
+              <a data-action='toggleManeuverMastery' data-tooltip='{{localize "HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ToggleMastery"}}'>
+                <i class='fa-{{ifThen maneuverContext.item.system.isMastered "solid illuminate" "light"}} fa-star-shooting'></i>
+              </a>
+              <a data-action='openItem'>
+                <i class='fa-solid fa-pen-to-square'></i>
+              </a>
+              <a data-action='deleteItem'>
+                <i class='fa-solid fa-trash'></i>
+              </a>
+            </div>
+            {{#if maneuverContext.expanded}}
+              <div class='item-embed'>
+                {{{maneuverContext.embed.outerHTML}}}
+              </div>
+            {{/if}}
+          </div>
+        </li>
+      {{/each}}
+    </ol>
+
+    {{> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Minor')}}
+    <ol class='item-list'>
+      {{#each maneuvers.minor as |maneuverContext|}}
         <li class='item' data-item-id='{{maneuverContext.item.id}}' data-document-class='Item'>
           <div class='item-row'>
             <div class='item-drag-handle'>

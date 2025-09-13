@@ -1,8 +1,14 @@
-import { HonorIntrigueSystemModel } from '../_module.mjs';
+import HonorIntrigueSystemModel from '../system-model.mjs';
 
 const fields = foundry.data.fields;
 
 export default class BaseItemModel extends HonorIntrigueSystemModel {
+  /**
+   * The default icon for newly created model documents.
+   */
+  static DEFAULT_ICON = 'icons/svg/item-bag.svg';
+
+  /** @inheritDoc */
   static LOCALIZATION_PREFIXES = ['HONOR_INTRIGUE.Item.Sheet'];
 
   /** @inheritDoc */

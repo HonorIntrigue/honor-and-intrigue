@@ -4,5 +4,22 @@
   <div class='tab-content standard-form'>
     {{formGroup systemFields.actionType value=system.actionType localize=true}}
     {{formGroup systemFields.mastery value=system.mastery}}
+
+    <div class='form-group'>
+      <label>{{localize 'HONOR_INTRIGUE.Sheet.Labels.AbilityCheck'}}</label>
+      <div class='form-fields-stacked'>
+        <div>
+          {{formInput systemFields.abilityCheck.fields.quality value=system.abilityCheck.quality localize=true}}
+          {{formInput systemFields.abilityCheck.fields.combatAbility value=system.abilityCheck.combatAbility localize=true}}
+          {{formInput systemFields.abilityCheck.fields.flatModifier value=system.abilityCheck.flatModifier placeholder='+/- modifier'}}
+        </div>
+        <p>vs</p>
+        <div>
+          {{formInput systemFields.abilityCheck.fields.opposedBy.fields.quality value=system.abilityCheck.opposedBy.quality localize=true}}
+          {{formInput systemFields.abilityCheck.fields.opposedBy.fields.combatAbility value=system.abilityCheck.opposedBy.combatAbility localize=true}}
+          {{formInput systemFields.abilityCheck.fields.opposedBy.fields.flatModifier value=system.abilityCheck.opposedBy.flatModifier placeholder='+/- modifier'}}
+        </div>
+      </div>
+    </div>
   </div>
 </section>

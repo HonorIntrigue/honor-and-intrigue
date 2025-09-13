@@ -5,6 +5,9 @@ const fields = foundry.data.fields;
 
 export default class ManeuverModel extends BaseItemModel {
   /** @inheritDoc */
+  static DEFAULT_ICON = 'icons/svg/upgrade.svg';
+
+  /** @inheritDoc */
   static get metadata() {
     return {
       ...super.metadata,
@@ -21,7 +24,16 @@ export default class ManeuverModel extends BaseItemModel {
       initial: 0,
       integer: true,
     });
-    schema.formulae = new fields.ArrayField(new fields.StringField({ trim: true })); // will hold quality+ability rollKeys to be enriched later
+    schema.abilityCheck = new fields.SchemaField({
+      quality: new fields.StringField({ blank: true, choices: hi.CONFIG.qualities }),
+      combatAbility: new fields.StringField({ blank: true, choices: hi.CONFIG.combatAbilities }),
+      flatModifier: new fields.NumberField({ integer: true }),
+      opposedBy: new fields.SchemaField({
+        quality: new fields.StringField({ blank: true, choices: hi.CONFIG.qualities }),
+        combatAbility: new fields.StringField({ blank: true, choices: hi.CONFIG.combatAbilities }),
+        flatModifier: new fields.NumberField({ integer: true }),
+      }),
+    });
     schema.isMastered = new fields.BooleanField({ initial: false });
     schema.mastery = new fields.StringField({ trim: true });
 

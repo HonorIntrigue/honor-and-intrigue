@@ -68,6 +68,18 @@
         height: 100%;
         padding: 1rem;
       }
+
+      .form-fields-stacked {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        > div {
+          align-items: center;
+          display: flex;
+          gap: 0.25rem;
+        }
+      }
     }
 
     .portrait {
