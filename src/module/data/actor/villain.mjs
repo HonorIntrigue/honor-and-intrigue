@@ -1,5 +1,7 @@
 import CharacterActorModel from './characterActorModel.mjs';
 
+const fields = foundry.data.fields;
+
 export default class VillainModel extends CharacterActorModel {
   /** @inheritDoc */
   static get metadata() {
@@ -7,6 +9,15 @@ export default class VillainModel extends CharacterActorModel {
       ...super.metadata,
       type: 'villain',
     };
+  }
+
+  /** @inheritDoc */
+  static defineSchema() {
+    const schema = super.defineSchema();
+
+    schema.motivation = new fields.StringField({ trim: true });
+
+    return schema;
   }
 
   /** @inheritDoc */

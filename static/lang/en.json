@@ -35,6 +35,7 @@
             "Notes": "Notes"
           },
           "Careers": {
+            "EmptyPrompt": "Give this character some background by adding a career!",
             "Rank": "Rank"
           },
           "Inventory": {

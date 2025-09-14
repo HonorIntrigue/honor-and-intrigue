@@ -17,7 +17,7 @@
           <span class='resource-label'>{{localize 'HONOR_INTRIGUE.Sheet.Labels.Lifeblood'}}</span>
         </div>
 
-        {{#if (eq actorType 'hero')}}
+        {{#if (or (eq actorType 'hero') (eq actorType 'villain'))}}
           <div class='resource-item'>
             <div class='resource-value'>
               {{formInput systemFields.composure value=this.system.composure type='number' max=systemFields.composure.max}}

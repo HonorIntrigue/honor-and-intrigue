@@ -13,7 +13,7 @@
       </div>
     {{/if}}
   </div>
-  {{#if (eq actorType 'hero')}}
+  {{#if (or (eq actorType 'hero') (eq actorType 'villain'))}}
     <div class='characteristic-row'>
       <div class='flexcol flex1'>
         {{> "systems/honor-and-intrigue/templates/api/label-bar.hbs" label="HONOR_INTRIGUE.Sheet.Labels.Motivation"}}

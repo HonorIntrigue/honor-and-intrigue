@@ -1,4 +1,14 @@
+@forward 'base/header';
+@forward 'base/sidebar';
+
 .honor-intrigue.sheet.actor {
+  .career-list {
+    .suggestion-box {
+      height: 100px;
+      margin: 1rem;
+    }
+  }
+
   .item-list {
     list-style: none;
     margin: 0.5rem 0;

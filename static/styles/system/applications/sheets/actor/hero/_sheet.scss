@@ -50,21 +50,6 @@
           opacity: 1;
         }
       }
-
-      .populate-suggestion {
-        align-items: center;
-        border: 1px dashed light-dark(var(--color-dark-5), var(--color-light-5));
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        justify-content: center;
-        padding: 5rem;
-        text-align: center;
-
-        > p {
-          font-style: italic;
-        }
-      }
     }
   }
 }

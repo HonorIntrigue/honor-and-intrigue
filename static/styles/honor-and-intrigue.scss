@@ -8,4 +8,19 @@
       text-shadow: 0 0 8px light-dark(var(--color-navy), var(--color-gold));
     }
   }
+
+  .suggestion-box {
+    align-items: center;
+    border: 1px dashed light-dark(var(--color-dark-5), var(--color-light-5));
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem;
+    text-align: center;
+
+    > p {
+      font-style: italic;
+    }
+  }
 }

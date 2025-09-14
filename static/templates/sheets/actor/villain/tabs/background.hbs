@@ -1,0 +1,10 @@
+<section class='tab {{tabs.background.id}}{{#if tabs.background.cssClass}} {{tabs.background.cssClass}}{{/if}}'
+         data-group='{{tabs.background.group}}'
+         data-tab='{{tabs.background.id}}'>
+  <section class='tab-content'>
+    {{> 'systems/honor-and-intrigue/templates/sheets/actor/partials/career-list.hbs'}}
+
+    {{> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Character.Notes'}}
+    {{formInput systemFields.notes value=system.notes enriched=enrichedNotes toggled=true compact=true}}
+  </section>
+</section>

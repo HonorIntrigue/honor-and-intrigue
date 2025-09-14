@@ -3,38 +3,44 @@
     <button type='button' class='icon fa-solid fa-plus' data-action='addCareer'></button>
   {{/'systems/honor-and-intrigue/templates/api/label-bar.hbs'}}
 
-  <ol class='item-list'>
-    {{#each @root.careers as |career|}}
-      <li class='item' data-item-id='{{career.item.id}}' data-document-class='Item'>
-        <div class='item-row'>
-          <div class='item-drag-handle'>
-            <a class='draggable' data-item-id='{{career.item.id}}'>
-              <i class='fa-solid fa-grip-dots-vertical'></i>
-            </a>
-          </div>
-          <div class='item-name' data-action='toggleItemExpanded'>{{career.item.name}}</div>
-          <div class='item-controls'>
-            {{#with career.item.system}}
-              <input type='number'
-                     data-name='career-rank'
-                     max='{{schema.fields.rank.max}}'
-                     min='{{schema.fields.rank.min}}'
-                     value='{{rank}}' />
-            {{/with}}
-            <a data-action='openItem'>
-              <i class='fa-solid fa-pen-to-square'></i>
-            </a>
-            <a data-action='deleteItem'>
-              <i class='fa-solid fa-trash'></i>
-            </a>
-          </div>
-          {{#if career.expanded}}
-            <div class='item-embed'>
-              {{{career.embed.outerHTML}}}
+  {{#if (eq @root.careers.length 0)}}
+    <div class='suggestion-box'>
+      <p>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Careers.EmptyPrompt'}}</p>
+    </div>
+  {{else}}
+    <ol class='item-list'>
+      {{#each @root.careers as |career|}}
+        <li class='item' data-item-id='{{career.item.id}}' data-document-class='Item'>
+          <div class='item-row'>
+            <div class='item-drag-handle'>
+              <a class='draggable' data-item-id='{{career.item.id}}'>
+                <i class='fa-solid fa-grip-dots-vertical'></i>
+              </a>
             </div>
-          {{/if}}
-        </div>
-      </li>
-    {{/each}}
-  </ol>
+            <div class='item-name' data-action='toggleItemExpanded'>{{career.item.name}}</div>
+            <div class='item-controls'>
+              {{#with career.item.system}}
+                <input type='number'
+                       data-name='career-rank'
+                       max='{{schema.fields.rank.max}}'
+                       min='{{schema.fields.rank.min}}'
+                       value='{{rank}}' />
+              {{/with}}
+              <a data-action='openItem'>
+                <i class='fa-solid fa-pen-to-square'></i>
+              </a>
+              <a data-action='deleteItem'>
+                <i class='fa-solid fa-trash'></i>
+              </a>
+            </div>
+            {{#if career.expanded}}
+              <div class='item-embed'>
+                {{{career.embed.outerHTML}}}
+              </div>
+            {{/if}}
+          </div>
+        </li>
+      {{/each}}
+    </ol>
+  {{/if}}
 </div>
