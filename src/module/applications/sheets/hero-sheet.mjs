@@ -84,7 +84,7 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
       });
 
       if (confirm) {
-        await Promise.all(maneuvers.map(async (m) => m.delete()));
+        await Item.deleteDocuments(maneuvers.map(m => m.id), { parent: this.actor });
       }
     }
   }
@@ -110,10 +110,9 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     }
 
     const docs = await pack.getDocuments();
+    const objs = docs.map(cd => cd.toObject());
 
-    await Promise.all(docs.map(async (cd) => {
-      return await Item.implementation.create(cd.toObject(), { parent: this.actor });
-    }));
+    await Item.createDocuments(objs, { parent: this.actor });
     return this.render({ parts: ['maneuvers'] });
   }
 
