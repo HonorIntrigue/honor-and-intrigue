@@ -1,4 +1,4 @@
-import { systemPath } from '../../constants.mjs';
+import { systemID, systemPath } from '../../constants.mjs';
 import HonorIntrigueActorSheet from './actor-sheet.mjs';
 
 export default class HeroSheet extends HonorIntrigueActorSheet {
@@ -8,10 +8,22 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
       addCareer: this.#onAddCareer,
       adjustAdvancementPoints: { handler: this.#adjustAdvancementPoints, buttons: [0, 2] },
       adjustFortune: { handler: this.#adjustFortune, buttons: [0, 2] },
+      populateManeuvers: this.#onPopulateManeuvers,
+      resetManeuvers: this.#onResetManeuvers,
       rollCharacteristic: this.#onRollCharacteristic,
       toggleManeuverMastery: this.#toggleManeuverMastery,
     },
     classes: ['hero'],
+    window: {
+      controls: [
+        {
+          action: 'resetManeuvers',
+          icon: 'fa-solid fa-broom-wide',
+          label: 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Reset',
+          ownership: 'OWNER',
+        },
+      ],
+    },
   };
 
   /** @inheritDoc */
@@ -20,7 +32,7 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     header: { template: systemPath('templates/sheets/actor/hero/header.hbs') },
     content: { template: 'templates/generic/tab-navigation.hbs' },
     character: { template: systemPath('templates/sheets/actor/hero/tabs/character.hbs') },
-    maneuvers: { template: systemPath('templates/sheets/actor/hero/tabs/maneuvers.hbs') },
+    maneuvers: { template: systemPath('templates/sheets/actor/hero/tabs/maneuvers.hbs'), scrollable: [''] },
     inventory: { template: systemPath('templates/sheets/actor/hero/tabs/inventory.hbs') },
     background: { template: systemPath('templates/sheets/actor/hero/tabs/background.hbs') },
     effects: { template: systemPath('templates/sheets/actor/hero/tabs/effects.hbs') },
@@ -60,12 +72,49 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
   }
 
   /**
+   * Handle header control to reset the maneuvers content.
+   */
+  static async #onResetManeuvers(event) {
+    const maneuvers = this.actor.itemTypes.maneuver;
+
+    if (maneuvers.length > 0) {
+      const confirm = await foundry.applications.api.DialogV2.confirm({
+        window: { title: game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Reset') },
+        content: game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ResetWarning'),
+      });
+
+      if (confirm) {
+        await Promise.all(maneuvers.map(async (m) => m.delete()));
+      }
+    }
+  }
+
+  /**
    * Begin rolling a characteristic such as a Quality or Combat Ability.
    * @param event
    * @param target Should have the target characteristic in its "dataset" field, such as <code>dataset.characteristic.qualities.might</code>.
    */
   static async #onRollCharacteristic(event, target) {
     return this.actor.rollCharacteristic(target.dataset.characteristic);
+  }
+
+  /**
+   * Populate this actor with default maneuvers from the system compendium.
+   */
+  static async #onPopulateManeuvers(event, target) {
+    const pack = game.packs.get(`${systemID}.maneuvers`);
+
+    if (!pack || pack.index.size === 0) {
+      ui.notifications.warn('Unable to load the system pack of maneuvers. Please check your compendium collection.');
+      return;
+    }
+
+    const docs = await pack.getDocuments();
+
+    await Promise.all(docs.map(async (cd) => {
+      return await Item.implementation.create(cd.toObject(), { parent: this.actor });
+    }));
+    return this.render({ parts: ['maneuvers'] });
   }
 
   /**
@@ -91,9 +140,12 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
 
   /**
    * Prepare the context for the maneuvers view.
+   * @return {Object|false} Returns false if this hero has no maneuvers.
    */
   async _prepareManeuversContext() {
     const maneuvers = (await this._prepareEmbeddedItemContext('maneuver')).sort((a, b) => a.item.name.localeCompare(b.item.name));
+
+    if (maneuvers.length === 0) return false;
 
     return maneuvers.reduce((acc, curr) => {
       switch (curr.item.system.actionType) {

@@ -25,12 +25,12 @@ export default class ManeuverModel extends BaseItemModel {
       integer: true,
     });
     schema.abilityCheck = new fields.SchemaField({
-      quality: new fields.StringField({ blank: true, choices: hi.CONFIG.qualities }),
-      combatAbility: new fields.StringField({ blank: true, choices: hi.CONFIG.combatAbilities }),
+      quality: new fields.StringField({ blank: true, choices: hi.CONFIG.qualities, required: true }),
+      combatAbility: new fields.StringField({ blank: true, choices: hi.CONFIG.combatAbilities, required: true }),
       flatModifier: new fields.NumberField({ integer: true }),
       opposedBy: new fields.SchemaField({
-        quality: new fields.StringField({ blank: true, choices: hi.CONFIG.qualities }),
-        combatAbility: new fields.StringField({ blank: true, choices: hi.CONFIG.combatAbilities }),
+        quality: new fields.StringField({ blank: true, choices: hi.CONFIG.qualities, required: true }),
+        combatAbility: new fields.StringField({ blank: true, choices: hi.CONFIG.combatAbilities, required: true }),
         flatModifier: new fields.NumberField({ integer: true }),
       }),
     });
@@ -38,6 +38,20 @@ export default class ManeuverModel extends BaseItemModel {
     schema.mastery = new fields.StringField({ trim: true });
 
     return schema;
+  }
+
+  /**
+   * Flag that indicates if this maneuver requires an ability check to succeed.
+   */
+  get requiresCheck() {
+    return this.abilityCheck.quality || this.abilityCheck.combatAbility;
+  }
+
+  /**
+   * Flag that indicates if this maneuver is opposed by the target.
+   */
+  get requiresOpposedCheck() {
+    return this.abilityCheck.opposedBy?.quality || this.abilityCheck.opposedBy?.combatAbility;
   }
 
   /** @inheritDoc */

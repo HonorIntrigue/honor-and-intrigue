@@ -38,6 +38,11 @@
             "Major": "Major Action Maneuvers",
             "MasteryHint": "Maneuver Mastery Bonus",
             "Minor": "Minor Action Maneuvers",
+            "Populate": "Populate",
+            "PopulateOnEmpty": "No maneuvers have been added. Drag some from the compendium or click below to fill in the defaults.",
+            "Reaction": "Reaction Maneuvers",
+            "Reset": "Clear All Maneuvers",
+            "ResetWarning": "Proceeding will permanently erase all maneuvers in this actor's collection. Are you sure you wish to proceed?",
             "ToggleMastery": "Change Mastery"
           }
         },

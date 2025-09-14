@@ -58,9 +58,13 @@
     }
 
     .tab[data-group='primary'] {
+      box-shadow: 4px 4px 12px 0 rgba(0,0,0,0.5) inset;
       grid-area: 3 / 2;
       position: relative;
-      overflow-y: scroll;
+
+      &.scrollable {
+        --scroll-margin: 0;
+      }
 
       .tab-content {
         display: flex;
