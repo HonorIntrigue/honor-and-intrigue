@@ -67,7 +67,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
   async _prepareEmbeddedItemContext(itemType, additionalContextFn = undefined) {
     if (!this.actor.itemTypes[itemType]) return {};
 
-    return Promise.all(this.actor.itemTypes[itemType].map(async (item) => {
+    return (await Promise.all(this.actor.itemTypes[itemType].map(async (item) => {
       const ctx = await this._prepareItemContext(item);
 
       if (additionalContextFn) {
@@ -75,7 +75,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
       }
 
       return ctx;
-    }));
+    }))).sort((a, b) => a.item.sort - b.item.sort);
   }
 
   /**

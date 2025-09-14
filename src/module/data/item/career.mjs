@@ -1,8 +1,8 @@
-import HonorIntrigueSystemModel from '../system-model.mjs';
+import BaseItemModel from './base.mjs';
 
 const fields = foundry.data.fields;
 
-export default class CareerModel extends HonorIntrigueSystemModel {
+export default class CareerModel extends BaseItemModel {
   /** @inheritDoc */
   static DEFAULT_ICON = 'icons/svg/jump.svg';
 
@@ -16,9 +16,9 @@ export default class CareerModel extends HonorIntrigueSystemModel {
 
   /** @inheritDoc */
   static defineSchema() {
-    const schema = {};
+    const schema = super.defineSchema();
 
-    schema.description = new fields.HTMLField({ textSearch: true, trim: true });
+    schema.rank = new fields.NumberField({ min: 0, max: 6, initial: 0, integer: true, nullable: false });
 
     return schema;
   }

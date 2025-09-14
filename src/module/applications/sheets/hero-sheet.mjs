@@ -68,7 +68,8 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
    * Add a Career entry to the document.
    */
   static async #onAddCareer(event, target) {
-
+    const [item] = await this.actor.createEmbeddedDocuments('Item', [{ type: 'career', name: 'New Career' }]);
+    return item.sheet.render(true);
   }
 
   /**
@@ -127,6 +128,21 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
   }
 
   /** @inheritDoc */
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+
+    const rankInputs = document.querySelectorAll('.tab-content input[data-name="career-rank"]');
+    for (const input of rankInputs) {
+      input.addEventListener('change', async (event) => {
+        const { itemId } = event.target.closest('.item').dataset;
+        const item = this.actor.items.get(itemId);
+
+        await item.update({ system: { rank: event.target.value } });
+      });
+    }
+  }
+
+  /** @inheritDoc */
   async _prepareContext(options) {
     const ctx = await super._prepareContext(options);
 
@@ -163,6 +179,9 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     await super._preparePartContext(partId, context, options);
 
     switch (partId) {
+      case 'character':
+        context.careers = await this._prepareEmbeddedItemContext('career');
+        break;
       case 'maneuvers':
         context.maneuvers = await this._prepareManeuversContext();
         break;

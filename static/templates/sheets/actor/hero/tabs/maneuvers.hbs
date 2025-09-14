@@ -10,11 +10,6 @@
             {{#each collection as |maneuverContext|}}
               <li class='item' data-item-id='{{maneuverContext.item.id}}' data-document-class='Item'>
                 <div class='item-row'>
-                  <div class='item-drag-handle'>
-                    <a class='draggable'>
-                      <i class='fa-solid fa-grip-dots-vertical'></i>
-                    </a>
-                  </div>
                   <img class='item-image' src='{{maneuverContext.item.img}}' alt='{{maneuverContext.item.name}}'>
                   <div class='item-name' data-action='toggleItemExpanded'>{{maneuverContext.item.name}}</div>
                   <div class='item-controls'>
