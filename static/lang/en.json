@@ -30,7 +30,12 @@
       },
       "Sheet": {
         "Labels": {
-          "Careers": "Careers",
+          "Character": {
+            "Careers": "Careers"
+          },
+          "Careers": {
+            "Rank": "Rank"
+          },
           "Inventory": {
             "Weapons": "Weapons"
           },

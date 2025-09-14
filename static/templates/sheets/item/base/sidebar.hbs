@@ -2,4 +2,7 @@
   <div class='portrait'>
     <img src='{{document.img}}' alt='{{document.name}}' data-action='editImage' data-edit='img'>
   </div>
+  {{#if @partial-block}}
+    {{> @partial-block}}
+  {{/if}}
 </aside>

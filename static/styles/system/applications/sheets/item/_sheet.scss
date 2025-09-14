@@ -19,4 +19,26 @@
       }
     }
   }
+
+  &.career {
+    .sidebar-details {
+      .rank-field {
+        align-items: center;
+        display: flex;
+        gap: 1rem;
+        margin-top: 40px;
+        padding: 0 1rem;
+
+        input {
+          width: 40px;
+          text-align: center;
+        }
+
+        label {
+          font-family: var(--font-bold);
+          font-size: var(--font-size-18);
+        }
+      }
+    }
+  }
 }

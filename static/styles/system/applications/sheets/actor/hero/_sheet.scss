@@ -17,6 +17,14 @@
   }
 
   .tab {
+    &.character {
+      .item-controls {
+        input {
+          text-align: center;
+        }
+      }
+    }
+
     &.maneuvers {
       .populate-suggestion {
         align-items: center;
