@@ -9,7 +9,17 @@
     "actionType": 1,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Bonus Die to Disarm rolls, +1 to avoid being Disarmed"
+    "mastery": "Bonus Die to Disarm rolls, +1 to avoid being Disarmed",
+    "abilityCheck": {
+      "quality": "might",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "quality": "might",
+        "combatAbility": "melee"
+      },
+      "combatAbility": "melee"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +36,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757784607603,
-    "modifiedTime": 1757784635192,
+    "modifiedTime": 1757802087285,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!TAMEMFI6zngPDVJv"

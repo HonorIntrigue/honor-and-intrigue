@@ -9,7 +9,16 @@
     "actionType": 1,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Bonus Die to Hilt Punch rolls, +1 to avoid Hilt Punch attacks"
+    "mastery": "Bonus Die to Hilt Punch rolls, +1 to avoid Hilt Punch attacks",
+    "abilityCheck": {
+      "quality": "might",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "combatAbility": "defense"
+      },
+      "combatAbility": "melee"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757784679590,
-    "modifiedTime": 1757784705420,
+    "modifiedTime": 1757802287200,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!NOZYKNyJeTjJQlUz"

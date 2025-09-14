@@ -9,7 +9,15 @@
     "actionType": 3,
     "formulae": [],
     "isMastered": false,
-    "mastery": "You may make 1 free Parry per round"
+    "mastery": "You may make 1 free Parry per round",
+    "abilityCheck": {
+      "quality": "savvy",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null
+      },
+      "combatAbility": "melee"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +34,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757786090928,
-    "modifiedTime": 1757786102561,
+    "modifiedTime": 1757802895914,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!sz6wvZ9fiseeXSst"

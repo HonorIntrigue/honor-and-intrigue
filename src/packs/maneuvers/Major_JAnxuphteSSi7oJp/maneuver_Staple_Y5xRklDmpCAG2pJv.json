@@ -9,7 +9,16 @@
     "actionType": 1,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Lowers the difficulty by 1"
+    "mastery": "Lowers the difficulty by 1",
+    "abilityCheck": {
+      "quality": "flair",
+      "flatModifier": -2,
+      "opposedBy": {
+        "flatModifier": null,
+        "combatAbility": "defense"
+      },
+      "combatAbility": "ranged"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757784851161,
-    "modifiedTime": 1757784864532,
+    "modifiedTime": 1757802336403,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!Y5xRklDmpCAG2pJv"

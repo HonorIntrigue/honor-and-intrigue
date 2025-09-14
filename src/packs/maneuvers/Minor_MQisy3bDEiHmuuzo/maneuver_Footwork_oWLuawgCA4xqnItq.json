@@ -9,7 +9,16 @@
     "actionType": 2,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Bonus Die to Footwork rolls, +1 to resist Footwork Maneuvers"
+    "mastery": "Bonus Die to Footwork rolls, +1 to resist Footwork Maneuvers",
+    "abilityCheck": {
+      "quality": "savvy",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "quality": "savvy"
+      },
+      "combatAbility": "melee"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757785587110,
-    "modifiedTime": 1757785621840,
+    "modifiedTime": 1757802561316,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!oWLuawgCA4xqnItq"

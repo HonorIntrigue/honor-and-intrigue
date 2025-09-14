@@ -9,7 +9,15 @@
     "actionType": 3,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Bonus Die to Stop-Thrust rolls, +1 to avoid Stop-Thrusts"
+    "mastery": "Bonus Die to Stop-Thrust rolls, +1 to avoid Stop-Thrusts",
+    "abilityCheck": {
+      "quality": "daring",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null
+      },
+      "combatAbility": "melee"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +34,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757786148067,
-    "modifiedTime": 1757786194832,
+    "modifiedTime": 1757802913341,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!IAylyL2DjpGoR9a8"

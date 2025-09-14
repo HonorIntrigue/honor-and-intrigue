@@ -9,7 +9,16 @@
     "actionType": 2,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Bonus Die to Beat rolls, +1 to avoid Beat Maneuver"
+    "mastery": "Bonus Die to Beat rolls, +1 to avoid Beat Maneuver",
+    "abilityCheck": {
+      "quality": "might",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "quality": "might"
+      },
+      "combatAbility": "melee"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757785436726,
-    "modifiedTime": 1757785459913,
+    "modifiedTime": 1757802503719,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!mz2r2lHIYgqqQ4Qf"

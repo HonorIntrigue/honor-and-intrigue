@@ -9,7 +9,16 @@
     "actionType": 1,
     "formulae": [],
     "isMastered": false,
-    "mastery": "You don’t have a -1 Defense penalty."
+    "mastery": "You don’t have a -1 Defense penalty.",
+    "abilityCheck": {
+      "quality": "daring",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "combatAbility": "defense"
+      },
+      "combatAbility": "melee"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757784758009,
-    "modifiedTime": 1757784782084,
+    "modifiedTime": 1757802281759,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!pQ8P2Iyr1rH0D85X"

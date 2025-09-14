@@ -9,7 +9,15 @@
     "actionType": 3,
     "formulae": [],
     "isMastered": false,
-    "mastery": "You may make 1 free Cloak Parry per round"
+    "mastery": "You may make 1 free Cloak Parry per round",
+    "abilityCheck": {
+      "quality": "flair",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null
+      },
+      "combatAbility": "melee"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +34,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757786064172,
-    "modifiedTime": 1757786076976,
+    "modifiedTime": 1757802887827,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!jKm7owbaLovix1mg"

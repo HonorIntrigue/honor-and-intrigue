@@ -9,7 +9,16 @@
     "actionType": 1,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Bonus Die to Attack, +1 to avoid Dirty Fighting attacks"
+    "mastery": "Bonus Die to Attack, +1 to avoid Dirty Fighting attacks",
+    "abilityCheck": {
+      "quality": "flair",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "combatAbility": "defense"
+      },
+      "combatAbility": "brawl"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757784555482,
-    "modifiedTime": 1757784573960,
+    "modifiedTime": 1757802062581,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!PaCId9kKui2AiYje"

@@ -9,7 +9,16 @@
     "actionType": 2,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Bonus Die to Feint rolls, +1 to avoid Feint Maneuvers"
+    "mastery": "Bonus Die to Feint rolls, +1 to avoid Feint Maneuvers",
+    "abilityCheck": {
+      "quality": "flair",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "quality": "savvy"
+      },
+      "combatAbility": "melee"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757785554285,
-    "modifiedTime": 1757785567497,
+    "modifiedTime": 1757802522514,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!jUdyCVdnMEame7DG"

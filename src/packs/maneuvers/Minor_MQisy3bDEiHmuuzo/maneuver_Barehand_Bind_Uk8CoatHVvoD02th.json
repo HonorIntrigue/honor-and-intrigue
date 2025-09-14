@@ -9,7 +9,16 @@
     "actionType": 2,
     "formulae": [],
     "isMastered": false,
-    "mastery": "You may use this as a free Reaction if you have succeeded on a Barehand Parry"
+    "mastery": "You may use this as a free Reaction if you have succeeded on a Barehand Parry",
+    "abilityCheck": {
+      "quality": "daring",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "combatAbility": "melee"
+      },
+      "combatAbility": "brawl"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757785368988,
-    "modifiedTime": 1757785426678,
+    "modifiedTime": 1757802520890,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!Uk8CoatHVvoD02th"

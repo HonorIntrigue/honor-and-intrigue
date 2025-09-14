@@ -9,7 +9,16 @@
     "actionType": 2,
     "formulae": [],
     "isMastered": false,
-    "mastery": "You may use Bind as a Reaction following a successful Parry"
+    "mastery": "You may use Bind as a Reaction following a successful Parry",
+    "abilityCheck": {
+      "quality": "might",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "combatAbility": "melee"
+      },
+      "combatAbility": "melee"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757785514324,
-    "modifiedTime": 1757785539606,
+    "modifiedTime": 1757802514016,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!M4J96MGZ96eMkACf"

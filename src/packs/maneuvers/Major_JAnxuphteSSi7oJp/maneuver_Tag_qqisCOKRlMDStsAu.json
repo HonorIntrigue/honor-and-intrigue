@@ -9,7 +9,17 @@
     "actionType": 1,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Bonus Die to Tag, +1 to avoid Tag Maneuvers"
+    "mastery": "Bonus Die to Tag, +1 to avoid Tag Maneuvers",
+    "abilityCheck": {
+      "quality": "flair",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "quality": "daring",
+        "combatAbility": "defense"
+      },
+      "combatAbility": "melee"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +36,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757784922100,
-    "modifiedTime": 1757784942927,
+    "modifiedTime": 1757802465577,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!qqisCOKRlMDStsAu"

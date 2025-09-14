@@ -9,7 +9,15 @@
     "actionType": 2,
     "formulae": [],
     "isMastered": false,
-    "mastery": "You get a Bonus Die to Quick Load rolls"
+    "mastery": "You get a Bonus Die to Quick Load rolls",
+    "abilityCheck": {
+      "quality": "savvy",
+      "flatModifier": -2,
+      "opposedBy": {
+        "flatModifier": null
+      },
+      "combatAbility": "ranged"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +34,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757785766268,
-    "modifiedTime": 1757785793629,
+    "modifiedTime": 1757802573064,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!MI7jswpD4ADR7W6r"

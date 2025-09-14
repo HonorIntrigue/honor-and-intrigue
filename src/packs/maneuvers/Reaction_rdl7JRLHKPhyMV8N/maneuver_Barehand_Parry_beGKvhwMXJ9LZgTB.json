@@ -9,7 +9,15 @@
     "actionType": 3,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Bonus Die on Barehand Parry rolls"
+    "mastery": "Bonus Die on Barehand Parry rolls",
+    "abilityCheck": {
+      "quality": "daring",
+      "flatModifier": 1,
+      "opposedBy": {
+        "flatModifier": null
+      },
+      "combatAbility": "brawl"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +34,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757785990350,
-    "modifiedTime": 1757786048080,
+    "modifiedTime": 1757802734093,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!beGKvhwMXJ9LZgTB"

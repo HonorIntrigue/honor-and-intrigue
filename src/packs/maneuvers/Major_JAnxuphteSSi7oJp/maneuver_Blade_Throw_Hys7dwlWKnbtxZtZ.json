@@ -9,7 +9,16 @@
     "actionType": 1,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Bonus Die to Attack, +1 to avoid Blade Throw"
+    "mastery": "Bonus Die to Attack, +1 to avoid Blade Throw",
+    "abilityCheck": {
+      "quality": "flair",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "combatAbility": "defense"
+      },
+      "combatAbility": "melee"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757783286917,
-    "modifiedTime": 1757783765187,
+    "modifiedTime": 1757802005453,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!Hys7dwlWKnbtxZtZ"

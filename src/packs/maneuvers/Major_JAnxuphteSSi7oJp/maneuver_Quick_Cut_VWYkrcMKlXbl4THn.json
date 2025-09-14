@@ -9,7 +9,16 @@
     "actionType": 1,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Bonus Die to hit with the first attack, +1 to avoid Quick Cut attacks"
+    "mastery": "Bonus Die to hit with the first attack, +1 to avoid Quick Cut attacks",
+    "abilityCheck": {
+      "quality": "flair",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "combatAbility": "defense"
+      },
+      "combatAbility": "melee"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757784822384,
-    "modifiedTime": 1757784840261,
+    "modifiedTime": 1757802304668,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!VWYkrcMKlXbl4THn"

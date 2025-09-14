@@ -9,7 +9,16 @@
     "actionType": 2,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Bonus Die to Grapple rolls, +1 to resist Grapples"
+    "mastery": "Bonus Die to Grapple rolls, +1 to resist Grapples",
+    "abilityCheck": {
+      "quality": "might",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "quality": "might"
+      },
+      "combatAbility": "brawl"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757785686219,
-    "modifiedTime": 1757785712579,
+    "modifiedTime": 1757802570458,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!UHHv4NevJTltv9Eg"

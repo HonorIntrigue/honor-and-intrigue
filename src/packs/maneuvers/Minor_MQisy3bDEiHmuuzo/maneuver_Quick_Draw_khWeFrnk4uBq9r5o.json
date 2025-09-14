@@ -9,7 +9,15 @@
     "actionType": 2,
     "formulae": [],
     "isMastered": false,
-    "mastery": "Success is Automatic (you always can draw a weapon without expending a Minor Action or taking a penalty)"
+    "mastery": "Success is Automatic (you always can draw a weapon without expending a Minor Action or taking a penalty)",
+    "abilityCheck": {
+      "quality": "flair",
+      "flatModifier": -2,
+      "opposedBy": {
+        "flatModifier": null
+      },
+      "combatAbility": "ranged"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +34,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757785727267,
-    "modifiedTime": 1757785752886,
+    "modifiedTime": 1757802557350,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!khWeFrnk4uBq9r5o"

@@ -9,7 +9,16 @@
     "actionType": 1,
     "formulae": [],
     "isMastered": false,
-    "mastery": "+1 Damage"
+    "mastery": "+1 Damage",
+    "abilityCheck": {
+      "quality": "daring",
+      "flatModifier": null,
+      "opposedBy": {
+        "flatModifier": null,
+        "combatAbility": "defense"
+      },
+      "combatAbility": "brawl"
+    }
   },
   "effects": [],
   "sort": 0,
@@ -26,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757783033605,
-    "modifiedTime": 1757783140078,
+    "modifiedTime": 1757801979804,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!XmpFxxqgZEgc9GZZ"
