@@ -1,0 +1,29 @@
+{
+  "name": "Clergy/Theologian/Missionary",
+  "type": "career",
+  "_id": "IF4QoUBbK4YrgZL4",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>Men and women of the cloth have the respect of their communities. Among the most well-read people of the day, they must be literate. They are skilled in theology, history, as well as classical knowledge. They are often also skilled in oratory and singing. You get one free language slot from this Career, usually Latin, Hebrew, Greek, or Arabic.</p><p>Missionaries are people who specialize in preaching to non-believers, with the aim of conversion. Instead of Latin, etc., they learn the language of the indigenous people they are trying to convert.</p><p>Savvy and Flair are important Qualities for Clergy to have. This Career will seldom be of use in combat (unless you are fighting an unholy monster).</p><p><strong>Suggested Boons:</strong> Blessed, Gifted, Good Etiquette, Learned, <em>Magic Resistance</em>*</p><p><strong>Suggested Flaws:</strong> Can’t Lie, Combat Paralysis, Non- Combatant, Zealot, Obligation (Church), <em>Distrust of Magic</em>*</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757823171350,
+    "modifiedTime": 1757823213091,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!IF4QoUBbK4YrgZL4"
+}

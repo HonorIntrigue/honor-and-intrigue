@@ -1,0 +1,29 @@
+{
+  "name": "Craftsman/Armorer",
+  "type": "career",
+  "_id": "jYGBkQIw0b4T2wN5",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>Craftsmen can range from carpenters to jewelry makers, and while their skills are valuable, they usually are not useful in combat. Choose the type of craft your character is skilled in, and use that as a Career name. If for example, your craft is Carpentry, you’d write “Carpenter” as your Career; if you are a gunsmith, you’d write “Gunsmith”, etc. In addition to being able to make and repair items of your craft, you are also skilled in haggling prices, appraising items, and general knowledge related to making such items. Armorers are skilled at weapon and armor making and repair, metallurgy, weapon lore, and have skill in bartering and haggling over the price of weapons and armor.</p><p>Most craftsmen rely on their Savvy, while some, like Blacksmiths, need Might. In combat, an Armorer may receive a bonus if he is using a weapon he forged himself or if his opponent is wearing metallic armor and he knows its weak points.</p><p><strong>Suggested Boons:</strong> Artistic, Damascus Steel, Gifted, Thick-Skinned, Savant, Herculean</p><p><strong>Suggested Flaws:</strong> Illiterate, Incompetent Servant (Apprentice), Landlubber, Unsettling</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757823226101,
+    "modifiedTime": 1757823265880,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!jYGBkQIw0b4T2wN5"
+}

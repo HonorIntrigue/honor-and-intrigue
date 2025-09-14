@@ -1,0 +1,30 @@
+{
+  "name": "Soldier/Mercenary/Warrior",
+  "type": "career",
+  "_id": "BwKqMeXlPxyGfBfN",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>In the 17th Century, there are many men who have practical experience not only in military service, but also in actual combat. It should also be noted that just about every Career in civilian life has a military equivalent. Mercenaries have the widest experience of combat and are skilled in a broader variety of weapons than basic Soldiers. Most will ride, use swords, pistols and muskets and have an understanding of fieldcraft and military protocol. From there, many have more specialized training in artillery, communications and possibly even some small knowledge of explosives and demolitions. Mercenaries will usually fight for anyone who will pay for their services.</p><p>Daring is normally most important for Soldiers, although marksmen need Savvy and cavalrymen could do with a bit of Flair. Heavy infantry need Might. Officers need to have plenty of Flair to lead their men and Savvy to make sound battle plans.</p><p>Because they have been on campaign, this Career grants one free language slot: either that of the enemy or an ally on the battlefield.</p><p>Soldiers may be specialized, such as being an officer, in the cavalry, being a sapper, or member of an elite Military Order (see page 39), and may add their Career bonus in times appropriate to their occupation. Any Soldier, even basic infantry, can use their Career bonus in combat when they are fighting with firearms against a group of enemies on land.</p><p>Warriors are the primitive equivalent of soldiers, and utilize weapons like bows and spears rather than firearms. However, once they are exposed to firearms, they quickly learn how to use them.</p><p><strong>Suggested Boons:</strong> Military Order, Born Athlete/ Born in the Saddle, Speed, Hard-to-Kill, Quick- Recovery, Maneuver Mastery, Laugh in the Face of Danger</p><p><strong>Suggested Flaws:</strong> Active Duty, Drunkard, Poor Hearing, Illiterate (not for officers), Vice, Spendthrift, Primitive (Warrior)</p>",
+    "rank": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757824343535,
+    "modifiedTime": 1757824393273,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!BwKqMeXlPxyGfBfN"
+}

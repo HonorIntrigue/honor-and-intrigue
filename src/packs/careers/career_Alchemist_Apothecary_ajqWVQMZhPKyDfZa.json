@@ -3,7 +3,7 @@
   "type": "career",
   "img": "icons/svg/jump.svg",
   "system": {
-    "description": "<p>Alchemists are the masters of chemical processes, mixing and blending various ingredients together to create potions and tinctures. While Alchemists work with chemicals and metallurgy, Apothecaries have extensive knowledge of herbs and plants, often growing them in their own gardens. They can produce cures for ailments, sleeping draughts, insect repellents, poisons, antidotes, and even more amazing creations. Many Alchemists seek to perfect the formula to create the Philosopher’s Stone. For more information on what an Alchemist can do, see page 180.</p><p>An Alchemist depends heavily on Savvy.</p><p><strong>Suggested Boons:</strong> Learned, Membership (Secret Society), Gifted, Savant, Poison Resistance</p><p><strong>Suggested Flaws:</strong> Can’t Lie, City Dweller, Non-Combatant, Combat Paralysis, Delicate, Absent Minded</p>"
+    "description": "<p>Alchemists are the masters of chemical processes, mixing and blending various ingredients together to create potions and tinctures. While Alchemists work with chemicals and metallurgy, Apothecaries have extensive knowledge of herbs and plants, often growing them in their own gardens. They can produce cures for ailments, sleeping draughts, insect repellents, poisons, antidotes, and even more amazing creations. Many Alchemists seek to perfect the formula to create the Philosopher’s Stone.</p><p>An Alchemist depends heavily on Savvy.</p><p><strong>Suggested Boons:</strong> Learned, Membership (Secret Society), Gifted, Savant, Poison Resistance</p><p><strong>Suggested Flaws:</strong> Can’t Lie, City Dweller, Non-Combatant, Combat Paralysis, Delicate, Absent Minded</p>"
   },
   "effects": [],
   "folder": null,
@@ -20,7 +20,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757796078165,
-    "modifiedTime": 1757796133401,
+    "modifiedTime": 1757822601935,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_id": "ajqWVQMZhPKyDfZa",

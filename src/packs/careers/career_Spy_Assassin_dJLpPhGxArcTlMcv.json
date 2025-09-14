@@ -1,0 +1,30 @@
+{
+  "name": "Spy/Assassin",
+  "type": "career",
+  "_id": "dJLpPhGxArcTlMcv",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>A knife for hire, perhaps an agent in the service of your king, Spies and Assassins make killing or stealing in a discreet manner a way of life. They are adept at sneak attacks, killing, information gathering, disguises, city lore, persuasion, poisons, and lock picking. They also tend to have fast reflexes. A Spy or Assassin can add a Career bonus in combat on the first attack when he has taken the enemy by surprise.</p><p>Spies get 1 free language slot per rank in this Career, often used to achieve “Native Speaker” fluency.</p><p>Savvy is their most important Quality.</p><p><strong>Suggested Boons:</strong> Master of Disguise, Silver Tongue, Sneaky, Poisoner, Hidden Weapon</p><p><strong>Suggested Flaws:</strong> Active Duty/Obligation, Double Life, Obsession (Finish the Mission), Hunted, City Dweller</p>",
+    "rank": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757824438016,
+    "modifiedTime": 1757824460570,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!dJLpPhGxArcTlMcv"
+}

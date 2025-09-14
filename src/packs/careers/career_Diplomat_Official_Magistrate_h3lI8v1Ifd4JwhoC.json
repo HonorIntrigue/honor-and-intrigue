@@ -1,0 +1,29 @@
+{
+  "name": "Diplomat/Official/Magistrate",
+  "type": "career",
+  "_id": "h3lI8v1Ifd4JwhoC",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>While Diplomats are obviously skilled in diplomacy, officials’ talents depend on what they are in charge of. A Magistrate would be skilled in knowledge of the law, while a Treasury Officer would know about finance. Needless to say, you must be literate to be in this Career. Many Diplomats and Officials are also Scholars. You get +1 language slot for free.</p><p>Savvy and Flair are both important Qualities for this Career.</p><p><strong>Suggested Boons:</strong> Membership (Powerful Group), Friends in High Places, Good Etiquette, Maguffin, Knighted, Silver Tongue</p><p><strong>Suggested Flaws:</strong> Arrogant, Combat Paralysis, Incompetent Servant, Obligation (Country), Non- Combatant</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757823280655,
+    "modifiedTime": 1757823315196,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!h3lI8v1Ifd4JwhoC"
+}

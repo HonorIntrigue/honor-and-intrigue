@@ -1,0 +1,29 @@
+{
+  "name": "Gaoler/Executioner/Inquisitor",
+  "type": "career",
+  "_id": "D8ODUNTkW4kG6Fbl",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>This unpleasant Career excels in extracting information from reticent individuals. Gaolers are skilled in interrogation, intimidation, a basic awareness of anatomy and first aid (you’ve got to make sure they’re healthy before they are broken). In combat, Gaolers are skilled with the use of the whip while Executioners prefer two-handed axes. They can add their Career bonus only in certain situations, such as when their opponent is defenseless. Inquisitors have no special combat training, but are knowledgeable about the law, their own religious dogma, and lore about witches.</p><p>Might and Daring are important Qualities for this Career, while Inquisitors use Savvy.</p><p><strong>Suggested Boons:</strong> Strength Feat, Fearsome Looks, Quick Recovery, Laugh in the Face of Danger, Friends in Low Places</p><p><strong>Suggested Flaws:</strong> City Dweller, Illiterate (Gaoler/ Executioner), Zealot (Inquisitor), Lumbering, Unsettling</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757823473665,
+    "modifiedTime": 1757823497908,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!D8ODUNTkW4kG6Fbl"
+}

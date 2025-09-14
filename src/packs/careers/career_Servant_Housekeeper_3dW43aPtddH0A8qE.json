@@ -1,0 +1,30 @@
+{
+  "name": "Servant/Housekeeper",
+  "type": "career",
+  "_id": "3dW43aPtddH0A8qE",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>Being a Servant is not exactly a Career of choice for a heroic adventurer. Nevertheless, it does provide the opportunity to pick up a few skills and techniques that other Careers do not give and can be useful in rounding out a character concept. The Career grants skill in things like humility, going unnoticed, listening and sneaking as well as cooking, cleaning, gardening, sewing, etc.</p><p>Servants find all of the Qualities useful, though Flair might be useful for keeping in the employer’s good graces.</p><p><strong>Suggested Boons:</strong> Sneaky, Keen Hearing, Favored by Fortune, Jack of All Trades, Devil’s Own Luck</p><p><strong>Suggested Flaws:</strong> Obligation (Master), Hapless Friend/Loved One, Trusting, Non-Combatant, Landlubber, City Dweller</p>",
+    "rank": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757824303327,
+    "modifiedTime": 1757824322719,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!3dW43aPtddH0A8qE"
+}

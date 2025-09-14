@@ -1,0 +1,30 @@
+{
+  "name": "Noble/Aristocrat/Courtier",
+  "type": "career",
+  "_id": "geTRQbaP7yZv9IO2",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>Nobles are considered to be in the highest social class in society; they have land, money, and power. This means they are good at browbeating peasants, and have a knack for leadership, if not a sound tactical ability. Nobles are also skilled in such things as bribery, fashion, horseback riding, games, heraldry, and etiquette. Nobles also have powers and privileges not afforded to ordinary folk.</p><p>Flair is the most useful Quality to a Noble.</p><p><strong>Suggested Boons:</strong> Great Wealth, Attractive, Membership (Powerful Group), Legacy, Good Etiquette</p><p><strong>Suggested Flaws:</strong> Arrogant, Obligation (Family), Vice, Bad Reputation, Delicate</p>",
+    "rank": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757824083483,
+    "modifiedTime": 1757824098145,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!geTRQbaP7yZv9IO2"
+}

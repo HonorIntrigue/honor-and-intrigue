@@ -1,0 +1,30 @@
+{
+  "name": "Magician/Astrologer",
+  "type": "career",
+  "_id": "q8d80BPTsmLZgAeW",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>Often a little strange, these characters are knowledgeable in esoteric matters to do with astrology, numerology, Talismans, legends, and ancient lore. By extension, they know a bit about mathematics, cryptology, and astronomy. At times, they can make vague predictions about the future, which other people will find believable. Many Astrologers are also Alchemists and Scholars.</p><p>Savvy is the most important Quality that an Astrologer has.</p><p><strong>Suggested Boons:</strong> <em>Nose for Magic</em>*, <em>Magic Resistance</em>*, Membership (Secret Society), Friends in High Places, Destiny, Seeking</p><p><strong>Suggested Flaws:</strong> Absent Minded, Obsession, Delusions of Grandeur, Visions/Voices, Superstitious, Tragic Fate</p>",
+    "rank": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757824002291,
+    "modifiedTime": 1757824034211,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!q8d80BPTsmLZgAeW"
+}

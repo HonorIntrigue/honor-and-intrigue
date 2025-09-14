@@ -1,0 +1,30 @@
+{
+  "name": "Thief/Scoundrel/Vagabond",
+  "type": "career",
+  "_id": "6SJ4Ou4Leek1z26y",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>Perhaps you have fallen into a life of crime, or began as a young street urchin. In either case, you have a certain unique set of skills that most find unsavory. Thieves, Scoundrels and other ne’er-do-wells will have skill in such things as city lore, climbing, burglary, sneaking, picking pockets, skullduggery, gambling, and may be part of some “guild” organization.</p><p>Vagabonds are vagrants or tramps, aimlessly wandering from place to place. They may do casual work here and there or they may sell a few small trinkets that they carry about in their backpacks. Some even turn their hands to dishonest pursuits.</p><p>Savvy is a very important Quality, as is Daring.</p><p><strong>Suggested Boons:</strong> Special Thieves Tools, Sneaky, Membership (Secret Society), Night Sight, Friends in Low Places</p><p><strong>Suggested Flaws:</strong> Spendthrift, City Dweller, Poor Recovery, Greed, Hunted, Illiterate</p>",
+    "rank": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757824547823,
+    "modifiedTime": 1757824568649,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!6SJ4Ou4Leek1z26y"
+}

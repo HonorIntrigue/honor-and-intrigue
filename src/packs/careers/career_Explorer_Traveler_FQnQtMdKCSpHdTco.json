@@ -1,0 +1,29 @@
+{
+  "name": "Explorer/Traveler",
+  "type": "career",
+  "_id": "FQnQtMdKCSpHdTco",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>Explorers are adventurers that travel the world seeking excitement and adventure. They are skilled cartographers, have excellent communication and survival skills and are excellent hikers and climbers; often they are also Traders, Sailors, or Missionaries. Explorers are also adept at fleeing unfriendly natives. Explorers find every Quality to be important.</p><p>For each rank in this Career, you have one additional language slot.</p><p><strong>Suggested Boons:</strong> Poison Resistance, Silver Tongue, Seeking, Night Sight, Born Athlete, Maguffin</p><p><strong>Suggested Flaws:</strong> Cursed, Greed, Obsession, Phobia, Untrustworthy</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757823381022,
+    "modifiedTime": 1757823415813,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!FQnQtMdKCSpHdTco"
+}

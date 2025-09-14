@@ -1,0 +1,29 @@
+{
+  "name": "Duelist/Swordsman/Pugilist",
+  "type": "career",
+  "_id": "MM4DBrHhz9fe4MQF",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>Drawn to the life of a professional fighter, the Duelist is skilled in one-on-one tactics, exotic weapons, dueling codes, dueling styles, sword lore, and weapon training. Skilled blades are often well known throughout the land, which can be to their advantage.</p><p>Duelists should be Daring, but Flair, Savvy and Might are also important, depending on one’s fighting style.</p><p>Pugilists are prizefighters who make a living fighting with their fists instead of a blade. A pugilist is skilled in feats of endurance, withstanding pain and fatigue, intimidation, and a certain degree of showmanship. Might is a pugilist’s most important Quality, followed by Daring.</p><p>Whether you fight with fists or flashing blades, you can add your Career bonus when fighting an opponent in a one-on-one fight.</p><p><strong>Suggested Boons:</strong> Born Athlete, Fencing School, Dueling Style, Left-Hand Training, Magnificent Arms</p><p><strong>Suggested Flaws:</strong> Arrogant, Braggart, City Dweller, Distinctive Appearance, Hot-Headed</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757823335764,
+    "modifiedTime": 1757823368566,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!MM4DBrHhz9fe4MQF"
+}

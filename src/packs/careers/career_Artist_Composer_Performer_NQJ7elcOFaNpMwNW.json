@@ -1,0 +1,29 @@
+{
+  "name": "Artist/Composer/Performer",
+  "type": "career",
+  "_id": "NQJ7elcOFaNpMwNW",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>Artists produce beautiful things, usually commissioned by wealthy patrons. Composers write music to be performed at concerts for the elite. The higher a character’s rank in this Career, the more well-known and regarded their work will be. Because they have to deal with patrons, they are skilled in etiquette and bargaining. This Career has virtually no use in combat.</p><p>An artist relies most on Savvy, and also on Flair.</p><p>A Performer is one who entertains crowds, and can be anything from musicians, poets, circus-performers, or actors that wander the land performing for whatever the locals can scrounge up to pay them. If you are a performer, you need to define what it is you do. That becomes the name for your Career. So if you are an actor, your Career is “Actor”; if you are a musician, your Career is “Musician”.</p><p>A Performer’s most important Quality depends on the talent they perform. A sword-swallower would rely on Daring, while one who tells stories or acts would need Flair. A carnival knife-thrower would need Savvy, while a circus strong-man would rely on Might.</p><p>Performer is not generally a combat Career and there are very few circumstances where this Career will provide a combat bonus. However, actors are often skilled in stage combat, and might use their Career bonus to stage a convincing mock combat. Likewise, a carnival knife-thrower would get a bonus when trying to throw a knife at a stationary target.</p><p><strong>Suggested Boons:</strong> Artistic, Attractive, Beguiling, Good Etiquette, Master of Disguise</p><p><strong>Suggested Flaws:</strong> All Thumbs, Arrogant, City Dweller, Vice, Spendthrift</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757822640212,
+    "modifiedTime": 1757822729625,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!NQJ7elcOFaNpMwNW"
+}

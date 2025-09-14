@@ -1,0 +1,30 @@
+{
+  "name": "Prisoner/Slave/Serf",
+  "type": "career",
+  "_id": "QuDpycsHHO0Af6ro",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>Prisoners exist the world around; while slavery is not seen in Europe, it exists throughout the Ottoman Empire, and in the colonies extensively, while Serfdom persists in Russia and Eastern Europe. In any case, un- free laborers are adept in going unnoticed, feigning ignorance, enduring brutal conditions, hiding things, survival, and manual labor.</p><p>While most slaves held by Europeans in the colonies are African, some Europeans (especially Irish) have been sentenced to servitude in the colonies as punishment for resistance to the government, while still others sell themselves into indentured servitude (temporary slavery) to pay their passage across the Atlantic. Spain uses slavery pulling an oar aboard a galley as a punishment for crimes. Europeans captured by the Barbary Corsairs who were too unimportant to ransom would usually find their way to a Turkish slave market.</p><p>You can use a Career bonus in combat if you are ever fighting to gain or keep your freedom, or if you are fighting over a scarce resource you need to survive, like the last bit of food or water.</p><p>Might is an important Quality as it is directly linked to survival. Daring and Savvy is usually discouraged in slaves and prisoners, but most heroes with this career are escapees, so a bit of Daring and Savvy makes sense in their case.</p><p><strong>Suggested Boons:</strong> Thick-Skinned, Hard to Kill, Sneaky, Destiny, Devil’s Own Luck</p><p><strong>Suggested Flaws:</strong> Untrustworthy, Hunted, Poor Recovery, Distinctive Appearance (Brand), Evil Twin</p>",
+    "rank": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1757824170134,
+    "modifiedTime": 1757824203718,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!QuDpycsHHO0Af6ro"
+}
