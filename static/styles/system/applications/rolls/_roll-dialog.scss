@@ -45,6 +45,11 @@
         grid-column: 2;
         justify-self: end;
       }
+
+      select[data-dtype='String'] {
+        text-overflow: ellipsis;
+        white-space-collapse: collapse;
+      }
     }
   }
 

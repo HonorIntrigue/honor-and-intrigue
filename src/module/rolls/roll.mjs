@@ -30,6 +30,18 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
   static applyActorModifiers(options) {
     if (!options.actor) return;
 
+    options.modifiers.combatAbility ??= 'none';
+    options.modifiers.combatAbilityOptions = Object.values(hi.CONFIG.combatAbilities).map(c => ({
+      ...c,
+      label: game.i18n.localize(c.label),
+    }));
+
+    options.modifiers.career ??= 'none';
+    options.modifiers.careerOptions = options.actor.itemTypes['career'].map(career => ({
+      label: `(+${career.system.rank}) ${career.name}`,
+      value: career.id,
+    }));
+
     // TODO apply penalty die when blinded, bound, etc.
   }
 
@@ -40,7 +52,6 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
    */
   static async prompt(options = {}) {
     options.modifiers ??= {};
-    options.modifiers.combatAbility = 'none';
     options.modifiers.bonuses ??= 0;
     options.modifiers.penalties ??= 0;
     options.modifiers.flat ??= 0;
@@ -66,13 +77,24 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
 
     const roll = new this(baseTerm.formula, options.data, {});
 
-    if (modifiers.combatAbility !== 'none') {
+    if (modifiers.combatAbility && modifiers.combatAbility !== 'none') {
       const value = options.actor.system.combatAbilities[modifiers.combatAbility].value;
 
       roll.terms.push(
         new OperatorTerm({ operator: (value >= 0 ? '+' : '-') }),
         new NumericTerm({ number: Math.abs(value) }),
       );
+    }
+
+    if (modifiers.career && modifiers.career !== 'none') {
+      const career = await options.actor.getEmbeddedDocument('Item', modifiers.career);
+
+      if (career) {
+        roll.terms.push(
+          new OperatorTerm({ operator: '+' }),
+          new NumericTerm({ number: Math.abs(career.system.rank) }),
+        );
+      }
     }
 
     if (modifiers.flat !== 0) {

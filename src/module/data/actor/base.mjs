@@ -91,12 +91,21 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       number: `${value >= 0 ? '+' : ''}${value}`,
     }));
 
-    if (modifiers.combatAbility !== 'none') {
+    if (modifiers.combatAbility && modifiers.combatAbility !== 'none') {
       const abilityValue = this.parent.system.combatAbilities[modifiers.combatAbility].value;
 
       flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
         ability: game.i18n.localize(hi.CONFIG.combatAbilities[modifiers.combatAbility].label),
         number: `${abilityValue >= 0 ? '+' : ''}${abilityValue}`,
+      }));
+    }
+
+    if (modifiers.career && modifiers.career !== 'none') {
+      const career = await this.parent.getEmbeddedDocument('Item', modifiers.career);
+
+      flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
+        ability: career.name,
+        number: `+${career.system.rank}`,
       }));
     }
 

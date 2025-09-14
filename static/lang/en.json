@@ -81,6 +81,7 @@
       "Roll": {
         "BonusDie": "Bonus Dice",
         "Button": "Roll",
+        "Career": "Career Bonus",
         "CombatAbility": "Combat Ability",
         "Flat": "Flat Modifier",
         "Modifiers": "Modifiers",

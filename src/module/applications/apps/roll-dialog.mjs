@@ -103,12 +103,20 @@ export default class RollDialog extends FormApplicationMixin(foundry.application
           label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.CombatAbility'),
           options: [
             {
-              rollKey: 'none',
               label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.None'),
+              rollKey: 'none',
             },
-          ].concat(Object.values(hi.CONFIG.combatAbilities).map(c => ({ ...c, label: game.i18n.localize(c.label) }))),
+          ].concat(context.modifiers.combatAbilityOptions),
           value: context.modifiers.combatAbility,
           valueAttr: 'rollKey',
+        },
+        {
+          id: 'career',
+          label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.Career'),
+          options: [
+            { label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.None'), value: 'none' },
+          ].concat(context.modifiers.careerOptions),
+          value: context.modifiers.career,
         },
       ],
       stepperFields: [
