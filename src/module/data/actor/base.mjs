@@ -65,7 +65,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
    * Prompt the user to roll a characteristic.
    * @param characteristic
    * @param options
-   * @returns {Promise<messageData>}
+   * @returns {Promise<messageData>|undefined}
    */
   async rollCharacteristic(characteristic, options = {}) {
     const data = this.parent.getRollData();
@@ -76,7 +76,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     // speakerActor.img
     // user.name
 
-    const { modifiers, rollMode, rolls } = await HonorIntrigueRoll.prompt({
+    const result = await HonorIntrigueRoll.prompt({
       actor: this.parent,
       quality: value,
       characteristic,
@@ -84,6 +84,10 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       flavor,
       title: flavor,
     });
+
+    if (!result) return;
+
+    const { modifiers, rollMode, rolls } = result;
     const flavorModifiers = [];
 
     flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {

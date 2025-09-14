@@ -6,7 +6,7 @@
     <div class='modifiers-table-items'>
       <div class='modifiers-table-item'>
         <span>{{localize flavor}}</span>
-        <span>{{ifThen (gt bonus 0) '+' ''}}{{bonus}}</span>
+        <span>{{ifThen (gt quality 0) '+' ''}}{{quality}}</span>
       </div>
       {{#each selectFields as |field|}}
         <div class='modifiers-table-item'>

@@ -48,7 +48,7 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
   /**
    * Prompt the user with a roll request dialog.
    * @param options
-   * @returns {Promise<Object>}
+   * @returns {Promise<Object|false>}
    */
   static async prompt(options = {}) {
     options.modifiers ??= {};
@@ -59,10 +59,13 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
     options.actor ??= ChatMessage.getSpeakerActor(ChatMessage.getSpeaker());
     this.applyActorModifiers(options);
 
-    const { rollMode, modifiers } = await hi.applications.apps.RollDialog.create({
+    const result = await hi.applications.apps.RollDialog.create({
       context: options,
     });
 
+    if (!result) return false;
+
+    const { rollMode, modifiers } = result;
     const baseTerm = new Die({ number: 2, faces: this.dieSize });
 
     if (modifiers.bonuses > 0) {
