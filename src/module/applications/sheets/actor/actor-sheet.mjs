@@ -1,11 +1,13 @@
-import { DocumentSheetMixin } from '../api/_module.mjs';
+import { DocumentSheetMixin } from '../../api/_module.mjs';
 
 export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.applications.sheets.ActorSheetV2) {
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
     actions: {
+      addCareer: this.#onAddCareer,
       deleteItem: this.#onDeleteItem,
       openItem: this.#onOpenItem,
+      rollCharacteristic: this.#onRollCharacteristic,
       toggleItemExpanded: this.#toggleItemExpanded,
     },
     classes: ['actor'],
@@ -20,6 +22,14 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
    * @type {Set<String>}
    */
   #expanded = new Set();
+
+  /**
+   * Add a Career entry to the document.
+   */
+  static async #onAddCareer(event, target) {
+    const [item] = await this.actor.createEmbeddedDocuments('Item', [{ type: 'career', name: 'New Career' }]);
+    return item.sheet.render(true);
+  }
 
   /**
    * Delete an embedded item.
@@ -49,6 +59,15 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
   }
 
   /**
+   * Begin rolling a characteristic such as a Quality or Combat Ability.
+   * @param event
+   * @param target Should have the target characteristic in its "dataset" field, such as <code>dataset.characteristic.qualities.might</code>.
+   */
+  static async #onRollCharacteristic(event, target) {
+    return this.actor.rollCharacteristic(target.dataset.characteristic);
+  }
+
+  /**
    * Toggle the expanded state of an embedded item.
    */
   static async #toggleItemExpanded(event, target) {
@@ -59,6 +78,22 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
 
     const part = target.closest('[data-application-part]').dataset.applicationPart;
     this.render({ parts: [part] });
+  }
+
+  /** @inheritDoc */
+  async _prepareContext(options) {
+    const ctx = await super._prepareContext(options);
+
+    return {
+      ...ctx,
+      actorType: this.document.type ?? 'actor',
+      enrichedNotes: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.notes, {
+        rollData: this.document.getRollData(),
+        secrets: this.document.isOwner,
+      }),
+      getValueField: (type, name) => this.document.system.schema.getField(`${type}.${name}.value`),
+      getValueFieldValue: (type, name) => foundry.utils.getProperty(this.document.system, `${type}.${name}.value`),
+    };
   }
 
   /**

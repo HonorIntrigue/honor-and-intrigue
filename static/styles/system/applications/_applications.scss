@@ -2,6 +2,9 @@
 @forward 'apps/apps';
 @forward 'rolls/rolls';
 @forward 'sheets/base';
-@forward 'sheets/actor/inventory';
+@forward 'sheets/actor/base/header';
+@forward 'sheets/actor/base/sidebar';
 @forward 'sheets/actor/hero/sheet';
+@forward 'sheets/actor/pawn/sheet';
+@forward 'sheets/actor/inventory';
 @forward 'sheets/item/sheet';

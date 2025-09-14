@@ -12,7 +12,7 @@
   .window-content {
     background: light-dark(var(--background), var(--color-navy));
     display: grid;
-    grid-template-columns: var(--portrait-size) 1fr;
+    grid-template-columns: max(200px, var(--portrait-size)) 1fr;
     grid-template-rows: auto auto 1fr;
     padding: 0;
 
@@ -47,18 +47,21 @@
       display: flex;
       flex-direction: column;
       grid-area: 1 / 1 / span 3;
-      min-width: var(--portrait-size);
+      min-width: max(200px, var(--portrait-size));
       overflow-y: auto;
       position: relative;
-      width: var(--portrait-size);
+      width: max(200px, var(--portrait-size));
     }
 
     .sheet-tabs {
       grid-area: 2 / 2;
     }
 
-    .tab[data-group='primary'] {
-      box-shadow: 4px 4px 12px 0 rgba(0,0,0,0.5) inset;
+    .tab {
+      &[data-group='primary'] {
+        box-shadow: 4px 4px 12px 0 rgba(0,0,0,0.5) inset;
+      }
+
       grid-area: 3 / 2;
       position: relative;
 
@@ -71,6 +74,18 @@
         flex-direction: column;
         height: 100%;
         padding: 1rem;
+
+        prose-mirror {
+          flex: 1;
+
+          &.active {
+            border: 1px solid light-dark(var(--color-navy), var(--color-gold-dull));
+          }
+
+          .editor-content {
+            padding-left: 0.5rem;
+          }
+        }
       }
 
       .form-fields-stacked {

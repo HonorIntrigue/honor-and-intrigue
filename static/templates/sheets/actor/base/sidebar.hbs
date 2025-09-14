@@ -9,20 +9,32 @@
         <div class='resource-item'>
           <div class='resource-value'>
             {{formInput systemFields.lifeblood.fields.value value=this.system.lifeblood.value type='number' max=this.system.lifeblood.max}}
-            <p>/</p>
-            <p class='resource-value-label'>{{this.system.lifeblood.max}}</p>
+            {{#if (ne actorType 'pawn')}}
+              <p>/</p>
+              <p class='resource-value-label'>{{this.system.lifeblood.max}}</p>
+            {{/if}}
           </div>
           <span class='resource-label'>{{localize 'HONOR_INTRIGUE.Sheet.Labels.Lifeblood'}}</span>
         </div>
 
-        <div class='resource-item'>
-          <div class='resource-value'>
-            {{formInput systemFields.composure value=this.system.composure type='number' max=systemFields.composure.max}}
-            <p>/</p>
-            <p class='resource-value-label'>{{systemFields.composure.max}}</p>
+        {{#if (eq actorType 'hero')}}
+          <div class='resource-item'>
+            <div class='resource-value'>
+              {{formInput systemFields.composure value=this.system.composure type='number' max=systemFields.composure.max}}
+              <p>/</p>
+              <p class='resource-value-label'>{{systemFields.composure.max}}</p>
+            </div>
+            <span class='resource-label'>{{localize 'HONOR_INTRIGUE.Sheet.Labels.Composure'}}</span>
           </div>
-          <span class='resource-label'>{{localize 'HONOR_INTRIGUE.Sheet.Labels.Composure'}}</span>
-        </div>
+        {{/if}}
+        {{#if (eq actorType 'pawn')}}
+          <div class='resource-item'>
+            <div class='resource-value'>
+              {{formInput systemFields.competence value=this.system.competence type='number'}}
+            </div>
+            <span class='resource-label'>{{localize 'HONOR_INTRIGUE.Sheet.Labels.Competence'}}</span>
+          </div>
+        {{/if}}
       </div>
     </div>
 

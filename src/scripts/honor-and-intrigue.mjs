@@ -46,10 +46,25 @@ Hooks.once('init', () => {
 
   const { Actors, Items } = foundry.documents.collections;
 
-  Actors.registerSheet(HI_CONST.systemID, applications.sheets.HeroSheet, {
+  Actors.registerSheet(HI_CONST.systemID, applications.sheets.actorSheets.HeroSheet, {
     types: ['hero'],
     makeDefault: true,
     label: 'TYPES.Actor.hero',
+  });
+  Actors.registerSheet(HI_CONST.systemID, applications.sheets.actorSheets.PawnSheet, {
+    types: ['pawn'],
+    makeDefault: true,
+    label: 'TYPES.Actor.pawn',
+  });
+  Actors.registerSheet(HI_CONST.systemID, applications.sheets.actorSheets.RetainerSheet, {
+    types: ['retainer'],
+    makeDefault: true,
+    label: 'TYPES.Actor.retainer',
+  });
+  Actors.registerSheet(HI_CONST.systemID, applications.sheets.actorSheets.VillainSheet, {
+    types: ['villain'],
+    makeDefault: true,
+    label: 'TYPES.Actor.villain',
   });
 
   Items.unregisterSheet('core', foundry.applications.sheets.ItemSheetV2);

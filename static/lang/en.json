@@ -31,7 +31,8 @@
       "Sheet": {
         "Labels": {
           "Character": {
-            "Careers": "Careers"
+            "Careers": "Careers",
+            "Notes": "Notes"
           },
           "Careers": {
             "Rank": "Rank"
@@ -149,6 +150,7 @@
         "AdvancementPoints": "Advancement Points",
         "Character": "Hero",
         "CombatAbilities": "Combat Abilities",
+        "Competence": "Competence",
         "Composure": "Composure",
         "FortunePoints": "Fortune",
         "Lifeblood": "Lifeblood",

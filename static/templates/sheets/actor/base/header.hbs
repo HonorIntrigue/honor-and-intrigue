@@ -1,0 +1,31 @@
+<header class='sheet-header'>
+  <div class='characteristic-row'>
+    <h1 class='character-name'>
+      {{formInput fields.name value=source.name}}
+    </h1>
+
+    {{#if (eq actorType 'hero')}}
+      <div class='advancement-points'
+           title='{{localize "HONOR_INTRIGUE.Sheet.Labels.AdvancementPoints"}}'
+           data-action='adjustAdvancementPoints'>
+        <span>{{system.advancementPoints.value}}</span>
+        <i class='fa-solid fa-arrow-up'></i>
+      </div>
+    {{/if}}
+  </div>
+  {{#if (eq actorType 'hero')}}
+    <div class='characteristic-row'>
+      <div class='flexcol flex1'>
+        {{> "systems/honor-and-intrigue/templates/api/label-bar.hbs" label="HONOR_INTRIGUE.Sheet.Labels.Motivation"}}
+        {{formInput systemFields.motivation value=this.system.motivation}}
+      </div>
+
+      <div class='fortune-points'
+           title='{{localize "HONOR_INTRIGUE.Sheet.Labels.FortunePoints"}}'
+           data-action='adjustFortune'>
+        <span>{{system.fortune}}</span>
+        <i class='fa-solid fa-stars'></i>
+      </div>
+    </div>
+  {{/if}}
+</header>

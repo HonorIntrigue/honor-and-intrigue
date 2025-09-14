@@ -1,0 +1,13 @@
+.honor-intrigue.sheet.pawn {
+  --portrait-size: 140px;
+
+  .tab {
+    &.background {
+      .item-controls {
+        input {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

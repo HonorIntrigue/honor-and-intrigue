@@ -1,17 +1,15 @@
-import { systemID, systemPath } from '../../constants.mjs';
+import { systemID, systemPath } from '../../../constants.mjs';
 import HonorIntrigueActorSheet from './actor-sheet.mjs';
 
 export default class HeroSheet extends HonorIntrigueActorSheet {
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
     actions: {
-      addCareer: this.#onAddCareer,
       adjustAdvancementPoints: { handler: this.#adjustAdvancementPoints, buttons: [0, 2] },
       adjustFortune: { handler: this.#adjustFortune, buttons: [0, 2] },
       populateManeuvers: this.#onPopulateManeuvers,
       rollManeuver: this.#onRollManeuver,
       resetManeuvers: this.#onResetManeuvers,
-      rollCharacteristic: this.#onRollCharacteristic,
       toggleManeuverMastery: this.#toggleManeuverMastery,
     },
     classes: ['hero'],
@@ -29,14 +27,14 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
 
   /** @inheritDoc */
   static PARTS = {
-    sidebar: { template: systemPath('templates/sheets/actor/hero/sidebar.hbs') },
-    header: { template: systemPath('templates/sheets/actor/hero/header.hbs') },
+    sidebar: { template: systemPath('templates/sheets/actor/base/sidebar.hbs') },
+    header: { template: systemPath('templates/sheets/actor/base/header.hbs') },
     content: { template: 'templates/generic/tab-navigation.hbs' },
-    character: { template: systemPath('templates/sheets/actor/hero/tabs/character.hbs') },
+    character: { template: systemPath('templates/sheets/actor/hero/tabs/character.hbs'), scrollable: [''] },
     maneuvers: { template: systemPath('templates/sheets/actor/hero/tabs/maneuvers.hbs'), scrollable: [''] },
-    inventory: { template: systemPath('templates/sheets/actor/hero/tabs/inventory.hbs') },
-    background: { template: systemPath('templates/sheets/actor/hero/tabs/background.hbs') },
-    effects: { template: systemPath('templates/sheets/actor/hero/tabs/effects.hbs') },
+    inventory: { template: systemPath('templates/sheets/actor/hero/tabs/inventory.hbs'), scrollable: [''] },
+    background: { template: systemPath('templates/sheets/actor/hero/tabs/background.hbs'), scrollable: [''] },
+    effects: { template: systemPath('templates/sheets/actor/hero/tabs/effects.hbs'), scrollable: [''] },
   };
 
   /** @inheritDoc */
@@ -66,14 +64,6 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
   }
 
   /**
-   * Add a Career entry to the document.
-   */
-  static async #onAddCareer(event, target) {
-    const [item] = await this.actor.createEmbeddedDocuments('Item', [{ type: 'career', name: 'New Career' }]);
-    return item.sheet.render(true);
-  }
-
-  /**
    * Handle header control to reset the maneuvers content.
    */
   static async #onResetManeuvers(event) {
@@ -89,15 +79,6 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
         await Item.deleteDocuments(maneuvers.map(m => m.id), { parent: this.actor });
       }
     }
-  }
-
-  /**
-   * Begin rolling a characteristic such as a Quality or Combat Ability.
-   * @param event
-   * @param target Should have the target characteristic in its "dataset" field, such as <code>dataset.characteristic.qualities.might</code>.
-   */
-  static async #onRollCharacteristic(event, target) {
-    return this.actor.rollCharacteristic(target.dataset.characteristic);
   }
 
   /**
@@ -159,17 +140,6 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
         await item.update({ system: { rank: event.target.value } });
       });
     }
-  }
-
-  /** @inheritDoc */
-  async _prepareContext(options) {
-    const ctx = await super._prepareContext(options);
-
-    return {
-      ...ctx,
-      getValueField: (type, name) => this.document.system.schema.getField(`${type}.${name}.value`),
-      getValueFieldValue: (type, name) => foundry.utils.getProperty(this.document.system, `${type}.${name}.value`),
-    };
   }
 
   /**
