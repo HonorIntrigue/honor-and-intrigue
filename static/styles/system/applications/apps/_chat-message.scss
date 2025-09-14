@@ -12,11 +12,11 @@
     }
 
     .modifiers {
-      column-gap: 0.25rem;
+      column-gap: 0.1rem;
       display: flex;
       flex-wrap: wrap;
       margin-top: 0.5rem;
-      row-gap: 0.05rem;
+      row-gap: 0.1rem;
 
       .modifier {
         border: 1px dotted var(--color-navy);
