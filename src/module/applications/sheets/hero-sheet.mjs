@@ -9,6 +9,7 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
       adjustAdvancementPoints: { handler: this.#adjustAdvancementPoints, buttons: [0, 2] },
       adjustFortune: { handler: this.#adjustFortune, buttons: [0, 2] },
       populateManeuvers: this.#onPopulateManeuvers,
+      rollManeuver: this.#onRollManeuver,
       resetManeuvers: this.#onResetManeuvers,
       rollCharacteristic: this.#onRollCharacteristic,
       toggleManeuverMastery: this.#toggleManeuverMastery,
@@ -100,6 +101,24 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
   }
 
   /**
+   * Begin rolling a maneuver.
+   */
+  static async #onRollManeuver(event, target) {
+    const { itemId } = target.closest('.item').dataset;
+    const item = this.actor.items.get(itemId);
+
+    if (item?.type !== 'maneuver') return;
+
+    const { abilityCheck } = item.system;
+    const options = { modifiers: {} };
+
+    if (abilityCheck.combatAbility) options.modifiers.combatAbility = abilityCheck.combatAbility;
+    if (abilityCheck.flatModifier) options.modifiers.flat = abilityCheck.flatModifier;
+
+    return this.actor.rollCharacteristic(`qualities.${abilityCheck.quality}`, options);
+  }
+
+  /**
    * Populate this actor with default maneuvers from the system compendium.
    */
   static async #onPopulateManeuvers(event, target) {
@@ -163,6 +182,9 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     if (maneuvers.length === 0) return false;
 
     return maneuvers.reduce((acc, curr) => {
+      curr.hasMasteryBenefit = !!curr.item.system.mastery;
+      curr.rollable = curr.item.system.requiresCheck || curr.item.system.requiresOpposedCheck;
+
       switch (curr.item.system.actionType) {
         case 0: acc.free.push(curr); break;
         case 1: acc.major.push(curr); break;

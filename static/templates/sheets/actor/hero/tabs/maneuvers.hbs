@@ -10,13 +10,17 @@
             {{#each collection as |maneuverContext|}}
               <li class='item' data-item-id='{{maneuverContext.item.id}}' data-document-class='Item'>
                 <div class='item-row'>
-                  <img class='item-image' src='{{maneuverContext.item.img}}' alt='{{maneuverContext.item.name}}'>
+                  <div class='item-image{{#if maneuverContext.rollable}} rollable{{/if}}' data-action='rollManeuver'>
+                    <img src='{{maneuverContext.item.img}}' alt='{{maneuverContext.item.name}}'>
+                  </div>
                   <div class='item-name' data-action='toggleItemExpanded'>{{maneuverContext.item.name}}</div>
                   <div class='item-controls'>
-                    <a data-action='toggleManeuverMastery'
-                       data-tooltip='{{localize "HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ToggleMastery"}}'>
-                      <i class='fa-{{ifThen maneuverContext.item.system.isMastered "solid illuminate" "light"}} fa-star-shooting'></i>
-                    </a>
+                    {{#if maneuverContext.hasMasteryBenefit}}
+                      <a data-action='toggleManeuverMastery'
+                         data-tooltip='{{localize "HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ToggleMastery"}}'>
+                        <i class='fa-{{ifThen maneuverContext.item.system.isMastered "solid illuminate" "light"}} fa-star-shooting'></i>
+                      </a>
+                    {{/if}}
                     <a data-action='openItem'>
                       <i class='fa-solid fa-pen-to-square'></i>
                     </a>

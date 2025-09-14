@@ -44,14 +44,14 @@ export default class ManeuverModel extends BaseItemModel {
    * Flag that indicates if this maneuver requires an ability check to succeed.
    */
   get requiresCheck() {
-    return this.abilityCheck.quality || this.abilityCheck.combatAbility;
+    return !!this.abilityCheck.quality || !!this.abilityCheck.combatAbility;
   }
 
   /**
    * Flag that indicates if this maneuver is opposed by the target.
    */
   get requiresOpposedCheck() {
-    return this.abilityCheck.opposedBy?.quality || this.abilityCheck.opposedBy?.combatAbility;
+    return !!this.abilityCheck.opposedBy?.quality || !!this.abilityCheck.opposedBy?.combatAbility;
   }
 
   /** @inheritDoc */

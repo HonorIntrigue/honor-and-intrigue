@@ -77,6 +77,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     // user.name
 
     const result = await HonorIntrigueRoll.prompt({
+      ...options,
       actor: this.parent,
       quality: value,
       characteristic,
