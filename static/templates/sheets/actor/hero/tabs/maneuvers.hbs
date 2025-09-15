@@ -29,6 +29,15 @@
                     </a>
                   </div>
                   {{#if maneuverContext.expanded}}
+                    {{#if maneuverContext.rollable}}
+                      <div class='item-tags'>
+                        {{#each maneuverContext.tags as |tag|}}
+                          <div class='item-tag'>
+                            <p>{{tag}}</p>
+                          </div>
+                        {{/each}}
+                      </div>
+                    {{/if}}
                     <div class='item-embed'>
                       {{{maneuverContext.embed.outerHTML}}}
                     </div>

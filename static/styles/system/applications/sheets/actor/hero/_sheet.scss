@@ -50,6 +50,24 @@
           opacity: 1;
         }
       }
+
+      .item-embed {
+        .mastery-bonus {
+          legend {
+            font-size: var(--font-size-13);
+          }
+
+          &.mastered {
+            fieldset {
+              border-color: light-dark(var(--color-navy), var(--color-gold));
+            }
+
+            p {
+              font-weight: bold;
+            }
+          }
+        }
+      }
     }
   }
 }

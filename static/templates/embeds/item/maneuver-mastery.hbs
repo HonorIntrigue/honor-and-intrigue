@@ -1,6 +1,6 @@
 <section class='mastery-bonus{{#if system.isMastered}} mastered{{/if}}'>
-  {{> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.MasteryHint')}}
-  <p>
-    {{system.mastery}}
-  </p>
+  <fieldset>
+    <legend>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.MasteryHint'}}</legend>
+    <p>{{system.mastery}}</p>
+  </fieldset>
 </section>

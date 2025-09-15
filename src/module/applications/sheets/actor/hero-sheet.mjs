@@ -154,6 +154,35 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     return maneuvers.reduce((acc, curr) => {
       curr.hasMasteryBenefit = !!curr.item.system.mastery;
       curr.rollable = curr.item.system.requiresCheck || curr.item.system.requiresOpposedCheck;
+      curr.tags = [];
+
+      if (curr.item.system.requiresCheck) {
+        let chk = [];
+
+        if (curr.item.system.abilityCheck.quality) {
+          chk.push(hi.CONFIG.qualities[curr.item.system.abilityCheck.quality].label);
+        }
+        if (curr.item.system.abilityCheck.combatAbility) {
+          chk.push(hi.CONFIG.combatAbilities[curr.item.system.abilityCheck.combatAbility].label);
+        }
+
+        chk = chk.map(x => game.i18n.localize(x));
+        curr.tags.push(chk.join(' + '));
+
+        if (curr.item.system.requiresOpposedCheck) {
+          chk = [];
+
+          if (curr.item.system.abilityCheck.opposedBy.quality) {
+            chk.push(hi.CONFIG.qualities[curr.item.system.abilityCheck.opposedBy.quality].label);
+          }
+          if (curr.item.system.abilityCheck.opposedBy.combatAbility) {
+            chk.push(hi.CONFIG.combatAbilities[curr.item.system.abilityCheck.opposedBy.combatAbility].label);
+          }
+          chk = chk.map(x => game.i18n.localize(x));
+
+          curr.tags.push('vs ' + chk.join(' + '));
+        }
+      }
 
       switch (curr.item.system.actionType) {
         case 0: acc.free.push(curr); break;
