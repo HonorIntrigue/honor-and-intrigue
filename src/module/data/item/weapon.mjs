@@ -1,8 +1,8 @@
-import BaseItemModel from './base.mjs';
+import EquipmentModel from './equipment.mjs';
 
 const fields = foundry.data.fields;
 
-export default class WeaponModel extends BaseItemModel {
+export default class WeaponModel extends EquipmentModel {
   /** @inheritDoc */
   static DEFAULT_ICON = 'icons/svg/sword.svg';
 

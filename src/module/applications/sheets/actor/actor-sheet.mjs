@@ -8,6 +8,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
       deleteItem: this.#onDeleteItem,
       openItem: this.#onOpenItem,
       rollCharacteristic: this.#onRollCharacteristic,
+      toggleItemEquipped: this.#toggleItemEquipped,
       toggleItemExpanded: this.#toggleItemExpanded,
     },
     classes: ['actor'],
@@ -68,6 +69,21 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
   }
 
   /**
+   * Cycle the equipped state of an item.
+   */
+  static async #toggleItemEquipped(event, target) {
+    const { itemId } = target.closest('.item').dataset;
+    const item = this.actor.items.get(itemId);
+    const nextPosition = (
+      item.system.carriedPosition === 0 ? 1 : (
+        item.system.carriedPosition === 1 ? 2 : 0
+      )
+    );
+
+    await item.update({ system: { carriedPosition: nextPosition } });
+  }
+
+  /**
    * Toggle the expanded state of an embedded item.
    */
   static async #toggleItemExpanded(event, target) {
@@ -106,7 +122,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
       const ctx = await this._prepareItemContext(item);
 
       if (additionalContextFn) {
-        Object.assign(ctx, (await additionalContextFn.call(item)));
+        foundry.utils.mergeObject(ctx, (await additionalContextFn(item)));
       }
 
       return ctx;
@@ -137,7 +153,14 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
 
     switch (partId) {
       case 'inventory':
-        context.inventory = await this._prepareEmbeddedItemContext('weapon');
+        context.inventory = await this._prepareEmbeddedItemContext('weapon', (item) => ({
+          item: {
+            system: {
+              carriedPositionIcon: `fa-light ${item.system.carriedPosition === 0 ? 'fa-bars' : item.system.carriedPosition === 1 ? 'fa-solid fa-shirt illuminate' : 'fa-sack'}`,
+              carriedPositionLabel: game.i18n.localize(hi.CONFIG.equipmentCarryChoices[item.system.carriedPosition].label),
+            },
+          },
+        }));
         break;
     }
 

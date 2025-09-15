@@ -21,6 +21,7 @@ export default base => {
 
       return {
         ...ctx,
+        config: hi.CONFIG,
         gm: game.user.isGM,
         system: this.document.system,
         systemFields: this.document.system.schema.fields,

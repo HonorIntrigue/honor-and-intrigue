@@ -25,6 +25,11 @@ HONOR_INTRIGUE.actionTypes = {
   2: { label: 'HONOR_INTRIGUE.ACTION_TYPE.minor' },
   3: { label: 'HONOR_INTRIGUE.ACTION_TYPE.reaction' },
 };
+HONOR_INTRIGUE.equipmentCarryChoices = {
+  0: { label: 'HONOR_INTRIGUE.Item.CARRY_TYPE.dropped' },
+  1: { label: 'HONOR_INTRIGUE.Item.CARRY_TYPE.held' },
+  2: { label: 'HONOR_INTRIGUE.Item.CARRY_TYPE.stowed' },
+};
 
 HONOR_INTRIGUE.speedOptions = ['fly', 'teleport', 'walk'];
 

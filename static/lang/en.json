@@ -93,6 +93,11 @@
       }
     },
     "Item": {
+      "CARRY_TYPE": {
+        "dropped": "Dropped",
+        "held": "Held",
+        "stowed": "Stowed"
+      },
       "Sheet": {
         "FIELDS": {
           "actionType": {

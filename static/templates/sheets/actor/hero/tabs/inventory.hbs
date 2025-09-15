@@ -15,6 +15,10 @@
             <img class='item-image' src='{{inventoryContext.item.img}}' alt='{{inventoryContext.item.name}}'>
             <div class='item-name' data-action='toggleItemExpanded'>{{inventoryContext.item.name}}</div>
             <div class='item-controls'>
+              <a data-action='toggleItemEquipped'
+                 data-tooltip='{{inventoryContext.item.system.carriedPositionLabel}}'>
+                <i class='{{inventoryContext.item.system.carriedPositionIcon}}'></i>
+              </a>
               <a data-action='openItem'>
                 <i class='fa-solid fa-pen-to-square'></i>
               </a>
