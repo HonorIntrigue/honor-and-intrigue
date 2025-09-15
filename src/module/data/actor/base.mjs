@@ -11,13 +11,17 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
 
     const quality = { min: -1, max: 6, initial: 0, integer: true, nullable: false };
     schema.qualities = new fields.SchemaField(
-      Object.entries(hi.CONFIG.qualities).reduce((obj, [q, { label }]) => {
-        obj[q] = new fields.SchemaField({
-          value: new fields.NumberField({ ...quality, label }),
-        });
+      Object.entries(hi.CONFIG.qualities)
+        .filter(([q, { types }]) => {
+          if (!types) return true;
+          return types.some(t => this.metadata.type === t);
+        }).reduce((obj, [q, { label }]) => {
+          obj[q] = new fields.SchemaField({
+            value: new fields.NumberField({ ...quality, label }),
+          });
 
-        return obj;
-      }, {}),
+          return obj;
+        }, {}),
     );
 
     const combatAbility = { min: -1, max: 5, initial: 0, integer: true, nullable: false };
@@ -69,7 +73,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
    */
   async rollCharacteristic(characteristic, options = {}) {
     const data = this.parent.getRollData();
-    const flavor = game.i18n.localize(foundry.utils.getProperty(hi.CONFIG, characteristic).label);
+    const flavor = game.i18n.localize(foundry.utils.getProperty(hi.CONFIG, characteristic)?.label);
     const value = foundry.utils.getProperty(this, characteristic)?.value ?? 0;
 
     // TODO enrich header with:

@@ -26,7 +26,8 @@
         "daring": "Daring",
         "flair": "Flair",
         "might": "Might",
-        "savvy": "Savvy"
+        "savvy": "Savvy",
+        "terror": "Terror"
       },
       "Sheet": {
         "Labels": {
@@ -143,7 +144,8 @@
           "daring": "Agility and courage",
           "flair": "Personality and luck",
           "might": "Brawn and toughness",
-          "savvy": "Intellect, subtlety, and fine motor skills"
+          "savvy": "Intellect, subtlety, and fine motor skills",
+          "terror": "Ferocity, savagery, and infamy"
         }
       },
       "Labels": {
@@ -165,7 +167,8 @@
       "hero": "Hero",
       "pawn": "Pawn",
       "retainer": "Retainer",
-      "villain": "Villain"
+      "villain": "Villain",
+      "creature": "Creature"
     },
     "Item": {
       "career": "Career",

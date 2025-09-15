@@ -16,7 +16,7 @@
   "documentTypes": {
     "Actor": {
       "hero": {
-        "htmlFields": ["notes", "description", "motivation", "origin", "friendsAndContacts", "rivalsAndEnemies"]
+        "htmlFields": ["notes", "description", "friendsAndContacts", "rivalsAndEnemies"]
       },
       "pawn": {
         "htmlFields": ["notes"]
@@ -25,6 +25,9 @@
         "htmlFields": ["notes"]
       },
       "villain": {
+        "htmlFields": ["notes"]
+      },
+      "creature": {
         "htmlFields": ["notes"]
       }
     },

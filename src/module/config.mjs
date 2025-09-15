@@ -5,8 +5,9 @@ export const HONOR_INTRIGUE = {};
 HONOR_INTRIGUE.qualities = {
   might: { label: 'HONOR_INTRIGUE.Actor.qualities.might', rollKey: 'might' },
   daring: { label: 'HONOR_INTRIGUE.Actor.qualities.daring', rollKey: 'daring' },
-  flair: { label: 'HONOR_INTRIGUE.Actor.qualities.flair', rollKey: 'flair' },
+  flair: { label: 'HONOR_INTRIGUE.Actor.qualities.flair', rollKey: 'flair', types: ['hero', 'pawn', 'retainer', 'villain'] },
   savvy: { label: 'HONOR_INTRIGUE.Actor.qualities.savvy', rollKey: 'savvy' },
+  terror: { label: 'HONOR_INTRIGUE.Actor.qualities.terror', rollKey: 'terror', types: ['creature'] },
 };
 preLocalize('qualities', { keys: ['label'] });
 

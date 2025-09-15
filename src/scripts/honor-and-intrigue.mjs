@@ -66,6 +66,11 @@ Hooks.once('init', () => {
     makeDefault: true,
     label: 'TYPES.Actor.villain',
   });
+  Actors.registerSheet(HI_CONST.systemID, applications.sheets.actorSheets.PawnSheet, {
+    types: ['creature'],
+    makeDefault: true,
+    label: 'TYPES.Actor.creature',
+  });
 
   Items.unregisterSheet('core', foundry.applications.sheets.ItemSheetV2);
   Items.registerSheet(HI_CONST.systemID, applications.sheets.CareerItemSheet, {
