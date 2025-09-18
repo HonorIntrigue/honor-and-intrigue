@@ -1,0 +1,44 @@
+{
+  "folder": "nqFJ80X6V2qJAXpi",
+  "name": "Bayonet",
+  "type": "weapon",
+  "_id": "wttGwfDoqhc2IDHK",
+  "img": "icons/weapons/daggers/dagger-straight-cracked.webp",
+  "system": {
+    "description": "<p>The original bayonet was a dagger designed to fit inside the barrel of a musket, forming a spear, but preventing the gun from firing. The invention of the “socket” bayonet (which allows one to fire the musket while the bayonet is affixed) appears at the end of the 17th Century. When the Bayonet is affixed to the musket, treat it as a pole-arm. When it is wielded in the hand, treat it as a dagger.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": 2,
+      "numDice": 1
+    },
+    "handsHeld": 0,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.Pu2MNZHYns847biy",
+      "Compendium.honor-and-intrigue.maneuvers.Item.8x5ylJwiWf0O65DU"
+    ],
+    "rangeIncrement": 0,
+    "throwable": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758207292786,
+    "modifiedTime": 1758207925096,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!wttGwfDoqhc2IDHK"
+}

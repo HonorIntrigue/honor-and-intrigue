@@ -1,0 +1,35 @@
+{
+  "folder": "u8sefgEZoZ1GZILM",
+  "name": "Helmet",
+  "type": "armor",
+  "_id": "Y5vj0NQspEQMTDPb",
+  "img": "icons/svg/ice-shield.svg",
+  "system": {
+    "description": "<p>Worn in addition to armor, or even without it, a helmet is not as inconvenient as wearing a breastplate. A helmet gives +1 Protection in addition to whatever other armor worn by the character grants, and does not impact Yielding Advantage at all. However, helmets do hamper vision and hearing, and give the wearer a -1 penalty to Savvy rolls to notice things. This penalty is not negated by Armor Familiarity. Against attacks that specifically target the head, a helmet gives 1d6 Protection.</p>",
+    "carriedPosition": 0,
+    "protection": {
+      "dieSize": 6,
+      "flatModifier": 0,
+      "numDice": 1
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758227048931,
+    "modifiedTime": 1758227054259,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!Y5vj0NQspEQMTDPb"
+}

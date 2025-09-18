@@ -1,7 +1,7 @@
 {
   "type": "Item",
   "folder": null,
-  "name": "Weapons",
+  "name": "Arms",
   "color": null,
   "sorting": "a",
   "_id": "nqFJ80X6V2qJAXpi",
@@ -16,7 +16,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757793238535,
-    "modifiedTime": 1757793238535,
+    "modifiedTime": 1758207540913,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!folders!nqFJ80X6V2qJAXpi"

@@ -1,0 +1,45 @@
+{
+  "folder": "nqFJ80X6V2qJAXpi",
+  "name": "Whip",
+  "type": "weapon",
+  "_id": "BZV8YesX3uWlCqMc",
+  "img": "icons/weapons/misc/whip-red-yellow.webp",
+  "system": {
+    "description": "<p>A lash made of woven rawhide, whips are used more for torture and corporal punishment than they are as a true weapon. However, a whip can make a terrifying crack that can be quite intimidating in battle as a Minor Action. A Whip Crack uses Flair + Melee - 1 vs. Daring. If you succeed, the enemy loses 1 Composure. If the enemy is a pawn, he simply runs in fear. A whip gets +1 to Bind and Disarm. It can be used as a garrote as well. A whip only does [[/r 1d3 - 1]] damage, but enemies get a Penalty Die trying to Parry it.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 3,
+      "flatModifier": -1,
+      "numDice": 1
+    },
+    "handsHeld": 1,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.Pu2MNZHYns847biy",
+      "Compendium.honor-and-intrigue.maneuvers.Item.M4J96MGZ96eMkACf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.TAMEMFI6zngPDVJv"
+    ],
+    "rangeIncrement": 0,
+    "throwable": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758225320079,
+    "modifiedTime": 1758225378143,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!BZV8YesX3uWlCqMc"
+}

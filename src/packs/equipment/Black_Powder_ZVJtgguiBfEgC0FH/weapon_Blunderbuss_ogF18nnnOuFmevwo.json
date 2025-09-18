@@ -1,0 +1,43 @@
+{
+  "folder": "ZVJtgguiBfEgC0FH",
+  "name": "Blunderbuss",
+  "type": "weapon",
+  "_id": "ogF18nnnOuFmevwo",
+  "img": "icons/weapons/guns/gun-blunderbuss-gold.webp",
+  "system": {
+    "description": "<p>The 17th Century equivalent to a shotgun, it has a bell-shaped barrel, and is often loaded with bits of chain, nails, or anything metal when shot isn’t available. These weapons are usually carried by sailors or pirates to use during boarding actions. It has a range increment of 10 feet and does 1d6+6 damage. Because it fires in a wide angled burst, it does less damage to distant targets. The penalty for range is applied to the damage instead of the roll to hit. At long range and further, halve the damage first, then apply the range penalty to the result.</p><p>Each shot hits 1d6 targets when aimed at a tight group. This makes a blunderbuss especially lethal to pawns. A Blunderbuss takes 3 Minor Actions to load.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": 6,
+      "numDice": 1
+    },
+    "handsHeld": 1,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.8x5ylJwiWf0O65DU"
+    ],
+    "rangeIncrement": 10,
+    "throwable": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758225895923,
+    "modifiedTime": 1758225942115,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!ogF18nnnOuFmevwo"
+}

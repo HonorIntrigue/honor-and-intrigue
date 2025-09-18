@@ -1,0 +1,41 @@
+{
+  "folder": "ZVJtgguiBfEgC0FH",
+  "name": "Pole-Brace",
+  "type": "weapon",
+  "_id": "7N0I9HuuhPb4boSN",
+  "img": "icons/tools/hand/wrench-iron-grey.webp",
+  "system": {
+    "description": "<p>A pole-brace is a rod of about four feet in length ending in a Y-shaped top. This is used to rest a musket upon for more accurate firing. It takes a Minor Action to set a pole-brace, and doing so extends the effective range increment of a musket by 10 feet.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": 0,
+      "numDice": 1
+    },
+    "handsHeld": 0,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [],
+    "rangeIncrement": 0,
+    "throwable": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758225959363,
+    "modifiedTime": 1758226008218,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!7N0I9HuuhPb4boSN"
+}

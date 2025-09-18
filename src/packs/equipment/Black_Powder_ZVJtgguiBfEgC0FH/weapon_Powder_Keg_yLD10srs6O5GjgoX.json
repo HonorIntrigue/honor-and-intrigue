@@ -1,0 +1,43 @@
+{
+  "folder": "ZVJtgguiBfEgC0FH",
+  "name": "Powder Keg",
+  "type": "weapon",
+  "_id": "yLD10srs6O5GjgoX",
+  "img": "icons/weapons/thrown/bomb-detonator.webp",
+  "system": {
+    "description": "<p>Treat an exploding keg of gunpowder like a grenade, but it does 6d6 damage instead of 4d6. Every 5 feet from the center of the blast removes the highest remaining d6 from the damage roll. Igniting a powder keg requires laying a charge (a Hard [-2] Savvy + Career test), burning or shooting it for more than 5 damage. A powder keg is a small target to shoot at (Ranged Attack difficulty -2 for size, plus range). A large cache of powder kegs does between 10d6 damage (a powder wagon) and 20d6 damage (a warship’s powder magazine). Anyone exposed to more than half the damage dice can only survive the blast by using Fortune Points to evade certain death (a mere “Close Call” will not be sufficient). Detonating one powder keg will set off a chain reaction that causes them all to explode.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": 0,
+      "numDice": 6
+    },
+    "handsHeld": 0,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.8x5ylJwiWf0O65DU"
+    ],
+    "rangeIncrement": 10,
+    "throwable": true
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758226170341,
+    "modifiedTime": 1758226211997,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!yLD10srs6O5GjgoX"
+}

@@ -1,0 +1,43 @@
+{
+  "folder": "nqFJ80X6V2qJAXpi",
+  "name": "Club",
+  "type": "weapon",
+  "_id": "oMvinO0qhvIhAP3y",
+  "img": "icons/weapons/clubs/club-banded-brown.webp",
+  "system": {
+    "description": "<p>The simplest of all weapons, this is a stout length of wood, used in one hand to bludgeon and batter your opponent. They can be cudgels, canes, belaying pins, or shillelaghs. The butt of a pistol or musket would also count as a club. One-handed versions can be thrown with 10’ range increments. A club does [[/r 1d6 - 1]] damage and a two-handed club does [[/r 1d6 + 1]] damage.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": -1,
+      "numDice": 1
+    },
+    "handsHeld": 1,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.Pu2MNZHYns847biy"
+    ],
+    "rangeIncrement": 0,
+    "throwable": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758207649322,
+    "modifiedTime": 1758207989113,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!oMvinO0qhvIhAP3y"
+}

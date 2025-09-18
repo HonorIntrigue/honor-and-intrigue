@@ -1,0 +1,44 @@
+{
+  "folder": "nqFJ80X6V2qJAXpi",
+  "name": "Crossbow",
+  "type": "weapon",
+  "_id": "V3kBupQDF3YNgzHf",
+  "img": "icons/weapons/crossbows/crossbow-simple-black.webp",
+  "system": {
+    "description": "<p>A crossbow is a simple device for firing a short quarrel with some force and little training. They are not used in warfare much except by snipers and in sieges. For their accuracy, crossbows do +1 damage when making a Called Shot. They take two Minor Actions to load. They are mostly two-handed weapons and have a range increment of 80’. Arbalests are very heavy crossbows that take 3 Minor Actions to load (if you have a “goat’s foot” or a Might of 2 or more; otherwise it is 4 Minor Actions), but have a range increment of 100’. There are also special crossbows designed for launching grenades. They have a range increment of 30’ and take 3 Minor Actions to load, but cannot be used to fire ordinary crossbow bolts. A crossbow does [[/r 1d6 + 1]] damage, and an arbalest does [[/r 1d6 + 3]] damage. A hand crossbow has been invented that is favored by assassins for its quietness compared to a pistol (and when loaded with a poison bolt, it’s just as lethal). It only does [[/r 1d3]] damage, and has a range increment of 20’, and takes 1 Minor Action to load.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": 1,
+      "numDice": 1
+    },
+    "handsHeld": 2,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.foPWobJ7yEjiw2HM",
+      "Compendium.honor-and-intrigue.maneuvers.Item.8x5ylJwiWf0O65DU"
+    ],
+    "rangeIncrement": 80,
+    "throwable": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758207662622,
+    "modifiedTime": 1758208009498,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!V3kBupQDF3YNgzHf"
+}

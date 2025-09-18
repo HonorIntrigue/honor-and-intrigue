@@ -1,0 +1,45 @@
+{
+  "folder": "FMVTimeyCuB0cctu",
+  "name": "Small Sword",
+  "type": "weapon",
+  "_id": "gSf9aEHl9pHMjFHq",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Introduced in the Netherlands, these short, straight swords are becoming popular among French nobles as well. Because of their speed, they give +1 to Parry, and their short blade gives +1 to Quick Draw. A small sword cannot be used to cut, however, as it has no blade at all, only a point. They do 1d3+1 damage, but are very hard to break, getting a +2 bonus to avoid Sword Break. In addition, a small sword is extremely quick, allowing you to Split Actions to attack twice with only a single small sword.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 3,
+      "flatModifier": 1,
+      "numDice": 1
+    },
+    "handsHeld": 1,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.Pu2MNZHYns847biy",
+      "Compendium.honor-and-intrigue.maneuvers.Item.khWeFrnk4uBq9r5o",
+      "Compendium.honor-and-intrigue.maneuvers.Item.sz6wvZ9fiseeXSst"
+    ],
+    "rangeIncrement": 0,
+    "throwable": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758225615939,
+    "modifiedTime": 1758225608515,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!gSf9aEHl9pHMjFHq"
+}

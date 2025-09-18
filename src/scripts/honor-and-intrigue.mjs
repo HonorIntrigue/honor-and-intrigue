@@ -73,6 +73,11 @@ Hooks.once('init', () => {
   });
 
   Items.unregisterSheet('core', foundry.applications.sheets.ItemSheetV2);
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.ArmorItemSheet, {
+    types: ['armor'],
+    makeDefault: true,
+    label: 'TYPES.Item.armor',
+  });
   Items.registerSheet(HI_CONST.systemID, applications.sheets.BoonFlawItemSheet, {
     types: ['boon'],
     makeDefault: true,

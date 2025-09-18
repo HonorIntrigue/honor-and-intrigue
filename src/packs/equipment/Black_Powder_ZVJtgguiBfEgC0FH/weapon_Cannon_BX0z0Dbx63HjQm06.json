@@ -1,0 +1,41 @@
+{
+  "folder": "ZVJtgguiBfEgC0FH",
+  "name": "Cannon",
+  "type": "weapon",
+  "_id": "BX0z0Dbx63HjQm06",
+  "img": "icons/weapons/artillery/cannon-engraved.webp",
+  "system": {
+    "description": "<p>While they range in size, <em>Honor + Intrigue</em> divides cannons up into two groups: cannon and artillery. A typical field cannon or ship’s gun has a range increment of 300 feet (100 yards) and takes 20 Minor Actions to reload, which can be shared between up to four crewmen. Artillery, which is typically mounted on a fortress and considered too heavy to move in the field, has a range increment of 600 feet (200 yards) and takes 40 Minor Actions to reload, which can be shared between up to six crewmen.</p><p>Cannons are very difficult to aim, requiring a successful Career check (typically by an artillery officer; difficulty set by the GM) to sight the gun to even have a chance of successfully hitting a target. If this roll fails, the shot is wasted; if it succeeds, the shot is very close to what they were aiming at (usually causing some significant damage nonetheless). If it is a Mighty Success, the shot is a direct hit. If the cannon hits a large target that is slow or stationary, such as a ship, fortress, or infantry formation, the GM will narrate what happens to the target. Individual PCs or important NPCs aboard the ship, inside the building, or attached to the formation must make a Moderate (+0) Flair roll or take 1d3 damage from the splinters and other shrapnel (they can also spend a Fortune Point to avoid it). If the cannon is fired at a small or fast moving target, such as a single horse and rider, it only affects the target at all if attack roll is a Mighty Success. Even then, the target can spend a Fortune Point to suffer a Close Call instead. It is safe to assume a person that takes a direct hit from cannon is dead. No damage roll is necessary.</p><p>When attacking a ship or sea monster with a cannon treat a single cannon as a Size 1 ship with a Guns rating of -1, and a single shore gun as a Size 2 ship with a Guns rating of -1. See the Ship to Ship combat rules (page 101).</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": 0,
+      "numDice": 1
+    },
+    "handsHeld": 0,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [],
+    "rangeIncrement": 300,
+    "throwable": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758226278345,
+    "modifiedTime": 1758226340497,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!BX0z0Dbx63HjQm06"
+}

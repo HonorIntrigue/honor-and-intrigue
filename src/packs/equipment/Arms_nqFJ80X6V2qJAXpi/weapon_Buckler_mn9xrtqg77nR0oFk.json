@@ -1,0 +1,41 @@
+{
+  "folder": "nqFJ80X6V2qJAXpi",
+  "name": "Buckler",
+  "type": "weapon",
+  "_id": "mn9xrtqg77nR0oFk",
+  "img": "icons/equipment/shield/buckler-wooden-boss-brown.webp",
+  "system": {
+    "description": "<p>While the larger shields of medieval knights have become antiques, there are still some swordsmen who use this small shield in their off-hand to block an enemy’s sword or to punch the enemy. You get +1 to Parry if you are wielding a buckler, which stacks with any other parrying bonus you may have. A buckler does [[/r 1d6 - 1]] damage.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": -1,
+      "numDice": 1
+    },
+    "handsHeld": 1,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [],
+    "rangeIncrement": 0,
+    "throwable": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758207492456,
+    "modifiedTime": 1758207520320,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!mn9xrtqg77nR0oFk"
+}

@@ -1,0 +1,44 @@
+{
+  "folder": "nqFJ80X6V2qJAXpi",
+  "name": "Staff",
+  "type": "weapon",
+  "_id": "JBIme2DwAR1QOqEg",
+  "img": "icons/weapons/staves/staff-simple-gold.webp",
+  "system": {
+    "description": "<p>A simple stout pole of around 6’ in length, a staff is both an aid to walking and an effective weapon. It does [[/r 1d6 - 1]] damage. Unlike most 2-handed weapons, a staff has no penalty to Parry; instead, it has a +1 bonus.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": -1,
+      "numDice": 1
+    },
+    "handsHeld": 2,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.Pu2MNZHYns847biy",
+      "Compendium.honor-and-intrigue.maneuvers.Item.sz6wvZ9fiseeXSst"
+    ],
+    "rangeIncrement": 0,
+    "throwable": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758225175665,
+    "modifiedTime": 1758225212073,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!JBIme2DwAR1QOqEg"
+}

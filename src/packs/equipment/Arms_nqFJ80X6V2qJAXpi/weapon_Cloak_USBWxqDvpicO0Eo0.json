@@ -1,0 +1,43 @@
+{
+  "folder": "nqFJ80X6V2qJAXpi",
+  "name": "Cloak",
+  "type": "weapon",
+  "_id": "USBWxqDvpicO0Eo0",
+  "img": "icons/equipment/back/cloak-brown-collared-fur-white-tied.webp",
+  "system": {
+    "description": "<p>A common piece of clothing that can also be used as a defensive tool, wrapped around the hand, and used to knock aside an enemy’s sword. You could also use a large hat, tablecloth, etc. Technically not a weapon, a cloak cannot do damage, but gives +1 to Feint and Bind, and also can be used to parry (the Cloak Parry uses Flair instead of Savvy, as it is a flashy move).</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": 0,
+      "numDice": 1
+    },
+    "handsHeld": 0,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.jKm7owbaLovix1mg"
+    ],
+    "rangeIncrement": 0,
+    "throwable": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758207545104,
+    "modifiedTime": 1758207981459,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!USBWxqDvpicO0Eo0"
+}

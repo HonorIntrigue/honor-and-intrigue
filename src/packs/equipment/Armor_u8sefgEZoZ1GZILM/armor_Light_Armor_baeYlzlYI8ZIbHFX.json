@@ -1,0 +1,35 @@
+{
+  "folder": "u8sefgEZoZ1GZILM",
+  "name": "Light Armor",
+  "type": "armor",
+  "_id": "baeYlzlYI8ZIbHFX",
+  "img": "icons/svg/ice-shield.svg",
+  "system": {
+    "description": "<p>This armor usually consists of a stiff leather buffcoat, padded doublet, and breeches and offers 1d3 points of Protection. Wearing this armor without proper training means that you begin each scene with 1 less Advantage (cross out or cover the “Retreating” position, and skip from “En Garde” straight to “Scrambling”). A Soldier with Armor Familiarity negates this penalty completely. There are also times when even light armor is hindering, giving a -1 Penalty to attempts to be stealthy, acrobatic, etc. and also to Initiative rolls. For swimming, the penalty is doubled, as the material absorbs water and gets heavy.</p>",
+    "carriedPosition": 0,
+    "protection": {
+      "dieSize": 3,
+      "flatModifier": 0,
+      "numDice": 1
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758226875672,
+    "modifiedTime": 1758227017571,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!baeYlzlYI8ZIbHFX"
+}

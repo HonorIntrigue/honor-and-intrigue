@@ -1,0 +1,43 @@
+{
+  "folder": "ZVJtgguiBfEgC0FH",
+  "name": "Grenade",
+  "type": "weapon",
+  "_id": "0BsEIPEbA2awNg8C",
+  "img": "icons/weapons/thrown/bomb-fuse-black.webp",
+  "system": {
+    "description": "<p>With a very high rate of misfire, these primitive explosives can be as dangerous to the wielder as they are to their enemy. A grenade has a thrown range increment of 10 feet. They do 4d6 damage, less one die per 5 feet away the victims are from the origin of the blast. Roll damage once for all targets—the “lost” dice are ignored in order of largest to smallest.</p><p>It takes a Minor Action to light a grenade, and a Major Action to throw it. When lighting a Grenade, roll to see if it lit properly using Savvy + any appropriate Career bonus like Soldier or Sailor. Success indicates the grenade lit properly, failure indicates that you must roll on the misfire table!</p><p>Throwing a grenade is a Ranged check made with Might. The thrower treats the target area as if it had a Defense of 0; only range penalties affect the throw. For every point the throw failed by, the grenade lands 1d3 feet in a random direction from the target. Use a d6 to determine the direction (1-3 short of, 4 wide left, 5 wide right, 6 past the target). It is okay to be “close” with a hand-grenade (or when playing a game of horseshoes). So if a throw missed by 2, the grenade would land 2d3 feet in a random direction from the target.</p><p>Next, the GM secretly rolls 2d6-2. The result is which initiative phase it explodes, either later this round (if the roll was lower than the current phase), or next round (if the roll was equal or higher than the current phase). This means that combatants usually have time to take cover, run, or even throw the grenade back! A brave (or foolish) person might delay throwing the grenade a few phases in order to give the enemy less time (but this also increases the chance of blowing oneself up). It is very wise to use your Minor Action to light the grenade first then your Major Action to throw it next (lighting a Grenade at the end of your turn is a bad idea).</p><p>A character who is aware of the grenade can spend a Reaction to catch a grenade using any appropriate Career with Daring. A grenade that is at one’s feet can be kicked away by spending a Major Action using Brawl and Might. The result is how many feet away the grenade was kicked (until it hits an obstacle at which point it stops rolling). Cutting or dowsing the fuse are a couple other possible solutions.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": 0,
+      "numDice": 4
+    },
+    "handsHeld": 0,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.8x5ylJwiWf0O65DU"
+    ],
+    "rangeIncrement": 10,
+    "throwable": true
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758226076199,
+    "modifiedTime": 1758226156426,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!0BsEIPEbA2awNg8C"
+}

@@ -140,6 +140,10 @@
           "mastery": {
             "label": "Maneuver Mastery Benefit"
           },
+          "protection": {
+            "label": "Protection",
+            "hint": "The level of protection afforded by this armor"
+          },
           "rangeIncrement": {
             "label": "Range Increment",
             "hint": "0 for melee"
@@ -202,6 +206,7 @@
       "creature": "Creature"
     },
     "Item": {
+      "armor": "Armor",
       "boon": "Boon",
       "career": "Career",
       "flaw": "Flaw",

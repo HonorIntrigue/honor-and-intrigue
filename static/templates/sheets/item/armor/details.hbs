@@ -1,0 +1,13 @@
+<section class='tab scrollable {{tabs.details.id}}{{#if tabs.details.cssClass}} {{tabs.details.cssClass}}{{/if}}'
+         data-group='{{tabs.details.group}}'
+         data-tab='{{tabs.details.id}}'>
+  <div class='tab-content standard-form'>
+    <div class='form-group'>
+      <label for='protectionString'>{{systemFields.protection.label}}</label>
+      <div class='form-fields'>
+        <input id='protectionString' type='text' name='protectionString' value='{{protectionString}}'/>
+      </div>
+      <p class='hint'>{{systemFields.protection.hint}}</p>
+    </div>
+  </div>
+</section>

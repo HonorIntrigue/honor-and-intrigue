@@ -1,0 +1,35 @@
+{
+  "folder": "u8sefgEZoZ1GZILM",
+  "name": "Buckler",
+  "type": "armor",
+  "_id": "lWKOJFqH6xtjcPOZ",
+  "img": "icons/svg/ice-shield.svg",
+  "system": {
+    "description": "<p>A small shield worn over the hand, a Buckler is not actually “armor” and does not grant Protection. It counts as a weapon, usually wielded in the off-hand, which grants the user +1 to Parry. A buckler has no impact on Advantage.</p>",
+    "carriedPosition": 0,
+    "protection": {
+      "dieSize": 6,
+      "flatModifier": 0,
+      "numDice": 1
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758227119414,
+    "modifiedTime": 1758227124445,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!lWKOJFqH6xtjcPOZ"
+}

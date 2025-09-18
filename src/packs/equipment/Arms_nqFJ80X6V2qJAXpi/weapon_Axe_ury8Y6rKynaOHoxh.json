@@ -1,7 +1,7 @@
 {
   "name": "Axe",
   "type": "weapon",
-  "img": "icons/svg/sword.svg",
+  "img": "icons/weapons/axes/axe-battle-blackened.webp",
   "system": {
     "damageFormula": {
       "dieSize": 6,
@@ -32,7 +32,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757793233196,
-    "modifiedTime": 1758065697023,
+    "modifiedTime": 1758207272887,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_id": "ury8Y6rKynaOHoxh",

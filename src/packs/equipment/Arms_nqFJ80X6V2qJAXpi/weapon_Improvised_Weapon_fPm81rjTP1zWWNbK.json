@@ -1,0 +1,44 @@
+{
+  "folder": "nqFJ80X6V2qJAXpi",
+  "name": "Improvised Weapon",
+  "type": "weapon",
+  "_id": "fPm81rjTP1zWWNbK",
+  "img": "icons/weapons/clubs/club-simple-black.webp",
+  "system": {
+    "description": "<p>In a fight, you won’t always have a good weapon at hand, and will have to make the best use of what’s lying around. When you use an improvised weapon, it behaves just as another weapon that it is most similar to. So a fire poker can be used to improvise a sword, a champagne bottle a club, a broken sword a dagger, etc. The difference is that an improvised weapon does -1 damage and has half the range, if thrown. You can parry with an improvised weapon, and at the GM’s discretion, you can use other Maneuvers with it. Instead of Daring for Bladework or Savvy for Ranged, you can choose to use the Flair Quality with an Improvised Weapon, because it is a flashy looking attack.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": 0,
+      "numDice": 1
+    },
+    "handsHeld": 1,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.Pu2MNZHYns847biy",
+      "Compendium.honor-and-intrigue.maneuvers.Item.8x5ylJwiWf0O65DU"
+    ],
+    "rangeIncrement": 0,
+    "throwable": true
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758225391256,
+    "modifiedTime": 1758225436337,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!fPm81rjTP1zWWNbK"
+}

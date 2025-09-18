@@ -1,0 +1,43 @@
+{
+  "folder": "nqFJ80X6V2qJAXpi",
+  "name": "Holy Water",
+  "type": "weapon",
+  "_id": "35C7j08QJ17iUu11",
+  "img": "icons/consumables/potions/flask-corked-yellow-glow.webp",
+  "system": {
+    "description": "<p>Holy Water is not actually a weapon. It is used to anoint the sick, perform blessings, and in church ceremonies. However, in a campaign with a supernatural aspect, holy water can be a powerful weapon against the undead. A splash of holy water does [[/r 1d6]] damage to any undead it touches, and ignores any protection the undead has against other attacks. Someone with the Clergy Career can make holy water in the same way they can bless a weapon (see page 179).</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": 0,
+      "numDice": 1
+    },
+    "handsHeld": 0,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.8x5ylJwiWf0O65DU"
+    ],
+    "rangeIncrement": 0,
+    "throwable": true
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758225447716,
+    "modifiedTime": 1758225513794,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!35C7j08QJ17iUu11"
+}

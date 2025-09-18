@@ -1,0 +1,45 @@
+{
+  "folder": "nqFJ80X6V2qJAXpi",
+  "name": "Spear/Polearm",
+  "type": "weapon",
+  "_id": "BOLGOmDlNPrvGgiv",
+  "img": "icons/weapons/polearms/glaive-simple.webp",
+  "system": {
+    "description": "<p>A 5 to 6 foot length of wood with a pointed tip, designed for throwing at 20’ range increments, or for using against mounted opponents in particular. In a charge or receiving a charge (with a Stop- Thrust), add +1d3 to the damage. Pole- arms are extra-large spears, that often have an additional function; such as an axe-blade (a Halberd). Pole-arms cannot be thrown. A spear does [[/r 1d6]] damage, and a pole-arm does [[/r 1d6 + 2]] damage. A horse-lance is a spear that does +2 damage when wielded from horseback, and cannot be thrown. A harpoon is a special spear for hunting large sea creatures that can be thrown in 10’ range increments, and does [[/r 1d6 + 1]] damage. If it penetrates the hide of a large marine creature like a whale, it will do [[/r 1d6]] damage per round (for [[/r 1d6]] rounds) to the creature from blood loss. They are very unwieldy in hand-to-hand combat, having -1 to hit.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 6,
+      "flatModifier": 0,
+      "numDice": 1
+    },
+    "handsHeld": 1,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.Pu2MNZHYns847biy",
+      "Compendium.honor-and-intrigue.maneuvers.Item.Hys7dwlWKnbtxZtZ",
+      "Compendium.honor-and-intrigue.maneuvers.Item.8x5ylJwiWf0O65DU"
+    ],
+    "rangeIncrement": 20,
+    "throwable": true
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758225082647,
+    "modifiedTime": 1758225162442,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!BOLGOmDlNPrvGgiv"
+}

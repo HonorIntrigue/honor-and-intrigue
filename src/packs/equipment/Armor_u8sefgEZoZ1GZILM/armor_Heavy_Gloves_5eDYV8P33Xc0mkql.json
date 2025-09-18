@@ -1,0 +1,35 @@
+{
+  "folder": "u8sefgEZoZ1GZILM",
+  "name": "Heavy Gloves",
+  "type": "armor",
+  "_id": "5eDYV8P33Xc0mkql",
+  "img": "icons/svg/ice-shield.svg",
+  "system": {
+    "description": "<p>Often worn by duelists, Heavy Gloves give the hand 1d3 points of Protection. This is not added to general Protection offered by armor; it is only for attacks specifically on the hand, or when you use the hand to do something injurious, such as parry. Heavy Gloves are not generally hindering, except for doing fine manipulation, such as picking a lock or forgery, in which case they give a -1 Penalty. This penalty is not negated by Armor Familiarity.</p>",
+    "carriedPosition": 0,
+    "protection": {
+      "dieSize": 3,
+      "flatModifier": 0,
+      "numDice": 1
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758227087005,
+    "modifiedTime": 1758227095681,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!5eDYV8P33Xc0mkql"
+}

@@ -1,0 +1,35 @@
+{
+  "folder": "u8sefgEZoZ1GZILM",
+  "name": "Heavy Armor",
+  "type": "armor",
+  "_id": "phtyWu26dyd43GZr",
+  "img": "icons/svg/ice-shield.svg",
+  "system": {
+    "description": "<p>This armor often includes a metal cuirass (breastplate), and tassets (plates to protect the thighs), which are worn over a buffcoat (the benefits do not stack, as the buff-coat is part of this armor). Anytime one is hit in this armor, it offers 1d6 points of Protection. Wearing this armor without proper training means that you cannot Yield Advantage in any scene to avoid an attack. A Soldier with Armor Familiarity can Yield Advantage, but begins each scene with 1 less Advantage (see Light Armor). Heavy armor is greatly hindering in many tasks, giving a -1 Penalty and a Penalty Die to attempts to be stealthy, acrobatic, etc. and also to Initiative rolls. Swimming is impossible, as the heavy metal drags you to the bottom. Your best hope to survive is to strip the armor off. Doing so takes two consecutive successful Savvy + Soldier checks at -2 Difficulty.</p>",
+    "carriedPosition": 0,
+    "protection": {
+      "dieSize": 6,
+      "flatModifier": 0,
+      "numDice": 1
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758227029889,
+    "modifiedTime": 1758227032618,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!phtyWu26dyd43GZr"
+}

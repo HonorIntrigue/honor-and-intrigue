@@ -1,0 +1,44 @@
+{
+  "folder": "nqFJ80X6V2qJAXpi",
+  "name": "Dagger",
+  "type": "weapon",
+  "_id": "gm4AM9nwGJZbgigk",
+  "img": "icons/weapons/daggers/dagger-straight-blue.webp",
+  "system": {
+    "description": "<p>This covers all forms of short stabbing, thrusting or slashing weapon, either with one or two edges, that can be thrown with a range of 5’ increments or used in close quarters. Highly concealable, it is a favorite of ladies and assassins. Daggers are only used one-handed. A dagger does [[/r 1d3 + 1]] damage and does +1 damage on a Called Shot. A stiletto is a spike-like dagger with no edge used to punch through armor. It cannot be thrown or used to cut, but negates 2 points of Protection. A throwing knife is a dagger weighted for throwing with a range increment of 10’ and +1 to Quick-Draw, but has -1 to all Melee rolls.</p>",
+    "carriedPosition": 0,
+    "damageFormula": {
+      "dieSize": 3,
+      "flatModifier": 1,
+      "numDice": 1
+    },
+    "handsHeld": 1,
+    "loadActions": 0,
+    "isLoaded": true,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.Pu2MNZHYns847biy",
+      "Compendium.honor-and-intrigue.maneuvers.Item.8x5ylJwiWf0O65DU"
+    ],
+    "rangeIncrement": 0,
+    "throwable": true
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758207720784,
+    "modifiedTime": 1758208042819,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!gm4AM9nwGJZbgigk"
+}

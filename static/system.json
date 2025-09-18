@@ -15,34 +15,19 @@
   },
   "documentTypes": {
     "Actor": {
-      "hero": {
-        "htmlFields": ["notes", "description", "friendsAndContacts", "rivalsAndEnemies"]
-      },
-      "pawn": {
-        "htmlFields": ["notes"]
-      },
-      "retainer": {
-        "htmlFields": ["notes"]
-      },
-      "villain": {
-        "htmlFields": ["notes"]
-      },
-      "creature": {
-        "htmlFields": ["notes"]
-      }
+      "hero": { "htmlFields": ["notes", "description", "friendsAndContacts", "rivalsAndEnemies"] },
+      "pawn": { "htmlFields": ["notes"] },
+      "retainer": { "htmlFields": ["notes"] },
+      "villain": { "htmlFields": ["notes"] },
+      "creature": { "htmlFields": ["notes"] }
     },
     "Item": {
-      "boon": {},
-      "career": {
-        "htmlFields": ["description"]
-      },
-      "flaw": {},
-      "maneuver": {
-        "htmlFields": ["description"]
-      },
-      "weapon": {
-        "htmlFields": ["description"]
-      }
+      "armor": { "htmlFields": ["description"] },
+      "boon": { "htmlFields": ["description"] },
+      "career": { "htmlFields": ["description"] },
+      "flaw": { "htmlFields": ["description"] },
+      "maneuver": { "htmlFields": ["description"] },
+      "weapon": { "htmlFields": ["description"] }
     }
   },
   "esmodules": [
