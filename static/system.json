@@ -79,6 +79,11 @@
   ],
   "packs": [
     {
+      "name": "boons",
+      "label": "HONOR_INTRIGUE.COMPENDIUM.boons",
+      "type": "Item"
+    },
+    {
       "name": "careers",
       "label": "HONOR_INTRIGUE.COMPENDIUM.careers",
       "type": "Item"
@@ -86,6 +91,11 @@
     {
       "name": "equipment",
       "label": "HONOR_INTRIGUE.COMPENDIUM.equipment",
+      "type": "Item"
+    },
+    {
+      "name": "flaws",
+      "label": "HONOR_INTRIGUE.COMPENDIUM.flaws",
       "type": "Item"
     },
     {
@@ -98,7 +108,7 @@
     {
       "name": "Honor + Intrigue",
       "color": "#283343",
-      "packs": ["careers", "equipment","maneuvers"]
+      "packs": ["boons", "careers", "equipment", "flaws","maneuvers"]
     }
   ],
   "primaryTokenAttribute": "hero.lifeblood",

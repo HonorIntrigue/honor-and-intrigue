@@ -251,7 +251,9 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
 
     switch (partId) {
       case 'character':
+        context.boons = await this._prepareEmbeddedItemContext('boon');
         context.careers = await this._prepareEmbeddedItemContext('career');
+        context.flaws = await this._prepareEmbeddedItemContext('flaw');
         break;
       case 'maneuvers':
         context.maneuvers = await this._prepareManeuversContext();

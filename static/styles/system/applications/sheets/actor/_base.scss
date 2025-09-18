@@ -73,6 +73,18 @@
       &-embed {
         flex: 0 0 100%;
       }
+
+      &.boon {
+        .item-name {
+          color: var(--color-green);
+        }
+      }
+
+      &.flaw {
+        .item-name {
+          color: var(--color-red);
+        }
+      }
     }
   }
 }

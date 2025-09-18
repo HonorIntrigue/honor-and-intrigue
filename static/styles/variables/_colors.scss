@@ -1,7 +1,9 @@
 body {
   --color-gold: hsl(46, 100%, 48%);
   --color-gold-dull: hsl(46, 25%, 50%);
+  --color-green: light-dark(hsl(116, 40%, 26%), hsl(137, 40%, 62%));
   --color-navy: hsl(215, 25%, 21%);
   --color-navy-exp: 215, 25%, 21%;
+  --color-red: light-dark(hsl(324, 50%, 32%), hsl(360, 40%, 62%));
   --color-text-primary: light-dark(var(--color-navy), #DDDDDD);
 }

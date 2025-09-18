@@ -7,8 +7,10 @@
       "reaction": "Reaction"
     },
     "COMPENDIUM": {
+      "boons": "Boons",
       "careers": "Careers",
       "equipment": "Equipment",
+      "flaws": "Flaws",
       "maneuvers": "Maneuvers"
     },
     "DAMAGE_TYPE": {
@@ -32,6 +34,8 @@
       "Sheet": {
         "Labels": {
           "Character": {
+            "BoonsFlaws": "Boons & Flaws",
+            "BoonsFlawsPrompt": "Give this character some background by adding a boon or flaw!",
             "Careers": "Careers",
             "Notes": "Notes"
           },
@@ -184,7 +188,9 @@
       "creature": "Creature"
     },
     "Item": {
+      "boon": "Boon",
       "career": "Career",
+      "flaw": "Flaw",
       "maneuver": "Maneuver",
       "weapon": "Weapon"
     }

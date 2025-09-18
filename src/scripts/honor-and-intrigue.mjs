@@ -73,10 +73,20 @@ Hooks.once('init', () => {
   });
 
   Items.unregisterSheet('core', foundry.applications.sheets.ItemSheetV2);
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.BoonFlawItemSheet, {
+    types: ['boon'],
+    makeDefault: true,
+    label: 'TYPES.Item.boon',
+  });
   Items.registerSheet(HI_CONST.systemID, applications.sheets.CareerItemSheet, {
     types: ['career'],
     makeDefault: true,
     label: 'TYPES.Item.career',
+  });
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.BoonFlawItemSheet, {
+    types: ['flaw'],
+    makeDefault: true,
+    label: 'TYPES.Item.flaw',
   });
   Items.registerSheet(HI_CONST.systemID, applications.sheets.ManeuverItemSheet, {
     types: ['maneuver'],
