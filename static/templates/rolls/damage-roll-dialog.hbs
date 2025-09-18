@@ -1,0 +1,26 @@
+<section class='roll-dialog-content'>
+  <div class='modifiers-table'>
+    <div class='modifiers-table-items'>
+      <div class='modifiers-table-item'>
+        <label>{{localize 'HONOR_INTRIGUE.Dialog.Roll.DamageFormula'}}</label>
+        <div class='modifiers-table-item-group'>
+          {{numberInput numDice name='numDice'}}
+          <select name='dieSize'>
+            {{selectOptions dieSizeChoices selected=dieSize}}
+          </select>
+          <input type='text' name='flatModifier' data-dtype='Number' value='{{numberFormat flatModifier sign=true}}'/>
+        </div>
+      </div>
+      {{#if modifiers.includeMightSelector}}
+        <div class='modifiers-table-item'>
+          <label>{{localize 'HONOR_INTRIGUE.Actor.qualities.might'}}</label>
+
+          <div class='modifiers-table-item-group'>
+            {{numberInput mightValue name='mightValue'}}
+            <button type='button' class='{{#if halfMight}}toggled{{/if}}' data-action='toggleHalfMight'>½</button>
+          </div>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</section>

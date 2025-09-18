@@ -41,7 +41,7 @@ Hooks.once('init', () => {
 
   foundry.applications.handlebars.loadTemplates(templates.map(t => HI_CONST.systemPath(t))).catch(console.error);
 
-  CONFIG.Dice.rolls = [rolls.HonorIntrigueRoll];
+  CONFIG.Dice.rolls = [rolls.HonorIntrigueRoll, rolls.HonorIntrigueDamageRoll];
   CONFIG.statusEffects = [];
 
   const { Actors, Items } = foundry.documents.collections;

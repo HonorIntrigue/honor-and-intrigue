@@ -43,12 +43,14 @@
             "Weapons": "Weapons"
           },
           "Maneuvers": {
+            "Damage": "Damage",
             "Major": "Major Action Maneuvers",
             "MasteryHint": "Maneuver Mastery Bonus",
             "Minor": "Minor Action Maneuvers",
             "Populate": "Populate",
             "PopulateOnEmpty": "No maneuvers have been added. Drag some from the compendium or click below to fill in the defaults.",
             "Reaction": "Reaction Maneuvers",
+            "ReadiedEquipment": "Readied Equipment",
             "Reset": "Clear All Maneuvers",
             "ResetWarning": "Proceeding will permanently erase all maneuvers in this actor's collection. Are you sure you wish to proceed?",
             "ToggleMastery": "Change Mastery"
@@ -66,7 +68,8 @@
     "Chat": {
       "Roll": {
         "Flavor": {
-          "Characteristic": "Ability Check: {characteristic}"
+          "Characteristic": "Ability Check: {characteristic}",
+          "Damage": "{weapon} Damage"
         },
         "Modifier": {
           "Ability": "{number} {ability}",
@@ -86,10 +89,12 @@
         "Button": "Roll",
         "Career": "Career Bonus",
         "CombatAbility": "Combat Ability",
+        "DamageFormula": "Damage Formula",
         "Flat": "Flat Modifier",
         "Modifiers": "Modifiers",
         "None": "None",
-        "PenaltyDie": "Penalty Dice"
+        "PenaltyDie": "Penalty Dice",
+        "RolLDamage": "Roll Damage"
       }
     },
     "Item": {
@@ -110,6 +115,9 @@
           "handsHeld": {
             "label": "Hands Held",
             "hint": "One- or two-handed"
+          },
+          "maneuvers": {
+            "label": "Associated Maneuvers"
           },
           "mastery": {
             "label": "Maneuver Mastery Benefit"

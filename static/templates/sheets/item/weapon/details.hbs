@@ -1,4 +1,4 @@
-<section class='tab {{tabs.details.id}}{{#if tabs.details.cssClass}} {{tabs.details.cssClass}}{{/if}}'
+<section class='tab scrollable {{tabs.details.id}}{{#if tabs.details.cssClass}} {{tabs.details.cssClass}}{{/if}}'
          data-group='{{tabs.details.group}}'
          data-tab='{{tabs.details.id}}'>
   <div class='tab-content standard-form'>
@@ -12,5 +12,6 @@
     {{formGroup systemFields.handsHeld value=system.handsHeld type='number'}}
     {{formGroup systemFields.rangeIncrement value=system.rangeIncrement type='number'}}
     {{formGroup systemFields.throwable value=system.throwable}}
+    {{formGroup systemFields.maneuvers value=system.maneuvers}}
   </div>
 </section>

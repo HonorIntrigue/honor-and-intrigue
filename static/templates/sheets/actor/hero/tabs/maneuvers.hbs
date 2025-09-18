@@ -2,8 +2,40 @@
          data-group='{{tabs.maneuvers.group}}'
          data-tab='{{tabs.maneuvers.id}}'>
   <section class='tab-content'>
+    {{#if (gt offensiveEquipment.length 0)}}
+      {{> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ReadiedEquipment')}}
+      <ol class='item-list offensive-equipment'>
+        {{#each offensiveEquipment as |eq|}}
+          <li class='item' data-item-id='{{eq.id}}' data-document-class='Item'>
+            <div class='item-row'>
+              <div class='item-image'>
+                <img src='{{eq.img}}' alt='{{eq.name}}'>
+              </div>
+              <div class='item-name'>
+                <p>{{eq.name}}</p>
+
+                {{#if (eq eq.type 'weapon')}}
+                  <button type='button' data-action='rollItemDamage'>
+                    {{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Damage'}}
+                  </button>
+                {{/if}}
+              </div>
+              {{#if (gt eq.maneuvers.length 0)}}
+                <div class='item-tags'>
+                  {{#each eq.maneuvers as |eqm|}}
+                      <button type='button' data-action='rollCompendiumManeuver' data-item-uuid='{{eqm.uuid}}'>
+                        {{eqm.name}}
+                      </button>
+                  {{/each}}
+                </div>
+              {{/if}}
+            </div>
+          </li>
+        {{/each}}
+      </ol>
+    {{/if}}
     {{#if maneuvers}}
-      {{#*inline "maneuverList"}}
+      {{#*inline 'maneuverList'}}
         {{#if (gt collection.length 0)}}
           {{> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label=(localize label)}}
           <ol class='item-list'>
@@ -17,8 +49,8 @@
                   <div class='item-controls'>
                     {{#if maneuverContext.hasMasteryBenefit}}
                       <a data-action='toggleManeuverMastery'
-                         data-tooltip='{{localize "HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ToggleMastery"}}'>
-                        <i class='fa-{{ifThen maneuverContext.item.system.isMastered "solid illuminate" "light"}} fa-star-shooting'></i>
+                         data-tooltip='{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ToggleMastery'}}'>
+                        <i class='fa-{{ifThen maneuverContext.item.system.isMastered 'solid illuminate' 'light'}} fa-star-shooting'></i>
                       </a>
                     {{/if}}
                     <a data-action='openItem'>
@@ -54,9 +86,9 @@
       {{> maneuverList collection=maneuvers.reaction label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Reaction'}}
     {{else}}
       <div class='suggestion-box'>
-        <p>{{localize "HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.PopulateOnEmpty"}}</p>
+        <p>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.PopulateOnEmpty'}}</p>
         <button type='button' data-action='populateManeuvers'>
-          {{localize "HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Populate"}}
+          {{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Populate'}}
         </button>
       </div>
     {{/if}}

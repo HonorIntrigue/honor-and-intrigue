@@ -8,6 +8,8 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
       adjustAdvancementPoints: { handler: this.#adjustAdvancementPoints, buttons: [0, 2] },
       adjustFortune: { handler: this.#adjustFortune, buttons: [0, 2] },
       populateManeuvers: this.#onPopulateManeuvers,
+      rollCompendiumManeuver: this.#onRollCompendiumManeuver,
+      rollItemDamage: this.#onRollItemDamage,
       rollManeuver: this.#onRollManeuver,
       resetManeuvers: this.#onResetManeuvers,
       toggleManeuverMastery: this.#toggleManeuverMastery,
@@ -82,6 +84,30 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
   }
 
   /**
+   * Roll a maneuver from a compendium link.
+   */
+  static async #onRollCompendiumManeuver(event, target) {
+    const { itemUuid } = target.dataset;
+    const maneuver = this.actor.itemTypes.maneuver.find(m => m._stats.compendiumSource === itemUuid);
+
+    if (maneuver) return this.#rollManeuver(maneuver);
+
+    return this.#rollManeuver(await fromUuid(itemUuid));
+  }
+
+  /**
+   * Roll damage for an item.
+   */
+  static async #onRollItemDamage(event, target) {
+    const { itemId } = target.closest('.item').dataset;
+    const item = this.actor.items.get(itemId);
+
+    if (item?.type !== 'weapon') return;
+
+    return item.system.rollDamage();
+  }
+
+  /**
    * Begin rolling a maneuver.
    */
   static async #onRollManeuver(event, target) {
@@ -90,13 +116,7 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
 
     if (item?.type !== 'maneuver') return;
 
-    const { abilityCheck } = item.system;
-    const options = { modifiers: {} };
-
-    if (abilityCheck.combatAbility) options.modifiers.combatAbility = abilityCheck.combatAbility;
-    if (abilityCheck.flatModifier) options.modifiers.flat = abilityCheck.flatModifier;
-
-    return this.actor.rollCharacteristic(`qualities.${abilityCheck.quality}`, options);
+    return this.#rollManeuver(item);
   }
 
   /**
@@ -111,9 +131,9 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     }
 
     const docs = await pack.getDocuments();
-    const objs = docs.map(cd => cd.toObject());
+    const objs = docs.map(cd => game.items.fromCompendium(cd));
 
-    await Item.createDocuments(objs, { parent: this.actor });
+    await Item.implementation.createDocuments(objs, { parent: this.actor });
     return this.render({ parts: ['maneuvers'] });
   }
 
@@ -125,6 +145,21 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     const item = this.actor.items.get(itemId);
 
     await item.update({ system: { isMastered: !item.system.isMastered } });
+  }
+
+  /**
+   * Parse a maneuver for its roll options and kick off the roll.
+   */
+  async #rollManeuver(maneuver) {
+    const { abilityCheck } = maneuver.system;
+    const options = { modifiers: {}, title: maneuver.name };
+
+    if (abilityCheck.combatAbility) options.modifiers.combatAbility = abilityCheck.combatAbility;
+    if (abilityCheck.flatModifier) options.modifiers.flat = abilityCheck.flatModifier;
+
+    if (maneuver.system.isMastered && /^bonus die/i.test(maneuver.system.mastery)) options.modifiers.bonuses = 1;
+
+    return this.actor.rollCharacteristic(`qualities.${abilityCheck.quality}`, options);
   }
 
   /** @inheritDoc */
@@ -195,6 +230,21 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     }, { major: [], minor: [], free: [], reaction: [] });
   }
 
+  /**
+   * Prepare the context for all offensive weapons and equipment.
+   */
+  async _prepareOffensiveEquipment() {
+    const weapons = await Promise.all(this.actor.items
+      .filter(i => i.type === 'weapon')
+      .filter(w => w.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held)
+      .map(async w => {
+        w.maneuvers = await Promise.all(Array.from(w.system.maneuvers).map(async m => await fromUuid(m)));
+        return w;
+      }));
+
+    return [...weapons];
+  }
+
   /** @inheritDoc */
   async _preparePartContext(partId, context, options) {
     await super._preparePartContext(partId, context, options);
@@ -205,6 +255,7 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
         break;
       case 'maneuvers':
         context.maneuvers = await this._prepareManeuversContext();
+        context.offensiveEquipment = await this._prepareOffensiveEquipment();
         break;
     }
 

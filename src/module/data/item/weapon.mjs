@@ -1,3 +1,4 @@
+import { HonorIntrigueDamageRoll } from '../../rolls/_module.mjs';
 import EquipmentModel from './equipment.mjs';
 
 const fields = foundry.data.fields;
@@ -19,14 +20,44 @@ export default class WeaponModel extends EquipmentModel {
     const schema = super.defineSchema();
 
     schema.damageFormula = new fields.SchemaField({
-      dieSize: new fields.NumberField({ choices: [2, 3, 4, 6, 8, 10, 12], initial: 6, integer: true, nullable: false }),
+      dieSize: new fields.NumberField({ choices: hi.CONFIG.damageDiceValues, initial: 6, integer: true, nullable: false }),
       flatModifier: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       numDice: new fields.NumberField({ initial: 1, integer: true, min: 1, nullable: false }),
     });
     schema.handsHeld = new fields.NumberField({ initial: 0, integer: true, min: 0, max: 3, nullable: false });
+    schema.loadActions = new fields.NumberField({ initial: 0, integer: true, min: 0 });
+    schema.isLoaded = new fields.BooleanField({ initial: true });
+    schema.maneuvers = new fields.SetField(new fields.DocumentUUIDField({ embedded: false, type: 'Item' }));
     schema.rangeIncrement = new fields.NumberField({ initial: 0, integer: true, min: 0, nullable: false });
-    schema.throwable = new fields.BooleanField({ initial: false, nullable: false });
+    schema.throwable = new fields.BooleanField({ initial: false });
 
     return schema;
+  }
+
+  /**
+   * Prompt the user to roll damage using this weapon's formula.
+   */
+  async rollDamage(options = {}) {
+    const data = this.parent.getRollData();
+    const result = await HonorIntrigueDamageRoll.prompt({
+      ...options,
+      actor: this.parent.actor,
+      data,
+      formula: this.damageFormula,
+      title: options.title ?? this.parent.name,
+    });
+    if (!result) return;
+
+    const { modifiers, rollMode, rolls } = result;
+
+    return ChatMessage.create({
+      flags: { core: { canPopout: true } },
+      flavor: `<strong>${game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Damage', { weapon: this.parent.name })}</strong>`,
+      rolls,
+      rollMode,
+      sound: CONFIG.sounds.dice,
+      speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+      title: options.title,
+    }, { rollMode });
   }
 }

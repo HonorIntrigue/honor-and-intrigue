@@ -1,6 +1,12 @@
 import { preLocalize } from './helpers/localization.mjs';
 
-export const HONOR_INTRIGUE = {};
+export const HONOR_INTRIGUE = {
+  CARRY_CHOICE: {
+    Dropped: 0,
+    Held: 1,
+    Stowed: 2,
+  },
+};
 
 HONOR_INTRIGUE.qualities = {
   might: { label: 'HONOR_INTRIGUE.Actor.qualities.might', rollKey: 'might' },
@@ -26,12 +32,23 @@ HONOR_INTRIGUE.actionTypes = {
   3: { label: 'HONOR_INTRIGUE.ACTION_TYPE.reaction' },
 };
 HONOR_INTRIGUE.equipmentCarryChoices = {
-  0: { label: 'HONOR_INTRIGUE.Item.CARRY_TYPE.dropped' },
-  1: { label: 'HONOR_INTRIGUE.Item.CARRY_TYPE.held' },
-  2: { label: 'HONOR_INTRIGUE.Item.CARRY_TYPE.stowed' },
+  [HONOR_INTRIGUE.CARRY_CHOICE.Dropped]: { label: 'HONOR_INTRIGUE.Item.CARRY_TYPE.dropped' },
+  [HONOR_INTRIGUE.CARRY_CHOICE.Held]: { label: 'HONOR_INTRIGUE.Item.CARRY_TYPE.held' },
+  [HONOR_INTRIGUE.CARRY_CHOICE.Stowed]: { label: 'HONOR_INTRIGUE.Item.CARRY_TYPE.stowed' },
 };
 
 HONOR_INTRIGUE.speedOptions = ['fly', 'teleport', 'walk'];
+
+HONOR_INTRIGUE.damageDice = [
+  { label: 'd2', value: 2 },
+  { label: 'd3', value: 3 },
+  { label: 'd4', value: 4 },
+  { label: 'd6', value: 6 },
+  { label: 'd8', value: 8 },
+  { label: 'd10', value: 10 },
+  { label: 'd12', value: 12 },
+];
+HONOR_INTRIGUE.damageDiceValues = HONOR_INTRIGUE.damageDice.map(x => x.value);
 
 HONOR_INTRIGUE.damageTypes = {
   energy: {

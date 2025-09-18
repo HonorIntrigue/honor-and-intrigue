@@ -87,7 +87,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       characteristic,
       data,
       flavor,
-      title: flavor,
+      title: options.title ?? flavor,
     });
 
     if (!result) return;
@@ -125,14 +125,14 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     const messageData = {
       flags: { core: { canPopout: true } },
       flavor: await foundry.applications.handlebars.renderTemplate(systemPath('templates/rolls/chat-message-flavor.hbs'), {
-        characteristic: game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Characteristic', { characteristic: flavor }),
+        characteristic: options.title ?? game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Characteristic', { characteristic: flavor }),
         modifiers: flavorModifiers,
       }),
       rolls,
       rollMode,
       sound: CONFIG.sounds.dice,
       speaker: ChatMessage.getSpeaker({ actor: this.parent }),
-      title: flavor,
+      title: options.title ?? flavor,
     };
 
     return ChatMessage.create(messageData, { rollMode });

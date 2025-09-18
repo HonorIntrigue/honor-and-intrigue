@@ -50,6 +50,26 @@
         text-overflow: ellipsis;
         white-space-collapse: collapse;
       }
+
+      &-group {
+        display: flex;
+        gap: 0.1rem;
+
+        input {
+          text-align: center;
+        }
+
+        select {
+          min-width: 60px;
+        }
+
+        button {
+          &.toggled {
+            background: light-dark(var(--color-navy), var(--color-gold-dull));
+            color: light-dark(var(--color-gold), var(--color-navy));
+          }
+        }
+      }
     }
   }
 

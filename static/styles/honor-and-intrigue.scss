@@ -1,5 +1,9 @@
 @use 'system/system';
 
+.theme-dark .honor-intrigue.application {
+  background: var(--color-navy);
+}
+
 .honor-intrigue {
   .illuminate {
     color: var(--color-gold);

@@ -19,10 +19,10 @@
 
       &-row {
         align-items: center;
-        background: light-dark(hsl(0, 0, 0, 0.15), hsl(var(--color-navy-exp), 0.75));
+        background: light-dark(hsl(0, 0%, 0%, 0.15), hsl(var(--color-navy-exp), 0.75));
         display: flex;
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: 0.5rem;
         margin-bottom: 0.25rem;
         padding: 0.5rem;
       }
@@ -37,9 +37,12 @@
       }
 
       &-name {
+        align-items: center;
         cursor: pointer;
+        display: flex;
         flex: 1;
         font-size: var(--font-h5-size);
+        justify-content: space-between;
       }
 
       &-controls {

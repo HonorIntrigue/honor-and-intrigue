@@ -75,6 +75,10 @@
         height: 100%;
         padding: 1rem;
 
+        > :last-child {
+          padding-bottom: 1rem;
+        }
+
         prose-mirror {
           flex: 1;
 

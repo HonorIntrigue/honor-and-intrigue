@@ -16,8 +16,8 @@ export default class WeaponItemSheet extends HonorIntrigueItemSheet {
     header: { template: systemPath('templates/sheets/item/base/header.hbs') },
     sidebar: { template: systemPath('templates/sheets/item/base/sidebar.hbs') },
     content: { template: 'templates/generic/tab-navigation.hbs' },
-    description: { template: systemPath('templates/sheets/item/base/tabs/description.hbs') },
-    details: { template: systemPath('templates/sheets/item/weapon/details.hbs') },
+    description: { template: systemPath('templates/sheets/item/base/tabs/description.hbs'), scrollable: [''] },
+    details: { template: systemPath('templates/sheets/item/weapon/details.hbs'), scrollable: [''] },
   };
 
   /** @inheritDoc */

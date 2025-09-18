@@ -30,18 +30,6 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
   static applyActorModifiers(options) {
     if (!options.actor) return;
 
-    options.modifiers.combatAbility ??= 'none';
-    options.modifiers.combatAbilityOptions = Object.values(hi.CONFIG.combatAbilities).map(c => ({
-      ...c,
-      label: game.i18n.localize(c.label),
-    }));
-
-    options.modifiers.career ??= 'none';
-    options.modifiers.careerOptions = options.actor.itemTypes['career'].map(career => ({
-      label: `(+${career.system.rank}) ${career.name}`,
-      value: career.id,
-    }));
-
     // TODO apply penalty die when blinded, bound, etc.
   }
 
@@ -59,10 +47,7 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
     options.actor ??= ChatMessage.getSpeakerActor(ChatMessage.getSpeaker());
     this.applyActorModifiers(options);
 
-    const result = await hi.applications.apps.RollDialog.create({
-      context: options,
-    });
-
+    const result = await hi.applications.apps.RollDialog.create({ context: options });
     if (!result) return false;
 
     const { rollMode, modifiers } = result;
