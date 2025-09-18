@@ -50,6 +50,11 @@
         align-items: center;
         display: flex;
         gap: 0.5rem;
+
+        input {
+          text-align: center;
+          width: 40px;
+        }
       }
 
       &-tags {

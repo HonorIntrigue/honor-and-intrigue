@@ -14,14 +14,6 @@
   }
 
   .tab {
-    &.character {
-      .item-controls {
-        input {
-          text-align: center;
-        }
-      }
-    }
-
     &.maneuvers {
       .item-image.rollable {
         position: relative;

@@ -1,39 +1,95 @@
 <section class='tab {{tabs.inventory.id}}{{#if tabs.inventory.cssClass}} {{tabs.inventory.cssClass}}{{/if}}'
          data-group='{{tabs.inventory.group}}'
          data-tab='{{tabs.inventory.id}}'>
-  <section class='tab-content'>
-    {{> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Inventory.Weapons')}}
-    <ol class='item-list'>
-      {{#each inventory as |inventoryContext|}}
-        <li class='item' data-item-id='{{inventoryContext.item.id}}' data-document-class='Item'>
-          <div class='item-row'>
-            <div class='item-drag-handle'>
-              <a class='draggable'>
-                <i class='fa-solid fa-grip-dots-vertical'></i>
-              </a>
-            </div>
-            <img class='item-image' src='{{inventoryContext.item.img}}' alt='{{inventoryContext.item.name}}'>
-            <div class='item-name' data-action='toggleItemExpanded'>{{inventoryContext.item.name}}</div>
-            <div class='item-controls'>
-              <a data-action='toggleItemEquipped'
-                 data-tooltip='{{inventoryContext.item.system.carriedPositionLabel}}'>
-                <i class='{{inventoryContext.item.system.carriedPositionIcon}}'></i>
-              </a>
-              <a data-action='openItem'>
-                <i class='fa-solid fa-pen-to-square'></i>
-              </a>
-              <a data-action='deleteItem'>
-                <i class='fa-solid fa-trash'></i>
-              </a>
-            </div>
-            {{#if inventoryContext.expanded}}
-              <div class='item-embed'>
-                {{{inventoryContext.embed.outerHTML}}}
+  <div class='tab-content'>
+    {{#if (gt inventory.weapons.length 0)}}
+    <div class='weapon-list'>
+      {{> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Inventory.Weapons')}}
+      <ol class='item-list'>
+        {{#each inventory.weapons as |weapon|}}
+          <li class='item' data-item-id='{{weapon.item.id}}' data-document-class='Item'>
+            <div class='item-row'>
+              <div class='item-drag-handle'>
+                <a class='draggable'>
+                  <i class='fa-solid fa-grip-dots-vertical'></i>
+                </a>
               </div>
-            {{/if}}
-          </div>
-        </li>
-      {{/each}}
-    </ol>
-  </section>
+              <img class='item-image' src='{{weapon.item.img}}' alt='{{weapon.item.name}}'>
+              <div class='item-name' data-action='toggleItemExpanded'>{{weapon.item.name}}</div>
+              <div class='item-controls'>
+                {{#with weapon.item.system}}
+                  <input type='number'
+                         data-name='item-quantity'
+                         max='{{schema.fields.quantity.max}}'
+                         min='{{schema.fields.quantity.min}}'
+                         value='{{quantity}}' />
+                {{/with}}
+                <a data-action='toggleItemEquipped'
+                   data-tooltip='{{weapon.item.system.carriedPositionLabel}}'>
+                  <i class='{{weapon.item.system.carriedPositionIcon}}'></i>
+                </a>
+                <a data-action='openItem'>
+                  <i class='fa-solid fa-pen-to-square'></i>
+                </a>
+                <a data-action='deleteItem'>
+                  <i class='fa-solid fa-trash'></i>
+                </a>
+              </div>
+              {{#if weapon.expanded}}
+                <div class='item-embed'>
+                  {{{weapon.embed.outerHTML}}}
+                </div>
+              {{/if}}
+            </div>
+          </li>
+        {{/each}}
+      </ol>
+    </div>
+    {{/if}}
+
+    {{#if (gt inventory.armor.length 0)}}
+      <div class='armor-list'>
+        {{> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Inventory.Armor')}}
+        <ol class='item-list'>
+          {{#each inventory.armor as |armor|}}
+            <li class='item' data-item-id='{{armor.item.id}}' data-document-class='Item'>
+              <div class='item-row'>
+                <div class='item-drag-handle'>
+                  <a class='draggable'>
+                    <i class='fa-solid fa-grip-dots-vertical'></i>
+                  </a>
+                </div>
+                <img class='item-image' src='{{armor.item.img}}' alt='{{armor.item.name}}'>
+                <div class='item-name' data-action='toggleItemExpanded'>{{armor.item.name}}</div>
+                <div class='item-controls'>
+                  {{#with armor.item.system}}
+                    <input type='number'
+                           data-name='item-quantity'
+                           max='{{schema.fields.quantity.max}}'
+                           min='{{schema.fields.quantity.min}}'
+                           value='{{quantity}}' />
+                  {{/with}}
+                  <a data-action='toggleItemEquipped'
+                     data-tooltip='{{armor.item.system.carriedPositionLabel}}'>
+                    <i class='{{armor.item.system.carriedPositionIcon}}'></i>
+                  </a>
+                  <a data-action='openItem'>
+                    <i class='fa-solid fa-pen-to-square'></i>
+                  </a>
+                  <a data-action='deleteItem'>
+                    <i class='fa-solid fa-trash'></i>
+                  </a>
+                </div>
+                {{#if armor.expanded}}
+                  <div class='item-embed'>
+                    {{{armor.embed.outerHTML}}}
+                  </div>
+                {{/if}}
+              </div>
+            </li>
+          {{/each}}
+        </ol>
+      </div>
+    {{/if}}
+  </div>
 </section>

@@ -175,6 +175,16 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
         await item.update({ system: { rank: event.target.value } });
       });
     }
+
+    const qtyInputs = document.querySelectorAll('.tab-content input[data-name="item-quantity"]');
+    for (const input of qtyInputs) {
+      input.addEventListener('change', async (event) => {
+        const { itemId } = event.target.closest('.item').dataset;
+        const item = this.actor.items.get(itemId);
+
+        await item.update({ system: { quantity: event.target.value } });
+      });
+    }
   }
 
   /**
