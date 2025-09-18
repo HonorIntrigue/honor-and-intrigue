@@ -1,0 +1,29 @@
+{
+  "folder": "KP93KSxzK0zpIw6g",
+  "name": "Good Etiquette",
+  "type": "boon",
+  "_id": "JVYKXwerV2Ww8fx7",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You know how to mind your Ps and Qs. You gain a Bonus Die on any task where good form is important.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157275254,
+    "modifiedTime": 1758157278076,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!JVYKXwerV2Ww8fx7"
+}

@@ -1,0 +1,29 @@
+{
+  "folder": "fZ12SW9a9RZCo0VP",
+  "name": "Membership",
+  "type": "boon",
+  "_id": "qYhJ003O8AYoR7o6",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You are part of some elite, powerful group or secret society. Powerful groups are publicly known organizations that are very influential. Members get a Bonus Die when trying to use the group’s influence to persuade or intimidate. Secret societies are clandestine groups that avoid public notice to achieve some secret agenda. They often employ secret codes, signals, etc. to keep infiltrators at bay. Secret societies usually have some sort of special resource available to their members. Powerful groups and secret societies can both ask their members for aid. When PCs undertake a mission for their group, it is worth a Fortune Point. Likewise, the hero may need to ask the group for aid, which he may pay for with a Fortune Point. In addition, Membership often gives some other benefit as well, which varies by group. Refusing a mission by the group will lead to them giving you fewer, as they likely have more reliable people.</p><p>For examples of some powerful groups, like the Royal Society, Dutch East India Company, or Spanish Inquisition, see page 156. For examples of some secret societies such as the Actor’s Guild or the Court of Miracles, see page 160. There are also some supernatural secret societies, such as the Bogatyrs and the Systerhood of Isis you can read about on page 197. Of course, the GM and player should feel free to come up with their own groups as well.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157843541,
+    "modifiedTime": 1758157855387,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!qYhJ003O8AYoR7o6"
+}

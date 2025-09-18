@@ -1,0 +1,29 @@
+{
+  "folder": "BxFUvIo2HAWNOlkM",
+  "name": "Double Life",
+  "type": "flaw",
+  "_id": "7N07vGVLGGFXRlBD",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>You have not one, but two identities. Perhaps you are a dainty fop by day and a daring highwayman by night, or you are a woman posing as a man. Whatever the story, you have a ‘true’ identity and an alter ego. Each will have its own contacts, relationships, and reputation. Regardless of whether you switch back and forth between the two identities or if you want to leave one buried in the past, you do not want people to find out the truth. Whenever you are inconvenienced by this double life, gain a Fortune Point. You can also pay a Fortune Point to take advantage of the double life (the highwayman plunges into the mist—and when the troopers get there they see the dainty fop crying “After him you dolts! The highwayman is getting away!”). Usually, though, maintaining a Double Life is more trouble than it is worth, as you may find yourself in situations where you need to be in two places at once, etc.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758165477851,
+    "modifiedTime": 1758165480623,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!7N07vGVLGGFXRlBD"
+}

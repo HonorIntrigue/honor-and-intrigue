@@ -1,0 +1,29 @@
+{
+  "folder": "n2OTp9vRGljnLiK0",
+  "name": "Missing Limb",
+  "type": "flaw",
+  "_id": "7vJNaLM3mJ39Wtr2",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>You may make up for it with a crude prosthetic, such as a hook-hand, or a peg-leg, but it is nevertheless a great inconvenience. Roll a Penalty Die whenever the GM feels the situation is appropriate, such as when you must climb a ladder, etc. If the GM puts you in a situation where this causes you serious trouble, he may award a Fortune Point.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758158023163,
+    "modifiedTime": 1758158025376,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!7vJNaLM3mJ39Wtr2"
+}

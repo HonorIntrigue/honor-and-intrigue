@@ -1,0 +1,29 @@
+{
+  "folder": "BxFUvIo2HAWNOlkM",
+  "name": "Obligation",
+  "type": "flaw",
+  "_id": "yMECJjzr0kdvtBVz",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>You have someone or some organization that you must be obedient to, or that you owe some service to. Alternatively, you have someone who you must look after who cannot take care of themselves. A character who is a servant, for instance, would have an Obligation to their master. When your Obligation calls on you to do something that is a serious inconvenience, the GM will award you a Fortune Point. When you choose this Flaw, you must work out with the GM what your Obligation is.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758165576320,
+    "modifiedTime": 1758165577843,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!yMECJjzr0kdvtBVz"
+}

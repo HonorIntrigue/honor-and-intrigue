@@ -1,0 +1,29 @@
+{
+  "folder": "n2OTp9vRGljnLiK0",
+  "name": "Tragic Fate",
+  "type": "flaw",
+  "_id": "QgS0MUaHI9fQlU29",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>When you were young, you and a friend visited a fortune teller. The old crone told your friend that she foresaw for him a horrible death at a young age, then looked into your future and screamed—it was too horrible to speak aloud. On the way home, your friend was killed in a horrible accident… and the fortune teller’s words have haunted you ever since. This may not actually be your story, but nevertheless you will have a terrible fate. A character who takes this Flaw gains +1 Advancement Point per session—but does so at a terrible price. Only the GM knows what your Tragic Fate will be—and you never will be rid of it, no matter how hard you try.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758165173847,
+    "modifiedTime": 1758165193702,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!QgS0MUaHI9fQlU29"
+}

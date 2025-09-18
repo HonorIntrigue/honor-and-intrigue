@@ -1,0 +1,29 @@
+{
+  "folder": "TsrVrV5UVTR9Frjj",
+  "name": "Phobia",
+  "type": "flaw",
+  "_id": "6VPotUpM7IS4HjuV",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>There is something you have a great and irrational fear of. Treat this Phobia as a Creature with a Terror rating of 3 to you. Whenever the GM causes you to be confronted by it, you gain 1 Fortune Point, and must make a Daring roll at -3 from fear. If you succeed, your “Fight” response has triggered, and you gain +1 to all rolls for 1 round. If you fail, your “Flight” response has triggered: lose 1 Composure each round you don’t flee from the object of your Phobia. At the start of your turn, make another check until the object of your fear is gone, or you have lost all Composure. If you lose all Composure, you have a -4 penalty to all rolls except for fleeing from your Phobia. You cannot spend Fortune to regain Composure from your Phobia. Some possible Phobias include: Fear of Reptiles, Spiders, Heights, Crowds, Death, the Dark, Closed Spaces, Ghosts, etc.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758165749352,
+    "modifiedTime": 1758165751219,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!6VPotUpM7IS4HjuV"
+}

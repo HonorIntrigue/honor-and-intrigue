@@ -1,0 +1,29 @@
+{
+  "folder": "KP93KSxzK0zpIw6g",
+  "name": "Born in the Saddle",
+  "type": "boon",
+  "_id": "aL2KctxOIFCLrKTJ",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>When dealing with horses or carrying out physical activities from horseback (other than fighting), you may roll a Bonus Die.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157048008,
+    "modifiedTime": 1758157051883,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!aL2KctxOIFCLrKTJ"
+}

@@ -1,0 +1,29 @@
+{
+  "folder": "EGnsnVl3Bm49FqBP",
+  "name": "Gifted",
+  "type": "boon",
+  "_id": "RpxrKXnW2aE44DtQ",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You begin with +1 to one of your Careers. This Career has a maximum of 6 instead of 5.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758156620738,
+    "modifiedTime": 1758156623943,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!RpxrKXnW2aE44DtQ"
+}

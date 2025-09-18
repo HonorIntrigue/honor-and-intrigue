@@ -1,0 +1,29 @@
+{
+  "folder": "KP93KSxzK0zpIw6g",
+  "name": "Maneuver Mastery",
+  "type": "boon",
+  "_id": "spBCRTgOCoJ37RTX",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You have mastered two Maneuvers. You could take this Boon twice if you wish. Note: If you take this Boon twice along with Dueling Style, it is possible to begin play as a master of that style.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157393303,
+    "modifiedTime": 1758157406021,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!spBCRTgOCoJ37RTX"
+}

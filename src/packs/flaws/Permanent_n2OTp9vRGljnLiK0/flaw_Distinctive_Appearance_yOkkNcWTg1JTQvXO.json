@@ -1,0 +1,29 @@
+{
+  "folder": "n2OTp9vRGljnLiK0",
+  "name": "Distinctive Appearance",
+  "type": "flaw",
+  "_id": "yOkkNcWTg1JTQvXO",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>There is something about the way you look that sticks in men’s minds. Perhaps you have a very memorable scar or tattoo; maybe you were born with six fingers on your left hand. Whatever it is, you have some superficial characteristic that causes you to stand out. You gain a Penalty Die whenever you try to disguise yourself or maintain a low profile. Bounty hunters and spies will also get a Bonus Die to seek you out.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157988234,
+    "modifiedTime": 1758157990915,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!yOkkNcWTg1JTQvXO"
+}

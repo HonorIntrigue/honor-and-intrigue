@@ -1,0 +1,29 @@
+{
+  "folder": "EGnsnVl3Bm49FqBP",
+  "name": "Destiny",
+  "type": "boon",
+  "_id": "xV0Y0Tjl0ZcHj0zH",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You have an important Destiny. Your character is unaware of this, and you the player don’t even know what it is (it is a secret for the GM to decide). Because you are destined for greater things, the Fates are reluctant to cut the strand of your existence before it is time. Whenever your character is supposedly killed, you may spend 1 Fortune or Advancement Point to somehow still be alive (instead of the usual 3 such points). This could involve you only being “mostly dead” from a wound, you wash up on shore when the ship went down with all hands, or you were plucked from the jaws of death at the last second, even when everyone else swore you were dead. These points can be spent retroactively by you, appearing a session (or more) after the incident. However, once your destiny is fulfilled, you are as mortal as anyone else! A word of caution: sometimes great heroes are destined to die in a certain way—such as defending a loved one! When your Destiny is fulfilled, you gain +1 to your Fortune stat and you lose this Boon.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758156505423,
+    "modifiedTime": 1758156547150,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!xV0Y0Tjl0ZcHj0zH"
+}

@@ -1,0 +1,29 @@
+{
+  "folder": "KP93KSxzK0zpIw6g",
+  "name": "Master Tracker",
+  "type": "boon",
+  "_id": "p5KbeqCSCF2fDGW5",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>Whenever you are tracking, use a Bonus Die.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157430540,
+    "modifiedTime": 1758157432667,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!p5KbeqCSCF2fDGW5"
+}

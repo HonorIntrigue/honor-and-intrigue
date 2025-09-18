@@ -1,0 +1,29 @@
+{
+  "folder": "fZ12SW9a9RZCo0VP",
+  "name": "Trusted Companion",
+  "type": "boon",
+  "_id": "trqCPw7IXY2cTb0s",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You have a companion or servant who is as helpful as he is loyal. This character is a Level 3 retainer who often accompanies you on adventures, or can perform important, even dangerous missions for you, such as delivering a letter to a faraway land. When you bring your servant along, or entrust to them something important, you spend a Fortune Point. Most of the time, they’ll make it through alright (but if you ask too much of them, they may end up captured, or worse). If you end up having to come to your companion’s rescue, you’ll receive a Fortune Point. If you are in need of rescue, however, you can spend a Fortune Point and your trusted companion will attempt to save you (though there are no guarantees of success).</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157882012,
+    "modifiedTime": 1758157884832,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!trqCPw7IXY2cTb0s"
+}

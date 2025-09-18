@@ -1,0 +1,29 @@
+{
+  "folder": "KP93KSxzK0zpIw6g",
+  "name": "Master of Disguise",
+  "type": "boon",
+  "_id": "ZGfKEXiTWXfzMx0D",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You gain a Bonus Die whenever you are trying to conceal your true identity. In addition, whenever you want to suddenly appear in a scene where your character wasn’t already, you can spend a Fortune Point to emerge as one of the random guards, townsfolk, etc. in the background. You were there the whole time, merely incognito!</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157420427,
+    "modifiedTime": 1758157423841,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!ZGfKEXiTWXfzMx0D"
+}

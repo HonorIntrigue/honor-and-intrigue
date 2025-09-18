@@ -1,0 +1,29 @@
+{
+  "folder": "lPq6ABkh3WjCfCZf",
+  "name": "Magnificent Arms/Armor",
+  "type": "boon",
+  "_id": "ogTBkGQAr9UjyUEO",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You own a weapon or armor with some very special properties. Choose one of the options below. You can take this Boon more than once, giving you more than one magnificent weapon or making your existing weapon even more… magnificent.</p><p><strong>Perfectly Balanced:</strong> Get a Bonus Die when parrying with this weapon.</p><p><strong>Damascus Steel:</strong> You own a blade or heavy armor made of the legendary Damascus Steel. Roll a Bonus Die on damage rolls with this weapon (or protection rolls with this armor), including rolls to break or avoid breakage.</p><p><strong>Hidden Weapon:</strong> You have a weapon that is perfectly concealed—it may be a knife hidden inside a lady’s fan or comb, or a gun hidden in a walking stick, etc. People searching you for weapons will not find it unless they know to look for it. The first time you use this weapon in a scene, you treat the victim as if they were unaware (get a Bonus Die to hit, +2 damage).</p><p><strong>Trick Sword:</strong> You own a sword with a compartment in it containing another weapon, such as a concealed pistol or a spring-loaded dagger. The first attack you make with this concealed weapon during a scene is so surprising, you treat the target as if they were unaware (get a Bonus Die to hit and +2 damage).</p><p><strong>Lucky Sword:</strong> Perhaps this sword has been in your family for generations, perhaps you just like this particular sword, but it has always been lucky to you. Whenever you roll a 1 on a d6 for Initiative, Attack, Maneuver, Active Defense, or Damage with this sword, you can spend a Fortune Point to reroll the offending d6. You also begin each session with 1 extra Fortune Point if you have the sword with you.</p><p><strong>Create Your Own:</strong> With the GM’s permission, you may create your own magnificent weapon or armor quality.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157666821,
+    "modifiedTime": 1758157713112,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!ogTBkGQAr9UjyUEO"
+}

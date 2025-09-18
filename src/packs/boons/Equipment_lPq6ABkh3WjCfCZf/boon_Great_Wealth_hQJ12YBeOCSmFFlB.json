@@ -1,0 +1,29 @@
+{
+  "folder": "lPq6ABkh3WjCfCZf",
+  "name": "Great Wealth",
+  "type": "boon",
+  "_id": "hQJ12YBeOCSmFFlB",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>Roll a Bonus Die on any attempt to obtain any goods, services or items you need, or when your wealth might be used to influence someone. Needless to say the usefulness of Fortune Points to “Have something you need that isn’t out of your reach” is greatly increased when far fewer things are out of your reach.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157604627,
+    "modifiedTime": 1758157607566,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!hQJ12YBeOCSmFFlB"
+}

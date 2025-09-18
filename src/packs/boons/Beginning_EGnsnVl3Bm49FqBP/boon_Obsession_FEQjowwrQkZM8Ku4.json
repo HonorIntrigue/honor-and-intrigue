@@ -1,0 +1,29 @@
+{
+  "folder": "EGnsnVl3Bm49FqBP",
+  "name": "Obsession",
+  "type": "boon",
+  "_id": "FEQjowwrQkZM8Ku4",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>There is something that you are searching for— something very particular that will not be easy to find. It could be a long-lost brother, the golden city of El Dorado, a document that proves your birthright, etc. Whenever your search causes you serious setbacks, you will earn 1 Fortune. At some point, you will get what you are looking for—or get closure (if you discover proof your brother is dead, for example). When this happens, you will gain +1 to your Fortune Characteristic, and may replace this Boon. If your search is more self-destructive than helpful, you might instead consider the “Obsession” Flaw.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758156841870,
+    "modifiedTime": 1758156865670,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!FEQjowwrQkZM8Ku4"
+}

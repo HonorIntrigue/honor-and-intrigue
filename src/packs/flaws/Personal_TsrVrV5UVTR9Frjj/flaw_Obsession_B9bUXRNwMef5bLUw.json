@@ -1,0 +1,29 @@
+{
+  "folder": "TsrVrV5UVTR9Frjj",
+  "name": "Obsession",
+  "type": "flaw",
+  "_id": "B9bUXRNwMef5bLUw",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>There is something with which you are completely obsessed. It could be a fascination with a certain pursuit, person, or thing. You spend a great deal of time and money on this Obsession. Whenever you are in the presence of the object of your Obsession, you have a Penalty Die on all rolls that require you to ignore it. Sometimes your Obsession can get you into a lot of trouble, and when this happens the GM may award you a Fortune Point. For instance, Bernard is obsessed with the Philosopher’s Stone. He is in a library where he has found a shelf of books containing formulae which may help him unlock its secrets. But the library is on fire, and under attack! If he tries to escape the burning library and avoid the soldiers, he’ll have a Penalty Die to his rolls, but if he stays and tries to salvage the books, the GM will award him a Fortune Point.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758165739042,
+    "modifiedTime": 1758165740644,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!B9bUXRNwMef5bLUw"
+}

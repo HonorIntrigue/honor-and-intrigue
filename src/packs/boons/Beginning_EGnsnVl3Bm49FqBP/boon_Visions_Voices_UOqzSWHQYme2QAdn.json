@@ -1,0 +1,29 @@
+{
+  "folder": "EGnsnVl3Bm49FqBP",
+  "name": "Visions/Voices",
+  "type": "boon",
+  "_id": "UOqzSWHQYme2QAdn",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You have what some would call a gift from God, or what others might call a curse. You either see visions or hear a voice which gives you direction. You may believe the voice is God, a saint, or deceased ancestor, but you know that the voice is trying to help you. Visions may appear in your dreams, in auras around people, or as complete hallucinations, but you believe them to be benevolent signs to be taken seriously. Sometimes, the voice or visions may get you into trouble, and these times you gain 1 Fortune. However, there are also times when they prove to be right, and reveal things to you. You can spend a Fortune for the GM to give you some information your character would not otherwise be able to know. Be warned, however, that most people will think you’re mad, so it is often best to keep this to yourself.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758156965793,
+    "modifiedTime": 1758156976424,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!UOqzSWHQYme2QAdn"
+}

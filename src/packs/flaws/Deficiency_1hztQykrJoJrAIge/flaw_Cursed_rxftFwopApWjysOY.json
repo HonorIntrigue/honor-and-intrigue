@@ -1,0 +1,29 @@
+{
+  "folder": "1hztQykrJoJrAIge",
+  "name": "Cursed",
+  "type": "flaw",
+  "_id": "rxftFwopApWjysOY",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>You’ve always been unlucky. You begin with -1 Fortune. For some reason, bad things always seem to happen to you. The town guard mistakes you for a wanted man, the wench you picked up in the tavern turns out to be a runaway princess, you step on a twig just as you nearly snuck away, etc. Whenever the GM has such bad things happen to you, he will give you a Fortune Point. You also feel that this bad luck might be changed once you have done something to break the curse (and it has to be something pretty big). At the start of the campaign, you will probably not even know what it is you need to do, and will likely make a quest out of finding out. Once the curse is lifted, lose this Flaw (including the Fortune penalty).</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758165338673,
+    "modifiedTime": 1758165340649,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!rxftFwopApWjysOY"
+}

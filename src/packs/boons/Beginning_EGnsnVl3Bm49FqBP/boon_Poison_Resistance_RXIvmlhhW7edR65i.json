@@ -1,0 +1,29 @@
+{
+  "folder": "EGnsnVl3Bm49FqBP",
+  "name": "Poison Resistance",
+  "type": "boon",
+  "_id": "RXIvmlhhW7edR65i",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>Roll a Bonus Die whenever you are resisting the effects of drugs, venoms, toxins, and even alcohol.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758156817509,
+    "modifiedTime": 1758156821275,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!RXIvmlhhW7edR65i"
+}

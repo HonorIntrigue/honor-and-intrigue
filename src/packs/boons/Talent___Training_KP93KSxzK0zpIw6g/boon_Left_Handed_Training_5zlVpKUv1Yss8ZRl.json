@@ -1,0 +1,29 @@
+{
+  "folder": "KP93KSxzK0zpIw6g",
+  "name": "Left-Handed Training",
+  "type": "boon",
+  "_id": "5zlVpKUv1Yss8ZRl",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You have trained to be able to fight left-handed—you can still use your right hand as well. This is a rarity, even for people who were born left-handed, as children of the time were brought up to only use their right hand, making everyone right-handed. The benefit of left-handed training is you can still fight if something happens to your right arm.</p><p>In addition, left-handed fencers are far more difficult opponents than right-handed fencers (people are used to fighting only right-handers for the most part). You can spend a Fortune Point to increase your passive defense by 2 against a Melee or Brawling attack while you are wielding a single sword in your left hand. Note: if two people are fighting each other left-handed both can use the benefit (because each of them is also only used to fighting right-handed people)!</p><p>Lastly, you can switch hands mid-fight to surprise an opponent by making a Flair roll against the opponent’s Savvy. If you succeed, you either gain 1 Advantage or they lose 1 Composure. This ability will only work once on a given foe, and only once per adventure.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157350771,
+    "modifiedTime": 1758157382438,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!5zlVpKUv1Yss8ZRl"
+}

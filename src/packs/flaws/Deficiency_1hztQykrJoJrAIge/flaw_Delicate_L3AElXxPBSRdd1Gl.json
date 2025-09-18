@@ -1,0 +1,29 @@
+{
+  "folder": "1hztQykrJoJrAIge",
+  "name": "Delicate",
+  "type": "flaw",
+  "_id": "L3AElXxPBSRdd1Gl",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>You are not very tough. Deduct two from your Lifeblood total.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758165369687,
+    "modifiedTime": 1758165371460,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!L3AElXxPBSRdd1Gl"
+}

@@ -5,7 +5,7 @@
   "_id": "pQ8P2Iyr1rH0D85X",
   "img": "icons/svg/upgrade.svg",
   "system": {
-    "description": "<p>You leap forward in an all-out attack, doing [[/r 1d6]] damage but you get -1 Defense and cannot Yield Advantage until after your next turn.</p><p>NOTE: you must be wielding an impaling weapon, like a rapier, bayonet, dagger, etc.</p>",
+    "description": "<p>You leap forward in an all-out attack, doing +[[/r 1d6]] damage but you get -1 Defense and cannot Yield Advantage until after your next turn.</p><p>NOTE: you must be wielding an impaling weapon, like a rapier, bayonet, dagger, etc.</p>",
     "actionType": 1,
     "formulae": [],
     "isMastered": false,
@@ -35,7 +35,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757784758009,
-    "modifiedTime": 1757802281759,
+    "modifiedTime": 1758071896391,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!pQ8P2Iyr1rH0D85X"

@@ -1,0 +1,29 @@
+{
+  "folder": "n2OTp9vRGljnLiK0",
+  "name": "Absent Minded",
+  "type": "flaw",
+  "_id": "EwTt41DAnubb7D7B",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>While you are not necessarily dumb; indeed you may be brilliant—you have difficulty keeping track of appointments, people’s names, items on lists, and various other memory-based tasks. This means sometimes the GM will spring things on you that your character forgot—like that important appointment with the king, or the order in which the alchemical reagents must be applied to avoid an explosion! When the GM makes your absent-mindedness a serious problem, you’ll earn a Fortune Point.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157964750,
+    "modifiedTime": 1758157969468,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!EwTt41DAnubb7D7B"
+}

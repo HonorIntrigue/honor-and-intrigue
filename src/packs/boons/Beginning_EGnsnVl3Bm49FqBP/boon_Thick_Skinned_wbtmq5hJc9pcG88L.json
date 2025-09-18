@@ -1,0 +1,29 @@
+{
+  "folder": "EGnsnVl3Bm49FqBP",
+  "name": "Thick-Skinned",
+  "type": "boon",
+  "_id": "wbtmq5hJc9pcG88L",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You have a particularly leathery skin, which gives you 1 point of Protection from damage, even when not wearing armor. It does not, however, stack with the Protection offered by armor.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758156883078,
+    "modifiedTime": 1758156887993,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!wbtmq5hJc9pcG88L"
+}

@@ -1,0 +1,29 @@
+{
+  "folder": "lPq6ABkh3WjCfCZf",
+  "name": "Maguffin",
+  "type": "boon",
+  "_id": "X6DtjDrJul6N4PCW",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You have something that others want… badly. It could be a treasure map, a key, an ancient artifact, a document, a holy relic, etc. People come out of the woodwork to get it from you. You have a feeling that it could be important at some point in the future. Earn 1 Fortune whenever you have to go out of your way to keep or retrieve your Maguffin. Your Maguffin may also be occasionally useful. If the GM allows it, you can use the Maguffin to get some sort of clue, access a secret passage, etc that advances the plot. At some point in the future, the Maguffin will be used to complete a story arc. When this happens, you gain +1 to your maximum Fortune, and replace this Boon.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157631000,
+    "modifiedTime": 1758157644626,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!X6DtjDrJul6N4PCW"
+}

@@ -1,0 +1,29 @@
+{
+  "folder": "KP93KSxzK0zpIw6g",
+  "name": "Pirate Killer",
+  "type": "boon",
+  "_id": "0vPpwQXnZqvvyOTu",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You can use a Bonus Die whenever in combat with pirates. With the GM’s permission, variations of this Boon can be created by substituting the word “Pirates” for something else—like Bandit Killer or even Undead Killer if your campaign has supernatural elements.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157441732,
+    "modifiedTime": 1758157444393,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!0vPpwQXnZqvvyOTu"
+}

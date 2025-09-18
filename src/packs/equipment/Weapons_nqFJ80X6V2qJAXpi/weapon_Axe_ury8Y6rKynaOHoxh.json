@@ -11,7 +11,11 @@
     "description": "<p>These are usually made with steel heads on a wooden haft. One-handed axes include boarding axes, hatchets, hand-axes, or tomahawks. A two-handed axe could be an executioner’s axe, woodcutter’s axe, battle axe, mattock, bardiche, or pole-axe. An axe does [[/r 1d6]] damage and can be thrown with a 10’ range increment. A two-handed axe does [[/r 1d6+2]] damage.</p><p>Axes are not very good defensive weapons; you get -1 to Parry with them, but they are good at hooking around another weapon, giving them +1 to Bind.</p>",
     "handsHeld": 1,
     "rangeIncrement": 0,
-    "throwable": false
+    "throwable": false,
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.Pu2MNZHYns847biy",
+      "Compendium.honor-and-intrigue.maneuvers.Item.Hys7dwlWKnbtxZtZ"
+    ]
   },
   "effects": [],
   "folder": "nqFJ80X6V2qJAXpi",
@@ -28,7 +32,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757793233196,
-    "modifiedTime": 1757793542247,
+    "modifiedTime": 1758065697023,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_id": "ury8Y6rKynaOHoxh",

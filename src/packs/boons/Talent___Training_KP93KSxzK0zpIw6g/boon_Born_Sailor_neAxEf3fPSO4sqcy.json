@@ -1,0 +1,29 @@
+{
+  "folder": "KP93KSxzK0zpIw6g",
+  "name": "Born Sailor",
+  "type": "boon",
+  "_id": "neAxEf3fPSO4sqcy",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>When dealing with ships or carrying out physical activities on board ship (other than fighting), you may roll a Bonus Die.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157061391,
+    "modifiedTime": 1758157065179,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!neAxEf3fPSO4sqcy"
+}

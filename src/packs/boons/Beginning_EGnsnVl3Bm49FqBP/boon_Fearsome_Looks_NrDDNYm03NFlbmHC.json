@@ -1,0 +1,29 @@
+{
+  "folder": "EGnsnVl3Bm49FqBP",
+  "name": "Fearsome Looks",
+  "type": "boon",
+  "_id": "NrDDNYm03NFlbmHC",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You have a knack for scaring people. Use a Bonus Die whenever you try to intimidate somebody to give you information or do something they don’t want to do.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758156640152,
+    "modifiedTime": 1758156644811,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!NrDDNYm03NFlbmHC"
+}

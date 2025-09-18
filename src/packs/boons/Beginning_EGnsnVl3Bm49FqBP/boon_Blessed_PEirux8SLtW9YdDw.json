@@ -1,0 +1,29 @@
+{
+  "folder": "EGnsnVl3Bm49FqBP",
+  "name": "Blessed",
+  "type": "boon",
+  "_id": "PEirux8SLtW9YdDw",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You’re lucky. Some would say too lucky. You win at gambling more than you lose, almost always pick the right way to go, and always seem to have enough money to get what you truly need. In addition to your Fortune Points, which you spend to make good things happen (as normal), you also have two Blessings. A Blessing works similar to a Fortune Point, but the GM decides to spend it on your behalf. When the GM does this, he’ll let you know. If at the end of the session, you have not received both your Blessings, you get +1 Advancement point. For something to count as a Blessing, it needs to be something big—we’re talking about divine intervention here! Making a check to spot an assassin before he strikes is worth a Blessing—making one to find your missing spectacles is not.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758156424111,
+    "modifiedTime": 1758156466248,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!PEirux8SLtW9YdDw"
+}

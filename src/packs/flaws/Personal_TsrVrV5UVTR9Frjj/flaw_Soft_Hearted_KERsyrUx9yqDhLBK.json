@@ -1,0 +1,29 @@
+{
+  "folder": "TsrVrV5UVTR9Frjj",
+  "name": "Soft-Hearted",
+  "type": "flaw",
+  "_id": "KERsyrUx9yqDhLBK",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>You are incapable of being cruel to people, no matter how much they deserve it. You gain a Penalty Die whenever you have to do something unkind, such as trying to kill an enemy. Soft-hearted characters are likely to try to capture enemies rather than kill them (for which they have no penalty). When your soft-heartedness gets you into trouble (you let the prisoner go when he tells you a sob story about his nine children on the brink of starvation, and then he betrays you) gain a Fortune Point.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758165764621,
+    "modifiedTime": 1758165766321,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!KERsyrUx9yqDhLBK"
+}

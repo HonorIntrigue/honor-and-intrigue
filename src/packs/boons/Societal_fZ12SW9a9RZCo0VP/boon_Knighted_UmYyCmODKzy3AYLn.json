@@ -1,0 +1,29 @@
+{
+  "folder": "fZ12SW9a9RZCo0VP",
+  "name": "Knighted",
+  "type": "boon",
+  "_id": "UmYyCmODKzy3AYLn",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You have the honor of Knighthood bestowed upon you. The title “Sir” is used before addressing you by your given name, or full name, (but never with only your surname). While most knighted people are gentlemen, few gentlemen are actually knighted, as it usually requires some great service to the country—the title cannot be inherited. Even commoners can be raised to the rank of knighthood, though such things are quite rare. Women can even be knighted, but they receive the title “Dame”, and the wives of knighted men are called “Lady” (just like the wife of a Lord). This Boon is most common in the British system of peerage, held by English, Scottish, and occasionally Irish characters. Knighted characters get a Bonus Die when interacting with members of the upper classes and nobility due to their reputation.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758157818844,
+    "modifiedTime": 1758157821271,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!UmYyCmODKzy3AYLn"
+}

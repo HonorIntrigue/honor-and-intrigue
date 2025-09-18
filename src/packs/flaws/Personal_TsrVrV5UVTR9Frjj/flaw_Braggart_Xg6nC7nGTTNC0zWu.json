@@ -1,0 +1,29 @@
+{
+  "folder": "TsrVrV5UVTR9Frjj",
+  "name": "Braggart",
+  "type": "flaw",
+  "_id": "Xg6nC7nGTTNC0zWu",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>You have a very high opinion of yourself—and feel the need to share it with the world. You often take credit for things that you never did, and make those accomplishments you did achieve seem so much grander with each retelling, often disregarding the role anyone else played in the story. Needless to say, you often play fast and loose with the truth with these boasts, which could lead to you being called a liar, which may in turn lead to a duel. Whenever your bragging gets you into trouble you gain a Fortune Point. You gain a Penalty Die whenever you try to give credit to someone else.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758165635981,
+    "modifiedTime": 1758165677330,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!Xg6nC7nGTTNC0zWu"
+}

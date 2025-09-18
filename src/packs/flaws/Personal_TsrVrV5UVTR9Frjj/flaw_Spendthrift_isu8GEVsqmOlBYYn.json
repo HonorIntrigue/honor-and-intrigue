@@ -1,0 +1,29 @@
+{
+  "folder": "TsrVrV5UVTR9Frjj",
+  "name": "Spendthrift",
+  "type": "flaw",
+  "_id": "isu8GEVsqmOlBYYn",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>They say a fool and his money are soon parted. You are the person they’re talking about. You go through money like it was water. You are chronically short of funds. There will be times when this shortage will give you a Penalty Die (like showing up to the palace in outdated clothing or trying to convince somebody to loan you money). There will be other times where it creates serious problems (like a well-armed or gossipy bill collector) in which case the GM will award you a Fortune Point. One would think that it would be difficult for nobles to be perpetually broke, but for many, especially the older families, this is often the case as their pocketbooks cannot keep pace with the latest fashion, silverware, vintage, etc. Of course, vices such as gambling also fit well with this Flaw.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758165775746,
+    "modifiedTime": 1758165778877,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!isu8GEVsqmOlBYYn"
+}

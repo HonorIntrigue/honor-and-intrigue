@@ -1,0 +1,29 @@
+{
+  "folder": "TsrVrV5UVTR9Frjj",
+  "name": "Untrustworthy",
+  "type": "flaw",
+  "_id": "1oMvPKb7Q8WCpak7",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>You have proven you are not worth trusting. Your word alone is never good enough. Roll a Penalty Die when the situation calls for someone to believe or trust you.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1758165846990,
+    "modifiedTime": 1758165848452,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!1oMvPKb7Q8WCpak7"
+}
