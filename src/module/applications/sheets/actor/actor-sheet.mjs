@@ -4,6 +4,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
     actions: {
+      addBoonFlaw: this.#onAddBoonFlaw,
       addCareer: this.#onAddCareer,
       deleteItem: this.#onDeleteItem,
       openItem: this.#onOpenItem,
@@ -25,10 +26,33 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
   #expanded = new Set();
 
   /**
+   * Add a Boon or Flaw to the actor.
+   */
+  static async #onAddBoonFlaw(event, target) {
+    return new foundry.applications.api.DialogV2({
+      window: { title: 'HONOR_INTRIGUE.Dialog.NewBoonOrFlaw.Title' },
+      content: '',
+      buttons: [{
+        action: 'boon',
+        label: 'HONOR_INTRIGUE.Dialog.NewBoonOrFlaw.ButtonBoon',
+        style: { minWidth: '100px' },
+      }, {
+        action: 'flaw',
+        label: 'HONOR_INTRIGUE.Dialog.NewBoonOrFlaw.ButtonFlaw',
+        style: { minWidth: '100px' },
+      }],
+      submit: async (type) => {
+        const [item] = await this.actor.createEmbeddedDocuments('Item', [{ type, name: game.i18n.localize(type === 'boon' ? 'HONOR_INTRIGUE.Item.Defaults.BoonName' : 'HONOR_INTRIGUE.Item.Defaults.FlawName') }]);
+        return item.sheet.render(true);
+      },
+    }).render(true);
+  }
+
+  /**
    * Add a Career entry to the document.
    */
   static async #onAddCareer(event, target) {
-    const [item] = await this.actor.createEmbeddedDocuments('Item', [{ type: 'career', name: 'New Career' }]);
+    const [item] = await this.actor.createEmbeddedDocuments('Item', [{ type: 'career', name: game.i18n.localize('HONOR_INTRIGUE.Item.Defaults.CareerName') }]);
     return item.sheet.render(true);
   }
 

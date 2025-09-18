@@ -2,7 +2,7 @@
 @forward 'base/sidebar';
 
 .honor-intrigue.sheet.actor {
-  .career-list {
+  .career-list, .boon-flaw-list {
     .suggestion-box {
       height: 100px;
       margin: 1rem;
@@ -24,6 +24,7 @@
         flex-wrap: wrap;
         gap: 0.5rem;
         margin-bottom: 0.25rem;
+        min-height: 50px;
         padding: 0.5rem;
       }
 

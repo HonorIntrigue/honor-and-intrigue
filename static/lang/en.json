@@ -66,6 +66,10 @@
           "effects": "Effects",
           "inventory": "Inventory",
           "maneuvers": "Maneuvers"
+        },
+        "Tooltips": {
+          "NewBoonFlaw": "Create a new boon or flaw",
+          "NewCareer": "Create a new career"
         }
       }
     },
@@ -88,6 +92,11 @@
         "DeleteWithPlaceholder": "Delete \"{item}\"?",
         "DeleteItem": "Are you sure you wish to delete this item?"
       },
+      "NewBoonOrFlaw": {
+        "ButtonBoon": "Create Boon",
+        "ButtonFlaw": "Create Flaw",
+        "Title": "New Boon or Flaw"
+      },
       "Roll": {
         "BonusDie": "Bonus Dice",
         "Button": "Roll",
@@ -106,6 +115,11 @@
         "dropped": "Dropped",
         "held": "Held",
         "stowed": "Stowed"
+      },
+      "Defaults": {
+        "BoonName": "New Boon",
+        "CareerName": "New Career",
+        "FlawName": "New Flaw"
       },
       "Sheet": {
         "FIELDS": {

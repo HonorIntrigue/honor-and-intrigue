@@ -1,6 +1,6 @@
 <div class='career-list'>
   {{#> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Character.Careers'}}
-    <button type='button' class='icon fa-solid fa-plus' data-action='addCareer'></button>
+    <button type='button' class='icon fa-solid fa-plus' data-action='addCareer' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.NewCareer'></button>
   {{/'systems/honor-and-intrigue/templates/api/label-bar.hbs'}}
 
   {{#if (eq @root.careers.length 0)}}

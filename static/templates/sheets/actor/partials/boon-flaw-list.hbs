@@ -1,6 +1,6 @@
 <div class='boon-flaw-list'>
   {{#> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Character.BoonsFlaws'}}
-    <button type='button' class='icon fa-solid fa-plus' data-action='addBoonFlaw'></button>
+    <button type='button' class='icon fa-solid fa-plus' data-action='addBoonFlaw' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.NewBoonFlaw'></button>
   {{/'systems/honor-and-intrigue/templates/api/label-bar.hbs'}}
 
   {{#if (and (eq @root.boons.length 0) (eq @root.flaws.length 0))}}
