@@ -21,7 +21,6 @@ export default class HeroModel extends CharacterActorModel {
 
     // background
     schema.description = new fields.HTMLField({ trim: true });
-    schema.motivation = new fields.StringField({ trim: true });
     schema.origin = new fields.StringField({ trim: true });
 
     // backstory

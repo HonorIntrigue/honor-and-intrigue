@@ -1,0 +1,25 @@
+<aside class='advantage-panel' style='left: {{offset}}'>
+  <div class='control-header' data-action='toggleAdvantagePanel' data-tooltip='HONOR_INTRIGUE.Sheet.Labels.Expand'>
+    <span class='title'>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Advantage.Advantage'}}</span>
+  </div>
+  <div class='advantage-panel-content'>
+    <button type='button' class='icon fa-solid fa-minus' data-action='toggleAdvantagePanel' data-tooltip='HONOR_INTRIGUE.Sheet.Labels.Minimize'></button>
+
+    <div class='advantage-panel-stack'>
+      <span>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Advantage.AmountDisplay' amount=advantage}}</span>
+      <button type='button' data-action='adjustAdvantage' data-adjustment='increment'>
+        {{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Advantage.Gain'}}
+      </button>
+      <button type='button' data-action='adjustAdvantage' data-adjustment='decrement'>
+        {{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Advantage.Yield'}}
+      </button>
+
+      <div class='advantage-level'>
+        <img alt='{{advantageLevelLabel}}' src='{{advantageLevelImg}}' />
+        <span class='advantage-level-label'>
+          {{advantageLevelLabel}}
+        </span>
+      </div>
+    </div>
+  </div>
+</aside>

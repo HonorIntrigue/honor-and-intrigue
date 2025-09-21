@@ -1,9 +1,70 @@
 .honor-intrigue.sheet.hero {
   --portrait-size: 275px;
 
+  overflow: visible;
+
   &:not(.minimized) {
     min-height: 710px;
     min-width: 700px;
+  }
+
+  .advantage-panel {
+    background: var(--color-navy);
+    bottom: 0;
+    position: absolute;
+    transform: rotate(270deg);
+    transform-origin: 0 0;
+    z-index: -1;
+
+    .control-header {
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      text-align: center;
+    }
+
+    .advantage-panel-content {
+      display: none;
+    }
+
+    &.expanded {
+      transform: none;
+
+      .control-header {
+        display: none;
+      }
+
+      .advantage-panel-content {
+        display: flex;
+        flex-direction: column;
+
+        > button {
+          --button-size: 1.25em;
+          align-self: flex-end;
+          margin-right: 0.25rem;
+          margin-top: 0.25rem;
+        }
+      }
+
+      .advantage-panel-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0 0.5rem 0.5rem 0.5rem;
+        text-align: center;
+
+        button {
+          min-width: 120px;
+        }
+
+        .advantage-level {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.minimized .advantage-panel, &.minimizing .advantage-panel, &.maximizing .advantage-panel {
+    display: none;
   }
 
   .window-content {

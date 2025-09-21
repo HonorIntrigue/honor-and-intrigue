@@ -4,6 +4,7 @@
   > button {
     border: 1px solid light-dark(var(--color-navy), var(--color-gold-dull));
     border-radius: 0;
+    height: unset;
 
     &:first-child {
       border-right: 0;

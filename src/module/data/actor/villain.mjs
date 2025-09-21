@@ -12,15 +12,6 @@ export default class VillainModel extends CharacterActorModel {
   }
 
   /** @inheritDoc */
-  static defineSchema() {
-    const schema = super.defineSchema();
-
-    schema.motivation = new fields.StringField({ trim: true });
-
-    return schema;
-  }
-
-  /** @inheritDoc */
   calcLifebloodMax() {
     return 10 + this.qualities.might.value;
   }

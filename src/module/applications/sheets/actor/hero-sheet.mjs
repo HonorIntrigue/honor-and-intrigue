@@ -6,12 +6,14 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
   static DEFAULT_OPTIONS = {
     actions: {
       adjustAdvancementPoints: { handler: this.#adjustAdvancementPoints, buttons: [0, 2] },
+      adjustAdvantage: this.#adjustAdvantage,
       adjustFortune: { handler: this.#adjustFortune, buttons: [0, 2] },
       populateManeuvers: this.#onPopulateManeuvers,
       rollCompendiumManeuver: this.#onRollCompendiumManeuver,
       rollItemDamage: this.#onRollItemDamage,
       rollManeuver: this.#onRollManeuver,
       resetManeuvers: this.#onResetManeuvers,
+      toggleAdvantagePanel: this.#toggleAdvantagePanel,
       toggleManeuverMastery: this.#toggleManeuverMastery,
     },
     classes: ['hero'],
@@ -49,12 +51,25 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
   };
 
   /**
+   * Reference to the element holding the advantage panel.
+   */
+  #advantageEl;
+
+  /**
    * Adjusts the charcter's total advancement points.
    */
   static async #adjustAdvancementPoints(event, target) {
     let change = event.type === 'click' ? 1 : -1;
     if (event.shiftKey) change *= 5;
     this.document.update({ system: { advancementPoints: { value: this.document.system.advancementPoints.value + change } } });
+  }
+
+  /**
+   * Adjusts the character's advantage.
+   */
+  static async #adjustAdvantage(event, target) {
+    const change = target.dataset.adjustment === 'increment' ? 1 : -1;
+    this.actor.update({ system: { advantage: this.actor.system.advantage + change } });
   }
 
   /**
@@ -138,6 +153,13 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
   }
 
   /**
+   * Toggle the expanded advantage side panel.
+   */
+  static async #toggleAdvantagePanel() {
+    this.#advantageEl?.classList.toggle('expanded');
+  }
+
+  /**
    * Toggle the mastery status of a maneuver.
    */
   static async #toggleManeuverMastery(event, target) {
@@ -160,6 +182,13 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     if (maneuver.system.isMastered && /^bonus die/i.test(maneuver.system.mastery)) options.modifiers.bonuses = 1;
 
     return this.actor.rollCharacteristic(`qualities.${abilityCheck.quality}`, options);
+  }
+
+  /** @inheritDoc */
+  _onPosition(position) {
+    if (this.#advantageEl) {
+      this.#advantageEl.style.left = `${position.width}px`;
+    }
   }
 
   /** @inheritDoc */
@@ -272,5 +301,41 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     }
 
     return context;
+  }
+
+  /** @inheritDoc */
+  async _renderHTML(context, options) {
+    const [img, label] =
+      this.actor.system.advantage === 0 ? ['advantage_defeated', 'Defeated'] :
+        this.actor.system.advantage === 1 ? ['advantage_scrambling', 'Scrambling'] :
+          this.actor.system.advantage === 2 ? ['advantage_retreating', 'Retreating'] :
+            ['advantage_en-garde', 'EnGarde'];
+    const htmlString = await foundry.applications.handlebars.renderTemplate(systemPath('templates/sheets/actor/partials/advantage-panel.hbs'), {
+      advantage: this.actor.system.advantage,
+      advantageLevelImg: systemPath(`assets/images/${img}.webp`),
+      advantageLevelLabel: game.i18n.localize(`HONOR_INTRIGUE.Actor.Sheet.Labels.Advantage.${label}`),
+      offset: this.element.style.width,
+    });
+    const tempEl = document.createElement('div');
+    tempEl.innerHTML = htmlString;
+
+    const expanded = this.#advantageEl?.classList.contains('expanded');
+    this.#advantageEl = tempEl.firstElementChild;
+    this.#advantageEl.classList.toggle('expanded', !!expanded);
+
+    return await super._renderHTML(context, options);
+  }
+
+  /** @inheritDoc */
+  _replaceHTML(result, content, options) {
+    super._replaceHTML(result, content, options);
+
+    const priorEl = this.element.querySelector('.advantage-panel');
+
+    if (priorEl) {
+      priorEl.replaceWith(this.#advantageEl);
+    } else {
+      this.element.insertAdjacentElement('beforeend', this.#advantageEl);
+    }
   }
 }

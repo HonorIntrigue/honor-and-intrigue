@@ -33,6 +33,16 @@
       },
       "Sheet": {
         "Labels": {
+          "Advantage": {
+            "Advantage": "Advantage",
+            "AmountDisplay": "You have {amount} Advantage.",
+            "Defeated": "Defeated",
+            "EnGarde": "En Garde",
+            "Gain": "Gain",
+            "Retreating": "Retreating",
+            "Scrambling": "Scrambling",
+            "Yield": "Yield"
+          },
           "Character": {
             "BoonsFlaws": "Boons & Flaws",
             "BoonsFlawsPrompt": "Give this character some background by adding a boon or flaw!",
@@ -191,8 +201,10 @@
         "CombatAbilities": "Combat Abilities",
         "Competence": "Competence",
         "Composure": "Composure",
+        "Expand": "Expand",
         "FortunePoints": "Fortune",
         "Lifeblood": "Lifeblood",
+        "Minimize": "Minimize",
         "Motivation": "Motivation",
         "Qualities": "Qualities"
       }
