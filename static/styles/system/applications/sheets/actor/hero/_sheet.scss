@@ -1,3 +1,7 @@
+.theme-light .advantage-panel {
+  background: url('/ui/parchment.jpg') !important;
+}
+
 .honor-intrigue.sheet.hero {
   --portrait-size: 275px;
 
@@ -10,7 +14,10 @@
 
   .advantage-panel {
     background: var(--color-navy);
+    border: 1px solid var(--color-border);
+    border-top: none;
     bottom: 0;
+    margin-left: -1px;
     position: absolute;
     transform: rotate(270deg);
     transform-origin: 0 0;
@@ -27,6 +34,8 @@
     }
 
     &.expanded {
+      border-left: none;
+      border-top: unset;
       transform: none;
 
       .control-header {
