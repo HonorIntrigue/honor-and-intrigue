@@ -17,6 +17,12 @@
       "energy": "Energy",
       "physical": "Physical"
     },
+    "EFFECT": {
+      "Status": {
+        "Defeated": "Defeated",
+        "Dying": "Dying"
+      }
+    },
     "Actor": {
       "combatAbilities": {
         "brawl": "Brawl",

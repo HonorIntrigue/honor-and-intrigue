@@ -52,6 +52,14 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   }
 
   /**
+   * Calculate the minimum value of the lifeblood field.
+   * @returns {number}
+   */
+  calcLifebloodMin() {
+    return -6;
+  }
+
+  /**
    * Adjust roll data for the actor subtype.
    * @param rollData
    */
@@ -141,6 +149,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   /** @inheritDoc */
   prepareDerivedData() {
     this.lifeblood.max = this.calcLifebloodMax();
+    this.lifeblood.min = this.calcLifebloodMin();
   }
 
   /** @inheritDoc */
@@ -162,7 +171,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   async _preUpdate(changes, options, user) {
     if (changes.system?.lifeblood) {
       changes.system.lifeblood = {
-        value: Math.clamp(changes.system.lifeblood?.value ?? 0, 0, this.calcLifebloodMax()),
+        value: Math.clamp(changes.system.lifeblood?.value ?? 0, this.calcLifebloodMin(), this.calcLifebloodMax()),
       };
     }
 
@@ -170,13 +179,26 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   }
 
   /** @inheritDoc */
-  async _onUpdate(changes, options, user) {
-    if (changes.system?.qualities?.might) {
+  _onUpdate(changed, options, user) {
+    super._onUpdate(changed, options, user);
+
+    if (changed.system?.qualities?.might) {
       this.parent.update({
-        system: { lifeblood: { value: Math.clamp(this.lifeblood.value, 0, this.calcLifebloodMax()) } },
+        system: { lifeblood: { value: Math.clamp(this.lifeblood.value, this.calcLifebloodMin(), this.calcLifebloodMax()) } },
       });
     }
 
-    return super._onUpdate(changes, options, user);
+    if (!Number.isNaN(changed.system?.lifeblood?.value)) {
+      if (changed.system.lifeblood.value === this.calcLifebloodMin()) {
+        this.parent.toggleStatusEffect('dead', { active: true });
+        this.parent.toggleStatusEffect('dying', { active: false });
+      } else if (changed.system.lifeblood.value <= 0) {
+        this.parent.toggleStatusEffect('dead', { active: false });
+        this.parent.toggleStatusEffect('dying', { active: true });
+      } else {
+        this.parent.toggleStatusEffect('dead', { active: false });
+        this.parent.toggleStatusEffect('dying', { active: false });
+      }
+    }
   }
 }

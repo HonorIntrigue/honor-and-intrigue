@@ -8,7 +8,7 @@
       <div class='resources'>
         <div class='resource-item'>
           <div class='resource-value'>
-            {{formInput systemFields.lifeblood.fields.value value=this.system.lifeblood.value type='number' max=this.system.lifeblood.max}}
+            {{formInput systemFields.lifeblood.fields.value value=this.system.lifeblood.value type='number' max=this.system.lifeblood.max min=this.system.lifeblood.min}}
             {{#if (ne actorType 'pawn')}}
               <p>/</p>
               <p class='resource-value-label'>{{this.system.lifeblood.max}}</p>

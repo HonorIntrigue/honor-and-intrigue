@@ -1,3 +1,4 @@
+import { systemPath } from './constants.mjs'
 import { preLocalize } from './helpers/localization.mjs';
 
 export const HONOR_INTRIGUE = {
@@ -61,3 +62,8 @@ HONOR_INTRIGUE.damageTypes = {
   },
 };
 preLocalize('damageTypes', { key: 'label' });
+
+HONOR_INTRIGUE.statusEffects = [
+  { id: 'defeated', img: systemPath('assets/icons/advantage_defeated.webp'), name: 'HONOR_INTRIGUE.EFFECT.Status.Defeated' },
+  { id: 'dying', img: 'icons/svg/unconscious.svg', name: 'HONOR_INTRIGUE.EFFECT.Status.Dying' },
+];

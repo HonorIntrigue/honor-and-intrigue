@@ -29,4 +29,13 @@ export default class HonorIntrigueActor extends BaseDocumentMixin(foundry.docume
   async rollCharacteristic(characteristic, options) {
     return this.system.rollCharacteristic(characteristic, options);
   }
+
+  /** @inheritDoc */
+  async toggleStatusEffect(statusId, { active, overlay = false } = {}) {
+    if (statusId === 'dead' || statusId === 'defeated') {
+      overlay = true;
+    }
+
+    super.toggleStatusEffect(statusId, { active, overlay });
+  }
 }
