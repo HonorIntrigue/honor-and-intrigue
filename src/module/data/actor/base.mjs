@@ -3,6 +3,7 @@ import { HonorIntrigueRoll } from '../../rolls/_module.mjs';
 import HonorIntrigueSystemModel from '../system-model.mjs';
 
 const fields = foundry.data.fields;
+const { hasProperty } = foundry.utils;
 
 export default class BaseActorModel extends HonorIntrigueSystemModel {
   /** @inheritDoc **/
@@ -169,7 +170,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
 
   /** @inheritDoc */
   async _preUpdate(changes, options, user) {
-    if (changes.system?.lifeblood) {
+    if (hasProperty(changes, 'system.lifeblood')) {
       changes.system.lifeblood = {
         value: Math.clamp(changes.system.lifeblood?.value ?? 0, this.calcLifebloodMin(), this.calcLifebloodMax()),
       };
@@ -182,13 +183,13 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   _onUpdate(changed, options, user) {
     super._onUpdate(changed, options, user);
 
-    if (changed.system?.qualities?.might) {
+    if (hasProperty(changed, 'system.qualities.might')) {
       this.parent.update({
         system: { lifeblood: { value: Math.clamp(this.lifeblood.value, this.calcLifebloodMin(), this.calcLifebloodMax()) } },
       });
     }
 
-    if (!Number.isNaN(changed.system?.lifeblood?.value)) {
+    if (hasProperty(changed, 'system.lifeblood.value')) {
       if (changed.system.lifeblood.value === this.calcLifebloodMin()) {
         this.parent.toggleStatusEffect('dead', { active: true });
         this.parent.toggleStatusEffect('dying', { active: false });

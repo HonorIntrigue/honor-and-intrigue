@@ -19,7 +19,7 @@ export default class CharacterActorModel extends BaseActorModel {
   _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);
 
-    if (!Number.isNaN(changed.system?.advantage)) {
+    if (foundry.utils.hasProperty(changed, 'system.advantage')) {
       this.parent.toggleStatusEffect('defeated', { active: changed.system.advantage === 0 });
     }
   }
