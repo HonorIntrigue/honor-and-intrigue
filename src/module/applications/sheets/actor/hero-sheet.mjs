@@ -102,12 +102,13 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
    * Roll a maneuver from a compendium link.
    */
   static async #onRollCompendiumManeuver(event, target) {
+    const { itemId } = target.closest('.item').dataset;
+    const item = this.actor.items.get(itemId);
+
     const { itemUuid } = target.dataset;
-    const maneuver = this.actor.itemTypes.maneuver.find(m => m._stats.compendiumSource === itemUuid);
+    const maneuver = this.actor.itemTypes.maneuver.find(m => m._stats.compendiumSource === itemUuid) || await fromUuid(itemUuid);
 
-    if (maneuver) return this.#rollManeuver(maneuver);
-
-    return this.#rollManeuver(await fromUuid(itemUuid));
+    return this.#rollManeuver(maneuver, { system: { relatedItemUuid: item.uuid } });
   }
 
   /**
@@ -172,9 +173,13 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
   /**
    * Parse a maneuver for its roll options and kick off the roll.
    */
-  async #rollManeuver(maneuver) {
+  async #rollManeuver(maneuver, options = {}) {
     const { abilityCheck } = maneuver.system;
-    const options = { modifiers: {}, title: maneuver.name };
+    options.modifiers ??= {};
+    options.system ??= {};
+    options.system.uuid = maneuver.uuid;
+    options.title ??= maneuver.name;
+    options.type = 'maneuver';
 
     if (abilityCheck.combatAbility) options.modifiers.combatAbility = abilityCheck.combatAbility;
     if (abilityCheck.flatModifier) options.modifiers.flat = abilityCheck.flatModifier;

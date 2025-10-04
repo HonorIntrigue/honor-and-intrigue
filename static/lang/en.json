@@ -91,6 +91,19 @@
       }
     },
     "Chat": {
+      "Buttons": {
+        "ApplyDamage": {
+          "label": "Apply {amount} Damage",
+          "hint": "Applies damage to the selected tokens"
+        },
+        "RollDamage": {
+          "label": "Roll Damage",
+          "hint": "Roll damage for the associated weapon"
+        }
+      },
+      "Result": {
+        "NoTokenSelected": "You must have at least one token selected."
+      },
       "Roll": {
         "Flavor": {
           "Characteristic": "Ability Check: {characteristic}",

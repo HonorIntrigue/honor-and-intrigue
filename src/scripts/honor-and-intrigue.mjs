@@ -5,12 +5,14 @@ import * as data from '../module/data/_module.mjs';
 import * as documents from '../module/documents/_module.mjs';
 import * as helpers from '../module/helpers/_module.mjs';
 import * as rolls from '../module/rolls/_module.mjs';
+import * as utils from '../module/utils/_module.mjs';
 
 globalThis.hi = {
   applications,
   data,
   documents,
   helpers,
+  utils,
   CONST: HI_CONST,
   CONFIG: HONOR_INTRIGUE,
 };
@@ -107,4 +109,5 @@ Hooks.once('init', () => {
   });
 });
 
+Hooks.on('renderChatMessageHTML', applications.hooks.renderChatMessageHTML);
 Hooks.on('hotReload', helpers.hotReload);

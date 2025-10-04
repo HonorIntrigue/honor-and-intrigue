@@ -26,4 +26,14 @@
       }
     }
   }
+
+  footer {
+    align-items: center;
+    display: flex;
+    margin-top: 0.5rem;
+
+    > button {
+      flex: 1;
+    }
+  }
 }

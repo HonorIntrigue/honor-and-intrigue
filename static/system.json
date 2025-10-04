@@ -21,6 +21,10 @@
       "villain": { "htmlFields": ["notes"] },
       "creature": { "htmlFields": ["notes"] }
     },
+    "ChatMessage": {
+      "damage": {},
+      "maneuver": {}
+    },
     "Item": {
       "armor": { "htmlFields": ["description"] },
       "boon": { "htmlFields": ["description"] },

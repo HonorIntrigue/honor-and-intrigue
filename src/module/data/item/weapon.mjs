@@ -35,6 +35,18 @@ export default class WeaponModel extends EquipmentModel {
   }
 
   /**
+   * Roll the damage for a weapon activated from the chat log.
+   * @param {PointerEvent} event
+   */
+  static async rollDamageFromMessage(event) {
+    const item = await fromUuid(event.currentTarget.dataset.itemUuid);
+
+    if (item?.type === 'weapon') {
+      return item.system.rollDamage();
+    }
+  }
+
+  /**
    * Prompt the user to roll damage using this weapon's formula.
    */
   async rollDamage(options = {}) {
@@ -57,7 +69,9 @@ export default class WeaponModel extends EquipmentModel {
       rollMode,
       sound: CONFIG.sounds.dice,
       speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+      system: { uuid: this.parent.uuid },
       title: options.title,
+      type: 'damage',
     }, { rollMode });
   }
 }

@@ -1,4 +1,4 @@
-import { systemPath } from '../../constants.mjs';
+import { systemID, systemPath } from '../../constants.mjs';
 import { HonorIntrigueRoll } from '../../rolls/_module.mjs';
 import HonorIntrigueSystemModel from '../system-model.mjs';
 
@@ -42,6 +42,13 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     schema.notes = new fields.HTMLField({ textSearch: true, trim: true });
 
     return schema;
+  }
+
+  /**
+   * Apply an amount of damage to this actor.
+   */
+  async applyDamage(amount) {
+    return this.parent.update({ 'system.lifeblood.value': this.lifeblood.value - amount });
   }
 
   /**
@@ -132,7 +139,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     if (modifiers.flat !== 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Flat', { number: `${(modifiers.flat > 0 ? '+' : '')}${modifiers.flat}` }));
 
     const messageData = {
-      flags: { core: { canPopout: true } },
+      flags: { core: { canPopout: true }, [systemID]: (options.flags || {}) },
       flavor: await foundry.applications.handlebars.renderTemplate(systemPath('templates/rolls/chat-message-flavor.hbs'), {
         characteristic: options.title ?? game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Characteristic', { characteristic: flavor }),
         modifiers: flavorModifiers,
@@ -141,7 +148,9 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       rollMode,
       sound: CONFIG.sounds.dice,
       speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+      system: options.system ?? {},
       title: options.title ?? flavor,
+      type: options.type ?? 'base',
     };
 
     return ChatMessage.create(messageData, { rollMode });
