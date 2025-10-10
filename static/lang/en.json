@@ -20,6 +20,7 @@
     },
     "EFFECT": {
       "Status": {
+        "AtALoss": "At a Loss",
         "Defeated": "Defeated",
         "Dying": "Dying"
       }
@@ -128,8 +129,10 @@
         "Modifier": {
           "Ability": "{number} {ability}",
           "BonusDice": "{number} Bonus",
+          "ComposureLoss": "Lost Composure",
           "Flat": "Flat {number}",
-          "PenaltyDice": "{number} Penalty"
+          "PenaltyDice": "{number} Penalty",
+          "StatusEffect": "{name} {value}"
         }
       }
     },

@@ -37,7 +37,6 @@ Hooks.once('init', () => {
 
     for (const modelCls of Object.values(models)) {
       if (modelCls.metadata?.type) CONFIG[doc].dataModels[modelCls.metadata.type] = modelCls;
-      if (modelCls.metadata?.detailsPartial) templates.push(...modelCls.metadata.detailsPartial);
     }
   }
 
@@ -46,7 +45,7 @@ Hooks.once('init', () => {
   CONFIG.Dice.rolls = [rolls.HonorIntrigueRoll, rolls.HonorIntrigueDamageRoll];
 
   const effectsToKeep = ['dead', 'prone'];
-  CONFIG.statusEffects = [...CONFIG.statusEffects.filter(se => effectsToKeep.includes(se.id)), ...HONOR_INTRIGUE.statusEffects];
+  CONFIG.statusEffects = [...CONFIG.statusEffects.filter(se => effectsToKeep.includes(se.id)), ...HONOR_INTRIGUE.statusEffects].sort((a, b) => a.id.localeCompare(b.id));
 
   const { Actors, Items } = foundry.documents.collections;
 

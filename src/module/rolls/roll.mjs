@@ -1,4 +1,5 @@
 import { systemID } from '../constants.mjs';
+import { HonorIntrigueActiveEffect } from '../documents/_module.mjs';
 
 const {
   Die,
@@ -28,9 +29,20 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
    * @param options
    */
   static applyActorModifiers(options) {
-    if (!options.actor) return;
+    const { actor } = options;
+    if (!actor) return;
 
-    // TODO apply penalty die when blinded, bound, etc.
+    options.system.statusModifiers ??= {};
+
+    for (const effect of actor.effects) {
+      if (effect instanceof HonorIntrigueActiveEffect) effect.applyRollModifiers(options.system.statusModifiers);
+    }
+
+    const composureLoss = Math.abs(actor.system.schema.fields.composure.max - actor.system.composure);
+
+    if (composureLoss !== 0) {
+      options.system.statusModifiers['composure'] = { label: 'HONOR_INTRIGUE.Chat.Roll.Modifier.ComposureLoss', value: -composureLoss };
+    }
   }
 
   /**
@@ -134,6 +146,10 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
         ...this.constructNumericTerm(options.system.targetModifiers.combatAbility?.value, { inverse: true }),
         ...this.constructNumericTerm(options.system.targetModifiers.flatModifier?.value, { inverse: true }),
       );
+    }
+
+    if (options.system.statusModifiers) {
+      Object.values(options.system.statusModifiers).forEach(({ value }) => roll.terms.push(...this.constructNumericTerm(value)));
     }
 
     roll.resetFormula();

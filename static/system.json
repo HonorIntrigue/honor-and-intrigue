@@ -14,6 +14,7 @@
     "verified": "13.347"
   },
   "documentTypes": {
+    "ActiveEffect": {},
     "Actor": {
       "hero": { "htmlFields": ["notes", "description", "friendsAndContacts", "rivalsAndEnemies"] },
       "pawn": { "htmlFields": ["notes"] },

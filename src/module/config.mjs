@@ -44,8 +44,6 @@ HONOR_INTRIGUE.equipmentCarryChoices = {
   [HONOR_INTRIGUE.CARRY_CHOICE.Stowed]: { label: 'HONOR_INTRIGUE.Item.CARRY_TYPE.stowed' },
 };
 
-HONOR_INTRIGUE.speedOptions = ['fly', 'teleport', 'walk'];
-
 HONOR_INTRIGUE.damageDice = [
   { label: 'd2', value: 2 },
   { label: 'd3', value: 3 },
@@ -70,6 +68,21 @@ HONOR_INTRIGUE.damageTypes = {
 preLocalize('damageTypes', { key: 'label' });
 
 HONOR_INTRIGUE.statusEffects = [
-  { id: 'defeated', img: systemPath('assets/icons/advantage_defeated.webp'), name: 'HONOR_INTRIGUE.EFFECT.Status.Defeated' },
-  { id: 'dying', img: 'icons/svg/unconscious.svg', name: 'HONOR_INTRIGUE.EFFECT.Status.Dying' },
+  {
+    id: 'at-a-loss',
+    img: 'icons/svg/daze.svg',
+    name: 'HONOR_INTRIGUE.EFFECT.Status.AtALoss',
+  },
+  {
+    id: 'defeated',
+    hud: { actorTypes: ['hero', 'retainer', 'villain'] },
+    img: systemPath('assets/icons/advantage_defeated.webp'),
+    name: 'HONOR_INTRIGUE.EFFECT.Status.Defeated',
+  },
+  {
+    id: 'dying',
+    hud: { actorTypes: ['hero', 'retainer', 'villain'] },
+    img: 'icons/svg/unconscious.svg',
+    name: 'HONOR_INTRIGUE.EFFECT.Status.Dying',
+  },
 ];

@@ -1,6 +1,4 @@
-import BaseDocumentMixin from './base-document-mixin.mjs';
-
-export default class HonorIntrigueItem extends BaseDocumentMixin(foundry.documents.Item) {
+export default class HonorIntrigueItem extends foundry.documents.Item {
   /** @inheritDoc */
   static getDefaultArtwork(itemData) {
     if (CONFIG.Item.dataModels[itemData.type]?.DEFAULT_ICON) {

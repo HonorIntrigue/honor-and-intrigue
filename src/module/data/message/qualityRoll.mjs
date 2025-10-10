@@ -34,6 +34,10 @@ export default class QualityRollMessageModel extends BaseMessageModel {
       penalties: new fields.NumberField({ integer: true, initial: 0, min: 0 }),
       flatModifier: new fields.NumberField({ integer: true, initial: 0 }),
     });
+    schema.statusModifiers = new fields.TypedObjectField(new fields.SchemaField({
+      label: new fields.StringField(),
+      value: new fields.NumberField({ integer: true }),
+    }));
     schema.target = new fields.DocumentUUIDField({ required: false, initial: () => game.user.targets.first()?.actor?.uuid });
 
     return schema;
@@ -64,6 +68,13 @@ export default class QualityRollMessageModel extends BaseMessageModel {
 
     const details = await foundry.applications.handlebars.renderTemplate(systemPath('templates/rolls/quality-roll-content.hbs'), {
       modifiers: mods,
+      statusModifiers: Object.values(this.statusModifiers).reduce((acc, { label, value }) => [
+        ...acc,
+        game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.StatusEffect', {
+          name: game.i18n.localize(label),
+          value,
+        }),
+      ], []),
     });
 
     html.querySelector('.message-content').insertAdjacentHTML('afterbegin', details);

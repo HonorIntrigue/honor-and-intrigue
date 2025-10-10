@@ -3,3 +3,10 @@
     <p class='modifier'>{{modifier}}</p>
   {{/each}}
 </div>
+{{#if (gt statusModifiers.length 0)}}
+  <div class='modifiers status-modifiers'>
+    {{#each statusModifiers as |status|}}
+      <p class='modifier status-modifier'>{{status}}</p>
+    {{/each}}
+  </div>
+{{/if}}
