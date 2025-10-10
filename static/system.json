@@ -89,6 +89,11 @@
       "type": "Item"
     },
     {
+      "name": "macros",
+      "label": "HONOR_INTRIGUE.COMPENDIUM.macros",
+      "type": "Macro"
+    },
+    {
       "name": "maneuvers",
       "label": "HONOR_INTRIGUE.COMPENDIUM.maneuvers",
       "type": "Item"
@@ -98,7 +103,7 @@
     {
       "name": "Honor + Intrigue",
       "color": "#283343",
-      "packs": ["boons", "careers", "equipment", "flaws","maneuvers"]
+      "packs": ["boons", "careers", "equipment", "flaws", "macros", "maneuvers"]
     }
   ],
   "primaryTokenAttribute": "lifeblood",

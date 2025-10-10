@@ -11,6 +11,7 @@
       "careers": "Careers",
       "equipment": "Equipment",
       "flaws": "Flaws",
+      "macros": "Macros",
       "maneuvers": "Maneuvers"
     },
     "DAMAGE_TYPE": {
@@ -108,6 +109,10 @@
         }
       },
       "Result": {
+        "AdvancementGain": "{name} has gained {amount} Advancement Points.",
+        "AdvancementGainSingular": "{name} has gained {amount} Advancement Point.",
+        "AdvancementLoss": "{name} has lost {amount} Advancement Points.",
+        "AdvancementLossSingular": "{name} has lost {amount} Advancement Point.",
         "FortuneGain": "{name} has gained {amount} Fortune.",
         "FortuneLoss": "{name} has lost {amount} Fortune.",
         "NoTokenSelected": "You must have at least one token selected.",
@@ -129,6 +134,14 @@
       }
     },
     "Dialog": {
+      "AwardAdvancementPoints": {
+        "ButtonAward": "Award",
+        "Label": "Advancement Points",
+        "Title": "Award Advancement Points",
+        "Result": {
+          "NoHeroesSelected": "You must select one or more heroes first."
+        }
+      },
       "Confirm": {
         "DeleteWithPlaceholder": "Delete \"{item}\"?",
         "DeleteItem": "Are you sure you wish to delete this item?"

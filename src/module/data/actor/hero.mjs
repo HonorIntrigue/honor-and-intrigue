@@ -43,4 +43,30 @@ export default class HeroModel extends CharacterActorModel {
     });
     return true;
   }
+
+  /** @inheritDoc */
+  async _preUpdate(changes, options, user) {
+    const allowed = await super._preUpdate(changes, options, user);
+    if (allowed === false) return false;
+
+    if (foundry.utils.hasProperty(changes, 'system.advancementPoints.value')) {
+      const diff = Math.abs(this.advancementPoints.value - changes.system.advancementPoints.value);
+      let messageKey;
+
+      if (changes.system.advancementPoints.value > this.advancementPoints.value) messageKey = 'HONOR_INTRIGUE.Chat.Result.AdvancementGain';
+      else if (changes.system.advancementPoints.value < this.advancementPoints.value) messageKey = 'HONOR_INTRIGUE.Chat.Result.AdvancementLoss';
+
+      if (diff === 1) messageKey += 'Singular';
+
+      await ChatMessage.create({
+        speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+        content: game.i18n.format(messageKey, {
+          amount: diff,
+          name: this.parent.name,
+        }),
+      });
+    }
+
+    return true;
+  }
 }
