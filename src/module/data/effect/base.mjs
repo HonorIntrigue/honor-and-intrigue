@@ -1,4 +1,4 @@
-import { HonorIntrigueSystemModel } from '../_module.mjs';
+import HonorIntrigueSystemModel from '../system-model.mjs';
 
 export default class BaseEffectModel extends HonorIntrigueSystemModel {
   /** @inheritDoc */

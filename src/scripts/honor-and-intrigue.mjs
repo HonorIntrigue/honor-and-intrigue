@@ -18,6 +18,8 @@ globalThis.hi = {
 };
 
 Hooks.once('init', () => {
+  console.log(HONOR_INTRIGUE.ASCII);
+
   CONFIG.HONOR_INTRIGUE = HONOR_INTRIGUE;
   game.system.socketHandler = new helpers.HonorIntrigueSocketHandler();
   helpers.HonorIntrigueSettingsHandler.registerSettings();

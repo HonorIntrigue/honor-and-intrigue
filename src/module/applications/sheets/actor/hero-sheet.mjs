@@ -58,10 +58,10 @@ export default class HeroSheet extends CharacterActorSheet {
   /**
    * Adjusts the charcter's total advancement points.
    */
-  static async #adjustAdvancementPoints(event, target) {
+  static async #adjustAdvancementPoints(event) {
     let change = event.type === 'click' ? 1 : -1;
     if (event.shiftKey) change *= 5;
-    this.document.update({ system: { advancementPoints: { value: this.document.system.advancementPoints.value + change } } });
+    this.actor.update({ system: { advancementPoints: { value: Math.max(0, this.actor.system.advancementPoints.value + change) } } });
   }
 
   /**

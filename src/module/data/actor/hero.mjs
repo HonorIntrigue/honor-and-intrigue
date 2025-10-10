@@ -16,7 +16,8 @@ export default class HeroModel extends CharacterActorModel {
     const schema = super.defineSchema();
 
     schema.advancementPoints = new fields.SchemaField({
-      value: new fields.NumberField({ min: 0, initial: 0, integer: true, nullable: false }),
+      accrued: new fields.NumberField({ min: 0, initial: 0, integer: true }),
+      spent: new fields.NumberField({ min: 0, initial: 0, integer: true }),
     });
 
     // background
@@ -28,6 +29,13 @@ export default class HeroModel extends CharacterActorModel {
     schema.rivalsAndEnemies = new fields.HTMLField({ trim: true });
 
     return schema;
+  }
+
+  /** @inheritDoc */
+  prepareDerivedData() {
+    super.prepareDerivedData();
+
+    this.advancementPoints.value = this.advancementPoints.accrued - this.advancementPoints.spent;
   }
 
   /** @inheritDoc */
@@ -51,10 +59,17 @@ export default class HeroModel extends CharacterActorModel {
 
     if (foundry.utils.hasProperty(changes, 'system.advancementPoints.value')) {
       const diff = Math.abs(this.advancementPoints.value - changes.system.advancementPoints.value);
+      if (diff === 0) return true;
+
       let messageKey;
 
-      if (changes.system.advancementPoints.value > this.advancementPoints.value) messageKey = 'HONOR_INTRIGUE.Chat.Result.AdvancementGain';
-      else if (changes.system.advancementPoints.value < this.advancementPoints.value) messageKey = 'HONOR_INTRIGUE.Chat.Result.AdvancementLoss';
+      if (changes.system.advancementPoints.value > this.advancementPoints.value) {
+        messageKey = 'HONOR_INTRIGUE.Chat.Result.AdvancementGain';
+        changes.system.advancementPoints.accrued = this.advancementPoints.accrued + diff;
+      } else if (changes.system.advancementPoints.value < this.advancementPoints.value) {
+        messageKey = 'HONOR_INTRIGUE.Chat.Result.AdvancementLoss';
+        changes.system.advancementPoints.spent = this.advancementPoints.spent + diff;
+      }
 
       if (diff === 1) messageKey += 'Singular';
 

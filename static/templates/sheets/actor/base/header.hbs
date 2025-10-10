@@ -10,7 +10,9 @@
            data-tooltip='HONOR_INTRIGUE.Sheet.Labels.AdvancementPoints'
       >
         <span>{{system.advancementPoints.value}}</span>
-        <i class='fa-solid fa-arrow-up'></i>
+        <i class='fa-solid fa-arrow-up'
+           data-tooltip='{{localize "HONOR_INTRIGUE.Sheet.Labels.AdvancementPointsAccrued" accrued=system.advancementPoints.accrued spent=system.advancementPoints.spent}}'
+        ></i>
       </div>
     {{/if}}
   </div>

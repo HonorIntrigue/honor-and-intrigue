@@ -141,10 +141,11 @@
       "AwardAdvancementPoints": {
         "ButtonAward": "Award",
         "Label": "Advancement Points",
-        "Title": "Award Advancement Points",
-        "Result": {
-          "NoHeroesSelected": "You must select one or more heroes first."
-        }
+        "Title": "Award Advancement Points"
+      },
+      "AwardFortune": {
+        "Prompt": "Award a fortune point and an advancement point?",
+        "Title": "Award Fortune"
       },
       "Confirm": {
         "DeleteWithPlaceholder": "Delete \"{item}\"?",
@@ -154,6 +155,9 @@
         "ButtonBoon": "Create Boon",
         "ButtonFlaw": "Create Flaw",
         "Title": "New Boon or Flaw"
+      },
+      "Result": {
+        "NoHeroesSelected": "You must select one or more heroes first."
       },
       "Roll": {
         "BonusDie": "Bonus Dice",
@@ -244,6 +248,7 @@
       "Labels": {
         "AbilityCheck": "Ability Check",
         "AdvancementPoints": "Advancement Points",
+        "AdvancementPointsAccrued": "You have accrued {accrued} Advancement Points and spent {spent}.",
         "Character": "Hero",
         "CombatAbilities": "Combat Abilities",
         "Competence": "Competence",

@@ -3,9 +3,9 @@
   "type": "script",
   "_id": "lDjnt0bDKvALz34k",
   "author": "gzs91c0iwOtmt0Wp",
-  "img": "icons/svg/dice-target.svg",
+  "img": "icons/svg/paralysis.svg",
   "scope": "global",
-  "command": "const actors = new Set(canvas.tokens.controlled.map(t => t.actor).filter(a => a.type === 'hero'));\n\nif (actors.size === 0) return ui.notifications.warn('HONOR_INTRIGUE.Dialog.AwardAdvancementPoints.Result.NoHeroesSelected', { localize: true });\n\nconst fields = foundry.applications.fields;\nconst data = await foundry.applications.api.DialogV2.input({\n  window: { title: 'HONOR_INTRIGUE.Dialog.AwardAdvancementPoints.Title' },\n  content: fields.createFormGroup({\n    input: fields.createNumberInput({ name: 'pointsInput', value: 1 }),\n    label: game.i18n.localize('HONOR_INTRIGUE.Dialog.AwardAdvancementPoints.Label')\n  }).outerHTML,\n  ok: {\n    label: 'HONOR_INTRIGUE.Dialog.AwardAdvancementPoints.ButtonAward',\n    icon: 'fa-solid fa-arrow-up'\n  }\n});\n\nif (!data || !data.pointsInput) return;\n\nawait Promise.all(actors.map(async (actor) => actor.update({ 'system.advancementPoints.value': actor.system.advancementPoints.value + data.pointsInput })));",
+  "command": "const actors = new Set(canvas.tokens.controlled.map(t => t.actor).filter(a => a.type === 'hero'));\n\nif (actors.size === 0) return ui.notifications.warn('HONOR_INTRIGUE.Dialog.Result.NoHeroesSelected', { localize: true });\n\nconst fields = foundry.applications.fields;\nconst data = await foundry.applications.api.DialogV2.input({\n  window: { title: 'HONOR_INTRIGUE.Dialog.AwardAdvancementPoints.Title' },\n  content: fields.createFormGroup({\n    input: fields.createNumberInput({ name: 'pointsInput', value: 1 }),\n    label: game.i18n.localize('HONOR_INTRIGUE.Dialog.AwardAdvancementPoints.Label')\n  }).outerHTML,\n  ok: {\n    label: 'HONOR_INTRIGUE.Dialog.AwardAdvancementPoints.ButtonAward',\n    icon: 'fa-solid fa-arrow-up'\n  }\n});\n\nif (!data || !data.pointsInput) return;\n\nawait Promise.all(actors.map(async (actor) => actor.update({ 'system.advancementPoints.value': actor.system.advancementPoints.value + data.pointsInput })));",
   "folder": null,
   "sort": 0,
   "ownership": {
@@ -21,7 +21,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1760118778369,
-    "modifiedTime": 1760120716898,
+    "modifiedTime": 1760140025096,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!macros!lDjnt0bDKvALz34k"
