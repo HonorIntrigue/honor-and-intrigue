@@ -12,12 +12,12 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
 
     const quality = { min: -1, max: 6, initial: 0, integer: true, nullable: false };
     schema.qualities = new fields.SchemaField(
-      Object.entries(hi.CONFIG.qualities)
-        .filter(([q, { types }]) => {
+      Object.values(hi.CONFIG.qualities)
+        .filter(({ types }) => {
           if (!types) return true;
           return types.some(t => this.metadata.type === t);
-        }).reduce((obj, [q, { label }]) => {
-          obj[q] = new fields.SchemaField({
+        }).reduce((obj, { label, rollKey }) => {
+          obj[rollKey] = new fields.SchemaField({
             value: new fields.NumberField({ ...quality, label }),
           });
 
@@ -27,8 +27,8 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
 
     const combatAbility = { min: -1, max: 5, initial: 0, integer: true, nullable: false };
     schema.combatAbilities = new fields.SchemaField(
-      Object.entries(hi.CONFIG.combatAbilities).reduce((obj, [ca, { label }]) => {
-        obj[ca] = new fields.SchemaField({
+      Object.values(hi.CONFIG.combatAbilities).reduce((obj, { label, rollKey }) => {
+        obj[rollKey] = new fields.SchemaField({
           value: new fields.NumberField({ ...combatAbility, label }),
         });
 
@@ -92,6 +92,11 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     const flavor = game.i18n.localize(foundry.utils.getProperty(hi.CONFIG, characteristic)?.label);
     const value = foundry.utils.getProperty(this, characteristic)?.value ?? 0;
 
+    options.system ??= {};
+    options.system.quality = { key: foundry.utils.getProperty(hi.CONFIG, characteristic).rollKey, value };
+    options.system.modifiers ??= {};
+    options.type ??= 'quality';
+
     // TODO enrich header with:
     // speakerActor.img
     // user.name
@@ -109,51 +114,39 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     if (!result) return;
 
     const { modifiers, rollMode, rolls } = result;
-    const flavorModifiers = [];
-
-    flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
-      ability: flavor,
-      number: `${value >= 0 ? '+' : ''}${value}`,
-    }));
 
     if (modifiers.combatAbility && modifiers.combatAbility !== 'none') {
-      const abilityValue = this.parent.system.combatAbilities[modifiers.combatAbility].value;
-
-      flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
-        ability: game.i18n.localize(hi.CONFIG.combatAbilities[modifiers.combatAbility].label),
-        number: `${abilityValue >= 0 ? '+' : ''}${abilityValue}`,
-      }));
+      options.system.modifiers.combatAbility = {
+        key: hi.CONFIG.combatAbilities[modifiers.combatAbility].rollKey,
+        value: this.parent.system.combatAbilities[modifiers.combatAbility].value,
+      };
     }
 
     if (modifiers.career && modifiers.career !== 'none') {
       const career = await this.parent.getEmbeddedDocument('Item', modifiers.career);
-
-      flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
-        ability: career.name,
-        number: `+${career.system.rank}`,
-      }));
+      options.system.modifiers.career = {
+        key: career.name,
+        value: career.system.rank,
+      };
     }
 
-    if (modifiers.bonuses > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.BonusDice', { number: modifiers.bonuses }));
-    if (modifiers.penalties > 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.PenaltyDice', { number: modifiers.penalties }));
-    if (modifiers.flat !== 0) flavorModifiers.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Flat', { number: `${(modifiers.flat > 0 ? '+' : '')}${modifiers.flat}` }));
+    options.system.modifiers.bonuses = modifiers.bonuses;
+    options.system.modifiers.penalties = modifiers.penalties;
+    options.system.modifiers.flatModifier = modifiers.flat;
 
     const messageData = {
       flags: { core: { canPopout: true }, [systemID]: (options.flags || {}) },
-      flavor: await foundry.applications.handlebars.renderTemplate(systemPath('templates/rolls/chat-message-flavor.hbs'), {
-        characteristic: options.title ?? game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Characteristic', { characteristic: flavor }),
-        modifiers: flavorModifiers,
-      }),
+      flavor: options.title ?? flavor,
       rolls,
       rollMode,
       sound: CONFIG.sounds.dice,
       speaker: ChatMessage.getSpeaker({ actor: this.parent }),
-      system: options.system ?? {},
+      system: options.system,
       title: options.title ?? flavor,
-      type: options.type ?? 'base',
+      type: options.type,
     };
 
-    return ChatMessage.create(messageData, { rollMode });
+    return ChatMessage.create(messageData);
   }
 
   /** @inheritDoc */
@@ -177,12 +170,16 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     return true;
   }
 
+  // TODO move lifeblood max to non-derived value
+
   /** @inheritDoc */
   async _preUpdate(changes, options, user) {
     if (hasProperty(changes, 'system.lifeblood')) {
-      changes.system.lifeblood = {
-        value: Math.clamp(changes.system.lifeblood?.value ?? 0, this.calcLifebloodMin(), this.calcLifebloodMax()),
-      };
+      const max = this.calcLifebloodMax();
+      const min = this.calcLifebloodMin();
+
+      changes.system.lifeblood.value = Math.max(changes.system.lifeblood?.value ?? 0, min);
+      if (max > 0) changes.system.lifeblood.value = Math.min(changes.system.lifeblood.value, max);
     }
 
     return super._preUpdate(changes, options, user);
@@ -193,9 +190,13 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     super._onUpdate(changed, options, user);
 
     if (hasProperty(changed, 'system.qualities.might')) {
-      this.parent.update({
-        system: { lifeblood: { value: Math.clamp(this.lifeblood.value, this.calcLifebloodMin(), this.calcLifebloodMax()) } },
-      });
+      const max = this.calcLifebloodMax();
+      const min = this.calcLifebloodMin();
+
+      let lb = Math.max(this.lifeblood.value, min);
+      if (max > 0) lb = Math.min(lb, max);
+
+      this.parent.update({ system: { lifeblood: { value: lb } } });
     }
 
     if (hasProperty(changed, 'system.lifeblood.value')) {

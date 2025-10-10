@@ -23,6 +23,12 @@
         "Dying": "Dying"
       }
     },
+    "ROLL_OUTCOME": {
+      "CritSuccess": "Mighty Success",
+      "Success": "Success",
+      "Failure": "Failure",
+      "CritFailure": "Calamitous Failure"
+    },
     "Actor": {
       "combatAbilities": {
         "brawl": "Brawl",
@@ -102,12 +108,15 @@
         }
       },
       "Result": {
-        "NoTokenSelected": "You must have at least one token selected."
+        "NoTokenSelected": "You must have at least one token selected.",
+        "Outcome": "Result: ",
+        "Target": "Target: {name}"
       },
       "Roll": {
         "Flavor": {
           "Characteristic": "Ability Check: {characteristic}",
-          "Damage": "{weapon} Damage"
+          "Damage": "{weapon} Damage",
+          "Maneuver": "Maneuver: {maneuver}"
         },
         "Modifier": {
           "Ability": "{number} {ability}",

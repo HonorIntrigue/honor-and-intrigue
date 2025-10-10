@@ -1,16 +1,10 @@
 import { HonorIntrigueDamageRoll } from '../../rolls/_module.mjs';
 import HonorIntrigueSystemModel from '../system-model.mjs';
 
-const fields = foundry.data.fields;
-
 export default class BaseMessageModel extends HonorIntrigueSystemModel {
   /** @inheritDoc */
   static defineSchema() {
-    return {
-      targets: new fields.SetField(new fields.DocumentUUIDField({ nullable: false }), {
-        initial: () => Array.from(game.user.targets.map(t => t.document.uuuid)),
-      }),
-    };
+    return {};
   }
 
   /**

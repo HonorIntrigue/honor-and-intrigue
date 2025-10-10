@@ -1,0 +1,21 @@
+<div class='maneuver-roll-content'>
+  <hr />
+  {{#if target}}
+    <div class='target-modifiers'>
+      <p>
+        {{localize 'HONOR_INTRIGUE.Chat.Result.Target' name=target.name}}
+        {{#if modifiers}}
+          <span>({{modifiers}})</span>
+        {{/if}}
+      </p>
+    </div>
+  {{/if}}
+  {{#if outcome}}
+    <div class='outcome'>
+      <p>
+        {{localize 'HONOR_INTRIGUE.Chat.Result.Outcome'}}
+        <span class='outcome-{{outcome.key}}'>{{localize outcome.label}}</span>
+      </p>
+    </div>
+  {{/if}}
+</div>

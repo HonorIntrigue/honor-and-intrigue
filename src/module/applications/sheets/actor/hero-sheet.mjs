@@ -1,4 +1,5 @@
 import { systemID, systemPath } from '../../../constants.mjs';
+import { determineManeuverOutcome } from '../../../utils/rollUtils.mjs';
 import HonorIntrigueActorSheet from './actor-sheet.mjs';
 
 export default class HeroSheet extends HonorIntrigueActorSheet {
@@ -177,8 +178,8 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
     const { abilityCheck } = maneuver.system;
     options.modifiers ??= {};
     options.system ??= {};
-    options.system.uuid = maneuver.uuid;
-    options.title ??= maneuver.name;
+    options.system.maneuver = maneuver.uuid;
+    options.title ??= game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Maneuver', { maneuver: maneuver.name });
     options.type = 'maneuver';
 
     if (abilityCheck.combatAbility) options.modifiers.combatAbility = abilityCheck.combatAbility;
@@ -186,7 +187,10 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
 
     if (maneuver.system.isMastered && /^bonus die/i.test(maneuver.system.mastery)) options.modifiers.bonuses = 1;
 
-    return this.actor.rollCharacteristic(`qualities.${abilityCheck.quality}`, options);
+    const message = await this.actor.rollCharacteristic(`qualities.${abilityCheck.quality}`, options);
+    if (message) message.update({ 'system.outcome': determineManeuverOutcome(message.rolls[0]) });
+
+    return message;
   }
 
   /** @inheritDoc */

@@ -34,6 +34,50 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
   }
 
   /**
+   * Modify the roll options based on the targeted actor.
+   */
+  static async applyTargetActorModifiers(options) {
+    if (options.type !== 'maneuver') return;
+
+    const target = game.user.targets.first();
+    if (!target || !target.actor) return;
+
+    const maneuver = await fromUuid(options.system.maneuver);
+    if (!maneuver || !maneuver.system.requiresOpposedCheck) return;
+
+    const { abilityCheck: { opposedBy } } = maneuver.system;
+    options.system.targetModifiers ??= {};
+
+    if (opposedBy.quality) options.system.targetModifiers.quality = {
+      key: opposedBy.quality,
+      value: target.actor.system.qualities[opposedBy.quality].value,
+    };
+    if (opposedBy.combatAbility) options.system.targetModifiers.combatAbility = {
+      key: opposedBy.combatAbility,
+      value: target.actor.system.combatAbilities[opposedBy.combatAbility].value,
+    };
+    if (opposedBy.flatModifier) options.system.targetModifiers.flatModifier = opposedBy.flatModifier;
+  }
+
+  /**
+   * Constructs an appropriate OperatorTerm and NumericTerm for the given value.
+   * @param {Number} value
+   * @param {Object} options
+   * @param {Boolean} [options.inverse] Inverse the number before considering its value.
+   * @returns {[OperatorTerm, NumericTerm]}
+   */
+  static constructNumericTerm(value, { inverse = false } = {}) {
+    if (isNaN(value) || value === 0) return [];
+
+    if (inverse) value *= -1;
+
+    return [
+      new OperatorTerm({ operator: value > 0 ? '+' : '-' }),
+      new NumericTerm({ number: Math.abs(value) }),
+    ];
+  }
+
+  /**
    * Prompt the user with a roll request dialog.
    * @param options
    * @returns {Promise<Object|false>}
@@ -46,6 +90,7 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
 
     options.actor ??= ChatMessage.getSpeakerActor(ChatMessage.getSpeaker());
     this.applyActorModifiers(options);
+    await this.applyTargetActorModifiers(options);
 
     const result = await hi.applications.apps.RollDialog.create({ context: options });
     if (!result) return false;
@@ -66,36 +111,28 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
     const roll = new this(baseTerm.formula, options.data, {});
 
     if (options.quality) {
-      roll.terms.push(
-        new OperatorTerm({ operator: (options.quality > 0 ? '+' : '-') }),
-        new NumericTerm({ number: Math.abs(options.quality) }),
-      );
+      roll.terms.push(...this.constructNumericTerm(options.quality));
     }
 
     if (modifiers.combatAbility && modifiers.combatAbility !== 'none') {
       const value = options.actor.system.combatAbilities[modifiers.combatAbility].value;
-
-      roll.terms.push(
-        new OperatorTerm({ operator: (value >= 0 ? '+' : '-') }),
-        new NumericTerm({ number: Math.abs(value) }),
-      );
+      roll.terms.push(...this.constructNumericTerm(value));
     }
 
     if (modifiers.career && modifiers.career !== 'none') {
       const career = await options.actor.getEmbeddedDocument('Item', modifiers.career);
-
-      if (career) {
-        roll.terms.push(
-          new OperatorTerm({ operator: '+' }),
-          new NumericTerm({ number: Math.abs(career.system.rank) }),
-        );
-      }
+      if (career) roll.terms.push(...this.constructNumericTerm(career.system.rank));
     }
 
     if (modifiers.flat !== 0) {
+      roll.terms.push(...this.constructNumericTerm(modifiers.flat));
+    }
+
+    if (options.system.targetModifiers) {
       roll.terms.push(
-        new OperatorTerm({ operator: (modifiers.flat > 0 ? '+' : '-') }),
-        new NumericTerm({ number: Math.abs(modifiers.flat) }),
+        ...this.constructNumericTerm(options.system.targetModifiers.quality?.value, { inverse: true }),
+        ...this.constructNumericTerm(options.system.targetModifiers.combatAbility?.value, { inverse: true }),
+        ...this.constructNumericTerm(options.system.targetModifiers.flatModifier?.value, { inverse: true }),
       );
     }
 

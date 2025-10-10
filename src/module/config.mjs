@@ -1,4 +1,4 @@
-import { systemPath } from './constants.mjs'
+import { systemPath } from './constants.mjs';
 import { preLocalize } from './helpers/localization.mjs';
 
 export const HONOR_INTRIGUE = {
@@ -6,6 +6,12 @@ export const HONOR_INTRIGUE = {
     Dropped: 0,
     Held: 1,
     Stowed: 2,
+  },
+  ROLL_OUTCOME: {
+    CritSuccess: { key: 'crit-success', label: 'HONOR_INTRIGUE.ROLL_OUTCOME.CritSuccess' },
+    Success: { key: 'success', label: 'HONOR_INTRIGUE.ROLL_OUTCOME.Success' },
+    Failure: { key: 'failure', label: 'HONOR_INTRIGUE.ROLL_OUTCOME.Failure' },
+    CritFailure: { key: 'crit-failure', label: 'HONOR_INTRIGUE.ROLL_OUTCOME.CritFailure' },
   },
 };
 

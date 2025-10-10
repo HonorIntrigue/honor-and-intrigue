@@ -23,7 +23,8 @@
     },
     "ChatMessage": {
       "damage": {},
-      "maneuver": {}
+      "maneuver": {},
+      "quality": {}
     },
     "Item": {
       "armor": { "htmlFields": ["description"] },
