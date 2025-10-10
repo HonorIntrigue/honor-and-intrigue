@@ -6,8 +6,9 @@
 
     {{#if (eq actorType 'hero')}}
       <div class='advancement-points'
-           title='{{localize "HONOR_INTRIGUE.Sheet.Labels.AdvancementPoints"}}'
-           data-action='adjustAdvancementPoints'>
+           data-action='adjustAdvancementPoints'
+           data-tooltip='HONOR_INTRIGUE.Sheet.Labels.AdvancementPoints'
+      >
         <span>{{system.advancementPoints.value}}</span>
         <i class='fa-solid fa-arrow-up'></i>
       </div>
@@ -20,11 +21,9 @@
         {{formInput systemFields.motivation value=this.system.motivation}}
       </div>
 
-      <div class='fortune-points'
-           title='{{localize "HONOR_INTRIGUE.Sheet.Labels.FortunePoints"}}'
-           data-action='adjustFortune'>
-        <span>{{system.fortune}}</span>
-        <i class='fa-solid fa-stars'></i>
+      <div class='fortune-points' data-tooltip='HONOR_INTRIGUE.Sheet.Labels.FortunePoints'>
+        <span data-action='adjustFortune'>{{system.fortune}}</span>
+        <i class='fa-solid fa-stars' data-action='refreshFortune' data-tooltip='HONOR_INTRIGUE.Sheet.Labels.FortunePointsRefresh'></i>
       </div>
     </div>
   {{/if}}

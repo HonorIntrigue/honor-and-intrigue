@@ -16,6 +16,29 @@ export default class CharacterActorModel extends BaseActorModel {
   }
 
   /** @inheritDoc */
+  async _preUpdate(changes, options, user) {
+    const allowed = await super._preUpdate(changes, options, user);
+    if (allowed === false) return false;
+
+    if (foundry.utils.hasProperty(changes, 'system.fortune')) {
+      let messageKey;
+
+      if (changes.system.fortune > this.fortune) messageKey = 'HONOR_INTRIGUE.Chat.Result.FortuneGain';
+      else if (changes.system.fortune < this.fortune) messageKey = 'HONOR_INTRIGUE.Chat.Result.FortuneLoss';
+
+      await ChatMessage.create({
+        speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+        content: game.i18n.format(messageKey, {
+          amount: Math.abs(this.fortune - changes.system.fortune),
+          name: this.parent.name,
+        }),
+      });
+    }
+
+    return true;
+  }
+
+  /** @inheritDoc */
   _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);
 

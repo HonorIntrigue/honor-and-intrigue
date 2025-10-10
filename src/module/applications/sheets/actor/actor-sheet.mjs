@@ -131,8 +131,8 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
         rollData: this.document.getRollData(),
         secrets: this.document.isOwner,
       }),
-      getValueField: (type, name) => this.document.system.schema.getField(`${type}.${name}.value`),
-      getValueFieldValue: (type, name) => foundry.utils.getProperty(this.document.system, `${type}.${name}.value`),
+      getValueField: (type, name) => this.document.system.schema.getField(`${type}.${name}`),
+      getValueFieldValue: (type, name) => foundry.utils.getProperty(this.document.system, `${type}.${name}`),
     };
   }
 

@@ -16,24 +16,18 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
         .filter(({ types }) => {
           if (!types) return true;
           return types.some(t => this.metadata.type === t);
-        }).reduce((obj, { label, rollKey }) => {
-          obj[rollKey] = new fields.SchemaField({
-            value: new fields.NumberField({ ...quality, label }),
-          });
-
-          return obj;
-        }, {}),
+        }).reduce((obj, { label, rollKey }) => ({
+          ...obj,
+          [rollKey]: new fields.NumberField({ ...quality, label }),
+        }), {}),
     );
 
     const combatAbility = { min: -1, max: 5, initial: 0, integer: true, nullable: false };
     schema.combatAbilities = new fields.SchemaField(
-      Object.values(hi.CONFIG.combatAbilities).reduce((obj, { label, rollKey }) => {
-        obj[rollKey] = new fields.SchemaField({
-          value: new fields.NumberField({ ...combatAbility, label }),
-        });
-
-        return obj;
-      }, {}),
+      Object.values(hi.CONFIG.combatAbilities).reduce((obj, { label, rollKey }) => ({
+        ...obj,
+        [rollKey]: new fields.NumberField({ ...combatAbility, label }),
+      }), {}),
     );
 
     schema.lifeblood = new fields.SchemaField({
@@ -72,12 +66,12 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
    * @param rollData
    */
   modifyRollData(rollData) {
-    for (const [key, obj] of Object.entries(this.qualities)) {
-      rollData[hi.CONFIG.qualities[key].rollKey] = obj.value;
+    for (const [key, val] of Object.entries(this.qualities)) {
+      rollData[hi.CONFIG.qualities[key].rollKey] = val;
     }
 
-    for (const [key, obj] of Object.entries(this.combatAbilities)) {
-      rollData[hi.CONFIG.combatAbilities[key].rollKey] = obj.value;
+    for (const [key, val] of Object.entries(this.combatAbilities)) {
+      rollData[hi.CONFIG.combatAbilities[key].rollKey] = val;
     }
   }
 
@@ -90,7 +84,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   async rollCharacteristic(characteristic, options = {}) {
     const data = this.parent.getRollData();
     const flavor = game.i18n.localize(foundry.utils.getProperty(hi.CONFIG, characteristic)?.label);
-    const value = foundry.utils.getProperty(this, characteristic)?.value ?? 0;
+    const value = foundry.utils.getProperty(this, characteristic) ?? 0;
 
     options.system ??= {};
     options.system.quality = { key: foundry.utils.getProperty(hi.CONFIG, characteristic).rollKey, value };
@@ -118,7 +112,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     if (modifiers.combatAbility && modifiers.combatAbility !== 'none') {
       options.system.modifiers.combatAbility = {
         key: hi.CONFIG.combatAbilities[modifiers.combatAbility].rollKey,
-        value: this.parent.system.combatAbilities[modifiers.combatAbility].value,
+        value: this.parent.system.combatAbilities[modifiers.combatAbility],
       };
     }
 
@@ -158,7 +152,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
 
     if (this.isLifebloodMightDerived) {
       changes.system = { lifeblood: {} };
-      changes.system.lifeblood.max = changes.system.lifeblood.value = this.baseLifeblood + this.qualities.might.value;
+      changes.system.lifeblood.max = changes.system.lifeblood.value = this.baseLifeblood + this.qualities.might;
     }
 
     this.parent.updateSource(changes);
@@ -167,21 +161,24 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
 
   /** @inheritDoc */
   async _preUpdate(changes, options, user) {
+    const allowed = await super._preUpdate(changes, options, user);
+    if (allowed === false) return false;
+
     let { min, max } = this.lifeblood;
 
-    if (hasProperty(changes, 'system.qualities.might.value')) {
+    if (hasProperty(changes, 'system.qualities.might')) {
       if (max && this.isLifebloodMightDerived) {
-        max = this.baseLifeblood + changes.system.qualities.might.value;
+        max = this.baseLifeblood + changes.system.qualities.might;
         changes.system.lifeblood.max = max;
       }
     }
 
     if (hasProperty(changes, 'system.lifeblood.value')) {
-      if (min) changes.system.lifeblood.value = Math.max(changes.system.lifeblood.value, min);
+      changes.system.lifeblood.value = Math.max(changes.system.lifeblood.value, min);
       if (max) changes.system.lifeblood.value = Math.min(changes.system.lifeblood.value, max);
     }
 
-    return super._preUpdate(changes, options, user);
+    return true;
   }
 
   /** @inheritDoc */

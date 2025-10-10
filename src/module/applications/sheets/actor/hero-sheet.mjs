@@ -1,14 +1,13 @@
 import { systemID, systemPath } from '../../../constants.mjs';
 import { determineManeuverOutcome } from '../../../utils/rollUtils.mjs';
-import HonorIntrigueActorSheet from './actor-sheet.mjs';
+import CharacterActorSheet from './character-actor-sheet.mjs';
 
-export default class HeroSheet extends HonorIntrigueActorSheet {
+export default class HeroSheet extends CharacterActorSheet {
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
     actions: {
       adjustAdvancementPoints: { handler: this.#adjustAdvancementPoints, buttons: [0, 2] },
       adjustAdvantage: this.#adjustAdvantage,
-      adjustFortune: { handler: this.#adjustFortune, buttons: [0, 2] },
       populateManeuvers: this.#onPopulateManeuvers,
       rollCompendiumManeuver: this.#onRollCompendiumManeuver,
       rollItemDamage: this.#onRollItemDamage,
@@ -71,14 +70,6 @@ export default class HeroSheet extends HonorIntrigueActorSheet {
   static async #adjustAdvantage(event, target) {
     const change = target.dataset.adjustment === 'increment' ? 1 : -1;
     this.actor.update({ system: { advantage: this.actor.system.advantage + change } });
-  }
-
-  /**
-   * Adjusts the character's total fortune points.
-   */
-  static async #adjustFortune(event, target) {
-    const change = event.type === 'click' ? 1 : -1;
-    this.document.update({ system: { fortune: this.document.system.fortune + change } });
   }
 
   /**

@@ -108,6 +108,8 @@
         }
       },
       "Result": {
+        "FortuneGain": "{name} has gained {amount} Fortune.",
+        "FortuneLoss": "{name} has lost {amount} Fortune.",
         "NoTokenSelected": "You must have at least one token selected.",
         "Outcome": "Result: ",
         "Target": "Target: {name}"
@@ -231,6 +233,7 @@
         "Composure": "Composure",
         "Expand": "Expand",
         "FortunePoints": "Fortune",
+        "FortunePointsRefresh": "Refresh Fortune",
         "Lifeblood": "Lifeblood",
         "Minimize": "Minimize",
         "Motivation": "Motivation",

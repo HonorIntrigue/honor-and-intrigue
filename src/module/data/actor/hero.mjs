@@ -40,7 +40,7 @@ export default class HeroModel extends CharacterActorModel {
         actorLink: true,
         disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
       },
-      system: { lifeblood: { min: -6 } },
     });
+    return true;
   }
 }

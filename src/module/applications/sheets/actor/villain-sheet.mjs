@@ -1,12 +1,9 @@
 import { systemPath } from '../../../constants.mjs';
-import HonorIntrigueActorSheet from './actor-sheet.mjs';
+import CharacterActorSheet from './character-actor-sheet.mjs';
 
-export default class VillainSheet extends HonorIntrigueActorSheet {
+export default class VillainSheet extends CharacterActorSheet {
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
-    actions: {
-      adjustFortune: { handler: this.#adjustFortune, buttons: [0, 2] },
-    },
     classes: ['villain'],
   };
 
@@ -26,14 +23,6 @@ export default class VillainSheet extends HonorIntrigueActorSheet {
       tabs: [{ id: 'background' }],
     },
   };
-
-  /**
-   * Adjusts the character's total fortune points.
-   */
-  static async #adjustFortune(event, target) {
-    const change = event.type === 'click' ? 1 : -1;
-    this.document.update({ system: { fortune: this.document.system.fortune + change } });
-  }
 
   /** @inheritDoc */
   async _preparePartContext(partId, context, options) {

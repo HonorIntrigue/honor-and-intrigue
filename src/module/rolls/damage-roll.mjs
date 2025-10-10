@@ -13,7 +13,7 @@ export default class HonorIntrigueDamageRoll extends foundry.dice.Roll {
 
     if (options.data.rangeIncrement === 0) {
       options.modifiers.includeMightSelector = true;
-      options.realMightValue = options.actor.system.qualities.might.value;
+      options.realMightValue = options.actor.system.qualities.might;
     }
 
     // TODO apply penalties from active actor effects, such as Blade Throw

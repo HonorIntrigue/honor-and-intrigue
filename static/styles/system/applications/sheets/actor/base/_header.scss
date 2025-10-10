@@ -21,13 +21,23 @@
       flex: 0;
       font-size: var(--font-size-24);
       gap: 0.5rem;
-      margin-left: 0.5rem;
+      margin: 0 0.5rem;
       min-width: 55px;
+
+      > span {
+        min-width: 28px;
+        text-align: center;
+        width: 28px;
+      }
     }
 
     .fortune-points {
       align-items: flex-start;
       align-self: flex-end;
+
+      i:hover {
+        --fa: '\f021';
+      }
     }
   }
 }

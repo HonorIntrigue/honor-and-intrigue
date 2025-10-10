@@ -52,7 +52,7 @@
       ]
     }
   },
-  "initiative": "1d6 + @qualities.savvy.value",
+  "initiative": "1d6 + @qualities.savvy",
   "languages": [
     {
       "lang": "en",

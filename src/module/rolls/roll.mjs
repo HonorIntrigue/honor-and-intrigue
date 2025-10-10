@@ -50,11 +50,11 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
 
     if (opposedBy.quality) options.system.targetModifiers.quality = {
       key: opposedBy.quality,
-      value: target.actor.system.qualities[opposedBy.quality].value,
+      value: target.actor.system.qualities[opposedBy.quality],
     };
     if (opposedBy.combatAbility) options.system.targetModifiers.combatAbility = {
       key: opposedBy.combatAbility,
-      value: target.actor.system.combatAbilities[opposedBy.combatAbility].value,
+      value: target.actor.system.combatAbilities[opposedBy.combatAbility],
     };
     if (opposedBy.flatModifier) options.system.targetModifiers.flatModifier = opposedBy.flatModifier;
   }
@@ -115,7 +115,7 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
     }
 
     if (modifiers.combatAbility && modifiers.combatAbility !== 'none') {
-      const value = options.actor.system.combatAbilities[modifiers.combatAbility].value;
+      const value = options.actor.system.combatAbilities[modifiers.combatAbility];
       roll.terms.push(...this.constructNumericTerm(value));
     }
 
