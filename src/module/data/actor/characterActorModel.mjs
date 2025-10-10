@@ -15,6 +15,17 @@ export default class CharacterActorModel extends BaseActorModel {
     return schema;
   }
 
+  /**
+   * Apply modifiers to a set of roll options.
+   */
+  applyRollModifiers(options) {
+    const composureLoss = Math.abs(this.schema.fields.composure.max - this.composure);
+
+    if (composureLoss !== 0) {
+      options.system.statusModifiers['composure'] = { label: 'HONOR_INTRIGUE.Chat.Roll.Modifier.ComposureLoss', value: -composureLoss };
+    }
+  }
+
   /** @inheritDoc */
   async _preUpdate(changes, options, user) {
     const allowed = await super._preUpdate(changes, options, user);

@@ -38,11 +38,7 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
       if (effect instanceof HonorIntrigueActiveEffect) effect.applyRollModifiers(options.system.statusModifiers);
     }
 
-    const composureLoss = Math.abs(actor.system.schema.fields.composure.max - actor.system.composure);
-
-    if (composureLoss !== 0) {
-      options.system.statusModifiers['composure'] = { label: 'HONOR_INTRIGUE.Chat.Roll.Modifier.ComposureLoss', value: -composureLoss };
-    }
+    if (actor.system.applyRollModifiers instanceof Function) actor.system.applyRollModifiers(options);
   }
 
   /**

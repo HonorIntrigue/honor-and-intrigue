@@ -117,6 +117,16 @@
         width: 100%;
       }
     }
+
+    .notification-area {
+      color: var(--color-gold);
+      font-size: var(--font-size-28);
+      padding-right: 1rem;
+      position: absolute;
+      right: 0;
+      top: var(--header-height);
+      z-index: 100;
+    }
   }
 
   &.minimized {

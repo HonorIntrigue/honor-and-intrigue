@@ -127,6 +127,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     return {
       ...ctx,
       actorType: this.document.type ?? 'actor',
+      atALoss: this.document.statuses.has('at-a-loss'),
       enrichedNotes: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.notes, {
         rollData: this.document.getRollData(),
         secrets: this.document.isOwner,

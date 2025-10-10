@@ -3,6 +3,12 @@
     <img src='{{document.img}}' alt='{{document.name}}' data-action='editImage' data-edit='img'>
   </div>
 
+  <div class='notification-area'>
+    {{#if atALoss}}
+      <i class='fa-slab fa-regular fa-triangle-exclamation' data-title='At a loss' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.AtALoss'></i>
+    {{/if}}
+  </div>
+
   <div class='characteristics'>
     <div class='primary-resources'>
       <div class='resources'>

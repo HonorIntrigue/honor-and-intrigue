@@ -75,6 +75,17 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     }
   }
 
+  /** @inheritDoc */
+  prepareDerivedData() {
+    super.prepareDerivedData();
+
+    const atALoss = this.parent.statuses.has('at-a-loss');
+
+    if (atALoss) {
+      this.combatAbilities.defense -= 2;
+    }
+  }
+
   /**
    * Prompt the user to roll a characteristic.
    * @param characteristic
