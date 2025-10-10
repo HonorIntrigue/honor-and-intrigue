@@ -10,7 +10,7 @@ export default class CreatureModel extends BaseActorModel {
   }
 
   /** @inheritDoc */
-  calcLifebloodMax() {
-    return -1;
+  get isLifebloodMightDerived() {
+    return false;
   }
 }

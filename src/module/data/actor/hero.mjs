@@ -31,11 +31,6 @@ export default class HeroModel extends CharacterActorModel {
   }
 
   /** @inheritDoc */
-  calcLifebloodMax() {
-    return 10 + this.qualities.might.value;
-  }
-
-  /** @inheritDoc */
   async _preCreate(data, options, user) {
     const allowed = await super._preCreate(data, options, user);
     if (allowed === false) return false;
@@ -45,6 +40,7 @@ export default class HeroModel extends CharacterActorModel {
         actorLink: true,
         disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
       },
+      system: { lifeblood: { min: -6 } },
     });
   }
 }

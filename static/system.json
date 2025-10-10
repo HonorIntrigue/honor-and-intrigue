@@ -101,8 +101,8 @@
       "packs": ["boons", "careers", "equipment", "flaws","maneuvers"]
     }
   ],
-  "primaryTokenAttribute": "hero.lifeblood",
-  "secondaryTokenAttribute": "hero.composure",
+  "primaryTokenAttribute": "lifeblood",
+  "secondaryTokenAttribute": "advantage",
   "socket": true,
   "styles": [
     {

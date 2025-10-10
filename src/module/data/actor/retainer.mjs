@@ -10,7 +10,7 @@ export default class RetainerModel extends BaseActorModel {
   }
 
   /** @inheritDoc */
-  calcLifebloodMax() {
-    return 8 + this.qualities.might.value;
+  get baseLifeblood() {
+    return 8;
   }
 }

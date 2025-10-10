@@ -1,4 +1,4 @@
-import { systemID, systemPath } from '../../constants.mjs';
+import { systemID } from '../../constants.mjs';
 import { HonorIntrigueRoll } from '../../rolls/_module.mjs';
 import HonorIntrigueSystemModel from '../system-model.mjs';
 
@@ -37,7 +37,9 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     );
 
     schema.lifeblood = new fields.SchemaField({
-      value: new fields.NumberField({ min: -6, initial: 1, integer: true, nullable: false }),
+      max: new fields.NumberField({ min: 1, initial: 1, integer: true, nullable: false }),
+      min: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
+      value: new fields.NumberField({ min: -6, initial: 1, integer: true, nullable: false, required: true }),
     });
     schema.notes = new fields.HTMLField({ textSearch: true, trim: true });
 
@@ -45,26 +47,24 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   }
 
   /**
+   * Get the base value for computing lifeblood.
+   */
+  get baseLifeblood() {
+    return 10;
+  }
+
+  /**
+   * Flag that indicates if the max value of lifeblood should be derived from Might.
+   */
+  get isLifebloodMightDerived() {
+    return true;
+  }
+
+  /**
    * Apply an amount of damage to this actor.
    */
   async applyDamage(amount) {
     return this.parent.update({ 'system.lifeblood.value': this.lifeblood.value - amount });
-  }
-
-  /**
-   * Calculate the maximum value of the lifeblood field.
-   * @returns {number}
-   */
-  calcLifebloodMax() {
-    return 1;
-  }
-
-  /**
-   * Calculate the minimum value of the lifeblood field.
-   * @returns {number}
-   */
-  calcLifebloodMin() {
-    return -6;
   }
 
   /**
@@ -150,36 +150,35 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   }
 
   /** @inheritDoc */
-  prepareDerivedData() {
-    this.lifeblood.max = this.calcLifebloodMax();
-    this.lifeblood.min = this.calcLifebloodMin();
-  }
-
-  /** @inheritDoc */
   async _preCreate(data, options, user) {
     const allowed = await super._preCreate(data, options, user);
     if (allowed === false) return false;
 
-    this.parent.updateSource({
-      system: { lifeblood: { value: this.calcLifebloodMax() } },
-      prototypeToken: {
-        disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
-      },
-    });
+    const changes = { prototypeToken: { disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE } };
 
+    if (this.isLifebloodMightDerived) {
+      changes.system = { lifeblood: {} };
+      changes.system.lifeblood.max = changes.system.lifeblood.value = this.baseLifeblood + this.qualities.might.value;
+    }
+
+    this.parent.updateSource(changes);
     return true;
   }
 
-  // TODO move lifeblood max to non-derived value
-
   /** @inheritDoc */
   async _preUpdate(changes, options, user) {
-    if (hasProperty(changes, 'system.lifeblood')) {
-      const max = this.calcLifebloodMax();
-      const min = this.calcLifebloodMin();
+    let { min, max } = this.lifeblood;
 
-      changes.system.lifeblood.value = Math.max(changes.system.lifeblood?.value ?? 0, min);
-      if (max > 0) changes.system.lifeblood.value = Math.min(changes.system.lifeblood.value, max);
+    if (hasProperty(changes, 'system.qualities.might.value')) {
+      if (max && this.isLifebloodMightDerived) {
+        max = this.baseLifeblood + changes.system.qualities.might.value;
+        changes.system.lifeblood.max = max;
+      }
+    }
+
+    if (hasProperty(changes, 'system.lifeblood.value')) {
+      if (min) changes.system.lifeblood.value = Math.max(changes.system.lifeblood.value, min);
+      if (max) changes.system.lifeblood.value = Math.min(changes.system.lifeblood.value, max);
     }
 
     return super._preUpdate(changes, options, user);
@@ -189,18 +188,8 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   _onUpdate(changed, options, user) {
     super._onUpdate(changed, options, user);
 
-    if (hasProperty(changed, 'system.qualities.might')) {
-      const max = this.calcLifebloodMax();
-      const min = this.calcLifebloodMin();
-
-      let lb = Math.max(this.lifeblood.value, min);
-      if (max > 0) lb = Math.min(lb, max);
-
-      this.parent.update({ system: { lifeblood: { value: lb } } });
-    }
-
     if (hasProperty(changed, 'system.lifeblood.value')) {
-      if (changed.system.lifeblood.value === this.calcLifebloodMin()) {
+      if (changed.system.lifeblood.value === this.lifeblood.min) {
         this.parent.toggleStatusEffect('dead', { active: true });
         this.parent.toggleStatusEffect('dying', { active: false });
       } else if (changed.system.lifeblood.value <= 0) {

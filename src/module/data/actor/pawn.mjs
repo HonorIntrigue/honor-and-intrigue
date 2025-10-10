@@ -28,7 +28,7 @@ export default class PawnModel extends BaseActorModel {
   }
 
   /** @inheritDoc */
-  calcLifebloodMin() {
-    return 0;
+  get isLifebloodMightDerived() {
+    return false;
   }
 }

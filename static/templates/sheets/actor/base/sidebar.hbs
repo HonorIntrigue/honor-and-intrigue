@@ -11,7 +11,11 @@
             {{formInput systemFields.lifeblood.fields.value value=this.system.lifeblood.value type='number' max=this.system.lifeblood.max min=this.system.lifeblood.min}}
             {{#if (ne actorType 'pawn')}}
               <p>/</p>
-              <p class='resource-value-label'>{{this.system.lifeblood.max}}</p>
+              {{#if this.system.isLifebloodMightDerived}}
+                <p class='resource-value-label'>{{this.system.lifeblood.max}}</p>
+              {{else}}
+                {{formInput systemFields.lifeblood.fields.max value=this.system.lifeblood.max type='number'}}
+              {{/if}}
             {{/if}}
           </div>
           <span class='resource-label'>{{localize 'HONOR_INTRIGUE.Sheet.Labels.Lifeblood'}}</span>
