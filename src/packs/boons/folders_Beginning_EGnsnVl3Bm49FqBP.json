@@ -6,7 +6,7 @@
   "sorting": "a",
   "_id": "EGnsnVl3Bm49FqBP",
   "description": "",
-  "sort": 0,
+  "sort": 400000,
   "flags": {},
   "_stats": {
     "compendiumSource": null,
@@ -16,7 +16,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1758156012289,
-    "modifiedTime": 1758156012289,
+    "modifiedTime": 1760220337664,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!folders!EGnsnVl3Bm49FqBP"

@@ -7,7 +7,46 @@
   "system": {
     "description": "<p>Your Fortune Characteristic is permanently increased by 2.</p>"
   },
-  "effects": [],
+  "effects": [
+    {
+      "name": "Fortune Bonus",
+      "_id": "rNTAXgPe7XoTRTnc",
+      "img": null,
+      "type": "base",
+      "system": {},
+      "changes": [
+        {
+          "key": "system.fortune.base",
+          "value": "5",
+          "mode": 5
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "honor-and-intrigue",
+        "systemVersion": "0.0.0",
+        "createdTime": 1760208485436,
+        "modifiedTime": 1760226480817,
+        "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+      },
+      "_key": "!items.effects!YtCUO8oZDbHQJQmV.rNTAXgPe7XoTRTnc"
+    }
+  ],
   "sort": 0,
   "ownership": {
     "default": 0,
@@ -22,7 +61,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1758156584388,
-    "modifiedTime": 1758156587635,
+    "modifiedTime": 1760225436088,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!YtCUO8oZDbHQJQmV"

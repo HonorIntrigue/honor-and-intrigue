@@ -7,7 +7,46 @@
   "system": {
     "description": "<p>You are not very tough. Deduct two from your Lifeblood total.</p>"
   },
-  "effects": [],
+  "effects": [
+    {
+      "name": "Delicate",
+      "_id": "UfCH30h6gJ8bJgft",
+      "img": null,
+      "type": "base",
+      "system": {},
+      "changes": [
+        {
+          "key": "system.lifeblood.max",
+          "value": "-2",
+          "mode": 2
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "honor-and-intrigue",
+        "systemVersion": "0.0.0",
+        "createdTime": 1760227334405,
+        "modifiedTime": 1760227344358,
+        "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+      },
+      "_key": "!items.effects!L3AElXxPBSRdd1Gl.UfCH30h6gJ8bJgft"
+    }
+  ],
   "sort": 0,
   "ownership": {
     "default": 0,

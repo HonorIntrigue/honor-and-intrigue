@@ -9,7 +9,10 @@ export default class CharacterActorModel extends BaseActorModel {
 
     schema.advantage = new fields.NumberField({ min: 0, max: 10, initial: 3, integer: true, nullable: false });
     schema.composure = new fields.NumberField({ min: 0, max: 3, initial: 3, integer: true, nullable: false });
-    schema.fortune = new fields.NumberField({ min: 0, initial: 0, integer: true, nullable: false });
+    schema.fortune = new fields.SchemaField({
+      base: new fields.NumberField({ min: 0, initial: 3, integer: true, nullable: false }),
+      value: new fields.NumberField({ min: 0, initial: 0, integer: true, nullable: false }),
+    });
     schema.motivation = new fields.StringField({ trim: true });
 
     return schema;
@@ -31,16 +34,19 @@ export default class CharacterActorModel extends BaseActorModel {
     const allowed = await super._preUpdate(changes, options, user);
     if (allowed === false) return false;
 
-    if (foundry.utils.hasProperty(changes, 'system.fortune')) {
+    if (foundry.utils.hasProperty(changes, 'system.fortune.value')) {
+      const diff = Math.abs(this.fortune.value - changes.system.fortune.value);
+      if (diff === 0) return true;
+
       let messageKey;
 
-      if (changes.system.fortune > this.fortune) messageKey = 'HONOR_INTRIGUE.Chat.Result.FortuneGain';
-      else if (changes.system.fortune < this.fortune) messageKey = 'HONOR_INTRIGUE.Chat.Result.FortuneLoss';
+      if (changes.system.fortune.value > this.fortune.value) messageKey = 'HONOR_INTRIGUE.Chat.Result.FortuneGain';
+      else if (changes.system.fortune.value < this.fortune.value) messageKey = 'HONOR_INTRIGUE.Chat.Result.FortuneLoss';
 
       await ChatMessage.create({
         speaker: ChatMessage.getSpeaker({ actor: this.parent }),
         content: game.i18n.format(messageKey, {
-          amount: Math.abs(this.fortune - changes.system.fortune),
+          amount: diff,
           name: this.parent.name,
         }),
       });

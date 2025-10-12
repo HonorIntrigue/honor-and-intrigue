@@ -69,6 +69,10 @@
         --scroll-margin: 0;
       }
 
+      &:not(.scrollable) {
+        overflow: hidden;
+      }
+
       .tab-content {
         display: flex;
         flex-direction: column;

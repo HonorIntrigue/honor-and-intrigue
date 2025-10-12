@@ -15,7 +15,7 @@ try {
 }
 
 // JavaScript files
-for (const p of ['client', 'common', 'tsconfig.json']) {
+for (const p of ['client', 'common', 'templates', 'tsconfig.json']) {
   try {
     await fs.promises.symlink(path.join(fileRoot, p), path.join('foundry', p));
   } catch (e) {

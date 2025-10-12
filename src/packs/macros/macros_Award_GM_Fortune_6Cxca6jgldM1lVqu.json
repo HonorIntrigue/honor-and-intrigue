@@ -5,7 +5,7 @@
   "author": "gzs91c0iwOtmt0Wp",
   "img": "icons/svg/aura.svg",
   "scope": "global",
-  "command": "/**\n * This macro awards a Fortune point in addition to an Advancement Point, as per the rules\n * for when a GM awards a Fortune point during gameplay on page 61.\n */\n\nconst actors = new Set(canvas.tokens.controlled.map(t => t.actor).filter(a => a.type === 'hero'));\n\nif (actors.size === 0) return ui.notifications.warn('HONOR_INTRIGUE.Dialog.Result.NoHeroesSelected', { localize: true });\n\nconst fields = foundry.applications.fields;\nconst proceed = await foundry.applications.api.DialogV2.prompt({\n  window: { title: 'HONOR_INTRIGUE.Dialog.AwardFortune.Title' },\n  content: game.i18n.localize('HONOR_INTRIGUE.Dialog.AwardFortune.Prompt')\n});\n\nif (proceed) {\n  await Promise.all(actors.map(async (actor) => actor.update({\n    'system.advancementPoints.value': actor.system.advancementPoints.value + 1,\n    'system.fortune': actor.system.fortune + 1,\n  })));\n}",
+  "command": "/**\n * This macro awards a Fortune point in addition to an Advancement Point, as per the rules\n * for when a GM awards a Fortune point during gameplay on page 61.\n */\n\nconst actors = new Set(canvas.tokens.controlled.map(t => t.actor).filter(a => a.type === 'hero'));\n\nif (actors.size === 0) return ui.notifications.warn('HONOR_INTRIGUE.Dialog.Result.NoHeroesSelected', { localize: true });\n\nconst fields = foundry.applications.fields;\nconst proceed = await foundry.applications.api.DialogV2.prompt({\n  window: { title: 'HONOR_INTRIGUE.Dialog.AwardFortune.Title' },\n  content: game.i18n.localize('HONOR_INTRIGUE.Dialog.AwardFortune.Prompt')\n});\n\nif (proceed) {\n  await Promise.all(actors.map(async (actor) => actor.update({\n    'system.advancementPoints.value': actor.system.advancementPoints.value + 1,\n    'system.fortune.value': actor.system.fortune.value + 1,\n  })));\n}",
   "folder": null,
   "sort": 0,
   "ownership": {
@@ -21,7 +21,7 @@
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1760139902430,
-    "modifiedTime": 1760140399783,
+    "modifiedTime": 1760223007089,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!macros!6Cxca6jgldM1lVqu"

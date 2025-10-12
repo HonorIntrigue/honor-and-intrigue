@@ -14,13 +14,13 @@ export default class CharacterActorSheet extends HonorIntrigueActorSheet {
    */
   static async #adjustFortune(event) {
     const change = event.type === 'click' ? 1 : -1;
-    await this.actor.update({ system: { fortune: this.actor.system.fortune + change } });
+    await this.actor.update({ 'system.fortune.value': this.actor.system.fortune.value + change });
   }
 
   /**
    * Refresh the character's Fortune statistic.
    */
   static async #onRefreshFortune() {
-    await this.actor.update({ 'system.fortune': this.actor.system.qualities.flair + 3 });
+    await this.actor.update({ 'system.fortune.value': this.actor.system.fortune.base + this.actor.system.qualities.flair });
   }
 }

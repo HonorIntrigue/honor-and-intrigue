@@ -181,7 +181,8 @@
       "Defaults": {
         "BoonName": "New Boon",
         "CareerName": "New Career",
-        "FlawName": "New Flaw"
+        "FlawName": "New Flaw",
+        "RuleName": "New Rule"
       },
       "Sheet": {
         "FIELDS": {
@@ -214,6 +215,13 @@
             "label": "Throwable",
             "hint": "Set to allow this weapon to be thrown"
           }
+        },
+        "Labels": {
+          "Details": {
+            "CreateRule": "Create Rule",
+            "DeleteRule": "Delete"
+          },
+          "Refresh": "Refresh from Compendium"
         },
         "Tabs": {
           "description": "Description",
