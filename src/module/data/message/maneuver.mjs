@@ -70,8 +70,9 @@ export default class ManeuverMessageModel extends QualityRollMessageModel {
   /** @inheritDoc */
   async _constructFooterButtons() {
     const buttons = await super._constructFooterButtons();
+    const item = await fromUuid(this.relatedItemUuid);
 
-    if (this.relatedItemUuid) {
+    if (item && (this.parent.isAuthor || this.parent.isOwner || item.isOwner)) {
       buttons.push(hi.utils.constructButton({
         classes: ['roll-damage'],
         dataset: {
@@ -93,7 +94,7 @@ export default class ManeuverMessageModel extends QualityRollMessageModel {
     const rollButtons = html.querySelectorAll('.roll-damage');
 
     for (const btn of rollButtons) {
-      btn.addEventListener('click', (event) => WeaponModel.rollDamageFromMessage(event));
+      btn.addEventListener('click', () => WeaponModel.rollDamageFromMessage(this));
     }
   }
 }

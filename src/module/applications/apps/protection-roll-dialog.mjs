@@ -1,23 +1,22 @@
 import { systemPath } from '../../constants.mjs';
 import { FormApplicationMixin } from '../api/_module.mjs';
 
-export default class DamageRollDialog extends FormApplicationMixin(foundry.applications.api.ApplicationV2) {
+export default class ProtectionRollDialog extends FormApplicationMixin(foundry.applications.api.ApplicationV2) {
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
     actions: {
       setRollMode: this.#setRollMode,
-      toggleHalfMight: this.#toggleHalfMight,
     },
-    classes: ['roll-dialog', 'damage-roll-dialog'],
+    classes: ['roll-dialog', 'protection-roll-dialog'],
     window: {
-      icon: 'fa-solid fa-sword',
-      title: 'HONOR_INTRIGUE.Dialog.Roll.RollDamage',
+      icon: 'fa-solid fa-shield-halved',
+      title: 'HONOR_INTRIGUE.Dialog.Roll.RollProtection',
     },
   };
 
   /** @inheritDoc */
   static PARTS = {
-    content: { template: systemPath('templates/rolls/damage-roll-dialog.hbs') },
+    content: { template: systemPath('templates/rolls/protection-roll-dialog.hbs') },
     footer: { template: systemPath('templates/rolls/roll-dialog-footer.hbs') },
   };
 
@@ -29,21 +28,6 @@ export default class DamageRollDialog extends FormApplicationMixin(foundry.appli
   static #setRollMode(event, target) {
     this.options.context.rollMode = target.dataset.rollMode;
     this.render({ parts: ['footer'] });
-  }
-
-  /**
-   * Toggles the selection of half Might score.
-   */
-  static #toggleHalfMight(event, target) {
-    this.options.context.halfMight = !this.options.context.halfMight;
-
-    if (this.options.context.halfMight) {
-      this.options.context.mightValue = Math.round(this.options.context.realMightValue / 2);
-    } else {
-      this.options.context.mightValue = this.options.context.realMightValue;
-    }
-
-    this.render({ parts: ['content'] });
   }
 
   /** @inheritDoc */
@@ -63,6 +47,12 @@ export default class DamageRollDialog extends FormApplicationMixin(foundry.appli
     const formData = foundry.utils.expandObject(new foundry.applications.ux.FormDataExtended(this.element).object);
     foundry.utils.mergeObject(this.options.context, formData);
 
+    const { itemId } = event.target.closest('.protection-option-item')?.dataset ?? 0;
+
+    if (itemId) {
+      this.options.context.protectionItems.find(({ id }) => id === itemId).toggled = event.target.checked;
+    }
+
     this.render();
   }
 
@@ -70,13 +60,6 @@ export default class DamageRollDialog extends FormApplicationMixin(foundry.appli
   async _prepareContext(options) {
     await super._prepareContext(options);
     const { context } = this.options;
-
-    context.numDice = context.numDice || context.formula.numDice;
-    context.dieSize = context.dieSize || context.formula.dieSize;
-    context.dieSizeChoices = hi.CONFIG.damageDice;
-    context.flatModifier = context.flatModifier || context.formula.flatModifier;
-    context.mightValue = context.mightValue || context.realMightValue;
-
     return context;
   }
 

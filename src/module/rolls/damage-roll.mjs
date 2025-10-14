@@ -20,22 +20,16 @@ export default class HonorIntrigueDamageRoll extends foundry.dice.Roll {
   }
 
   /**
-   * Button callback to apply damage to selected actors.
-   * @param {PointerEvent} event
+   * Button callback to apply damage from a message model.
+   * @param {Object} options
+   * @param {Actor} options.actor
+   * @param {Roll} options.roll
+   * @param {Boolean} [options.withProtection=false]
+   * @returns {Promise<void>}
    */
-  static async applyDamageCallback(event) {
-    if (!canvas.tokens.controlled.length) {
-      return ui.notifications.error('HONOR_INTRIGUE.Chat.Result.NoTokenSelected', { localize: true });
-    }
-
-    const li = event.currentTarget.closest('[data-message-id]');
-    const message = game.messages.get(li.dataset.messageId);
-    const roll = message.rolls[event.currentTarget.dataset.index];
-    const amount = roll.total;
-
-    for (const actor of hi.utils.tokensToActors()) {
-      await actor.system.applyDamage(amount);
-    }
+  static async applyDamageCallback(options) {
+    const { actor, roll, withProtection } = options;
+    await actor.system.applyDamage({ amount: roll.total, withProtection });
   }
 
   /**
@@ -76,22 +70,5 @@ export default class HonorIntrigueDamageRoll extends foundry.dice.Roll {
       rollMode,
       rolls: [roll],
     };
-  }
-
-  /**
-   * Produces an HTML button with relevant data to apply this damage.
-   * @param {Number} index The index of this roll in the <code>rolls</code> array of the message.
-   */
-  toRollButton(index) {
-    return hi.utils.constructButton({
-      classes: ['apply-damage'],
-      dataset: {
-        index,
-        tooltip: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.ApplyDamage.hint'),
-        tooltipDirection: 'UP',
-      },
-      icon: 'fa-solid fa-burst',
-      label: game.i18n.format('HONOR_INTRIGUE.Chat.Buttons.ApplyDamage.label', { amount: this.total }),
-    });
   }
 }

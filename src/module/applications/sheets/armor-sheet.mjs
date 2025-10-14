@@ -1,7 +1,9 @@
 import { systemPath } from '../../constants.mjs';
 import HonorIntrigueItemSheet from './item-sheet.mjs';
 
-export default class WeaponItemSheet extends HonorIntrigueItemSheet {
+const FormulaRegex = /^(\d+)d(\d+)([+-]\d+)?$/;
+
+export default class ArmorItemSheet extends HonorIntrigueItemSheet {
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
     classes: ['armor'],
@@ -30,39 +32,27 @@ export default class WeaponItemSheet extends HonorIntrigueItemSheet {
   };
 
   /** @inheritDoc */
-  async _preparePartContext(partId, context, options) {
-    const ctx = await super._preparePartContext(partId, context, options);
-
-    if (partId === 'details') {
-      const { protection } = context.system;
-
-      ctx.protectionString = `${protection.numDice}d${protection.dieSize}`;
-
-      if (protection.flatModifier > 0) ctx.protectionString += ` + ${protection.flatModifier}`;
-      else if (protection.flatModifier < 0) ctx.protectionString += ` - ${Math.abs(protection.flatModifier)}`;
-    }
-
-    return ctx;
-  }
-
-  /** @inheritDoc */
   _processFormData(event, form, formData) {
-    const protectionString = formData.get('protectionString').replace(/\s/g, '');
-    formData.delete('protectionString');
+    const data = super._processFormData(event, form, formData);
 
-    const parsedProtectionString = /(\d+)d(\d+)([+-]\d+)?/.exec(protectionString);
+    if (foundry.utils.hasProperty(data, 'system.protection.value')) {
+      const value = data.system.protection.value.replaceAll(/\s/g, '');
 
-    if (parsedProtectionString?.length >= 3) {
-      formData.set('system.protection.numDice', parsedProtectionString[1]);
-      formData.set('system.protection.dieSize', parsedProtectionString[2]);
+      if (/^\d+$/.test(value)) {
+        data.system.protection = { numDice: null, flatModifier: parseInt(value) };
+      } else if (FormulaRegex.test(value)) {
+        const formulaMatch = FormulaRegex.exec(value);
 
-      if (parsedProtectionString[3]) {
-        formData.set('system.protection.flatModifier', parsedProtectionString[3]);
+        if (formulaMatch?.length > 1) {
+          data.system.protection.numDice = formulaMatch.at(1);
+          data.system.protection.dieSize = formulaMatch.at(2);
+          data.system.protection.flatModifier = formulaMatch.at(3) ?? 0;
+        }
       } else {
-        formData.set('system.protection.flatModifier', 0);
+        throw new Error(`Invalid protection value "${data.system.protection.value}"`);
       }
     }
 
-    return super._processFormData(event, form, formData);
+    return data;
   }
 }

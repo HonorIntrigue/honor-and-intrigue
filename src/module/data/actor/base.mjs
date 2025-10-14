@@ -1,5 +1,5 @@
 import { systemID } from '../../constants.mjs';
-import { HonorIntrigueRoll } from '../../rolls/_module.mjs';
+import { HonorIntrigueProtectionRoll, HonorIntrigueRoll } from '../../rolls/_module.mjs';
 import HonorIntrigueSystemModel from '../system-model.mjs';
 
 const fields = foundry.data.fields;
@@ -55,9 +55,35 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   }
 
   /**
-   * Apply an amount of damage to this actor.
+   * Apply an amount of damage to this actor, optionally rolling for protection first.
    */
-  async applyDamage(amount) {
+  async applyDamage({ amount, withProtection }) {
+    if (withProtection) {
+      const result = await HonorIntrigueProtectionRoll.prompt({ actor: this.parent });
+
+      if (result) {
+        const { protectionItems, rollMode, rolls } = result;
+
+        ChatMessage.create({
+          flavor: game.i18n.localize('HONOR_INTRIGUE.Chat.Roll.Flavor.Protection'),
+          rollMode,
+          rolls,
+          sound: CONFIG.sounds.dice,
+          speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+          system: {
+            protectionItems: protectionItems.filter(item => item.toggled).reduce((acc, curr) => ({
+              ...acc,
+              [curr.id]: { formula: curr.protection, name: curr.name },
+            }), {}),
+            total: amount,
+          },
+          type: 'damageResult',
+        }, { rollMode });
+
+        amount = Math.max(1, amount - rolls[0].total);
+      }
+    }
+
     return this.parent.update({ 'system.lifeblood.value': this.lifeblood.value - amount });
   }
 
@@ -187,6 +213,19 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     if (hasProperty(changes, 'system.lifeblood.value')) {
       changes.system.lifeblood.value = Math.max(changes.system.lifeblood.value, min);
       if (max) changes.system.lifeblood.value = Math.min(changes.system.lifeblood.value, max);
+
+      const diff = Math.abs(this.lifeblood.value - changes.system.lifeblood.value);
+      if (diff !== 0) {
+        let messageKey = '';
+
+        if (changes.system.lifeblood.value > this.lifeblood.value) messageKey = 'HONOR_INTRIGUE.Chat.Result.LifebloodGain';
+        else if (changes.system.lifeblood.value < this.lifeblood.value) messageKey = 'HONOR_INTRIGUE.Chat.Result.LifebloodLoss';
+
+        await ChatMessage.create({
+          content: game.i18n.format(messageKey, { amount: diff, name: this.parent.name }),
+          speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+        });
+      }
     }
 
     return true;

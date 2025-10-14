@@ -44,7 +44,7 @@ Hooks.once('init', () => {
 
   foundry.applications.handlebars.loadTemplates(templates.map(t => HI_CONST.systemPath(t))).catch(console.error);
 
-  CONFIG.Dice.rolls = [rolls.HonorIntrigueRoll, rolls.HonorIntrigueDamageRoll];
+  CONFIG.Dice.rolls = [rolls.HonorIntrigueRoll, rolls.HonorIntrigueDamageRoll, rolls.HonorIntrigueProtectionRoll];
 
   const effectsToKeep = ['dead', 'prone'];
   CONFIG.statusEffects = [...CONFIG.statusEffects.filter(se => effectsToKeep.includes(se.id)), ...HONOR_INTRIGUE.statusEffects].sort((a, b) => a.id.localeCompare(b.id));

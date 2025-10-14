@@ -38,7 +38,6 @@ export default class QualityRollMessageModel extends BaseMessageModel {
       label: new fields.StringField(),
       value: new fields.NumberField({ integer: true }),
     }));
-    schema.target = new fields.DocumentUUIDField({ required: false, initial: () => game.user.targets.first()?.actor?.uuid });
 
     return schema;
   }

@@ -24,6 +24,7 @@
     },
     "ChatMessage": {
       "damage": {},
+      "damageResult": {},
       "maneuver": {},
       "quality": {}
     },

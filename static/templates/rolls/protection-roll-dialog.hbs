@@ -1,0 +1,9 @@
+<div class='protection-options'>
+  {{#each protectionItems as |item|}}
+    <div class='protection-option-item {{#if item.toggled}}toggled{{/if}}' data-item-id='{{item.id}}'>
+      <p>{{item.name}}</p>
+      <p>{{item.protection}}</p>
+      {{> 'systems/honor-and-intrigue/templates/api/checkbox-switch.hbs' isChecked=item.toggled }}
+    </div>
+  {{/each}}
+</div>

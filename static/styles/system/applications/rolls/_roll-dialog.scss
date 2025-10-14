@@ -73,6 +73,23 @@
     }
   }
 
+  .protection-options {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr 60px;
+
+    .protection-option-item {
+      display: contents;
+
+      &:not(.toggled) {
+        > p {
+          font-style: italic;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+
   footer {
     display: flex;
     justify-content: center;

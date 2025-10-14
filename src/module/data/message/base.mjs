@@ -1,10 +1,16 @@
-import { HonorIntrigueDamageRoll } from '../../rolls/_module.mjs';
 import HonorIntrigueSystemModel from '../system-model.mjs';
 
 export default class BaseMessageModel extends HonorIntrigueSystemModel {
   /** @inheritDoc */
   static defineSchema() {
-    return {};
+    const fields = foundry.data.fields;
+
+    return {
+      target: new fields.DocumentUUIDField({ required: false, initial: () => game.user.targets.first()?.actor?.uuid }),
+      targets: new fields.SetField(new fields.DocumentUUIDField({ nullable: false }), {
+        initial: () => Array.from(game.user.targets.map(t => t.actor?.uuid)),
+      }),
+    };
   }
 
   /**
@@ -26,34 +32,11 @@ export default class BaseMessageModel extends HonorIntrigueSystemModel {
    * Build an array of buttons to insert into the footer of the HTML.
    */
   async _constructFooterButtons() {
-    return [...this._constructDamageFooterButtons()];
-  }
-
-  /**
-   * Create an array of damage buttons for each {@linkcode HonorIntrigueDamageRoll} in the message rolls.
-   */
-  _constructDamageFooterButtons() {
-    const buttons = [];
-
-    for (let i = 0; i < this.parent.rolls.length; i++) {
-      const roll = this.parent.rolls[i];
-
-      if (roll instanceof HonorIntrigueDamageRoll) {
-        buttons.push(roll.toRollButton(i));
-      }
-    }
-
-    return buttons;
+    return [];
   }
 
   /**
    * Add event listeners after all alterations in {@linkcode alterMessageHTML} have been made.
    */
-  addListeners(html) {
-    const damageButtons = html.querySelectorAll('.apply-damage');
-
-    for (const btn of damageButtons) {
-      btn.addEventListener('click', (event) => HonorIntrigueDamageRoll.applyDamageCallback(event));
-    }
-  }
+  addListeners(html) {}
 }

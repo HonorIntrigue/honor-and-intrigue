@@ -102,12 +102,22 @@
     "Chat": {
       "Buttons": {
         "ApplyDamage": {
-          "label": "Apply {amount} Damage",
-          "hint": "Applies damage to the selected tokens"
+          "label": "Damage",
+          "hint": "Applies damage to this target"
+        },
+        "Ping": {
+          "hint": "Ping the target to locate it in the scene"
+        },
+        "Protection": {
+          "label": "Protect",
+          "hint": "Applies damage to this target after rolling its Protection"
         },
         "RollDamage": {
           "label": "Roll Damage",
           "hint": "Roll damage for the associated weapon"
+        },
+        "SetTargets": {
+          "hint": "Set the message targets to the current targets"
         }
       },
       "Result": {
@@ -117,6 +127,8 @@
         "AdvancementLossSingular": "{name} has lost {amount} Advancement Point.",
         "FortuneGain": "{name} has gained {amount} Fortune.",
         "FortuneLoss": "{name} has lost {amount} Fortune.",
+        "LifebloodGain": "{name} has been healed for {amount} Lifeblood.",
+        "LifebloodLoss": "{name} has lost {amount} Lifeblood.",
         "NoTokenSelected": "You must have at least one token selected.",
         "Outcome": "Result: ",
         "Target": "Target: {name}"
@@ -125,7 +137,8 @@
         "Flavor": {
           "Characteristic": "Ability Check: {characteristic}",
           "Damage": "{weapon} Damage",
-          "Maneuver": "Maneuver: {maneuver}"
+          "Maneuver": "Maneuver: {maneuver}",
+          "Protection": "<strong>Protection</strong>"
         },
         "Modifier": {
           "Ability": "{number} {ability}",
@@ -157,7 +170,8 @@
         "Title": "New Boon or Flaw"
       },
       "Result": {
-        "NoHeroesSelected": "You must select one or more heroes first."
+        "NoHeroesSelected": "You must select one or more heroes first.",
+        "NoProtection": "{name} has no items offering Protection."
       },
       "Roll": {
         "BonusDie": "Bonus Dice",
@@ -169,7 +183,8 @@
         "Modifiers": "Modifiers",
         "None": "None",
         "PenaltyDie": "Penalty Dice",
-        "RolLDamage": "Roll Damage"
+        "RollDamage": "Roll Damage",
+        "RollProtection": "Roll Protection"
       }
     },
     "Item": {
