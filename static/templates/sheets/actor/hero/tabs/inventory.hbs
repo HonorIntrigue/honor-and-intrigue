@@ -59,7 +59,9 @@
                     <i class='fa-solid fa-grip-dots-vertical'></i>
                   </a>
                 </div>
-                <img class='item-image' src='{{armor.item.img}}' alt='{{armor.item.name}}'>
+                <div class='item-image {{#if armor.rollable}}rollable{{/if}}' data-action='rollArmor'>
+                  <img src='{{armor.item.img}}' alt='{{armor.item.name}}'>
+                </div>
                 <div class='item-name' data-action='toggleItemExpanded'>{{armor.item.name}}</div>
                 <div class='item-controls'>
                   {{#with armor.item.system}}

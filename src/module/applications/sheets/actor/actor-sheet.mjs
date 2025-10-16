@@ -186,6 +186,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
                 carriedPositionLabel: game.i18n.localize(hi.CONFIG.equipmentCarryChoices[item.system.carriedPosition].label),
               },
             },
+            rollable: !!item.system.protection,
           })),
           weapons: await this._prepareEmbeddedItemContext('weapon', (item) => ({
             item: {

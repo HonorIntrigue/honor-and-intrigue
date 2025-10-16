@@ -1,9 +1,3 @@
-const {
-  Dice,
-  NumericTerm,
-  OperatorTerm,
-} = foundry.dice.terms;
-
 export default class HonorIntrigueProtectionRoll extends foundry.dice.Roll {
   /**
    * Prompt the user with a roll request dialog.
@@ -11,10 +5,9 @@ export default class HonorIntrigueProtectionRoll extends foundry.dice.Roll {
   static async prompt(options = {}) {
     options.actor ??= ChatMessage.getSpeakerActor(ChatMessage.getSpeaker());
     options.protectionItems = options.actor.itemTypes['armor'].filter(item => item.system.protection.value).map(item => ({
+      ...item,
       id: item.id,
-      name: item.name,
-      protection: item.system.protection.value,
-      toggled: false,
+      toggled: (item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held),
     }));
 
     if (options.protectionItems.length === 0) {
@@ -26,12 +19,26 @@ export default class HonorIntrigueProtectionRoll extends foundry.dice.Roll {
     if (!result) return false;
 
     const { protectionItems, rollMode } = result;
+    const items = protectionItems.filter(item => item.toggled);
+    const roll = await this.roll(items, options);
+
+    return {
+      protectionItems,
+      rollMode,
+      rolls: [roll],
+    };
+  }
+
+  /**
+   * Roll Protection for items without a prompt.
+   * @param {Array<ArmorModel>} items
+   * @param {Object} [options] Roll options.
+   */
+  static async roll(items, options = {}) {
     const formula = [];
 
-    for (const item of protectionItems) {
-      if (item.toggled) {
-        formula.push(item.protection);
-      }
+    for (const item of items) {
+      formula.push(item.system.protection.value);
     }
 
     if (formula.length === 0) return false;
@@ -39,10 +46,6 @@ export default class HonorIntrigueProtectionRoll extends foundry.dice.Roll {
     const roll = new this(formula.join('+'), options.data);
     await roll.evaluate();
 
-    return {
-      protectionItems,
-      rollMode,
-      rolls: [roll],
-    };
+    return roll;
   }
 }

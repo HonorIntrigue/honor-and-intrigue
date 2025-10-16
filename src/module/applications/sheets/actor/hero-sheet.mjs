@@ -1,4 +1,5 @@
 import { systemID, systemPath } from '../../../constants.mjs';
+import { HonorIntrigueProtectionRoll } from '../../../rolls/_module.mjs';
 import { determineManeuverOutcome } from '../../../utils/rollUtils.mjs';
 import CharacterActorSheet from './character-actor-sheet.mjs';
 
@@ -9,6 +10,7 @@ export default class HeroSheet extends CharacterActorSheet {
       adjustAdvancementPoints: { handler: this.#adjustAdvancementPoints, buttons: [0, 2] },
       adjustAdvantage: this.#adjustAdvantage,
       populateManeuvers: this.#onPopulateManeuvers,
+      rollArmor: this.#onRollArmor,
       rollCompendiumManeuver: this.#onRollCompendiumManeuver,
       rollItemDamage: this.#onRollItemDamage,
       rollManeuver: this.#onRollManeuver,
@@ -87,6 +89,28 @@ export default class HeroSheet extends CharacterActorSheet {
       if (confirm) {
         await Item.deleteDocuments(maneuvers.map(m => m.id), { parent: this.actor });
       }
+    }
+  }
+
+  /**
+   * Roll Protection for an armor item.
+   */
+  static async #onRollArmor(event, target) {
+    const { itemId } = target.closest('.item').dataset;
+    const item = this.actor.items.get(itemId);
+
+    if (item?.type === 'armor' && item.system.protection) {
+      const result = await HonorIntrigueProtectionRoll.roll([item]);
+      await ChatMessage.create({
+        flavor: game.i18n.localize('HONOR_INTRIGUE.Chat.Roll.Flavor.Protection'),
+        rolls: [result],
+        sound: CONFIG.sounds.dice,
+        speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+        system: {
+          protectionItems: [{ id: item.id, formula: item.system.protection.value, name: item.name }],
+        },
+        type: 'damageResult',
+      });
     }
   }
 

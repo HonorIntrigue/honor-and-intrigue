@@ -84,35 +84,35 @@
   }
 
   .tab {
-    &.maneuvers {
-      .item-image.rollable {
-        position: relative;
+    .item-image.rollable {
+      position: relative;
 
-        &:after {
-          background: rgba(0, 0, 0, 0.5);
-          color: var(--color-gold);
-          content: '\f6cf';
-          font-family: "Font Awesome 6 Pro";
-          font-size: var(--font-size-20);
-          font-weight: 100;
-          height: 100%;
-          left: 0;
-          opacity: 0;
-          padding-top: 0.25rem;
-          position: absolute;
-          text-align: center;
-          top: 0;
-          transition: all 0.25s;
-          vertical-align: center;
-          width: 100%;
-        }
-
-        &:hover:after {
-          cursor: pointer;
-          opacity: 1;
-        }
+      &:after {
+        background: rgba(0, 0, 0, 0.5);
+        color: var(--color-gold);
+        content: '\f6cf';
+        font-family: "Font Awesome 6 Pro";
+        font-size: var(--font-size-20);
+        font-weight: 100;
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        padding-top: 0.25rem;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        transition: all 0.25s;
+        vertical-align: center;
+        width: 100%;
       }
 
+      &:hover:after {
+        cursor: pointer;
+        opacity: 1;
+      }
+    }
+
+    &.maneuvers {
       .item-embed {
         .mastery-bonus {
           legend {
