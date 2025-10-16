@@ -63,8 +63,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
 
       if (result) {
         const { protectionItems, rollMode, rolls } = result;
-
-        ChatMessage.create({
+        const { id } = await ChatMessage.create({
           flavor: game.i18n.localize('HONOR_INTRIGUE.Chat.Roll.Flavor.Protection'),
           rollMode,
           rolls,
@@ -79,6 +78,10 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
           },
           type: 'damageResult',
         }, { rollMode });
+
+        if (game.dice3d?.waitFor3DAnimationByMessageID instanceof Function) {
+          await game.dice3d.waitFor3DAnimationByMessageID(id);
+        }
 
         amount = Math.max(1, amount - rolls[0].total);
       }
