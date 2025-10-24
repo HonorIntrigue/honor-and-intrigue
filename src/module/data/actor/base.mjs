@@ -55,6 +55,13 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   }
 
   /**
+   * Flag that indicates if a chat message should be posted when Lifeblood changes.
+   */
+  get messageOnLifebloodChange() {
+    return this.parent.inCombat;
+  }
+
+  /**
    * Apply an amount of damage to this actor, optionally rolling for protection first.
    */
   async applyDamage({ amount, withProtection }) {
@@ -217,7 +224,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       changes.system.lifeblood.value = Math.max(changes.system.lifeblood.value, min);
       if (max) changes.system.lifeblood.value = Math.min(changes.system.lifeblood.value, max);
 
-      if (this.parent.inCombat) {
+      if (this.messageOnLifebloodChange) {
         const diff = Math.abs(this.lifeblood.value - changes.system.lifeblood.value);
         if (diff !== 0) {
           let messageKey = '';

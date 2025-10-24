@@ -32,6 +32,11 @@ export default class HeroModel extends CharacterActorModel {
   }
 
   /** @inheritDoc */
+  get messageOnLifebloodChange() {
+    return true;
+  }
+
+  /** @inheritDoc */
   prepareDerivedData() {
     super.prepareDerivedData();
 

@@ -127,7 +127,7 @@
         "AdvancementLossSingular": "{name} has lost {amount} Advancement Point.",
         "FortuneGain": "{name} has gained {amount} Fortune.",
         "FortuneLoss": "{name} has lost {amount} Fortune.",
-        "LifebloodGain": "{name} has been healed for {amount} Lifeblood.",
+        "LifebloodGain": "{name} has gained {amount} Lifeblood.",
         "LifebloodLoss": "{name} has lost {amount} Lifeblood.",
         "NoTokenSelected": "You must have at least one token selected.",
         "Outcome": "Result: ",
