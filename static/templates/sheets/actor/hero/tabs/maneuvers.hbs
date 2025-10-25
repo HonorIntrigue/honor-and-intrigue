@@ -3,87 +3,57 @@
          data-tab='{{tabs.maneuvers.id}}'>
   <section class='tab-content'>
     {{#if (gt offensiveEquipment.length 0)}}
-      {{> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ReadiedEquipment')}}
-      <ol class='item-list offensive-equipment'>
-        {{#each offensiveEquipment as |eq|}}
-          <li class='item' data-item-id='{{eq.id}}' data-document-class='Item'>
-            <div class='item-row'>
-              <div class='item-image'>
-                <img src='{{eq.img}}' alt='{{eq.name}}'>
-              </div>
-              <div class='item-name'>
-                <p>{{eq.name}}</p>
+      <div class='item-list offensive-equipment'>
+        <div class='item-list-header'>
+          <span>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ReadiedEquipment'}}</span>
+        </div>
 
-                {{#if (eq eq.type 'weapon')}}
-                  <button type='button' data-action='rollItemDamage'>
-                    {{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Damage'}}
-                  </button>
-                {{/if}}
+        <ol class='item-list-items'>
+          {{#each offensiveEquipment as |entry|}}
+            <li class='item' data-item-id='{{entry.id}}' data-document-class='Item'>
+              <div>
+                <div class='item-image'>
+                  <img src='{{entry.img}}' alt='{{entry.name}}'>
+                </div>
+                <div class='item-name'>
+                  <span>{{entry.name}}</span>
+
+                  {{#if (eq entry.type 'weapon')}}
+                    <button type='button' data-action='rollItemDamage'>
+                      {{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Damage'}}
+                    </button>
+                  {{/if}}
+                </div>
               </div>
-              {{#if (gt eq.maneuvers.length 0)}}
+              {{#if (gt entry.maneuvers.length 0)}}
                 <div class='item-tags'>
-                  {{#each eq.maneuvers as |eqm|}}
-                      <button type='button' data-action='rollCompendiumManeuver' data-item-uuid='{{eqm.uuid}}'>
-                        {{eqm.name}}
-                      </button>
+                  {{#each entry.maneuvers as |eqm|}}
+                    <button type='button' data-action='rollCompendiumManeuver' data-item-uuid='{{eqm.uuid}}'>
+                      {{eqm.name}}
+                    </button>
                   {{/each}}
                 </div>
               {{/if}}
-            </div>
-          </li>
-        {{/each}}
-      </ol>
+            </li>
+          {{/each}}
+        </ol>
+      </div>
     {{/if}}
+
     {{#if maneuvers}}
       {{#*inline 'maneuverList'}}
-        {{#if (gt collection.length 0)}}
-          {{> 'systems/honor-and-intrigue/templates/api/label-bar.hbs' label=(localize label)}}
-          <ol class='item-list'>
-            {{#each collection as |maneuverContext|}}
-              <li class='item' data-item-id='{{maneuverContext.item.id}}' data-document-class='Item'>
-                <div class='item-row'>
-                  <div class='item-image{{#if maneuverContext.rollable}} rollable{{/if}}' data-action='rollManeuver'>
-                    <img src='{{maneuverContext.item.img}}' alt='{{maneuverContext.item.name}}'>
-                  </div>
-                  <div class='item-name' data-action='toggleItemExpanded'>{{maneuverContext.item.name}}</div>
-                  <div class='item-controls'>
-                    {{#if maneuverContext.hasMasteryBenefit}}
-                      <a data-action='toggleManeuverMastery'
-                         data-tooltip='{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ToggleMastery'}}'>
-                        <i class='fa-{{ifThen maneuverContext.item.system.isMastered 'solid illuminate' 'light'}} fa-star-shooting'></i>
-                      </a>
-                    {{/if}}
-                    <a data-action='openItem'>
-                      <i class='fa-solid fa-pen-to-square'></i>
-                    </a>
-                    <a data-action='deleteItem'>
-                      <i class='fa-solid fa-trash'></i>
-                    </a>
-                  </div>
-                  {{#if maneuverContext.expanded}}
-                    {{#if maneuverContext.rollable}}
-                      <div class='item-tags'>
-                        {{#each maneuverContext.tags as |tag|}}
-                          <div class='item-tag'>
-                            <p>{{tag}}</p>
-                          </div>
-                        {{/each}}
-                      </div>
-                    {{/if}}
-                    <div class='item-embed'>
-                      {{{maneuverContext.embed.outerHTML}}}
-                    </div>
-                  {{/if}}
-                </div>
-              </li>
-            {{/each}}
-          </ol>
-        {{/if}}
+        {{> 'systems/honor-and-intrigue/templates/api/item-list.hbs'
+          dataType='maneuver'
+          items=(lookup ../maneuvers collection)
+          rollable=true
+          title=(localize label)
+          wrapperClass=(concat 'maneuvers-' collection '-list')
+        }}
       {{/inline}}
 
-      {{> maneuverList collection=maneuvers.major label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Major'}}
-      {{> maneuverList collection=maneuvers.minor label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Minor'}}
-      {{> maneuverList collection=maneuvers.reaction label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Reaction'}}
+      {{> maneuverList collection='major' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Major'}}
+      {{> maneuverList collection='minor' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Minor'}}
+      {{> maneuverList collection='reaction' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Reaction'}}
     {{else}}
       <div class='suggestion-box'>
         <p>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.PopulateOnEmpty'}}</p>

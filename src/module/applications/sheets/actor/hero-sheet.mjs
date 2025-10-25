@@ -245,7 +245,6 @@ export default class HeroSheet extends CharacterActorSheet {
     if (maneuvers.length === 0) return false;
 
     return maneuvers.reduce((acc, curr) => {
-      curr.hasMasteryBenefit = !!curr.item.system.mastery;
       curr.rollable = curr.item.system.requiresCheck || curr.item.system.requiresOpposedCheck;
       curr.tags = [];
 
@@ -301,6 +300,7 @@ export default class HeroSheet extends CharacterActorSheet {
       }));
 
     return [...weapons];
+    // return weapons.map(w => ({ item: w }));
   }
 
   /** @inheritDoc */

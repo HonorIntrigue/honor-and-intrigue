@@ -5,13 +5,12 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
     actions: {
-      addBoonFlaw: this.#onAddBoonFlaw,
-      addCareer: this.#onAddCareer,
-      addInventoryItem: this.#onAddInventoryItem,
-      adjustQuantity: this.#onAdjustQuantity,
+      addItem: this.#onAddItem,
+      adjustItem: this.#onAdjustItem,
       deleteItem: this.#onDeleteItem,
       openItem: this.#onOpenItem,
       rollCharacteristic: this.#onRollCharacteristic,
+      rollItem: this.#onRollItem,
       toggleItemEquipped: this.#toggleItemEquipped,
       toggleItemExpanded: this.#toggleItemExpanded,
     },
@@ -47,60 +46,34 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
   #expanded = new Set();
 
   /**
-   * Add a Boon or Flaw to the actor.
+   * Add a new inline item.
    */
-  static async #onAddBoonFlaw(event, target) {
-    return new foundry.applications.api.DialogV2({
-      window: { title: 'HONOR_INTRIGUE.Dialog.NewBoonOrFlaw.Title' },
-      content: '',
-      buttons: [{
-        action: 'boon',
-        label: 'HONOR_INTRIGUE.Dialog.NewBoonOrFlaw.ButtonBoon',
-        style: { minWidth: '100px' },
-      }, {
-        action: 'flaw',
-        label: 'HONOR_INTRIGUE.Dialog.NewBoonOrFlaw.ButtonFlaw',
-        style: { minWidth: '100px' },
-      }],
-      submit: async (type) => {
-        const [item] = await this.actor.createEmbeddedDocuments('Item', [{ type, name: game.i18n.localize(type === 'boon' ? 'HONOR_INTRIGUE.Item.Defaults.BoonName' : 'HONOR_INTRIGUE.Item.Defaults.FlawName') }]);
-        return item.sheet.render(true);
-      },
-    }).render(true);
-  }
-
-  /**
-   * Add a Career entry to the document.
-   */
-  static async #onAddCareer(event, target) {
-    const [item] = await this.actor.createEmbeddedDocuments('Item', [{ type: 'career', name: game.i18n.localize('HONOR_INTRIGUE.Item.Defaults.CareerName') }]);
-    return item.sheet.render(true);
-  }
-
-  /**
-   * Add a new inventory item.
-   */
-  static async #onAddInventoryItem(event, target) {
+  static async #onAddItem(event, target) {
     const { type } = target.dataset;
-    await this.actor.createEmbeddedDocuments('Item', [{ type, name: game.i18n.localize('HONOR_INTRIGUE.Item.Defaults.ItemName') }]);
+    const [item] = await this.actor.createEmbeddedDocuments('Item', [{ type, name: game.i18n.localize(`HONOR_INTRIGUE.Item.Defaults.ItemName.${type}`) }]);
+
+    if (type === 'career' || type === 'boon' || type === 'flaw') {
+      return item.sheet.render(true);
+    }
   }
 
   /**
    * Adjusts the quantity of an item.
    */
-  static async #onAdjustQuantity(event, target) {
+  static async #onAdjustItem(event, target) {
     const { itemId } = target.closest('.item').dataset;
     const item = this.actor.items.get(itemId);
+    const field = item.type === 'career' ? 'rank' : 'quantity';
     let change = target.dataset.adjustment === 'increment' ? 1 : -1;
 
-    if (change === -1 && item.system.quantity === 0) {
+    if (change === -1 && item.system[field] === 0) {
       return HonorIntrigueActorSheet.#onDeleteItem.call(this, event, target);
     }
 
     if (event.shiftKey) change *= 5;
     else if (event.ctrlKey) change *= 10;
 
-    return item.update({ 'system.quantity': Math.max(0, item.system.quantity + change) });
+    return item.update({ [`system.${field}`]: Math.max(0, item.system[field] + change) });
   }
 
   /**
@@ -137,6 +110,10 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
    */
   static async #onRollCharacteristic(event, target) {
     return this.actor.rollCharacteristic(target.dataset.characteristic);
+  }
+
+  static async #onRollItem(event, target) {
+    debugger;
   }
 
   /**
@@ -226,7 +203,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     switch (partId) {
       case 'character': {
         const [careers, boons, flaws] = await Promise.all([
-          this._prepareEmbeddedItemContext('career'),
+          this._prepareEmbeddedItemContext('career', (item) => ({ item: { system: { amount: item.system.rank } } })),
           this._prepareEmbeddedItemContext('boon'),
           this._prepareEmbeddedItemContext('flaw'),
         ]);
@@ -241,6 +218,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
           armor: await this._prepareEmbeddedItemContext('armor', (item) => ({
             item: {
               system: {
+                amount: item.system.quantity,
                 carriedPositionIcon: `fa-light ${item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Dropped ? 'fa-bars' : item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held ? 'fa-solid fa-shirt illuminate' : 'fa-sack'}`,
                 carriedPositionLabel: game.i18n.localize(hi.CONFIG.equipmentCarryChoices[item.system.carriedPosition].label),
               },
@@ -252,6 +230,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
           weapon: await this._prepareEmbeddedItemContext('weapon', (item) => ({
             item: {
               system: {
+                amount: item.system.quantity,
                 carriedPositionIcon: `fa-light ${item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Dropped ? 'fa-bars' : item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held ? 'fa-solid fa-shirt illuminate' : 'fa-sack'}`,
                 carriedPositionLabel: game.i18n.localize(hi.CONFIG.equipmentCarryChoices[item.system.carriedPosition].label),
               },

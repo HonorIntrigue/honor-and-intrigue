@@ -58,9 +58,9 @@
             "Yield": "Yield"
           },
           "Character": {
-            "BoonsFlaws": "Boons & Flaws",
-            "BoonsFlawsPrompt": "Give this character some background by adding a boon or flaw!",
+            "Boons": "Boons",
             "Careers": "Careers",
+            "Flaws": "Flaws",
             "Notes": "Notes"
           },
           "Careers": {
@@ -85,7 +85,8 @@
             "Reset": "Clear All Maneuvers",
             "ResetWarning": "Proceeding will permanently erase all maneuvers in this actor's collection. Are you sure you wish to proceed?",
             "ToggleMastery": "Change Mastery"
-          }
+          },
+          "Quantity": "Quantity"
         },
         "Tabs": {
           "background": "Background",
@@ -95,14 +96,12 @@
           "maneuvers": "Maneuvers"
         },
         "Tooltips": {
+          "AdjustDecrease": "Decrease",
+          "AdjustIncrease": "Increase",
           "AtALoss": "<center>At a Loss</center><br/>You are in some manner severely distracted or impaired, albeit temporarily. You may be confused, disoriented, unbalanced, etc. You have -2 to all rolls and Defense.",
           "CreateItem": "Create Item",
           "Delete": "Delete",
-          "Edit": "Edit",
-          "NewBoonFlaw": "Create a new boon or flaw",
-          "NewCareer": "Create a new career",
-          "QuantityDecrease": "Decrease Quantity",
-          "QuantityIncrease": "Increase Quantity"
+          "Edit": "Edit"
         }
       }
     },
@@ -171,11 +170,6 @@
         "DeleteWithPlaceholder": "Delete \"{item}\"?",
         "DeleteItem": "Are you sure you wish to delete this item?"
       },
-      "NewBoonOrFlaw": {
-        "ButtonBoon": "Create Boon",
-        "ButtonFlaw": "Create Flaw",
-        "Title": "New Boon or Flaw"
-      },
       "Result": {
         "NoHeroesSelected": "You must select one or more heroes first.",
         "NoProtection": "{name} has no items offering Protection."
@@ -201,10 +195,16 @@
         "stowed": "Stowed"
       },
       "Defaults": {
-        "BoonName": "New Boon",
-        "CareerName": "New Career",
-        "FlawName": "New Flaw",
-        "ItemName": "New Item",
+        "ItemName": {
+          "armor": "New Armor",
+          "boon": "New Boon",
+          "career": "New Career",
+          "equipment": "New Equipment",
+          "flaw": "New Flaw",
+          "maneuver": "New Maneuver",
+          "treasure": "New Treasure",
+          "weapon": "New Weapon"
+        },
         "RuleName": "New Rule"
       },
       "Sheet": {

@@ -1,102 +1,160 @@
 @forward 'base/header';
 @forward 'base/sidebar';
-@forward 'base/inventory';
 
 .honor-intrigue.sheet.actor {
-  .career-list, .boon-flaw-list {
-    .suggestion-box {
-      height: 100px;
-      margin: 1rem;
-    }
+  .tab-content {
+    gap: 1rem;
   }
 
   .item-list {
-    list-style: none;
-    margin: 0.5rem 0;
-    padding: 0;
+    border: 1px solid light-dark(var(--color-navy), var(--color-gold-dull));
+    display: grid;
+    grid-column-gap: 0.25rem;
+    grid-template-columns: 2fr 60px 1fr;
+    grid-template-rows: auto 1fr;
 
-    .item {
+    &-header {
+      align-items: center;
+      background: light-dark(var(--color-navy), var(--color-gold-dull));
+      display: grid;
+      font-weight: bold;
+      color: light-dark(var(--color-gold-dull), var(--color-navy));
+      grid-area: 1 / span 3;
+      grid-template-columns: subgrid;
+      padding: 0.1em 0.25em;
+
+      :first-child {
+        font-size: var(--font-size-18);
+      }
+
+      :nth-child(2) {
+        text-align: center;
+      }
+
+      .item-controls-header {
+        grid-column: -1;
+        justify-self: flex-end;
+      }
+    }
+
+    .suggestion-box {
+      margin: 1rem;
+    }
+
+    &-items {
+      align-items: center;
+      display: grid;
+      grid-column: span 3;
+      grid-template-columns: subgrid;
+      list-style: none;
       margin: 0;
+      padding: 0;
 
-      &-row {
+      .item {
         align-items: center;
-        background: light-dark(hsl(0, 0%, 0%, 0.15), hsl(var(--color-navy-exp), 0.75));
-        column-gap: 0.5rem;
         display: grid;
-        grid-template-columns: auto 1fr auto;
-        grid-template-rows: auto auto auto;
-        margin-bottom: 0.25rem;
-        min-height: 50px;
-        padding: 0.5rem;
-      }
+        grid-column: span 3;
+        grid-template-columns: subgrid;
+        margin: 0;
+        padding: 0.25em;
 
-      &-image, &-drag-handle {
-        grid-area: 1 / 1;
-      }
-
-      &-image {
-        width: 30px;
-      }
-
-      &-name {
-        align-items: center;
-        cursor: pointer;
-        display: flex;
-        font-size: var(--font-h5-size);
-        grid-area: 1 / 2;
-        justify-content: space-between;
-      }
-
-      &-controls {
-        align-items: center;
-        display: flex;
-        gap: 0.5rem;
-        grid-area: 1 / 3;
-
-        input {
-          text-align: center;
-          width: 40px;
+        &:nth-child(even) {
+          background: light-dark(hsla(0, 0%, 0%, 0.15), var(--color-navy-light));
         }
 
-        i[class*='fa-'] {
-          min-width: 18px;
-          text-align: center;
-          vertical-align: middle;
-          width: 18px;
+        &:nth-child(odd) {
+          background: light-dark(hsla(0, 0%, 0%, 0.25), var(--color-navy));
         }
-      }
 
-      &-tags {
-        align-items: center;
-        display: flex;
-        gap: 0.1rem;
-        grid-area: 2 / span 3;
-        margin-top: 0.5rem;
+        > div {
+          align-items: center;
+          display: flex;
+          gap: 0.5rem;
+        }
 
-        .item-tag {
-          border: 1px dotted light-dark(var(--color-navy), var(--color-gold-dull));
-          border-radius: 5px;
-          padding: 0 0.25rem;
+        .draggable {
+          padding-left: 0.25rem;
+        }
 
-          > p {
-            margin: 0;
+        &-image {
+          width: 30px;
+        }
+
+        &-name {
+          cursor: pointer;
+          flex: 1;
+        }
+
+        &-quantity {
+          justify-content: center;
+
+          > span {
+            text-align: center;
+            width: 30px;
+          }
+        }
+
+        &-controls {
+          grid-column: -1;
+          justify-content: flex-end;
+
+          i[class*='fa-'] {
+            min-width: 18px;
+            text-align: center;
+            vertical-align: middle;
+            width: 18px;
+          }
+        }
+
+        &-embed {
+          grid-column: span 3;
+          padding: 0 1em;
+        }
+
+        &-tags {
+          gap: 0.1rem;
+          grid-area: 2 / span 3;
+          padding: 0.5em 1em 0 1em;
+
+          .item-tag {
+            border: 1px dotted light-dark(var(--color-navy), var(--color-gold-dull));
+            border-radius: 5px;
+            padding: 0 0.25rem;
+
+            > p {
+              margin: 0;
+            }
           }
         }
       }
+    }
 
-      &-embed {
-        grid-area: 3 / span 3;
+    &.boons-list {
+      .item-name {
+        color: var(--color-green);
       }
+    }
 
-      &.boon {
-        .item-name {
-          color: var(--color-green);
+    &.flaws-list {
+      .item-name {
+        color: var(--color-red);
+      }
+    }
+
+    &.offensive-equipment {
+      .item {
+        > div:first-of-type {
+          grid-column: 1 / -1;
+
+          .item-name {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+          }
         }
-      }
 
-      &.flaw {
-        .item-name {
-          color: var(--color-red);
+        .item-tags {
+          padding-left: 0;
         }
       }
     }

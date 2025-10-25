@@ -2,7 +2,31 @@
          data-group='{{tabs.character.group}}'
          data-tab='{{tabs.character.id}}'>
   <div class='tab-content'>
-    {{> 'systems/honor-and-intrigue/templates/sheets/actor/partials/career-list.hbs'}}
-    {{> 'systems/honor-and-intrigue/templates/sheets/actor/partials/boon-flaw-list.hbs'}}
+    {{> 'systems/honor-and-intrigue/templates/api/item-list.hbs'
+      adjustable=true
+      adjustableColumnHeader=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Careers.Rank')
+      dataType='career'
+      emptyText=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Careers.EmptyPrompt')
+      items=careers
+      sortable=true
+      title=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Character.Careers')
+      wrapperClass='career-list'
+    }}
+
+    {{> 'systems/honor-and-intrigue/templates/api/item-list.hbs'
+      dataType='boon'
+      items=boons
+      sortable=true
+      title=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Character.Boons')
+      wrapperClass='boons-list'
+    }}
+
+    {{> 'systems/honor-and-intrigue/templates/api/item-list.hbs'
+      dataType='flaw'
+      items=flaws
+      sortable=true
+      title=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Character.Flaws')
+      wrapperClass='flaws-list'
+    }}
   </div>
 </section>

@@ -1,0 +1,76 @@
+<div class='item-list {{wrapperClass}}'>
+  <div class='item-list-header'>
+    <span>{{title}}</span>
+    {{#if adjustable}}
+      <span>{{ifThen adjustableColumnHeader adjustableColumnHeader (localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Quantity')}}</span>
+    {{/if}}
+    {{#if dataType}}
+      <a class='item-controls-header'
+         data-action='addItem'
+         data-type='{{dataType}}'
+         data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.CreateItem'><i class='fa-solid fa-plus'></i></a>
+    {{/if}}
+  </div>
+
+  {{#if (and emptyText (eq items.length 0))}}
+    <div class='suggestion-box'>
+      <p>{{emptyText}}</p>
+    </div>
+  {{else}}
+    <ol class='item-list-items'>
+      {{#each items as |entry|}}
+        <li class='item' data-item-id='{{entry.item.id}}' data-document-class='Item'>
+          <div>
+            {{#if ../sortable}}
+              <a class='draggable' data-item-id='{{entry.item.id}}'>
+                <i class='fa-solid fa-grip-dots-vertical'></i>
+              </a>
+            {{/if}}
+            <div class='item-image {{#if entry.rollable}}rollable{{/if}}'
+                 {{#if entry.rollable}}data-action='rollItem'{{/if}}>
+              <img src='{{entry.item.img}}' alt='{{entry.item.name}}'>
+            </div>
+            <div class='item-name' data-action='toggleItemExpanded'>{{entry.item.name}}</div>
+          </div>
+
+          {{#if ../adjustable}}
+            <div class='item-quantity'>
+              <a data-action='adjustItem'
+                 data-adjustment='decrement'
+                 data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.AdjustDecrease'><i class='fa-solid fa-minus'></i></a>
+              <span>{{entry.item.system.amount}}</span>
+              <a data-action='adjustItem'
+                 data-adjustment='increment'
+                 data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.AdjustIncrease'><i class='fa-solid fa-plus'></i></a>
+            </div>
+          {{/if}}
+
+          <div class='item-controls'>
+            {{getItemControls entry.item}}
+            <a data-action='openItem' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.Edit'>
+              <i class='fa-solid fa-pen-to-square'></i>
+            </a>
+            <a data-action='deleteItem' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.Delete'>
+              <i class='fa-solid fa-trash'></i>
+            </a>
+          </div>
+
+          {{#if entry.expanded}}
+            {{#if (and entry.tags (gt entry.tags.length 0))}}
+              <div class='item-tags'>
+                {{#each entry.tags as |tag|}}
+                  <div class='item-tag'>
+                    <p>{{tag}}</p>
+                  </div>
+                {{/each}}
+              </div>
+            {{/if}}
+            <div class='item-embed'>
+              {{{entry.embed.outerHTML}}}
+            </div>
+          {{/if}}
+        </li>
+      {{/each}}
+    </ol>
+  {{/if}}
+</div>

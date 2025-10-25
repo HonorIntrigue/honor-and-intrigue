@@ -1,12 +1,11 @@
 export default [
   'templates/api/checkbox-switch.hbs',
   'templates/api/input-stepper.hbs',
+  'templates/api/item-list.hbs',
   'templates/api/label-bar.hbs',
   'templates/sheets/actor/icons/d6.hbs',
   'templates/sheets/actor/icons/d10.hbs',
   'templates/sheets/actor/icons/d20.hbs',
-  'templates/sheets/actor/partials/boon-flaw-list.hbs',
-  'templates/sheets/actor/partials/career-list.hbs',
   'templates/sheets/actor/partials/rollable-characteristic.hbs',
   'templates/sheets/item/base/sidebar.hbs',
 ];
