@@ -69,6 +69,7 @@
 
       &.scrollable {
         --scroll-margin: 0;
+        margin-bottom: 1rem;
       }
 
       &:not(.scrollable) {
