@@ -16,6 +16,14 @@ export default base => {
     };
 
     /** @inheritDoc */
+    _initializeApplicationOptions(options) {
+      const result = super._initializeApplicationOptions(options);
+      result.classes.push(options.document.type);
+
+      return result;
+    }
+
+    /** @inheritDoc */
     async _prepareContext(options) {
       const ctx = await super._prepareContext(options);
 

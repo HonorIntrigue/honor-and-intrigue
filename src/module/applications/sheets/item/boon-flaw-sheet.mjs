@@ -1,4 +1,4 @@
-import { systemPath } from '../../constants.mjs';
+import { systemPath } from '../../../constants.mjs';
 import HonorIntrigueItemSheet from './item-sheet.mjs';
 
 export default class BoonFlawItemSheet extends HonorIntrigueItemSheet {
@@ -11,10 +11,6 @@ export default class BoonFlawItemSheet extends HonorIntrigueItemSheet {
       deleteRule: this.#onDeleteRule,
     },
     classes: ['boon-flaw'],
-    position: {
-      height: 450,
-      width: 900,
-    },
   };
 
   /** @inheritDoc */

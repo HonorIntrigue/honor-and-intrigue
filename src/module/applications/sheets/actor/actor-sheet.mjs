@@ -1,3 +1,4 @@
+import { systemPath } from '../../../constants.mjs';
 import { DocumentSheetMixin } from '../../api/_module.mjs';
 
 export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.applications.sheets.ActorSheetV2) {
@@ -6,6 +7,8 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     actions: {
       addBoonFlaw: this.#onAddBoonFlaw,
       addCareer: this.#onAddCareer,
+      addInventoryItem: this.#onAddInventoryItem,
+      adjustQuantity: this.#onAdjustQuantity,
       deleteItem: this.#onDeleteItem,
       openItem: this.#onOpenItem,
       rollCharacteristic: this.#onRollCharacteristic,
@@ -16,6 +19,24 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     position: {
       height: 800,
       width: 900,
+    },
+  };
+
+  /** @inheritDoc */
+  static PARTS = {
+    sidebar: { template: systemPath('templates/sheets/actor/base/sidebar.hbs') },
+    header: { template: systemPath('templates/sheets/actor/base/header.hbs') },
+    content: { template: 'templates/generic/tab-navigation.hbs' },
+    character: { template: systemPath('templates/sheets/actor/shared/character.hbs'), scrollable: [''] },
+    inventory: { template: systemPath('templates/sheets/actor/shared/inventory.hbs'), scrollable: [''] },
+  };
+
+  /** @inheritDoc */
+  static TABS = {
+    primary: {
+      initial: 'character',
+      labelPrefix: 'HONOR_INTRIGUE.Actor.Sheet.Tabs',
+      tabs: [{ id: 'character' }, { id: 'inventory' }],
     },
   };
 
@@ -54,6 +75,32 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
   static async #onAddCareer(event, target) {
     const [item] = await this.actor.createEmbeddedDocuments('Item', [{ type: 'career', name: game.i18n.localize('HONOR_INTRIGUE.Item.Defaults.CareerName') }]);
     return item.sheet.render(true);
+  }
+
+  /**
+   * Add a new inventory item.
+   */
+  static async #onAddInventoryItem(event, target) {
+    const { type } = target.dataset;
+    await this.actor.createEmbeddedDocuments('Item', [{ type, name: game.i18n.localize('HONOR_INTRIGUE.Item.Defaults.ItemName') }]);
+  }
+
+  /**
+   * Adjusts the quantity of an item.
+   */
+  static async #onAdjustQuantity(event, target) {
+    const { itemId } = target.closest('.item').dataset;
+    const item = this.actor.items.get(itemId);
+    let change = target.dataset.adjustment === 'increment' ? 1 : -1;
+
+    if (change === -1 && item.system.quantity === 0) {
+      return HonorIntrigueActorSheet.#onDeleteItem.call(this, event, target);
+    }
+
+    if (event.shiftKey) change *= 5;
+    else if (event.ctrlKey) change *= 10;
+
+    return item.update({ 'system.quantity': Math.max(0, item.system.quantity + change) });
   }
 
   /**
@@ -177,6 +224,18 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     await super._preparePartContext(partId, context, options);
 
     switch (partId) {
+      case 'character': {
+        const [careers, boons, flaws] = await Promise.all([
+          this._prepareEmbeddedItemContext('career'),
+          this._prepareEmbeddedItemContext('boon'),
+          this._prepareEmbeddedItemContext('flaw'),
+        ]);
+
+        context.careers = careers;
+        context.boons = boons;
+        context.flaws = flaws;
+        break;
+      }
       case 'inventory':
         context.inventory = {
           armor: await this._prepareEmbeddedItemContext('armor', (item) => ({
@@ -188,7 +247,9 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
             },
             rollable: !!item.system.protection,
           })),
-          weapons: await this._prepareEmbeddedItemContext('weapon', (item) => ({
+          equipment: await this._prepareEmbeddedItemContext('equipment'),
+          treasure: await this._prepareEmbeddedItemContext('treasure'),
+          weapon: await this._prepareEmbeddedItemContext('weapon', (item) => ({
             item: {
               system: {
                 carriedPositionIcon: `fa-light ${item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Dropped ? 'fa-bars' : item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held ? 'fa-solid fa-shirt illuminate' : 'fa-sack'}`,

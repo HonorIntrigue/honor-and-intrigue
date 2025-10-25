@@ -32,8 +32,10 @@
       "armor": { "htmlFields": ["description"] },
       "boon": { "htmlFields": ["description"] },
       "career": { "htmlFields": ["description"] },
+      "equipment": { "htmlFields": ["description"] },
       "flaw": { "htmlFields": ["description"] },
       "maneuver": { "htmlFields": ["description"] },
+      "treasure": { "htmlFields": ["description"] },
       "weapon": { "htmlFields": ["description"] }
     }
   },

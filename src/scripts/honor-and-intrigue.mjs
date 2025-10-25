@@ -78,32 +78,27 @@ Hooks.once('init', () => {
   });
 
   Items.unregisterSheet('core', foundry.applications.sheets.ItemSheetV2);
-  Items.registerSheet(HI_CONST.systemID, applications.sheets.ArmorItemSheet, {
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.itemSheets.HonorIntrigueItemSheet);
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.itemSheets.ArmorItemSheet, {
     types: ['armor'],
     makeDefault: true,
     label: 'TYPES.Item.armor',
   });
-  Items.registerSheet(HI_CONST.systemID, applications.sheets.BoonFlawItemSheet, {
-    types: ['boon'],
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.itemSheets.BoonFlawItemSheet, {
+    types: ['boon', 'flaw'],
     makeDefault: true,
-    label: 'TYPES.Item.boon',
   });
-  Items.registerSheet(HI_CONST.systemID, applications.sheets.CareerItemSheet, {
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.itemSheets.CareerItemSheet, {
     types: ['career'],
     makeDefault: true,
     label: 'TYPES.Item.career',
   });
-  Items.registerSheet(HI_CONST.systemID, applications.sheets.BoonFlawItemSheet, {
-    types: ['flaw'],
-    makeDefault: true,
-    label: 'TYPES.Item.flaw',
-  });
-  Items.registerSheet(HI_CONST.systemID, applications.sheets.ManeuverItemSheet, {
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.itemSheets.ManeuverItemSheet, {
     types: ['maneuver'],
     makeDefault: true,
     label: 'TYPES.Item.maneuver',
   });
-  Items.registerSheet(HI_CONST.systemID, applications.sheets.WeaponItemSheet, {
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.itemSheets.WeaponItemSheet, {
     types: ['weapon'],
     makeDefault: true,
     label: 'TYPES.Item.weapon',

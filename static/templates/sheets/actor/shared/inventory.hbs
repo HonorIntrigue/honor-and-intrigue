@@ -1,0 +1,63 @@
+<section class='tab {{tabs.inventory.id}}{{#if tabs.inventory.cssClass}} {{tabs.inventory.cssClass}}{{/if}}'
+         data-group='{{tabs.inventory.group}}'
+         data-tab='{{tabs.inventory.id}}'>
+  <div class='tab-content'>
+    {{#*inline 'inventorySection'}}
+      <div class='inventory-list {{type}}-list'>
+        <div class='inventory-list-header'>
+          <span>{{localize (concat 'HONOR_INTRIGUE.Actor.Sheet.Labels.Inventory.' type)}}</span>
+          <span>Quantity</span>
+          <a data-action='addInventoryItem'
+             data-type='{{type}}'
+             data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.CreateItem'><i class='fa-solid fa-plus'></i></a>
+        </div>
+        <ol class='inventory-list-items'>
+          {{#each (lookup inventory type) as |entry|}}
+            <li class='inventory-item item' data-item-id='{{entry.item.id}}' data-document-class='Item'>
+              <div>
+                <img class='inventory-item-image' src='{{entry.item.img}}' alt='{{entry.item.name}}'>
+                <div class='inventory-item-name' data-action='toggleItemExpanded'>{{entry.item.name}}</div>
+              </div>
+
+              <div class='inventory-item-quantity'>
+                <a data-action='adjustQuantity'
+                   data-adjustment='decrement'
+                   data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.QuantityDecrease'><i class='fa-solid fa-minus'></i></a>
+                <span>{{entry.item.system.quantity}}</span>
+                <a data-action='adjustQuantity'
+                   data-adjustment='increment'
+                   data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.QuantityIncrease'><i class='fa-solid fa-plus'></i></a>
+              </div>
+
+              <div class='inventory-item-controls'>
+                {{#if (or (eq ../type 'armor') (eq ../type 'weapon'))}}
+                  <a data-action='toggleItemEquipped'
+                     data-tooltip='{{entry.item.system.carriedPositionLabel}}'>
+                    <i class='{{entry.item.system.carriedPositionIcon}}'></i>
+                  </a>
+                {{/if}}
+                <a data-action='openItem' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.Edit'>
+                  <i class='fa-solid fa-pen-to-square'></i>
+                </a>
+                <a data-action='deleteItem' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.Delete'>
+                  <i class='fa-solid fa-trash'></i>
+                </a>
+              </div>
+
+              {{#if entry.expanded}}
+                <div class='inventory-item-embed'>
+                  {{{entry.embed.outerHTML}}}
+                </div>
+              {{/if}}
+            </li>
+          {{/each}}
+        </ol>
+      </div>
+    {{/inline}}
+
+    {{> inventorySection type='weapon'}}
+    {{> inventorySection type='armor'}}
+    {{> inventorySection type='equipment'}}
+    {{> inventorySection type='treasure'}}
+  </div>
+</section>

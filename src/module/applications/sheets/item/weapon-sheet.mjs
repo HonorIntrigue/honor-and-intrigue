@@ -1,16 +1,7 @@
-import { systemPath } from '../../constants.mjs';
+import { systemPath } from '../../../constants.mjs';
 import HonorIntrigueItemSheet from './item-sheet.mjs';
 
 export default class WeaponItemSheet extends HonorIntrigueItemSheet {
-  /** @inheritDoc */
-  static DEFAULT_OPTIONS = {
-    classes: ['weapon'],
-    position: {
-      height: 450,
-      width: 900,
-    },
-  };
-
   /** @inheritDoc */
   static PARTS = {
     header: { template: systemPath('templates/sheets/item/base/header.hbs') },

@@ -1,18 +1,9 @@
-import { systemPath } from '../../constants.mjs';
+import { systemPath } from '../../../constants.mjs';
 import HonorIntrigueItemSheet from './item-sheet.mjs';
 
 const FormulaRegex = /^(\d+)d(\d+)([+-]\d+)?$/;
 
 export default class ArmorItemSheet extends HonorIntrigueItemSheet {
-  /** @inheritDoc */
-  static DEFAULT_OPTIONS = {
-    classes: ['armor'],
-    position: {
-      height: 450,
-      width: 900,
-    },
-  };
-
   /** @inheritDoc */
   static PARTS = {
     header: { template: systemPath('templates/sheets/item/base/header.hbs') },

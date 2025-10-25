@@ -68,8 +68,10 @@
             "Rank": "Rank"
           },
           "Inventory": {
-            "Armor": "Armor",
-            "Weapons": "Weapons"
+            "armor": "Armor",
+            "equipment": "Equipment",
+            "treasure": "Treasure",
+            "weapon": "Weapons"
           },
           "Maneuvers": {
             "Damage": "Damage",
@@ -94,8 +96,13 @@
         },
         "Tooltips": {
           "AtALoss": "<center>At a Loss</center><br/>You are in some manner severely distracted or impaired, albeit temporarily. You may be confused, disoriented, unbalanced, etc. You have -2 to all rolls and Defense.",
+          "CreateItem": "Create Item",
+          "Delete": "Delete",
+          "Edit": "Edit",
           "NewBoonFlaw": "Create a new boon or flaw",
-          "NewCareer": "Create a new career"
+          "NewCareer": "Create a new career",
+          "QuantityDecrease": "Decrease Quantity",
+          "QuantityIncrease": "Increase Quantity"
         }
       }
     },
@@ -197,6 +204,7 @@
         "BoonName": "New Boon",
         "CareerName": "New Career",
         "FlawName": "New Flaw",
+        "ItemName": "New Item",
         "RuleName": "New Rule"
       },
       "Sheet": {
@@ -298,8 +306,10 @@
       "armor": "Armor",
       "boon": "Boon",
       "career": "Career",
+      "equipment": "Equipment",
       "flaw": "Flaw",
       "maneuver": "Maneuver",
+      "treasure": "Treasure",
       "weapon": "Weapon"
     }
   }

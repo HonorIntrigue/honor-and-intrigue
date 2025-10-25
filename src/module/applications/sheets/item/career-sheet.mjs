@@ -1,17 +1,8 @@
-import { systemPath } from '../../constants.mjs';
-import { HonorIntrigueActor } from '../../documents/_module.mjs';
+import { systemPath } from '../../../constants.mjs';
+import { HonorIntrigueActor } from '../../../documents/_module.mjs';
 import HonorIntrigueItemSheet from './item-sheet.mjs';
 
 export default class CareerItemSheet extends HonorIntrigueItemSheet {
-  /** @inheritDoc */
-  static DEFAULT_OPTIONS = {
-    classes: ['career'],
-    position: {
-      height: 450,
-      width: 900,
-    },
-  };
-
   /** @inheritDoc */
   static PARTS = {
     header: { template: systemPath('templates/sheets/item/base/header.hbs') },

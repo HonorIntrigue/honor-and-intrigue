@@ -1,5 +1,6 @@
 @forward 'base/header';
 @forward 'base/sidebar';
+@forward 'base/inventory';
 
 .honor-intrigue.sheet.actor {
   .career-list, .boon-flaw-list {
@@ -55,6 +56,13 @@
         input {
           text-align: center;
           width: 40px;
+        }
+
+        i[class*='fa-'] {
+          min-width: 18px;
+          text-align: center;
+          vertical-align: middle;
+          width: 18px;
         }
       }
 

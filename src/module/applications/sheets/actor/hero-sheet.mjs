@@ -18,7 +18,6 @@ export default class HeroSheet extends CharacterActorSheet {
       toggleAdvantagePanel: this.#toggleAdvantagePanel,
       toggleManeuverMastery: this.#toggleManeuverMastery,
     },
-    classes: ['hero'],
     window: {
       controls: [
         {
@@ -33,22 +32,18 @@ export default class HeroSheet extends CharacterActorSheet {
 
   /** @inheritDoc */
   static PARTS = {
-    sidebar: { template: systemPath('templates/sheets/actor/base/sidebar.hbs') },
-    header: { template: systemPath('templates/sheets/actor/base/header.hbs') },
-    content: { template: 'templates/generic/tab-navigation.hbs' },
-    character: { template: systemPath('templates/sheets/actor/hero/tabs/character.hbs'), scrollable: [''] },
+    ...super.PARTS,
     maneuvers: { template: systemPath('templates/sheets/actor/hero/tabs/maneuvers.hbs'), scrollable: [''] },
-    inventory: { template: systemPath('templates/sheets/actor/hero/tabs/inventory.hbs'), scrollable: [''] },
     background: { template: systemPath('templates/sheets/actor/hero/tabs/background.hbs'), scrollable: [''] },
     effects: { template: systemPath('templates/sheets/actor/hero/tabs/effects.hbs'), scrollable: [''] },
   };
 
   /** @inheritDoc */
   static TABS = {
+    ...super.TABS,
     primary: {
-      initial: 'character',
-      labelPrefix: 'HONOR_INTRIGUE.Actor.Sheet.Tabs',
-      tabs: [{ id: 'character' }, { id: 'maneuvers' }, { id: 'inventory' }, { id: 'background' }, { id: 'effects' } ],
+      ...super.TABS.primary,
+      tabs: [{ id: 'character' }, { id: 'maneuvers' }, { id: 'inventory' }, { id: 'background' }, { id: 'effects' }],
     },
   };
 
@@ -313,11 +308,6 @@ export default class HeroSheet extends CharacterActorSheet {
     await super._preparePartContext(partId, context, options);
 
     switch (partId) {
-      case 'character':
-        context.boons = await this._prepareEmbeddedItemContext('boon');
-        context.careers = await this._prepareEmbeddedItemContext('career');
-        context.flaws = await this._prepareEmbeddedItemContext('flaw');
-        break;
       case 'maneuvers':
         context.maneuvers = await this._prepareManeuversContext();
         context.offensiveEquipment = await this._prepareOffensiveEquipment();
