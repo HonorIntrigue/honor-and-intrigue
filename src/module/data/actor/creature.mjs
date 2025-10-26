@@ -13,4 +13,9 @@ export default class CreatureModel extends BaseActorModel {
   get isLifebloodMightDerived() {
     return false;
   }
+
+  /** @inheritDoc */
+  getInitiativeFormula() {
+    return '1d6 + @qualities.daring';
+  }
 }
