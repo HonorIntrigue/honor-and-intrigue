@@ -28,7 +28,7 @@
               {{#if (gt entry.maneuvers.length 0)}}
                 <div class='item-tags'>
                   {{#each entry.maneuvers as |eqm|}}
-                    <button type='button' data-action='rollCompendiumManeuver' data-item-uuid='{{eqm.uuid}}'>
+                    <button type='button' data-action='rollTaggedManeuver' data-item-uuid='{{eqm.uuid}}'>
                       {{eqm.name}}
                     </button>
                   {{/each}}
@@ -43,17 +43,19 @@
     {{#if maneuvers}}
       {{#*inline 'maneuverList'}}
         {{> 'systems/honor-and-intrigue/templates/api/item-list.hbs'
+          addItemOptions=(object data-action-type=actionType)
           dataType='maneuver'
+          draggable=true
           items=(lookup ../maneuvers collection)
-          rollable=true
           title=(localize label)
           wrapperClass=(concat 'maneuvers-' collection '-list')
         }}
       {{/inline}}
 
-      {{> maneuverList collection='major' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Major'}}
-      {{> maneuverList collection='minor' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Minor'}}
-      {{> maneuverList collection='reaction' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Reaction'}}
+      {{> maneuverList actionType=1 collection='major' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Major'}}
+      {{> maneuverList actionType=2 collection='minor' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Minor'}}
+      {{> maneuverList actionType=3 collection='reaction' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Reaction'}}
+      {{> maneuverList actionType=0 collection='free' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Free'}}
     {{else}}
       <div class='suggestion-box'>
         <p>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.PopulateOnEmpty'}}</p>

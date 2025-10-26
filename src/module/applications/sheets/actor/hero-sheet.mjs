@@ -1,6 +1,5 @@
 import { systemID, systemPath } from '../../../constants.mjs';
 import { HonorIntrigueProtectionRoll } from '../../../rolls/_module.mjs';
-import { determineManeuverOutcome } from '../../../utils/rollUtils.mjs';
 import CharacterActorSheet from './character-actor-sheet.mjs';
 
 export default class HeroSheet extends CharacterActorSheet {
@@ -11,9 +10,7 @@ export default class HeroSheet extends CharacterActorSheet {
       adjustAdvantage: this.#adjustAdvantage,
       populateManeuvers: this.#onPopulateManeuvers,
       rollArmor: this.#onRollArmor,
-      rollCompendiumManeuver: this.#onRollCompendiumManeuver,
       rollItemDamage: this.#onRollItemDamage,
-      rollManeuver: this.#onRollManeuver,
       resetManeuvers: this.#onResetManeuvers,
       toggleAdvantagePanel: this.#toggleAdvantagePanel,
       toggleManeuverMastery: this.#toggleManeuverMastery,
@@ -110,19 +107,6 @@ export default class HeroSheet extends CharacterActorSheet {
   }
 
   /**
-   * Roll a maneuver from a compendium link.
-   */
-  static async #onRollCompendiumManeuver(event, target) {
-    const { itemId } = target.closest('.item').dataset;
-    const item = this.actor.items.get(itemId);
-
-    const { itemUuid } = target.dataset;
-    const maneuver = this.actor.itemTypes.maneuver.find(m => m._stats.compendiumSource === itemUuid) || await fromUuid(itemUuid);
-
-    return this.#rollManeuver(maneuver, { system: { relatedItemUuid: item.uuid } });
-  }
-
-  /**
    * Roll damage for an item.
    */
   static async #onRollItemDamage(event, target) {
@@ -132,18 +116,6 @@ export default class HeroSheet extends CharacterActorSheet {
     if (item?.type !== 'weapon') return;
 
     return item.system.rollDamage();
-  }
-
-  /**
-   * Begin rolling a maneuver.
-   */
-  static async #onRollManeuver(event, target) {
-    const { itemId } = target.closest('.item').dataset;
-    const item = this.actor.items.get(itemId);
-
-    if (item?.type !== 'maneuver') return;
-
-    return this.#rollManeuver(item);
   }
 
   /**
@@ -179,28 +151,6 @@ export default class HeroSheet extends CharacterActorSheet {
     const item = this.actor.items.get(itemId);
 
     await item.update({ system: { isMastered: !item.system.isMastered } });
-  }
-
-  /**
-   * Parse a maneuver for its roll options and kick off the roll.
-   */
-  async #rollManeuver(maneuver, options = {}) {
-    const { abilityCheck } = maneuver.system;
-    options.modifiers ??= {};
-    options.system ??= {};
-    options.system.maneuver = maneuver.uuid;
-    options.title ??= game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Maneuver', { maneuver: maneuver.name });
-    options.type = 'maneuver';
-
-    if (abilityCheck.combatAbility) options.modifiers.combatAbility = abilityCheck.combatAbility;
-    if (abilityCheck.flatModifier) options.modifiers.flat = abilityCheck.flatModifier;
-
-    if (maneuver.system.isMastered && /^bonus die/i.test(maneuver.system.mastery)) options.modifiers.bonuses = 1;
-
-    const message = await this.actor.rollCharacteristic(`qualities.${abilityCheck.quality}`, options);
-    if (message) message.update({ 'system.outcome': determineManeuverOutcome(message.rolls[0]) });
-
-    return message;
   }
 
   /** @inheritDoc */

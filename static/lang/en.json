@@ -75,6 +75,7 @@
           },
           "Maneuvers": {
             "Damage": "Damage",
+            "Free": "Free Action Maneuvers",
             "Major": "Major Action Maneuvers",
             "MasteryHint": "Maneuver Mastery Bonus",
             "Minor": "Minor Action Maneuvers",

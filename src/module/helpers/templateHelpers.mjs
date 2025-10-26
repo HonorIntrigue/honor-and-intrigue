@@ -4,6 +4,7 @@
 export function initialize() {
   Handlebars.registerHelper({
     getItemControls,
+    spread,
   });
 }
 
@@ -29,4 +30,16 @@ export function getItemControls(item) {
   }
 
   return new Handlebars.SafeString(result);
+}
+
+/**
+ * Spread an object into attributes, similar to a splat syntax.
+ * @param {Object} options An object of key/value pairs, likely created from the Foundry {@link handlebars.object} helper.
+ */
+export function spread(options) {
+  if (!options) return '';
+
+  const entries = Object.entries(options).reduce((acc, [k, v]) => [...acc, `${k}="${v}"`], []);
+
+  return new Handlebars.SafeString(entries.join(' '));
 }

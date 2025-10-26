@@ -27,7 +27,7 @@ export default class WeaponModel extends EquipmentModel {
     schema.handsHeld = new fields.NumberField({ initial: 0, integer: true, min: 0, max: 3, nullable: false });
     schema.loadActions = new fields.NumberField({ initial: 0, integer: true, min: 0 });
     schema.isLoaded = new fields.BooleanField({ initial: true });
-    schema.maneuvers = new fields.SetField(new fields.DocumentUUIDField({ embedded: false, type: 'Item' }));
+    schema.maneuvers = new fields.SetField(new fields.DocumentUUIDField({ type: 'Item' }));
     schema.rangeIncrement = new fields.NumberField({ initial: 0, integer: true, min: 0, nullable: false });
     schema.throwable = new fields.BooleanField({ initial: false });
 

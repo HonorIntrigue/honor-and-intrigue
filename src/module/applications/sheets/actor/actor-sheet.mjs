@@ -1,4 +1,5 @@
 import { systemPath } from '../../../constants.mjs';
+import { determineManeuverOutcome } from '../../../utils/rollUtils.mjs';
 import { DocumentSheetMixin } from '../../api/_module.mjs';
 
 export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.applications.sheets.ActorSheetV2) {
@@ -11,6 +12,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
       openItem: this.#onOpenItem,
       rollCharacteristic: this.#onRollCharacteristic,
       rollItem: this.#onRollItem,
+      rollTaggedManeuver: this.#onRollTaggedManeuver,
       toggleItemEquipped: this.#toggleItemEquipped,
       toggleItemExpanded: this.#toggleItemExpanded,
     },
@@ -50,9 +52,16 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
    */
   static async #onAddItem(event, target) {
     const { type } = target.dataset;
-    const [item] = await this.actor.createEmbeddedDocuments('Item', [{ type, name: game.i18n.localize(`HONOR_INTRIGUE.Item.Defaults.ItemName.${type}`) }]);
+    const options = { type, name: game.i18n.localize(`HONOR_INTRIGUE.Item.Defaults.ItemName.${type}`) };
+    const renderSheet = ['boon', 'career', 'flaw', 'maneuver'].includes(type);
 
-    if (type === 'career' || type === 'boon' || type === 'flaw') {
+    if (type === 'maneuver') {
+      options.system = { actionType: target.dataset.actionType };
+    }
+
+    const [item] = await this.actor.createEmbeddedDocuments('Item', [options]);
+
+    if (renderSheet) {
       return item.sheet.render(true);
     }
   }
@@ -112,8 +121,29 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     return this.actor.rollCharacteristic(target.dataset.characteristic);
   }
 
+  /**
+   * Begin rolling a rollable item entry.
+   */
   static async #onRollItem(event, target) {
-    debugger;
+    const { itemId } = target.closest('.item').dataset;
+    const item = this.actor.items.get(itemId);
+
+    if (item?.type !== 'maneuver') return;
+
+    return this.#rollManeuver(item);
+  }
+
+  /**
+   * Roll a maneuver from a tagged item link.
+   */
+  static async #onRollTaggedManeuver(event, target) {
+    const { itemId } = target.closest('.item').dataset;
+    const item = this.actor.items.get(itemId);
+
+    const { itemUuid } = target.dataset;
+    const maneuver = this.actor.itemTypes.maneuver.find(m => m._stats.compendiumSource === itemUuid) || await fromUuid(itemUuid);
+
+    return this.#rollManeuver(maneuver, { system: { relatedItemUuid: item.uuid } });
   }
 
   /**
@@ -142,6 +172,28 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
 
     const part = target.closest('[data-application-part]').dataset.applicationPart;
     this.render({ parts: [part] });
+  }
+
+  /**
+   * Parse a maneuver for its roll options and kick off the roll.
+   */
+  async #rollManeuver(maneuver, options = {}) {
+    const { abilityCheck } = maneuver.system;
+    options.modifiers ??= {};
+    options.system ??= {};
+    options.system.maneuver = maneuver.uuid;
+    options.title ??= game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Maneuver', { maneuver: maneuver.name });
+    options.type = 'maneuver';
+
+    if (abilityCheck.combatAbility) options.modifiers.combatAbility = abilityCheck.combatAbility;
+    if (abilityCheck.flatModifier) options.modifiers.flat = abilityCheck.flatModifier;
+
+    if (maneuver.system.isMastered && /^bonus die/i.test(maneuver.system.mastery)) options.modifiers.bonuses = 1;
+
+    const message = await this.actor.rollCharacteristic(`qualities.${abilityCheck.quality}`, options);
+    if (message) message.update({ 'system.outcome': determineManeuverOutcome(message.rolls[0]) });
+
+    return message;
   }
 
   /** @inheritDoc */

@@ -8,7 +8,9 @@
       <a class='item-controls-header'
          data-action='addItem'
          data-type='{{dataType}}'
-         data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.CreateItem'><i class='fa-solid fa-plus'></i></a>
+         data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.CreateItem'
+        {{spread addItemOptions}}
+      ><i class='fa-solid fa-plus'></i></a>
     {{/if}}
   </div>
 
@@ -21,7 +23,7 @@
       {{#each items as |entry|}}
         <li class='item' data-item-id='{{entry.item.id}}' data-document-class='Item'>
           <div>
-            {{#if ../sortable}}
+            {{#if (or ../draggable ../sortable)}}
               <a class='draggable' data-item-id='{{entry.item.id}}'>
                 <i class='fa-solid fa-grip-dots-vertical'></i>
               </a>
