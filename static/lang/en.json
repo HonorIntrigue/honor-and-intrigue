@@ -249,7 +249,8 @@
         },
         "Tabs": {
           "description": "Description",
-          "details": "Details"
+          "details": "Details",
+          "rules": "Rules"
         }
       }
     },

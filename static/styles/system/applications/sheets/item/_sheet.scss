@@ -30,40 +30,38 @@
     }
   }
 
-  &.boon-flaw {
-    .details {
-      .new-rule-section {
-        display: flex;
-        justify-content: stretch;
+  .tab.rules {
+    .new-rule-section {
+      display: flex;
+      justify-content: stretch;
+      padding: 0.5rem;
+    }
+
+    .effect-rule-list {
+      display: flex;
+      flex-direction: column;
+
+      .effect-item {
+        align-items: center;
+        display: grid;
+        gap: 0.25rem;
+        grid-template-columns: 2fr 1fr 1fr 60px 20px;
+        margin-top: 0.5rem;
         padding: 0.5rem;
-      }
 
-      .effect-rule-list {
-        display: flex;
-        flex-direction: column;
+        &:nth-child(even) {
+          background-color: var(--color-navy-light);
+        }
 
-        .effect-item {
+        .effect-item-name {
           align-items: center;
-          display: grid;
+          display: flex;
           gap: 0.25rem;
-          grid-template-columns: 2fr 1fr 1fr 60px 20px;
-          margin-top: 0.5rem;
-          padding: 0.5rem;
+          grid-area: 1 / span 5;
+        }
 
-          &:nth-child(even) {
-            background-color: var(--color-navy-light);
-          }
-
-          .effect-item-name {
-            align-items: center;
-            display: flex;
-            gap: 0.25rem;
-            grid-area: 1 / span 5;
-          }
-
-          header, ol, ol li {
-            display: contents;
-          }
+        header, ol, ol li {
+          display: contents;
         }
       }
     }

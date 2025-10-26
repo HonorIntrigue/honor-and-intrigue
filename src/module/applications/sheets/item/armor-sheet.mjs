@@ -6,19 +6,16 @@ const FormulaRegex = /^(\d+)d(\d+)([+-]\d+)?$/;
 export default class ArmorItemSheet extends HonorIntrigueItemSheet {
   /** @inheritDoc */
   static PARTS = {
-    header: { template: systemPath('templates/sheets/item/base/header.hbs') },
-    sidebar: { template: systemPath('templates/sheets/item/base/sidebar.hbs') },
-    content: { template: 'templates/generic/tab-navigation.hbs' },
-    description: { template: systemPath('templates/sheets/item/base/tabs/description.hbs'), scrollable: [''] },
+    ...super.PARTS,
     details: { template: systemPath('templates/sheets/item/armor/details.hbs'), scrollable: [''] },
   };
 
   /** @inheritDoc */
   static TABS = {
+    ...super.TABS,
     primary: {
-      initial: 'description',
-      labelPrefix: 'HONOR_INTRIGUE.Item.Sheet.Tabs',
-      tabs: [{ id: 'description' }, { id: 'details' }],
+      ...super.TABS.primary,
+      tabs: [{ id: 'description' }, { id: 'details' }, { id: 'rules' }],
     },
   };
 
