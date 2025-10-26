@@ -196,6 +196,34 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     return message;
   }
 
+  /**
+   * Generate the list of context menu options for items in an item-list.
+   * @returns {ContextMenuEntry[]}
+   */
+  _getItemListContextOptions() {
+    return [{
+      name: 'HONOR_INTRIGUE.Actor.Sheet.Tooltips.SendToChat',
+      icon: '<i class="fa-solid fa-message-lines"></i>',
+      callback: async (target) => {
+        const { itemId } = target.dataset;
+        const item = this.actor.items.get(itemId);
+
+        return ChatMessage.create({
+          content: item.system.description,
+          flavor: `${game.i18n.localize(`TYPES.Item.${item.type}`)}: ${item.name}`,
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        });
+      },
+    }];
+  }
+
+  /** @inheritDoc */
+  async _onFirstRender(context, options) {
+    await super._onFirstRender(context, options);
+
+    this._createContextMenu(this._getItemListContextOptions, '.item-list .item[data-item-id]', { parentClassHooks: false });
+  }
+
   /** @inheritDoc */
   async _prepareContext(options) {
     const ctx = await super._prepareContext(options);
