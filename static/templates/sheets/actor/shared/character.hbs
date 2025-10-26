@@ -2,16 +2,18 @@
          data-group='{{tabs.character.group}}'
          data-tab='{{tabs.character.id}}'>
   <div class='tab-content'>
-    {{> 'systems/honor-and-intrigue/templates/api/item-list.hbs'
-      adjustable=true
-      adjustableColumnHeader=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Careers.Rank')
-      dataType='career'
-      emptyText=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Careers.EmptyPrompt')
-      items=careers
-      sortable=true
-      title=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Character.Careers')
-      wrapperClass='career-list'
-    }}
+    {{#if (ne document.type 'creature')}}
+      {{> 'systems/honor-and-intrigue/templates/api/item-list.hbs'
+        adjustable=true
+        adjustableColumnHeader=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Careers.Rank')
+        dataType='career'
+        emptyText=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Careers.EmptyPrompt')
+        items=careers
+        sortable=true
+        title=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Character.Careers')
+        wrapperClass='career-list'
+      }}
+    {{/if}}
 
     {{> 'systems/honor-and-intrigue/templates/api/item-list.hbs'
       dataType='boon'

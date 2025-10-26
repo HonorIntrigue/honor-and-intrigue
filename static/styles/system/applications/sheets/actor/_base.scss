@@ -10,8 +10,12 @@
     border: 1px solid light-dark(var(--color-navy), var(--color-gold-dull));
     display: grid;
     grid-column-gap: 0.25rem;
-    grid-template-columns: 2fr 60px 1fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: auto 1fr;
+
+    &.adjustable {
+      grid-template-columns: 2fr 60px 1fr;
+    }
 
     &-header {
       align-items: center;
@@ -19,7 +23,8 @@
       display: grid;
       font-weight: bold;
       color: light-dark(var(--color-gold-dull), var(--color-navy));
-      grid-area: 1 / span 3;
+      grid-column: 1 / -1;
+      grid-row: 1;
       grid-template-columns: subgrid;
       padding: 0.1em 0.25em;
 
@@ -44,7 +49,7 @@
     &-items {
       align-items: center;
       display: grid;
-      grid-column: span 3;
+      grid-column: 1 / -1;
       grid-template-columns: subgrid;
       list-style: none;
       margin: 0;
@@ -53,7 +58,7 @@
       .item {
         align-items: center;
         display: grid;
-        grid-column: span 3;
+        grid-column: 1 / -1;
         grid-template-columns: subgrid;
         margin: 0;
         padding: 0.25em;
@@ -107,13 +112,14 @@
         }
 
         &-embed {
-          grid-column: span 3;
+          grid-column: 1 / -1;
           padding: 0 1em;
         }
 
         &-tags {
           gap: 0.1rem;
-          grid-area: 2 / span 3;
+          grid-column: 1 / -1;
+          grid-row: 2;
           padding: 0.5em 1em 0 1em;
 
           .item-tag {
