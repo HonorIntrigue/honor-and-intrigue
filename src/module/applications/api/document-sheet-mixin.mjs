@@ -29,6 +29,9 @@ export default base => {
 
       return {
         ...ctx,
+        isEditable: this.isEditable,
+        isLimited: this.document.limited,
+        isOwner: this.document.isOwner,
         gm: game.user.isGM,
         system: this.document.system,
         systemFields: this.document.system.schema.fields,

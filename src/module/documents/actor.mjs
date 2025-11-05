@@ -1,7 +1,39 @@
 export default class HonorIntrigueActor extends foundry.documents.Actor {
   /** @inheritDoc */
+  static async createDialog(data = {}, createOptions = {}, dialogOptions = {}) {
+    return super.createDialog(data, createOptions, {
+      types: [
+        'hero',
+        'pawn',
+        'retainer',
+        'villain',
+        'creature',
+      ],
+      ...dialogOptions,
+    });
+  }
+
+  /** @inheritDoc */
   static migrateData(data) {
     return super.migrateData(data);
+  }
+
+  /**
+   * Get an active GM or a player who can update this actor.
+   */
+  get legalUpdater() {
+    const { activeGM } = game.users;
+    if (activeGM) return activeGM;
+
+    const activeUsers = game.users.filter(u => u.active);
+    const playerOwner = activeUsers.find(u => u.character?.id === this.id);
+    if (playerOwner) return playerOwner;
+
+    const firstUpdater = game.users
+      .filter(u => this.canUserModify(u, 'update'))
+      .sort((a, b) => a.id > b.id ? 1 : -1)
+      .shift();
+    return firstUpdater ?? null;
   }
 
   /** @inheritDoc */

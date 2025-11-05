@@ -250,7 +250,6 @@ export default class HeroSheet extends CharacterActorSheet {
       }));
 
     return [...weapons];
-    // return weapons.map(w => ({ item: w }));
   }
 
   /** @inheritDoc */
@@ -278,6 +277,7 @@ export default class HeroSheet extends CharacterActorSheet {
       advantage: this.actor.system.advantage,
       advantageLevelImg: systemPath(`assets/images/${img}.webp`),
       advantageLevelLabel: game.i18n.localize(`HONOR_INTRIGUE.Actor.Sheet.Labels.Advantage.${label}`),
+      isEditable: this.isEditable,
       offset: this.element.style.width,
     });
     const tempEl = document.createElement('div');

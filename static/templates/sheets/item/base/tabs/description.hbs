@@ -2,6 +2,10 @@
      data-group='{{tabs.description.group}}'
      data-tab='{{tabs.description.id}}'>
   <div class='tab-content'>
-    {{formInput systemFields.description value=system.description enriched=enrichedDescription}}
+    {{#if this.isEditable}}
+      {{formInput systemFields.description value=system.description enriched=enrichedDescription}}
+    {{else}}
+      {{{enrichedDescription}}}
+    {{/if}}
   </div>
 </section>

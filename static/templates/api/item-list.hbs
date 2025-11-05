@@ -4,7 +4,7 @@
     {{#if adjustable}}
       <span>{{ifThen adjustableColumnHeader adjustableColumnHeader (localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Quantity')}}</span>
     {{/if}}
-    {{#if dataType}}
+    {{#if (and isEditable dataType)}}
       <a class='item-controls-header'
          data-action='addItem'
          data-type='{{dataType}}'
@@ -23,7 +23,7 @@
       {{#each items as |entry|}}
         <li class='item' data-item-id='{{entry.item.id}}' data-document-class='Item'>
           <div>
-            {{#if (or ../draggable ../sortable)}}
+            {{#if (and ../isEditable (or ../draggable ../sortable))}}
               <a class='draggable' data-item-id='{{entry.item.id}}'>
                 <i class='fa-solid fa-grip-dots-vertical'></i>
               </a>
@@ -32,30 +32,36 @@
                  {{#if entry.rollable}}data-action='rollItem'{{/if}}>
               <img src='{{entry.item.img}}' alt='{{entry.item.name}}'>
             </div>
-            <div class='item-name' data-action='toggleItemExpanded'>{{entry.item.name}}</div>
+            <div class='item-name' {{#if ../isEditable}}data-action='toggleItemExpanded'{{/if}}>{{entry.item.name}}</div>
           </div>
 
           {{#if ../adjustable}}
             <div class='item-quantity'>
-              <a data-action='adjustItem'
-                 data-adjustment='decrement'
-                 data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.AdjustDecrease'><i class='fa-solid fa-minus'></i></a>
+              {{#if ../isEditable}}
+                <a data-action='adjustItem'
+                   data-adjustment='decrement'
+                   data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.AdjustDecrease'><i class='fa-solid fa-minus'></i></a>
+              {{/if}}
               <span>{{entry.item.system.amount}}</span>
-              <a data-action='adjustItem'
-                 data-adjustment='increment'
-                 data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.AdjustIncrease'><i class='fa-solid fa-plus'></i></a>
+              {{#if ../isEditable}}
+                <a data-action='adjustItem'
+                   data-adjustment='increment'
+                   data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.AdjustIncrease'><i class='fa-solid fa-plus'></i></a>
+              {{/if}}
             </div>
           {{/if}}
 
-          <div class='item-controls'>
-            {{getItemControls entry.item}}
-            <a data-action='openItem' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.Edit'>
-              <i class='fa-solid fa-pen-to-square'></i>
-            </a>
-            <a data-action='deleteItem' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.Delete'>
-              <i class='fa-solid fa-trash'></i>
-            </a>
-          </div>
+          {{#if ../isEditable}}
+            <div class='item-controls'>
+              {{getItemControls entry.item}}
+              <a data-action='openItem' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.Edit'>
+                <i class='fa-solid fa-pen-to-square'></i>
+              </a>
+              <a data-action='deleteItem' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.Delete'>
+                <i class='fa-solid fa-trash'></i>
+              </a>
+            </div>
+          {{/if}}
 
           {{#if entry.expanded}}
             {{#if (and entry.tags (gt entry.tags.length 0))}}

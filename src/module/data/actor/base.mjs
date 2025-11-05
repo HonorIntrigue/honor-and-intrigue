@@ -40,6 +40,18 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     return schema;
   }
 
+  /** @inheritDoc */
+  prepareBaseData() {
+    super.prepareBaseData();
+    this.party ??= game.actors?.find(a => a.type === 'party' && a.system.members.has(this.parent.uuid))?.system;
+  }
+
+  /**
+   * A reference to the actor's party, if it exists.
+   * @type {PartyModel}
+   */
+  party;
+
   /**
    * Get the base value for computing lifeblood.
    */
@@ -109,6 +121,12 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     for (const [key, val] of Object.entries(this.combatAbilities)) {
       rollData[hi.CONFIG.combatAbilities[key].rollKey] = val;
     }
+  }
+
+  /** @inheritDoc */
+  prepareData() {
+    super.prepareData();
+    this.party?.reset();
   }
 
   /** @inheritDoc */
@@ -244,6 +262,17 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   }
 
   /** @inheritDoc */
+  _onDelete(options, userId) {
+    super._onDelete(options, userId);
+
+    if (this.party) {
+      if (game.user === this.party.parent.legalUpdater) {
+        this.party.removeMembers(this.parent);
+      }
+    }
+  }
+
+  /** @inheritDoc */
   _onUpdate(changed, options, user) {
     super._onUpdate(changed, options, user);
 
@@ -259,5 +288,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
         this.parent.toggleStatusEffect('dying', { active: false });
       }
     }
+
+    this.party?.sheet?.render();
   }
 }

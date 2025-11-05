@@ -7,10 +7,10 @@
 
     <div class='advantage-panel-stack'>
       <span>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Advantage.AmountDisplay' amount=advantage}}</span>
-      <button type='button' data-action='adjustAdvantage' data-adjustment='increment'>
+      <button type='button' {{#if (not isEditable)}}disabled{{/if}} data-action='adjustAdvantage' data-adjustment='increment'>
         {{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Advantage.Gain'}}
       </button>
-      <button type='button' data-action='adjustAdvantage' data-adjustment='decrement'>
+      <button type='button' {{#if (not isEditable)}}disabled{{/if}} data-action='adjustAdvantage' data-adjustment='decrement'>
         {{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Advantage.Yield'}}
       </button>
 

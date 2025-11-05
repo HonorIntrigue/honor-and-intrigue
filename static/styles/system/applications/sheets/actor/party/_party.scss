@@ -1,0 +1,181 @@
+.honor-intrigue.sheet.party {
+  --portrait-size: 60px;
+
+  .window-content {
+    .sheet-header {
+      background: url('../assets/backgrounds/lunar_topography.webp') no-repeat scroll center right, light-dark(transparent, var(--color-navy));
+      background-size: cover;
+      display: grid;
+      grid-area: 1 / 1 / 1 / -1;
+      grid-template-columns: subgrid;
+      grid-template-rows: subgrid;
+      margin-top: 0;
+      padding: var(--header-height) 1rem 0 1rem;
+
+      .portrait {
+        border: none;
+        grid-area: 1 / 1;
+      }
+
+      input[type=text] {
+        margin-left: 0.5rem;
+      }
+    }
+
+    .sheet-tabs {
+      grid-column: 1 / -1;
+    }
+
+    .tab {
+      box-shadow: none;
+      grid-area: 3 / 1 / -1 / -1;
+
+      &.overview {
+        .party-member {
+          border-bottom: 1px solid var(--color-gold-dull);
+          column-gap: 1rem;
+          display: grid;
+          grid-template-columns: 85px 1fr;
+          grid-template-rows: auto auto;
+          margin-bottom: 0.5rem;
+          padding-bottom: 0.5em;
+
+          &-portrait {
+            cursor: pointer;
+            grid-area: 1 / 1;
+            position: relative;
+          }
+
+          &-lifeblood {
+            bottom: 0;
+            display: grid;
+            grid-template: 1fr / 1fr;
+            font-size: var(--font-size-12);
+            left: 0;
+            position: absolute;
+            right: 0;
+
+            > span {
+              grid-area: 1 / 1;
+              height: 20px;
+            }
+
+            &-background {
+              background-color: var(--color-dark-3);
+            }
+
+            &-foreground {
+              background-color: var(--color-warm-3);
+            }
+
+            &-value {
+              align-items: center;
+              display: flex;
+              color: var(--color-light-1);
+              gap: 0.5em;
+              padding: 0 0.5em;
+            }
+          }
+
+          &-details {
+            display: flex;
+            flex-direction: column;
+            grid-area: 1 / 2 / -1;
+
+            &-header {
+              display: flex;
+              flex-direction: column;
+
+              &-name {
+                display: flex;
+
+                > span {
+                  cursor: pointer;
+                  flex: 1;
+                  font-size: var(--font-h4-size);
+                }
+              }
+
+              &-fortune {
+                align-items: flex-start;
+                display: flex;
+                font-size: var(--font-size-18);
+
+                > span {
+                  min-width: 28px;
+                  text-align: center;
+                  width: 28px;
+                }
+              }
+
+              > .motivation {
+                display: flex;
+                gap: 0.5em;
+
+                :first-child {
+                  color: var(--color-text-subtle);
+                  font-style: italic;
+                }
+              }
+            }
+
+            &-flow {
+              column-gap: 5px;
+              display: grid;
+              flex: 1;
+              grid-template-columns: repeat(3, 1fr);
+              margin-top: 1rem;
+            }
+
+            &-chips {
+              align-content: flex-start;
+              display: flex;
+              flex-wrap: wrap;
+              gap: 0.1rem;
+              padding-top: 10px;
+              position: relative;
+
+              &:nth-child(2) {
+                &::before, &::after {
+                  bottom: 0;
+                  content: '';
+                  position: absolute;
+                  top: 10px;
+                }
+
+                &::before {
+                  border-right: 1px solid var(--color-gold-dull);
+                  left: -4px;
+                }
+
+                &::after {
+                  border-left: 1px solid var(--color-gold-dull);
+                  right: -1px;
+                }
+              }
+
+              &-header {
+                color: var(--color-text-subtle);
+                left: 50%;
+                position: absolute;
+                top: -10px;
+                transform: translateX(-50%);
+              }
+
+              &-chip {
+                border: 1px dotted var(--color-text-subtle);
+                border-radius: 5px;
+                cursor: pointer;
+                padding: 0 0.25em;
+
+                &-boon { color: var(--color-green) }
+
+                &-flaw { color: var(--color-red) }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

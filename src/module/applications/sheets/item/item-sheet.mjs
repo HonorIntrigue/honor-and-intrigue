@@ -93,6 +93,13 @@ export default class HonorIntrigueItemSheet extends DocumentSheetMixin(foundry.a
     this.render({ parts: ['details'] });
   }
 
+  /** @inheritDoc */
+  _configureRenderParts(options) {
+    const parts = super._configureRenderParts(options);
+    if (!this.document.isOwner) this._restrictLimited(parts);
+    return parts;
+  }
+
   /**
    * Handles changing the name of an inline rule.
    */
@@ -163,5 +170,22 @@ export default class HonorIntrigueItemSheet extends DocumentSheetMixin(foundry.a
     }
 
     return context;
+  }
+
+  /** @inheritDoc */
+  _prepareTabs(group) {
+    const tabs = super._prepareTabs(group);
+    if (!this.document.isOwner && group === 'primary') this._restrictLimited(tabs);
+    return tabs;
+  }
+
+  /**
+   * Removes tabs for viewers with limited permission.
+   * @param {Record<string, any>} data The parts or tabs object to modify.
+   */
+  _restrictLimited(data) {
+    for (const key in data) {
+      if (!['header', 'sidebar', 'content', 'description'].includes(key)) delete data[key];
+    }
   }
 }

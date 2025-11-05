@@ -12,9 +12,32 @@ export default class HonorIntrigueSettingsHandler {
         name: 'HONOR_INTRIGUE.Setting.AlternateRules.d10.label',
         hint: 'HONOR_INTRIGUE.Setting.AlternateRules.d10.hint',
         type: new fields.BooleanField(),
+        scope: 'world',
         config: true,
         default: false,
+      },
+      // background settings
+      worldPartyId: {
+        name: 'World Party ID',
+        type: String,
         scope: 'world',
+        config: false,
+        default: '',
+        onChange: async () => ui.actors.render({ parts: ['party'] }),
+      },
+      createdParty: {
+        name: 'Created Default World Party',
+        type: Boolean,
+        scope: 'world',
+        config: false,
+        default: false,
+      },
+      partyFolderState: {
+        name: 'Party Folder Expanded',
+        type: Boolean,
+        scope: 'client',
+        config: false,
+        default: true,
       },
     };
   }

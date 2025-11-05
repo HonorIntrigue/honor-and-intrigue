@@ -1,6 +1,6 @@
 <div class='rollable-characteristic'>
   <a class='roll-icon'
-     data-action='rollCharacteristic'
+     {{#if @root.isEditable}}data-action='rollCharacteristic'{{/if}}
      data-characteristic='{{dotkey}}'
      data-tooltip='HONOR_INTRIGUE.Actor.{{dotkey}}'>
     {{#if @root.useAlternateD10}}

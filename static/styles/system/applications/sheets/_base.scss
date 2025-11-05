@@ -22,6 +22,19 @@
       grid-area: 1 / 2;
       margin-top: var(--header-height);
 
+      .portrait {
+        border-bottom: 1px solid light-dark(var(--color-navy), var(--color-gold));
+        cursor: pointer;
+        position: relative;
+
+        img {
+          height: var(--portrait-size);
+          object-fit: cover;
+          object-position: top center;
+          width: 100%;
+        }
+      }
+
       h1 {
         margin-bottom: 0;
 
@@ -105,19 +118,6 @@
           display: flex;
           gap: 0.25rem;
         }
-      }
-    }
-
-    .portrait {
-      border-bottom: 1px solid light-dark(var(--color-navy), var(--color-gold));
-      cursor: pointer;
-      position: relative;
-
-      img {
-        height: var(--portrait-size);
-        object-fit: cover;
-        object-position: top center;
-        width: 100%;
       }
     }
 

@@ -1,0 +1,62 @@
+<section class='tab scrollable {{tabs.overview.id}}{{#if tabs.overview.cssClass}} {{tabs.overview.cssClass}}{{/if}}'
+         data-group='{{tabs.overview.group}}'
+         data-tab='{{tabs.overview.id}}'>
+  <div class='tab-content'>
+    {{#each members as |member|}}
+      <div class='party-member' data-member-uuid='{{member.uuid}}'>
+        <div class='party-member-portrait' data-action='openMember'>
+          <img src='{{member.img}}' alt='{{member.name}}'>
+          <div class='party-member-lifeblood'>
+            <span class='party-member-lifeblood-background'></span>
+            <span class='party-member-lifeblood-foreground' style='width: {{member.lifebloodPercentage}}%'></span>
+            <span class='party-member-lifeblood-value'>
+              <i class='fa-solid fa-heart{{#if (eq member.lifebloodPercentage 0)}}-crack{{/if}}'></i>
+              {{member.system.lifeblood.value}} / {{member.system.lifeblood.max}}
+            </span>
+          </div>
+        </div>
+        <div class='party-member-details'>
+          <div class='party-member-details-header'>
+            <div class='party-member-details-header-name'>
+              <span data-action='openMember'>{{member.name}}</span>
+              <div class='party-member-details-header-fortune'>
+                <span>{{member.system.fortune.value}}</span>
+                <i class='fa-solid fa-stars'></i>
+              </div>
+            </div>
+            <span class='motivation'>
+              <span>{{localize 'HONOR_INTRIGUE.Sheet.Labels.Motivation'}}</span>
+              <span>{{member.system.motivation}}</span>
+            </span>
+          </div>
+          <div class='party-member-details-flow'>
+            <div class='party-member-details-chips'>
+              <span class='party-member-details-chips-header'>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Character.Careers'}}</span>
+              {{#each member.careers as |career|}}
+                <div class='party-member-details-chips-chip' data-action='openDetail' data-item-id='{{career.id}}'>
+                  <span>{{career.name}} {{career.system.rank}}</span>
+                </div>
+              {{/each}}
+            </div>
+            <div class='party-member-details-chips'>
+              <span class='party-member-details-chips-header'>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Character.Boons'}}</span>
+              {{#each member.boons as |boon|}}
+                <div class='party-member-details-chips-chip party-member-details-chips-chip-boon' data-action='openDetail' data-item-id='{{boon.id}}'>
+                  <span>{{boon.name}}</span>
+                </div>
+              {{/each}}
+            </div>
+            <div class='party-member-details-chips'>
+              <span class='party-member-details-chips-header'>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Character.Flaws'}}</span>
+              {{#each member.flaws as |flaw|}}
+                <div class='party-member-details-chips-chip party-member-details-chips-chip-flaw' data-action='openDetail' data-item-id='{{flaw.id}}'>
+                  <span>{{flaw.name}}</span>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>

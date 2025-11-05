@@ -1,0 +1,13 @@
+.sidebar-tab {
+  &.actors-sidebar {
+    .folder[data-party] {
+      header {
+        background: var(--color-navy);
+
+        button {
+          --button-text-color: var(--color-light-2);
+        }
+      }
+    }
+  }
+}

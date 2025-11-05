@@ -22,6 +22,7 @@ _______________________________________________________________
     Failure: { key: 'failure', label: 'HONOR_INTRIGUE.ROLL_OUTCOME.Failure' },
     CritFailure: { key: 'crit-failure', label: 'HONOR_INTRIGUE.ROLL_OUTCOME.CritFailure' },
   },
+  defaultPartyId: 'xxDefaultPartyxx',
 };
 
 HONOR_INTRIGUE.qualities = {

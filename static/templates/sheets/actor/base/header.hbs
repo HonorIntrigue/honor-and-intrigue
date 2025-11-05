@@ -6,12 +6,16 @@
 
     {{#if (eq actorType 'hero')}}
       <div class='advancement-points'
-           data-action='adjustAdvancementPoints'
+           {{#if isEditable}}data-action='adjustAdvancementPoints'{{/if}}
            data-tooltip='HONOR_INTRIGUE.Sheet.Labels.AdvancementPoints'
       >
         <span>{{system.advancementPoints.value}}</span>
         <i class='fa-solid fa-arrow-up'
-           data-tooltip='{{localize "HONOR_INTRIGUE.Sheet.Labels.AdvancementPointsAccrued" accrued=system.advancementPoints.accrued spent=system.advancementPoints.spent}}'
+          {{#if isEditable}}
+           data-tooltip='{{localize "HONOR_INTRIGUE.Sheet.Labels.AdvancementPointsAccrued"
+                                    accrued=system.advancementPoints.accrued
+                                    spent=system.advancementPoints.spent}}'
+          {{/if}}
         ></i>
       </div>
     {{/if}}
@@ -24,8 +28,12 @@
       </div>
 
       <div class='fortune-points' data-tooltip='HONOR_INTRIGUE.Sheet.Labels.FortunePoints'>
-        <span data-action='adjustFortune'>{{system.fortune.value}}</span>
-        <i class='fa-solid fa-stars' data-action='refreshFortune' data-tooltip='HONOR_INTRIGUE.Sheet.Labels.FortunePointsRefresh'></i>
+        <span {{#if isEditable}}data-action='adjustFortune'{{/if}}>{{system.fortune.value}}</span>
+        <i class='fa-solid fa-stars'
+          {{#if isEditable}}
+           data-action='refreshFortune'
+           data-tooltip='HONOR_INTRIGUE.Sheet.Labels.FortunePointsRefresh'
+          {{/if}}></i>
       </div>
     </div>
   {{/if}}

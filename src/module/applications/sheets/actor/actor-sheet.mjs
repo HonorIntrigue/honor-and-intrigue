@@ -196,6 +196,13 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     return message;
   }
 
+  /** @inheritDoc */
+  _configureRenderParts(options) {
+    const parts = super._configureRenderParts(options);
+    if (!this.document.isOwner) this._restrictLimited(parts);
+    return parts;
+  }
+
   /**
    * Generate the list of context menu options for items in an item-list.
    * @returns {ContextMenuEntry[]}
@@ -321,5 +328,22 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     }
 
     return context;
+  }
+
+  /** @inheritDoc */
+  _prepareTabs(group) {
+    const tabs = super._prepareTabs(group);
+    if (!this.document.isOwner && group === 'primary') this._restrictLimited(tabs);
+    return tabs;
+  }
+
+  /**
+   * Removes tabs for viewers with limited permission.
+   * @param {Record<string, any>} data The parts or tabs object to modify.
+   */
+  _restrictLimited(data) {
+    for (const key in data) {
+      if (!['header', 'sidebar', 'content', 'character'].includes(key)) delete data[key];
+    }
   }
 }

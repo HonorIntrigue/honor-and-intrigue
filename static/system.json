@@ -17,6 +17,7 @@
     "ActiveEffect": {},
     "Actor": {
       "hero": { "htmlFields": ["notes", "description", "friendsAndContacts", "rivalsAndEnemies"] },
+      "party": {},
       "pawn": { "htmlFields": ["notes"] },
       "retainer": { "htmlFields": ["notes"] },
       "villain": { "htmlFields": ["notes"] },

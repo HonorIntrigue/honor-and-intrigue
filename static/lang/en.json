@@ -25,6 +25,9 @@
         "Dying": "Dying"
       }
     },
+    "KEYBINDING": {
+      "OpenPartySheet": "Open Party Sheet"
+    },
     "ROLL_OUTCOME": {
       "CritSuccess": "Mighty Success",
       "Success": "Success",
@@ -44,6 +47,12 @@
         "might": "Might",
         "savvy": "Savvy",
         "terror": "Terror"
+      },
+      "Party": {
+        "CreateMember": "Create Member",
+        "DefaultName": "The Heroes",
+        "NoMembers": "No party members yet!",
+        "OpenSheet": "Open Party Sheet"
       },
       "Sheet": {
         "Labels": {
@@ -94,7 +103,9 @@
           "character": "Character",
           "effects": "Effects",
           "inventory": "Inventory",
-          "maneuvers": "Maneuvers"
+          "maneuvers": "Maneuvers",
+          "overview": "Overview",
+          "stash": "Stash"
         },
         "Tooltips": {
           "AdjustDecrease": "Decrease",
