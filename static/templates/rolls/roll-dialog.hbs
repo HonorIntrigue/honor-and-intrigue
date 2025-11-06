@@ -10,15 +10,15 @@
       </div>
       {{#each selectFields as |field|}}
         <div class='modifiers-table-item'>
-          <span>{{field.label}}</span>
+          <span>{{localize field.label}}</span>
           <select name='{{field.id}}' data-dtype='String'>
-            {{selectOptions field.options selected=field.value valueAttr=field.valueAttr}}
+            {{selectOptions field.options selected=field.value valueAttr=field.valueAttr localize=true}}
           </select>
         </div>
       {{/each}}
       {{#each stepperFields as |field|}}
         <div class='modifiers-table-item'>
-          <span>{{field.label}}</span>
+          <span>{{localize field.label}}</span>
           {{> "systems/honor-and-intrigue/templates/api/input-stepper.hbs" input=field}}
         </div>
       {{/each}}

@@ -90,48 +90,57 @@ export default class RollDialog extends FormApplicationMixin(foundry.application
   /** @inheritDoc */
   async _prepareContext(options) {
     const { context } = this.options;
-
-    return {
+    const ctx = {
       ...context,
       selectFields: [{
-        id: 'combatAbility',
-        label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.CombatAbility'),
-        options: [{ label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.None'), rollKey: 'none' }]
-          .concat(...Object.values(hi.CONFIG.combatAbilities).map(c => ({ ...c, label: game.i18n.localize(c.label) }))),
-        value: context.modifiers.combatAbility || 'none',
-        valueAttr: 'rollKey',
+        id: 'difficulty',
+        label: 'HONOR_INTRIGUE.Dialog.Roll.Difficulty',
+        options: hi.CONFIG.difficulties,
+        value: context.modifiers.difficulty ?? 'moderate',
       }, {
-        id: 'career',
-        label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.Career'),
-        options: [{ label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.None'), value: 'none' }]
-          .concat(context.actor.itemTypes['career'].map(career => ({
-            label: `(+${career.system.rank}) ${career.name}`,
-            value: career.id,
-          }))),
-        value: context.modifiers.career || 'none',
+        id: 'combatAbility',
+        label: 'HONOR_INTRIGUE.Dialog.Roll.CombatAbility',
+        options: [{ label: 'HONOR_INTRIGUE.Dialog.Roll.None', rollKey: 'none' }].concat(...Object.values(hi.CONFIG.combatAbilities)),
+        value: context.modifiers.combatAbility ?? 'none',
+        valueAttr: 'rollKey',
       }],
       stepperFields: [{
         id: 'bonuses',
-        label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.BonusDie'),
+        label: 'HONOR_INTRIGUE.Dialog.Roll.BonusDie',
         min: 0,
         max: 10,
         stepSize: 1,
         value: context.modifiers.bonuses,
       }, {
         id: 'penalties',
-        label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.PenaltyDie'),
+        label: 'HONOR_INTRIGUE.Dialog.Roll.PenaltyDie',
         min: 0,
         max: 10,
         stepSize: 1,
         value: context.modifiers.penalties,
       }, {
         id: 'flat',
-        label: game.i18n.localize('HONOR_INTRIGUE.Dialog.Roll.Flat'),
+        label: 'HONOR_INTRIGUE.Dialog.Roll.Flat',
         max: 10,
         stepSize: 1,
         value: context.modifiers.flat,
       }],
     };
+
+    if (context.type !== 'maneuver') {
+      ctx.selectFields.push({
+        id: 'career',
+        label: 'HONOR_INTRIGUE.Dialog.Roll.Career',
+        options: [{ label: 'HONOR_INTRIGUE.Dialog.Roll.None', value: 'none' }]
+          .concat(context.actor.itemTypes['career'].map(career => ({
+            label: `(+${career.system.rank}) ${career.name}`,
+            value: career.id,
+          }))),
+        value: context.modifiers.career ?? 'none',
+      });
+    }
+
+    return ctx;
   }
 
   /** @inheritDoc **/

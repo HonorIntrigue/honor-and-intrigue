@@ -77,6 +77,16 @@ HONOR_INTRIGUE.damageTypes = {
 };
 preLocalize('damageTypes', { key: 'label' });
 
+HONOR_INTRIGUE.difficulties = {
+  easy: { label: 'HONOR_INTRIGUE.DIFFICULTY.easy', modifier: 1 },
+  moderate: { label: 'HONOR_INTRIGUE.DIFFICULTY.moderate', modifier: 0 },
+  tricky: { label: 'HONOR_INTRIGUE.DIFFICULTY.tricky', modifier: -1 },
+  hard: { label: 'HONOR_INTRIGUE.DIFFICULTY.hard', modifier: -2 },
+  tough: { label: 'HONOR_INTRIGUE.DIFFICULTY.tough', modifier: -4 },
+  demanding: { label: 'HONOR_INTRIGUE.DIFFICULTY.demanding', modifier: -6 },
+};
+preLocalize('difficulties', { key: 'label' });
+
 HONOR_INTRIGUE.statusEffects = [
   {
     id: 'at-a-loss',

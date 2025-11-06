@@ -30,6 +30,7 @@ export default class QualityRollMessageModel extends BaseMessageModel {
         key: new fields.StringField(),
         value: new fields.NumberField({ integer: true }),
       }, { required: false }),
+      difficulty: new fields.StringField({ choices: hi.CONFIG.difficulties, initial: 'moderate', required: true }),
       bonuses: new fields.NumberField({ integer: true, initial: 0, min: 0 }),
       penalties: new fields.NumberField({ integer: true, initial: 0, min: 0 }),
       flatModifier: new fields.NumberField({ integer: true, initial: 0 }),
@@ -45,6 +46,9 @@ export default class QualityRollMessageModel extends BaseMessageModel {
   /** @inheritDoc */
   async alterMessageHTML(html) {
     await super.alterMessageHTML(html);
+
+    html.querySelector('.message-header .flavor-text').insertAdjacentHTML('beforeend',
+      ` ${game.i18n.localize(hi.CONFIG.difficulties[this.modifiers.difficulty].label)} (${hi.CONFIG.difficulties[this.modifiers.difficulty].modifier.signedString()})`);
 
     const mods = [
       game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {

@@ -93,6 +93,7 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
   static async prompt(options = {}) {
     options.modifiers ??= {};
     options.modifiers.bonuses ??= 0;
+    options.modifiers.difficulty ??= 'moderate';
     options.modifiers.penalties ??= 0;
     options.modifiers.flat ??= 0;
 
@@ -134,6 +135,10 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
 
     if (modifiers.flat !== 0) {
       roll.terms.push(...this.constructNumericTerm(modifiers.flat));
+    }
+
+    if (modifiers.difficulty) {
+      roll.terms.push(...this.constructNumericTerm(hi.CONFIG.difficulties[modifiers.difficulty].modifier));
     }
 
     if (options.system.targetModifiers) {

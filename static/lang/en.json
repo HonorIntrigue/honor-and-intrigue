@@ -18,6 +18,14 @@
       "energy": "Energy",
       "physical": "Physical"
     },
+    "DIFFICULTY": {
+      "easy": "Easy",
+      "moderate": "Moderate",
+      "tricky": "Tricky",
+      "hard": "Hard",
+      "tough": "Tough",
+      "demanding": "Demanding"
+    },
     "EFFECT": {
       "Status": {
         "AtALoss": "At a Loss",
@@ -193,6 +201,7 @@
         "Career": "Career Bonus",
         "CombatAbility": "Combat Ability",
         "DamageFormula": "Damage Formula",
+        "Difficulty": "Difficulty",
         "Flat": "Flat Modifier",
         "Modifiers": "Modifiers",
         "None": "None",

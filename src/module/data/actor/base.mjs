@@ -189,6 +189,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       };
     }
 
+    options.system.modifiers.difficulty = modifiers.difficulty;
     options.system.modifiers.bonuses = modifiers.bonuses;
     options.system.modifiers.penalties = modifiers.penalties;
     options.system.modifiers.flatModifier = modifiers.flat;
