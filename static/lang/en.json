@@ -12,7 +12,8 @@
       "equipment": "Equipment",
       "flaws": "Flaws",
       "macros": "Macros",
-      "maneuvers": "Maneuvers"
+      "maneuvers": "Maneuvers",
+      "tome-of-intriguing-options": "Tome of Intriguing Options"
     },
     "DAMAGE_TYPE": {
       "energy": "Energy",
@@ -81,8 +82,17 @@
             "Notes": "Notes"
           },
           "Careers": {
-            "EmptyPrompt": "Give this character some background by adding a career!",
-            "Rank": "Rank"
+            "FIELDS": {
+              "isArcane": {
+                "label": "Arcane Power",
+                "hint": "Grants a pool of Arcane Power equal to 10 + this career's Rank"
+              },
+              "rank": {
+                "label": "Rank",
+                "hint": "A value representing the expertise and influence of this career"
+              }
+            },
+            "EmptyPrompt": "Give this character some background by adding a career!"
           },
           "Inventory": {
             "armor": "Armor",
@@ -297,12 +307,14 @@
           "might": "Brawn and toughness",
           "savvy": "Intellect, subtlety, and fine motor skills",
           "terror": "Ferocity, savagery, and infamy"
-        }
+        },
+        "ArcanePower": "The \"fuel\" that powers Sorcery and Spellcasting"
       },
       "Labels": {
         "AbilityCheck": "Ability Check",
         "AdvancementPoints": "Advancement Points",
         "AdvancementPointsAccrued": "You have accrued {accrued} Advancement Points and spent {spent}.",
+        "ArcanePower": "Arcane Power",
         "Character": "Hero",
         "CombatAbilities": "Combat Abilities",
         "Competence": "Competence",
@@ -313,6 +325,7 @@
         "Lifeblood": "Lifeblood",
         "Minimize": "Minimize",
         "Motivation": "Motivation",
+        "Spellcasting": "Sorcery & Spellcasting",
         "Qualities": "Qualities"
       }
     }

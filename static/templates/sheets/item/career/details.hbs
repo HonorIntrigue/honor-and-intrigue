@@ -1,0 +1,8 @@
+<section class='tab scrollable {{tabs.details.id}}{{#if tabs.details.cssClass}} {{tabs.details.cssClass}}{{/if}}'
+         data-group='{{tabs.details.group}}'
+         data-tab='{{tabs.details.id}}'>
+  <div class='tab-content standard-form'>
+    {{formField systemFields.isArcane value=system.isArcane localize=true}}
+    {{formField systemFields.rank value=system.rank type='number' localize=true}}
+  </div>
+</section>

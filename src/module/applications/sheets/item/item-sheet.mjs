@@ -90,7 +90,7 @@ export default class HonorIntrigueItemSheet extends DocumentSheetMixin(foundry.a
 
     const effect = this.item.effects.get(effectId);
     await effect.delete();
-    this.render({ parts: ['details'] });
+    this.render({ parts: ['rules'] });
   }
 
   /** @inheritDoc */

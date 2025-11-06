@@ -15,20 +15,35 @@ export function initialize() {
 export function getItemControls(item) {
   let result = '';
 
-  if (item.type === 'armor' || item.type === 'weapon') {
-    result = document.createElement('a');
-    result.dataset.action = 'toggleItemEquipped';
-    result.dataset.tooltip = item.system.carriedPositionLabel;
-    result.insertAdjacentHTML('beforeend', `<i class='${item.system.carriedPositionIcon}'></i>`);
-    result = result.outerHTML;
-  } else if (item.type === 'maneuver' && item.system.mastery) {
-    result = document.createElement('a');
-    result.dataset.action = 'toggleManeuverMastery';
-    result.dataset.tooltip = game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ToggleMastery');
-    result.insertAdjacentHTML('beforeend', `<i class='fa-${item.system.isMastered ? 'solid illuminate' : 'light'} fa-star-shooting'></i>`);
-    result = result.outerHTML;
+  switch (item.type) {
+    case 'armor':
+    case 'weapon': {
+      result = document.createElement('a');
+      result.dataset.action = 'toggleItemEquipped';
+      result.dataset.tooltip = item.system.carriedPositionLabel;
+      result.insertAdjacentHTML('beforeend', `<i class='${item.system.carriedPositionIcon}'></i>`);
+      break;
+    }
+    case 'maneuver': {
+      if (item.system.mastery) {
+        result = document.createElement('a');
+        result.dataset.action = 'toggleManeuverMastery';
+        result.dataset.tooltip = game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ToggleMastery');
+        result.insertAdjacentHTML('beforeend', `<i class='fa-${item.system.isMastered ? 'solid illuminate' : 'light'} fa-star-shooting'></i>`);
+      }
+      break;
+    }
+    case 'career': {
+      if (item.system.isArcane) {
+        result = document.createElement('a');
+        result.dataset.tooltip = game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Careers.FIELDS.isArcane.hint');
+        result.insertAdjacentHTML('beforeend', '<i class="fa-solid illuminate fa-hat-wizard"></i>');
+      }
+      break;
+    }
   }
 
+  if (result) result = result.outerHTML;
   return new Handlebars.SafeString(result);
 }
 

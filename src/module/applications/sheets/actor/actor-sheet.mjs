@@ -25,7 +25,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
 
   /** @inheritDoc */
   static PARTS = {
-    sidebar: { template: systemPath('templates/sheets/actor/base/sidebar.hbs') },
+    sidebar: { template: systemPath('templates/sheets/actor/base/sidebar.hbs'), scrollable: ['.characteristics-grid-container'] },
     header: { template: systemPath('templates/sheets/actor/base/header.hbs') },
     content: { template: 'templates/generic/tab-navigation.hbs' },
     character: { template: systemPath('templates/sheets/actor/shared/character.hbs'), scrollable: [''] },
@@ -245,6 +245,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
       }),
       getValueField: (type, name) => this.document.system.schema.getField(`${type}.${name}`),
       getValueFieldValue: (type, name) => foundry.utils.getProperty(this.document.system, `${type}.${name}`),
+      hasArcanePower: this.document.itemTypes['career'].some(c => c.system.isArcane),
     };
   }
 

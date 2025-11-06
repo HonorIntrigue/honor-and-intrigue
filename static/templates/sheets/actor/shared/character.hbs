@@ -5,7 +5,7 @@
     {{#if (ne document.type 'creature')}}
       {{> 'systems/honor-and-intrigue/templates/api/item-list.hbs'
         adjustable=true
-        adjustableColumnHeader=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Careers.Rank')
+        adjustableColumnHeader=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Careers.FIELDS.rank.label')
         dataType='career'
         emptyText=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Careers.EmptyPrompt')
         items=careers

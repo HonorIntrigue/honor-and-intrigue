@@ -102,13 +102,18 @@
       "name": "maneuvers",
       "label": "HONOR_INTRIGUE.COMPENDIUM.maneuvers",
       "type": "Item"
+    },
+    {
+      "name": "tome-of-intriguing-options",
+      "label": "HONOR_INTRIGUE.COMPENDIUM.tome-of-intriguing-options",
+      "type": "Item"
     }
   ],
   "packFolders": [
     {
       "name": "Honor + Intrigue",
       "color": "#283343",
-      "packs": ["boons", "careers", "equipment", "flaws", "macros", "maneuvers"]
+      "packs": ["boons", "careers", "equipment", "flaws", "macros", "maneuvers", "tome-of-intriguing-options"]
     }
   ],
   "primaryTokenAttribute": "lifeblood",

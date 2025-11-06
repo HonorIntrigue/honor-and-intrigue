@@ -35,15 +35,13 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       min: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       value: new fields.NumberField({ min: -6, initial: 1, integer: true, nullable: false, required: true }),
     });
+    schema.arcanePower = new fields.SchemaField(({
+      adjustment: new fields.NumberField({ initial: 0, integer: true }),
+      value: new fields.NumberField({ min: 0, initial: 0, integer: true }),
+    }));
     schema.notes = new fields.HTMLField({ textSearch: true, trim: true });
 
     return schema;
-  }
-
-  /** @inheritDoc */
-  prepareBaseData() {
-    super.prepareBaseData();
-    this.party ??= game.actors?.find(a => a.type === 'party' && a.system.members.has(this.parent.uuid))?.system;
   }
 
   /**
@@ -124,6 +122,12 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   }
 
   /** @inheritDoc */
+  prepareBaseData() {
+    super.prepareBaseData();
+    this.party ??= game.actors?.find(a => a.type === 'party' && a.system.members.has(this.parent.uuid))?.system;
+  }
+
+  /** @inheritDoc */
   prepareData() {
     super.prepareData();
     this.party?.reset();
@@ -134,9 +138,17 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     super.prepareDerivedData();
 
     const atALoss = this.parent.statuses.has('at-a-loss');
-
     if (atALoss) {
       this.combatAbilities.defense -= 2;
+    }
+
+    const arcaneCareer = this.parent.itemTypes['career']
+      .filter(c => c.system.isArcane)
+      .sort((a, b) => a.system.rank - b.system.rank)
+      .at(-1);
+    if (arcaneCareer) {
+      this.arcanePower.career = arcaneCareer.id;
+      this.arcanePower.max = (10 + arcaneCareer.system.rank) + this.arcanePower.adjustment;
     }
   }
 
@@ -257,6 +269,15 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
           });
         }
       }
+    }
+
+    if (hasProperty(changes, 'system.arcanePower.adjustment')) {
+      const arcaneCareer = this.parent.items.get(this.arcanePower.career);
+      changes.system.arcanePower.adjustment -= (10 + arcaneCareer.system.rank);
+    }
+
+    if (hasProperty(changes, 'system.arcanePower.value')) {
+      changes.system.arcanePower.value = Math.min(changes.system.arcanePower.value, this.arcanePower.max);
     }
 
     return true;
