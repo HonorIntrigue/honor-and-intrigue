@@ -1,0 +1,29 @@
+{
+  "folder": "a8RoVXAseRfKjEY7",
+  "name": "Notorious Dueliest",
+  "type": "flaw",
+  "_id": "LTuA5E9FxK0GpUDJ",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>This Flaw behaves somewhat like the Hunted Flaw, except that it means you attract swordsman looking to prove themselves by killing you. Whenever someone challenges you to a duel without provocation, you earn 1 Fortune Point. If you win the duel, you likely gain an Enemy or Rival as well (a humiliated survivor, or their surviving kin).</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1762463232018,
+    "modifiedTime": 1762463241415,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!LTuA5E9FxK0GpUDJ"
+}

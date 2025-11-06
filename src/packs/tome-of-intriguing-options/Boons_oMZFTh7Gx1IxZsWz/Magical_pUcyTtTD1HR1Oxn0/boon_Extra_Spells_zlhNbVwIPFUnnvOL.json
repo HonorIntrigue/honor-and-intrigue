@@ -1,0 +1,29 @@
+{
+  "folder": "pUcyTtTD1HR1Oxn0",
+  "name": "Extra Spells",
+  "type": "boon",
+  "_id": "zlhNbVwIPFUnnvOL",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You begin with two extra spells of the 1st Circle. With Spellcaster 3 or greater, you can choose to instead begin with one spell of the 2nd Circle.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1762462996688,
+    "modifiedTime": 1762463001546,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!zlhNbVwIPFUnnvOL"
+}

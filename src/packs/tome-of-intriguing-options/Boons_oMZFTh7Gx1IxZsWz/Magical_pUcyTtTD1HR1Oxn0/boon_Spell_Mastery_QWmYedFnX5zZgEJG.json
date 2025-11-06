@@ -1,0 +1,29 @@
+{
+  "folder": "pUcyTtTD1HR1Oxn0",
+  "name": "Spell Mastery",
+  "type": "boon",
+  "_id": "QWmYedFnX5zZgEJG",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You have mastered two spells of the 1st Circle that you know.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1762463011411,
+    "modifiedTime": 1762463014787,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!QWmYedFnX5zZgEJG"
+}

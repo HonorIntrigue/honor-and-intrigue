@@ -1,0 +1,21 @@
+{
+  "type": "Item",
+  "folder": "JAA9iz3tKYqRi6t4",
+  "name": "General",
+  "color": null,
+  "sorting": "a",
+  "_id": "a8RoVXAseRfKjEY7",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!a8RoVXAseRfKjEY7"
+}

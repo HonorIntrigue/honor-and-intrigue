@@ -1,0 +1,29 @@
+{
+  "folder": "a8RoVXAseRfKjEY7",
+  "name": "Literal Minded",
+  "type": "flaw",
+  "_id": "7ICoEMhjDTShlUHa",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>You have difficulty with abstract thought. Roll a Penalty Die when you must interpret symbolism, innuendo, or subtle social ques, or do some imaginative activity, like storytelling. If the GM puts you in a situation where this causes you serious trouble, they may award a Fortune Point.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1762463332550,
+    "modifiedTime": 1762463341615,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!7ICoEMhjDTShlUHa"
+}

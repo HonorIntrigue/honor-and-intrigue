@@ -1,0 +1,29 @@
+{
+  "folder": "pUcyTtTD1HR1Oxn0",
+  "name": "Spellcaster",
+  "type": "boon",
+  "_id": "uoimlJuyBYJOstOX",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You have a magical gift, allowing you cast spells. You may take the Spellcaster Career and begin with three spells of the 1st Circle +1 per rank. You also must choose a Related Career that informs the type of spells you cast. Your rank in Spellcaster can never be more than 1 higher than your rank in its Related Career, as this Career represents the necessary knowledge while Spellcaster represents raw power.</p><p>Your caster type is defined by a Related Career, which also defines the kinds of spells you choose to learn. A Wizard Spellcaster likely has the Scholar or Magician Career and chooses spells focused on offensive power or uncovering knowledge. A Druid or Shaman Spellcaster likely has the Woodsman or Apothecary Career and chooses spells aligned with nature. A Cleric Spellcaster likely has the Clergy or Healer Career and chooses spells related to healing, defense, and uncovering knowledge. Your rank in Spellcaster can never be more than 1 higher than your rank in its Related Career, as this Career represents the necessary knowledge while the Spellcaster Career represents raw power.</p><p>For a more science-fiction oriented game, you might call Spellcaster “Psionicist” or “Telepath” instead and refer to the spells as “talents” or “powers” if you prefer. The sort of Related Career that a Telepath might have varies widely by the setting; telepaths might be an order of Mystics in one universe while they are a type of Soldier in another, while in another they are Spacefarers serving as navigators.</p><p><strong>Multiple Spellcaster Types:</strong> It is possible for a character to be more than one type of Spellcaster. The Spellcaster Career represents both kinds of Spellcasting. The maximum rank in Spellcaster is limited by the Related Career that is lowest between the caster types. Starting spells are divided up between the Spellcaster types as the player chooses. <em>Example: Wade is a Spellcaster (Wizard/Cleric) 2 with Clergy 1 and Magician 1. He chooses three wizard spells and two cleric spells to start.</em></p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1762463034221,
+    "modifiedTime": 1762463080003,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!uoimlJuyBYJOstOX"
+}

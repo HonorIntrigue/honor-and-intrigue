@@ -1,0 +1,29 @@
+{
+  "folder": "y2hFicV6F55j6SVV",
+  "name": "Grand Master",
+  "type": "boon",
+  "_id": "p5deIKy4o5xKzCmM",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You are a true master of swordsmanship, having discovered nuances of personal combat heretofore undiscovered by man. Students seek you out to learn the art of the blade from you. Before you can take this Boon, you must have mastered at least two Dueling Styles.</p><p>As a Grand Master, you have the ability to create new Dueling Styles by spending 20 Advancement Points. See “New Dueling Style Creation (Extended Rules)”. You gain the Dueling Style for free when you do this, and you can also teach it to students who spend their own Advancement Points for the Dueling Style Boon, as long as you spend at least 2 weeks training them.</p><p>Whenever you teach a Dueling Style you’ve created to a new student, you gain that student as a Contact (if they are an NPC). You can spend Fortune to get a favor from your Contacts, but sometimes they will just show up and offer aid on their own.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1762463143281,
+    "modifiedTime": 1762463206463,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!p5deIKy4o5xKzCmM"
+}

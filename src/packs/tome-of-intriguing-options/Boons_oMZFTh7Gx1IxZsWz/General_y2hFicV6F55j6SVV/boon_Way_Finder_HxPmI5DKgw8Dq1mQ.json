@@ -1,0 +1,29 @@
+{
+  "folder": "y2hFicV6F55j6SVV",
+  "name": "Way-Finder",
+  "type": "boon",
+  "_id": "HxPmI5DKgw8Dq1mQ",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You have a near faultless sense of direction. You get a Bonus Die to any roll to avoid becoming lost or to find the best route to reach a destination.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1762463312766,
+    "modifiedTime": 1762463317907,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!HxPmI5DKgw8Dq1mQ"
+}

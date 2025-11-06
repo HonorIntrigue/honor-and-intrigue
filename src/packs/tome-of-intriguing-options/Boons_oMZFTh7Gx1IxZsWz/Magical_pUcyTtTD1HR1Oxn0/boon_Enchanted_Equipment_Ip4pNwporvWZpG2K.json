@@ -1,0 +1,29 @@
+{
+  "folder": "pUcyTtTD1HR1Oxn0",
+  "name": "Enchanted Equipment",
+  "type": "boon",
+  "_id": "Ip4pNwporvWZpG2K",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You begin with either two items of Lesser Enchantment or one item of Greater Enchantment.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1762462982193,
+    "modifiedTime": 1762462986478,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!Ip4pNwporvWZpG2K"
+}

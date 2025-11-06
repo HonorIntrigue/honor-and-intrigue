@@ -1,0 +1,31 @@
+{
+  "folder": "UR3TLf6RlwAUccBX",
+  "name": "Spellcaster",
+  "type": "career",
+  "_id": "th3pGsUa8uhSRIDx",
+  "img": "icons/svg/jump.svg",
+  "system": {
+    "description": "<p>The Spellcaster Career began as an idea for a something between the Magician Career and the Sorcerer, allowing flashier, “high fantasy” style magic without the evil corruption of sorcery. This is roughly analogous to the magic of the most popular fantasy RPGs, though overly powerful spells are not emulated. You begin with Arcane Power equal to your rank in Spellcaster +10. The Spellcaster Career gives no extra languages, wealth, or other additional benefits beyond the ability to cast spells. The PC should choose the character’s other Careers in order to receive these benefits.</p><p>Not just anybody can be a spellcaster. One must have “the gift” which is represented as the “Spellcaster” Boon.</p>",
+    "isArcane": true,
+    "rank": 0
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1762462806108,
+    "modifiedTime": 1762462837845,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!th3pGsUa8uhSRIDx"
+}

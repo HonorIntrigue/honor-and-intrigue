@@ -1,0 +1,29 @@
+{
+  "folder": "y2hFicV6F55j6SVV",
+  "name": "Eidetic Memory",
+  "type": "boon",
+  "_id": "frKCBB8IqzsFNjY6",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>You remember every detail of just about anything. This can be helpful when you are solving a mystery, describing something you’ve seen, determining what part of the sea you are in by the position of the stars, etc. Roll a Bonus Die in situations where the GM declares this to be useful (or the GM may simply declare you remember the key information).</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1762463289885,
+    "modifiedTime": 1762463297853,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!frKCBB8IqzsFNjY6"
+}
