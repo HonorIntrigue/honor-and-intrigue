@@ -257,6 +257,12 @@ export default class HeroSheet extends CharacterActorSheet {
     await super._preparePartContext(partId, context, options);
 
     switch (partId) {
+      case 'background':
+        context.enrichedBackground = (await Promise.all(
+          Object.entries(this.actor.system.background)
+            .map(async ([key, value]) => ({ [key]: await foundry.applications.ux.TextEditor.implementation.enrichHTML(value, { secrets: this.document.isOwner }) })),
+        )).reduce((acc, curr) => ({ ...acc, ...curr }), {});
+        break;
       case 'maneuvers':
         context.maneuvers = await this._prepareManeuversContext();
         context.offensiveEquipment = await this._prepareOffensiveEquipment();

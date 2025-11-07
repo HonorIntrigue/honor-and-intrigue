@@ -1,5 +1,51 @@
-<section class='tab {{tabs.background.id}}{{#if tabs.background.cssClass}} {{tabs.background.cssClass}}{{/if}}'
+<section class='tab scrollable {{tabs.background.id}}{{#if tabs.background.cssClass}} {{tabs.background.cssClass}}{{/if}}'
          data-group='{{tabs.background.group}}'
          data-tab='{{tabs.background.id}}'>
-  <p>background Tab</p>
+  <div class='tab-content'>
+    {{log this}}
+    <div class='background-field-group'>
+      <p class='background-field-group-title'>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Background.Description'}}</p>
+      {{> 'backgroundField' fieldName='description'}}
+    </div>
+
+    <div class='background-field-group'>
+      <p class='background-field-group-title'>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Background.Backstory'}}</p>
+      {{> 'backgroundField' fieldName='backstory'}}
+      {{formField systemFields.background.fields.origin value=system.background.origin label='HONOR_INTRIGUE.Actor.Sheet.Labels.Background.Origin'
+                  localize=true}}
+    </div>
+
+    <div class='background-field-group'>
+      <p class='background-field-group-title'>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Background.Connections'}}</p>
+      {{> 'backgroundField' fieldName='friendsAndContacts' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Background.FriendsContacts'}}
+      {{> 'backgroundField' fieldName='rivalsAndEnemies' label='HONOR_INTRIGUE.Actor.Sheet.Labels.Background.RivalsEnemies'}}
+    </div>
+
+    <div class='background-field-group'>
+      <p class='background-field-group-title'>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Background.Notes'}}</p>
+      {{#if isEditable}}
+        {{formField systemFields.notes value=system.notes enriched=enrichedNotes toggled=true}}
+      {{else}}
+        <div class='background-field-group-enriched'>
+          {{{enrichedNotes}}}
+        </div>
+      {{/if}}
+    </div>
+  </div>
 </section>
+
+{{#*inline 'backgroundField'}}
+  {{#if this.isEditable}}
+    {{formField (lookup systemFields.background.fields fieldName)
+                enriched=(lookup enrichedBackground fieldName)
+                label=label
+                localize=true
+                toggled=true
+                value=(lookup system.background fieldName)
+    }}
+  {{else}}
+    <div class='background-field-group-enriched'>
+      {{{lookup enrichedBackground fieldName}}}
+    </div>
+  {{/if}}
+{{/inline}}

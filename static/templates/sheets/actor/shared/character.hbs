@@ -29,5 +29,18 @@
       title=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Character.Flaws')
       wrapperClass='flaws-list'
     }}
+
+    {{#if (ne document.type 'hero')}}
+      <div class='background-field-group'>
+        <p class='background-field-group-title'>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Background.Notes'}}</p>
+        {{#if isEditable}}
+          {{formField systemFields.notes value=system.notes enriched=enrichedNotes toggled=true}}
+        {{else}}
+          <div class='background-field-group-enriched'>
+            {{{enrichedNotes}}}
+          </div>
+        {{/if}}
+      </div>
+    {{/if}}
   </div>
 </section>

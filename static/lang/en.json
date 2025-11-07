@@ -75,6 +75,15 @@
             "Scrambling": "Scrambling",
             "Yield": "Yield"
           },
+          "Background": {
+            "Backstory": "Backstory",
+            "Connections": "Connections",
+            "Description": "Description",
+            "FriendsContacts": "Friends & Contacts",
+            "Notes": "Notes",
+            "Origin": "Origin",
+            "RivalsEnemies": "Rivals & Enemies"
+          },
           "Character": {
             "Boons": "Boons",
             "Careers": "Careers",
@@ -98,7 +107,7 @@
             "armor": "Armor",
             "equipment": "Equipment",
             "treasure": "Treasure",
-            "weapon": "Weapons"
+            "weapon": "Arms"
           },
           "Maneuvers": {
             "Damage": "Damage",

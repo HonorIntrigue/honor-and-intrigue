@@ -1,0 +1,20 @@
+.honor-intrigue.sheet.actor {
+  .character {
+    .background-field-group {
+      gap: 0;
+
+      &-title {
+        background: light-dark(var(--color-navy), var(--color-gold-dull));
+        border: none;
+        color: light-dark(var(--color-gold-dull), var(--color-navy));
+        font-weight: bold;
+        margin: 0;
+        padding: 0.1em 0.25em;
+      }
+
+      prose-mirror.inactive, &-enriched {
+        border: 1px solid light-dark(var(--color-navy), var(--color-gold-dull));
+      }
+    }
+  }
+}

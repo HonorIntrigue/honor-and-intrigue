@@ -95,10 +95,15 @@
         padding: 1rem;
 
         prose-mirror {
+          background: var(--color-prose-background);
           flex: 1;
 
           &.active {
             border: 1px solid light-dark(var(--color-navy), var(--color-gold-dull));
+          }
+
+          &.inactive {
+            color: light-dark(var(--color-dark-2), var(--color-light-3));
           }
 
           .editor-content {

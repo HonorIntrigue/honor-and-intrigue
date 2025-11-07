@@ -342,7 +342,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
    */
   _restrictLimited(data) {
     for (const key in data) {
-      if (!['header', 'sidebar', 'content', 'character'].includes(key)) delete data[key];
+      if (!['header', 'sidebar', 'content', 'character', 'background'].includes(key)) delete data[key];
     }
   }
 }

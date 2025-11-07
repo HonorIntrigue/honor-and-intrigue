@@ -1,11 +1,15 @@
 body {
-  --color-gold: hsl(46, 100%, 48%);
   --color-gold-exp: 46, 100%, 48%;
-  --color-gold-dull: hsl(46, 25%, 50%);
-  --color-green: light-dark(hsl(116, 40%, 26%), hsl(137, 40%, 62%));
-  --color-navy: hsl(215, 25%, 21%);
-  --color-navy-light: hsl(215, 25%, 30%);
+  --color-gold-dull-exp: 46, 25%, 50%;
   --color-navy-exp: 215, 25%, 21%;
+
+  --color-gold: hsl(var(--color-gold-exp));
+  --color-gold-dull: hsl(var(--color-gold-dull-exp));
+  --color-green: light-dark(hsl(116, 40%, 26%), hsl(137, 40%, 62%));
+  --color-navy: hsl(var(--color-navy-exp));
+  --color-navy-light: hsl(215, 25%, 30%);
   --color-red: light-dark(hsl(324, 50%, 32%), hsl(360, 40%, 62%));
+
+  --color-prose-background: light-dark(hsl(var(--color-gold-dull-exp), 0.25), hsl(var(--color-navy-exp), 0.75));
   --color-text-primary: light-dark(var(--color-navy), var(--color-light-1));
 }

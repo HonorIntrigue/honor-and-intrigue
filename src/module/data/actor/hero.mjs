@@ -20,13 +20,13 @@ export default class HeroModel extends CharacterActorModel {
       spent: new fields.NumberField({ min: 0, initial: 0, integer: true }),
     });
 
-    // background
-    schema.description = new fields.HTMLField({ trim: true });
-    schema.origin = new fields.StringField({ trim: true });
-
-    // backstory
-    schema.friendsAndContacts = new fields.HTMLField({ trim: true });
-    schema.rivalsAndEnemies = new fields.HTMLField({ trim: true });
+    schema.background = new fields.SchemaField({
+      backstory: new fields.HTMLField({ trim: true }),
+      description: new fields.HTMLField({ trim: true }),
+      origin: new fields.StringField({ trim: true }),
+      friendsAndContacts: new fields.HTMLField({ trim: true }),
+      rivalsAndEnemies: new fields.HTMLField({ trim: true }),
+    });
 
     return schema;
   }

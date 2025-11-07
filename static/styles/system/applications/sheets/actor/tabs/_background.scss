@@ -1,0 +1,30 @@
+.honor-intrigue.sheet.actor {
+  .background {
+    .tab-content {
+      gap: 0;
+    }
+
+    input[type='text'] {
+      --input-background-color: var(--color-prose-background);
+    }
+
+    &-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      &-title {
+        border-bottom: 1px solid light-dark(var(--color-navy), var(--color-gold-dull));
+        font-size: var(--font-size-18);
+        margin-bottom: 0;
+      }
+
+      &-enriched {
+        background: var(--color-prose-background);
+        color: light-dark(var(--color-dark-2), var(--color-light-3));
+        min-height: 150px;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+}

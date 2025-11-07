@@ -98,7 +98,7 @@
 
 {{#*inline 'characteristic'~}}
   <div class='characteristic'>
-    {{#if rollable}}
+    {{#if (and @root.isEditable rollable)}}
       <a class='roll-icon'
          {{#if @root.isEditable}}data-action='rollCharacteristic'{{/if}}
          data-characteristic='{{dotkey}}'
