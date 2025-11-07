@@ -190,7 +190,7 @@ export default class HeroSheet extends CharacterActorSheet {
    * @return {Object|false} Returns false if this hero has no maneuvers.
    */
   async _prepareManeuversContext() {
-    const maneuvers = (await this._prepareEmbeddedItemContext('maneuver')).sort((a, b) => a.item.name.localeCompare(b.item.name));
+    const maneuvers = (await this._prepareEmbeddedItemContext('maneuver')).sort((a, b) => a.item.name.localeCompare(b.item.name, game.i18n.lang));
 
     if (maneuvers.length === 0) return false;
 

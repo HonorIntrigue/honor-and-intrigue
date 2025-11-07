@@ -62,9 +62,9 @@ export default class PartySheet extends DocumentSheetMixin(foundry.applications.
         context.members = (await Promise.all(context.system.members.map(async m => fromUuid(m)))).map(a => ({
           ...a,
           uuid: a.uuid,
-          boons: a.itemTypes['boon'].sort((a, b) => a.name.localeCompare(b.name)),
+          boons: a.itemTypes['boon'].sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang)),
           careers: a.itemTypes['career'].sort((a, b) => a.sort - b.sort),
-          flaws: a.itemTypes['flaw'].sort((a, b) => a.name.localeCompare(b.name)),
+          flaws: a.itemTypes['flaw'].sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang)),
           lifebloodPercentage: Math.round(Math.clamp(a.system.lifeblood.value / a.system.lifeblood.max, 0, 1) * 100),
         }));
         break;

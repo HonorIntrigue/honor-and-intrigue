@@ -297,8 +297,8 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
         ]);
 
         context.careers = careers;
-        context.boons = boons;
-        context.flaws = flaws;
+        context.boons = boons.sort((a, b) => a.item.name.localeCompare(b.item.name, game.i18n.lang));
+        context.flaws = flaws.sort((a, b) => a.item.name.localeCompare(b.item.name, game.i18n.lang));
         break;
       }
       case 'inventory':
