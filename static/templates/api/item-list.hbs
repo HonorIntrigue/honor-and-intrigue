@@ -42,7 +42,7 @@
                    data-adjustment='decrement'
                    data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.AdjustDecrease'><i class='fa-solid fa-minus'></i></a>
               {{/if}}
-              <span>{{entry.item.system.amount}}</span>
+              <span>{{lookup entry.item.system ../quantityFieldName}}</span>
               {{#if ../isEditable}}
                 <a data-action='adjustItem'
                    data-adjustment='increment'

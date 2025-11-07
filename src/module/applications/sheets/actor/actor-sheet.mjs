@@ -291,7 +291,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     switch (partId) {
       case 'character': {
         const [careers, boons, flaws] = await Promise.all([
-          this._prepareEmbeddedItemContext('career', (item) => ({ item: { system: { amount: item.system.rank } } })),
+          this._prepareEmbeddedItemContext('career'),
           this._prepareEmbeddedItemContext('boon'),
           this._prepareEmbeddedItemContext('flaw'),
         ]);
@@ -306,7 +306,6 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
           armor: await this._prepareEmbeddedItemContext('armor', (item) => ({
             item: {
               system: {
-                amount: item.system.quantity,
                 carriedPositionIcon: `fa-light ${item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Dropped ? 'fa-bars' : item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held ? 'fa-solid fa-shirt illuminate' : 'fa-sack'}`,
                 carriedPositionLabel: game.i18n.localize(hi.CONFIG.equipmentCarryChoices[item.system.carriedPosition].label),
               },
@@ -318,7 +317,6 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
           weapon: await this._prepareEmbeddedItemContext('weapon', (item) => ({
             item: {
               system: {
-                amount: item.system.quantity,
                 carriedPositionIcon: `fa-light ${item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Dropped ? 'fa-bars' : item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held ? 'fa-solid fa-shirt illuminate' : 'fa-sack'}`,
                 carriedPositionLabel: game.i18n.localize(hi.CONFIG.equipmentCarryChoices[item.system.carriedPosition].label),
               },
