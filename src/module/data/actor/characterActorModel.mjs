@@ -30,6 +30,15 @@ export default class CharacterActorModel extends BaseActorModel {
   }
 
   /** @inheritDoc */
+  _onUpdate(changed, options, userId) {
+    super._onUpdate(changed, options, userId);
+
+    if (userId === game.user.id && foundry.utils.hasProperty(changed, 'system.advantage')) {
+      this.parent.toggleStatusEffect('defeated', { active: changed.system.advantage === 0 });
+    }
+  }
+
+  /** @inheritDoc */
   async _preUpdate(changes, options, user) {
     const allowed = await super._preUpdate(changes, options, user);
     if (allowed === false) return false;
@@ -53,14 +62,5 @@ export default class CharacterActorModel extends BaseActorModel {
     }
 
     return true;
-  }
-
-  /** @inheritDoc */
-  _onUpdate(changed, options, userId) {
-    super._onUpdate(changed, options, userId);
-
-    if (foundry.utils.hasProperty(changed, 'system.advantage')) {
-      this.parent.toggleStatusEffect('defeated', { active: changed.system.advantage === 0 });
-    }
   }
 }

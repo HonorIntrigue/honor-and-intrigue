@@ -222,6 +222,37 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   }
 
   /** @inheritDoc */
+  _onDelete(options, userId) {
+    super._onDelete(options, userId);
+
+    if (this.party) {
+      if (game.user === this.party.parent.legalUpdater) {
+        this.party.removeMembers(this.parent);
+      }
+    }
+  }
+
+  /** @inheritDoc */
+  _onUpdate(changed, options, userId) {
+    super._onUpdate(changed, options, userId);
+
+    if (userId === game.user.id && hasProperty(changed, 'system.lifeblood.value')) {
+      if (changed.system.lifeblood.value === this.lifeblood.min) {
+        this.parent.toggleStatusEffect('dead', { active: true });
+        this.parent.toggleStatusEffect('dying', { active: false });
+      } else if (changed.system.lifeblood.value <= 0) {
+        this.parent.toggleStatusEffect('dead', { active: false });
+        this.parent.toggleStatusEffect('dying', { active: true });
+      } else {
+        this.parent.toggleStatusEffect('dead', { active: false });
+        this.parent.toggleStatusEffect('dying', { active: false });
+      }
+    }
+
+    this.party?.sheet?.render();
+  }
+
+  /** @inheritDoc */
   async _preCreate(data, options, user) {
     const allowed = await super._preCreate(data, options, user);
     if (allowed === false) return false;
@@ -281,36 +312,5 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     }
 
     return true;
-  }
-
-  /** @inheritDoc */
-  _onDelete(options, userId) {
-    super._onDelete(options, userId);
-
-    if (this.party) {
-      if (game.user === this.party.parent.legalUpdater) {
-        this.party.removeMembers(this.parent);
-      }
-    }
-  }
-
-  /** @inheritDoc */
-  _onUpdate(changed, options, user) {
-    super._onUpdate(changed, options, user);
-
-    if (hasProperty(changed, 'system.lifeblood.value')) {
-      if (changed.system.lifeblood.value === this.lifeblood.min) {
-        this.parent.toggleStatusEffect('dead', { active: true });
-        this.parent.toggleStatusEffect('dying', { active: false });
-      } else if (changed.system.lifeblood.value <= 0) {
-        this.parent.toggleStatusEffect('dead', { active: false });
-        this.parent.toggleStatusEffect('dying', { active: true });
-      } else {
-        this.parent.toggleStatusEffect('dead', { active: false });
-        this.parent.toggleStatusEffect('dying', { active: false });
-      }
-    }
-
-    this.party?.sheet?.render();
   }
 }
