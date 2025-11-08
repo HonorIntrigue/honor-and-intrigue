@@ -19,11 +19,14 @@ export default class HonorIntrigueProtectionRoll extends foundry.dice.Roll {
     if (!result) return false;
 
     const { protectionItems, rollMode } = result;
+
     const items = protectionItems.filter(item => item.toggled);
+    if (items.length === 0) return false;
+
     const roll = await this.roll(items, options);
 
     return {
-      protectionItems,
+      protectionItems: items.reduce((acc, curr) => ({ ...acc, [curr.id]: { formula: curr.protection, name: curr.name } }), {}),
       rollMode,
       rolls: [roll],
     };

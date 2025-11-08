@@ -1,5 +1,4 @@
-import { systemID, systemPath } from '../../../constants.mjs';
-import { HonorIntrigueProtectionRoll } from '../../../rolls/_module.mjs';
+import { systemPath } from '../../../constants.mjs';
 import CharacterActorSheet from './character-actor-sheet.mjs';
 
 export default class HeroSheet extends CharacterActorSheet {
@@ -7,32 +6,13 @@ export default class HeroSheet extends CharacterActorSheet {
   static DEFAULT_OPTIONS = {
     actions: {
       adjustAdvancementPoints: { handler: this.#adjustAdvancementPoints, buttons: [0, 2] },
-      adjustAdvantage: this.#adjustAdvantage,
-      populateManeuvers: this.#onPopulateManeuvers,
-      rollArmor: this.#onRollArmor,
-      rollItemDamage: this.#onRollItemDamage,
-      resetManeuvers: this.#onResetManeuvers,
-      toggleAdvantagePanel: this.#toggleAdvantagePanel,
-      toggleManeuverMastery: this.#toggleManeuverMastery,
-    },
-    window: {
-      controls: [
-        {
-          action: 'resetManeuvers',
-          icon: 'fa-solid fa-broom-wide',
-          label: 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Reset',
-          ownership: 'OWNER',
-        },
-      ],
     },
   };
 
   /** @inheritDoc */
   static PARTS = {
     ...super.PARTS,
-    maneuvers: { template: systemPath('templates/sheets/actor/hero/tabs/maneuvers.hbs'), scrollable: [''] },
-    background: { template: systemPath('templates/sheets/actor/hero/tabs/background.hbs'), scrollable: [''] },
-    effects: { template: systemPath('templates/sheets/actor/hero/tabs/effects.hbs'), scrollable: [''] },
+    background: { template: systemPath('templates/sheets/actor/hero/background.hbs'), scrollable: [''] },
   };
 
   /** @inheritDoc */
@@ -40,14 +20,9 @@ export default class HeroSheet extends CharacterActorSheet {
     ...super.TABS,
     primary: {
       ...super.TABS.primary,
-      tabs: [{ id: 'character' }, { id: 'maneuvers' }, { id: 'inventory' }, { id: 'background' }, { id: 'effects' }],
+      tabs: super.TABS.primary.tabs.concat({ id: 'background' }),
     },
   };
-
-  /**
-   * Reference to the element holding the advantage panel.
-   */
-  #advantageEl;
 
   /**
    * Adjusts the charcter's total advancement points.
@@ -56,200 +31,6 @@ export default class HeroSheet extends CharacterActorSheet {
     let change = event.type === 'click' ? 1 : -1;
     if (event.shiftKey) change *= 5;
     this.actor.update({ system: { advancementPoints: { value: Math.max(0, this.actor.system.advancementPoints.value + change) } } });
-  }
-
-  /**
-   * Adjusts the character's advantage.
-   */
-  static async #adjustAdvantage(event, target) {
-    const change = target.dataset.adjustment === 'increment' ? 1 : -1;
-    this.actor.update({ system: { advantage: this.actor.system.advantage + change } });
-  }
-
-  /**
-   * Handle header control to reset the maneuvers content.
-   */
-  static async #onResetManeuvers(event) {
-    const maneuvers = this.actor.itemTypes.maneuver;
-
-    if (maneuvers.length > 0) {
-      const confirm = await foundry.applications.api.DialogV2.confirm({
-        window: { title: game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Reset') },
-        content: game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ResetWarning'),
-      });
-
-      if (confirm) {
-        await Item.deleteDocuments(maneuvers.map(m => m.id), { parent: this.actor });
-      }
-    }
-  }
-
-  /**
-   * Roll Protection for an armor item.
-   */
-  static async #onRollArmor(event, target) {
-    const { itemId } = target.closest('.item').dataset;
-    const item = this.actor.items.get(itemId);
-
-    if (item?.type === 'armor' && item.system.protection) {
-      const result = await HonorIntrigueProtectionRoll.roll([item]);
-      await ChatMessage.create({
-        flavor: game.i18n.localize('HONOR_INTRIGUE.Chat.Roll.Flavor.Protection'),
-        rolls: [result],
-        sound: CONFIG.sounds.dice,
-        speaker: ChatMessage.getSpeaker({ actor: this.parent }),
-        system: {
-          protectionItems: [{ id: item.id, formula: item.system.protection.value, name: item.name }],
-        },
-        type: 'damageResult',
-      });
-    }
-  }
-
-  /**
-   * Roll damage for an item.
-   */
-  static async #onRollItemDamage(event, target) {
-    const { itemId } = target.closest('.item').dataset;
-    const item = this.actor.items.get(itemId);
-
-    if (item?.type !== 'weapon') return;
-
-    return item.system.rollDamage();
-  }
-
-  /**
-   * Populate this actor with default maneuvers from the system compendium.
-   */
-  static async #onPopulateManeuvers(event, target) {
-    const pack = game.packs.get(`${systemID}.maneuvers`);
-
-    if (!pack || pack.index.size === 0) {
-      ui.notifications.warn('Unable to load the system pack of maneuvers. Please check your compendium collection.');
-      return;
-    }
-
-    const docs = await pack.getDocuments();
-    const objs = docs.map(cd => game.items.fromCompendium(cd));
-
-    await Item.implementation.createDocuments(objs, { parent: this.actor });
-    return this.render({ parts: ['maneuvers'] });
-  }
-
-  /**
-   * Toggle the expanded advantage side panel.
-   */
-  static async #toggleAdvantagePanel() {
-    this.#advantageEl?.classList.toggle('expanded');
-  }
-
-  /**
-   * Toggle the mastery status of a maneuver.
-   */
-  static async #toggleManeuverMastery(event, target) {
-    const { itemId } = target.closest('.item').dataset;
-    const item = this.actor.items.get(itemId);
-
-    await item.update({ system: { isMastered: !item.system.isMastered } });
-  }
-
-  /** @inheritDoc */
-  _onPosition(position) {
-    if (this.#advantageEl) {
-      this.#advantageEl.style.left = `${position.width}px`;
-    }
-  }
-
-  /** @inheritDoc */
-  async _onRender(context, options) {
-    await super._onRender(context, options);
-
-    const rankInputs = document.querySelectorAll('.tab-content input[data-name="career-rank"]');
-    for (const input of rankInputs) {
-      input.addEventListener('change', async (event) => {
-        const { itemId } = event.target.closest('.item').dataset;
-        const item = this.actor.items.get(itemId);
-
-        await item.update({ system: { rank: event.target.value } });
-      });
-    }
-
-    const qtyInputs = document.querySelectorAll('.tab-content input[data-name="item-quantity"]');
-    for (const input of qtyInputs) {
-      input.addEventListener('change', async (event) => {
-        const { itemId } = event.target.closest('.item').dataset;
-        const item = this.actor.items.get(itemId);
-
-        await item.update({ system: { quantity: event.target.value } });
-      });
-    }
-  }
-
-  /**
-   * Prepare the context for the maneuvers view.
-   * @return {Object|false} Returns false if this hero has no maneuvers.
-   */
-  async _prepareManeuversContext() {
-    const maneuvers = (await this._prepareEmbeddedItemContext('maneuver')).sort((a, b) => a.item.name.localeCompare(b.item.name, game.i18n.lang));
-
-    if (maneuvers.length === 0) return false;
-
-    return maneuvers.reduce((acc, curr) => {
-      curr.rollable = curr.item.system.requiresCheck || curr.item.system.requiresOpposedCheck;
-      curr.tags = [];
-
-      if (curr.item.system.requiresCheck) {
-        let chk = [];
-
-        if (curr.item.system.abilityCheck.quality) {
-          chk.push(hi.CONFIG.qualities[curr.item.system.abilityCheck.quality].label);
-        }
-        if (curr.item.system.abilityCheck.combatAbility) {
-          chk.push(hi.CONFIG.combatAbilities[curr.item.system.abilityCheck.combatAbility].label);
-        }
-
-        chk = chk.map(x => game.i18n.localize(x));
-        curr.tags.push(chk.join(' + '));
-
-        if (curr.item.system.requiresOpposedCheck) {
-          chk = [];
-
-          if (curr.item.system.abilityCheck.opposedBy.quality) {
-            chk.push(hi.CONFIG.qualities[curr.item.system.abilityCheck.opposedBy.quality].label);
-          }
-          if (curr.item.system.abilityCheck.opposedBy.combatAbility) {
-            chk.push(hi.CONFIG.combatAbilities[curr.item.system.abilityCheck.opposedBy.combatAbility].label);
-          }
-          chk = chk.map(x => game.i18n.localize(x));
-
-          curr.tags.push('vs ' + chk.join(' + '));
-        }
-      }
-
-      switch (curr.item.system.actionType) {
-        case 0: acc.free.push(curr); break;
-        case 1: acc.major.push(curr); break;
-        case 2: acc.minor.push(curr); break;
-        case 3: acc.reaction.push(curr); break;
-      }
-
-      return acc;
-    }, { major: [], minor: [], free: [], reaction: [] });
-  }
-
-  /**
-   * Prepare the context for all offensive weapons and equipment.
-   */
-  async _prepareOffensiveEquipment() {
-    const weapons = await Promise.all(this.actor.items
-      .filter(i => i.type === 'weapon')
-      .filter(w => w.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held)
-      .map(async w => {
-        w.maneuvers = await Promise.all(Array.from(w.system.maneuvers).map(async m => await fromUuid(m)));
-        return w;
-      }));
-
-    return [...weapons];
   }
 
   /** @inheritDoc */
@@ -263,49 +44,8 @@ export default class HeroSheet extends CharacterActorSheet {
             .map(async ([key, value]) => ({ [key]: await foundry.applications.ux.TextEditor.implementation.enrichHTML(value, { secrets: this.document.isOwner }) })),
         )).reduce((acc, curr) => ({ ...acc, ...curr }), {});
         break;
-      case 'maneuvers':
-        context.maneuvers = await this._prepareManeuversContext();
-        context.offensiveEquipment = await this._prepareOffensiveEquipment();
-        break;
     }
 
     return context;
-  }
-
-  /** @inheritDoc */
-  async _renderHTML(context, options) {
-    const [img, label] =
-      this.actor.system.advantage === 0 ? ['advantage_defeated', 'Defeated'] :
-        this.actor.system.advantage === 1 ? ['advantage_scrambling', 'Scrambling'] :
-          this.actor.system.advantage === 2 ? ['advantage_retreating', 'Retreating'] :
-            ['advantage_en-garde', 'EnGarde'];
-    const htmlString = await foundry.applications.handlebars.renderTemplate(systemPath('templates/sheets/actor/partials/advantage-panel.hbs'), {
-      advantage: this.actor.system.advantage,
-      advantageLevelImg: systemPath(`assets/images/${img}.webp`),
-      advantageLevelLabel: game.i18n.localize(`HONOR_INTRIGUE.Actor.Sheet.Labels.Advantage.${label}`),
-      isEditable: this.isEditable,
-      offset: this.element.style.width,
-    });
-    const tempEl = document.createElement('div');
-    tempEl.innerHTML = htmlString;
-
-    const expanded = this.#advantageEl?.classList.contains('expanded');
-    this.#advantageEl = tempEl.firstElementChild;
-    this.#advantageEl.classList.toggle('expanded', !!expanded);
-
-    return await super._renderHTML(context, options);
-  }
-
-  /** @inheritDoc */
-  _replaceHTML(result, content, options) {
-    super._replaceHTML(result, content, options);
-
-    const priorEl = this.element.querySelector('.advantage-panel');
-
-    if (priorEl) {
-      priorEl.replaceWith(this.#advantageEl);
-    } else {
-      this.element.insertAdjacentElement('beforeend', this.#advantageEl);
-    }
   }
 }

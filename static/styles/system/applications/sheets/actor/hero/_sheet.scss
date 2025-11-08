@@ -5,75 +5,9 @@
 .honor-intrigue.sheet.hero {
   --portrait-size: 275px;
 
-  overflow: visible;
-
   &:not(.minimized) {
     min-height: 710px;
     min-width: 700px;
-  }
-
-  .advantage-panel {
-    background: var(--color-navy);
-    border: 1px solid var(--color-border);
-    border-top: none;
-    bottom: 0;
-    margin-left: -1px;
-    position: absolute;
-    transform: rotate(270deg);
-    transform-origin: 0 0;
-    z-index: -1;
-
-    .control-header {
-      cursor: pointer;
-      padding: 0.25rem 0.5rem;
-      text-align: center;
-    }
-
-    .advantage-panel-content {
-      display: none;
-    }
-
-    &.expanded {
-      border-left: none;
-      border-top: unset;
-      transform: none;
-
-      .control-header {
-        display: none;
-      }
-
-      .advantage-panel-content {
-        display: flex;
-        flex-direction: column;
-
-        > button {
-          --button-size: 1.25em;
-          align-self: flex-end;
-          margin-right: 0.25rem;
-          margin-top: 0.25rem;
-        }
-      }
-
-      .advantage-panel-stack {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0 0.5rem 0.5rem 0.5rem;
-        text-align: center;
-
-        button {
-          min-width: 120px;
-        }
-
-        .advantage-level {
-          text-align: center;
-        }
-      }
-    }
-  }
-
-  &.minimized .advantage-panel, &.minimizing .advantage-panel, &.maximizing .advantage-panel {
-    display: none;
   }
 
   .window-content {
@@ -81,55 +15,5 @@
       url('../assets/backgrounds/lunar_topography.webp') no-repeat scroll center right,
       light-dark(transparent, var(--color-navy));
     background-size: cover;
-  }
-
-  .tab {
-    .item-image.rollable {
-      position: relative;
-
-      &:after {
-        background: rgba(0, 0, 0, 0.5);
-        color: var(--color-gold);
-        content: '\f6cf';
-        font-family: "Font Awesome 6 Pro";
-        font-size: var(--font-size-20);
-        font-weight: 100;
-        height: 100%;
-        left: 0;
-        opacity: 0;
-        padding-top: 0.25rem;
-        position: absolute;
-        text-align: center;
-        top: 0;
-        transition: all 0.25s;
-        vertical-align: center;
-        width: 100%;
-      }
-
-      &:hover:after {
-        cursor: pointer;
-        opacity: 1;
-      }
-    }
-
-    &.maneuvers {
-      .item-embed {
-        .mastery-bonus {
-          legend {
-            font-size: var(--font-size-13);
-          }
-
-          &.mastered {
-            fieldset {
-              border-color: light-dark(var(--color-navy), var(--color-gold));
-            }
-
-            p {
-              font-weight: bold;
-            }
-          }
-        }
-      }
-    }
   }
 }

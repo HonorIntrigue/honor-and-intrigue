@@ -1,4 +1,5 @@
 import { systemPath } from '../../../constants.mjs';
+import { HonorIntrigueProtectionRoll } from '../../../rolls/_module.mjs';
 import { determineManeuverOutcome } from '../../../utils/rollUtils.mjs';
 import { DocumentSheetMixin } from '../../api/_module.mjs';
 
@@ -10,16 +11,30 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
       adjustItem: this.#onAdjustItem,
       deleteItem: this.#onDeleteItem,
       openItem: this.#onOpenItem,
+      populateManeuvers: this.#onPopulateManeuvers,
+      resetManeuvers: this.#onResetManeuvers,
       rollCharacteristic: this.#onRollCharacteristic,
       rollItem: this.#onRollItem,
+      rollItemDamage: this.#onRollItemDamage,
       rollTaggedManeuver: this.#onRollTaggedManeuver,
       toggleItemEquipped: this.#toggleItemEquipped,
       toggleItemExpanded: this.#toggleItemExpanded,
+      toggleManeuverMastery: this.#toggleManeuverMastery,
     },
     classes: ['actor'],
     position: {
       height: 800,
       width: 900,
+    },
+    window: {
+      controls: [
+        {
+          action: 'resetManeuvers',
+          icon: 'fa-solid fa-broom-wide',
+          label: 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Reset',
+          ownership: 'OWNER',
+        },
+      ],
     },
   };
 
@@ -29,6 +44,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     header: { template: systemPath('templates/sheets/actor/base/header.hbs') },
     content: { template: 'templates/generic/tab-navigation.hbs' },
     character: { template: systemPath('templates/sheets/actor/shared/character.hbs'), scrollable: [''] },
+    maneuvers: { template: systemPath('templates/sheets/actor/shared/maneuvers.hbs'), scrollable: [''] },
     inventory: { template: systemPath('templates/sheets/actor/shared/inventory.hbs'), scrollable: [''] },
   };
 
@@ -37,7 +53,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     primary: {
       initial: 'character',
       labelPrefix: 'HONOR_INTRIGUE.Actor.Sheet.Tabs',
-      tabs: [{ id: 'character' }, { id: 'inventory' }],
+      tabs: [{ id: 'character' }, { id: 'maneuvers' }, { id: 'inventory' }],
     },
   };
 
@@ -113,6 +129,42 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
   }
 
   /**
+   * Populate this actor with default maneuvers from the system compendium.
+   */
+  static async #onPopulateManeuvers() {
+    const pack = game.packs.get(`${hi.CONST.systemID}.maneuvers`);
+
+    if (!pack || pack.index.size === 0) {
+      ui.notifications.warn('Unable to load the system pack of maneuvers. Please check your compendium collection.');
+      return;
+    }
+
+    const docs = await pack.getDocuments();
+    const objs = docs.map(cd => game.items.fromCompendium(cd));
+
+    await Item.implementation.createDocuments(objs, { parent: this.actor });
+    return this.render({ parts: ['maneuvers'] });
+  }
+
+  /**
+   * Handle header control to reset the maneuvers content.
+   */
+  static async #onResetManeuvers() {
+    const maneuvers = this.actor.itemTypes.maneuver;
+
+    if (maneuvers.length > 0) {
+      const confirm = await foundry.applications.api.DialogV2.confirm({
+        window: { title: game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Reset') },
+        content: game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ResetWarning'),
+      });
+
+      if (confirm) {
+        await Item.deleteDocuments(maneuvers.map(m => m.id), { parent: this.actor });
+      }
+    }
+  }
+
+  /**
    * Begin rolling a characteristic such as a Quality or Combat Ability.
    * @param event
    * @param target Should have the target characteristic in its "dataset" field, such as <code>dataset.characteristic.qualities.might</code>.
@@ -128,9 +180,33 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     const { itemId } = target.closest('.item').dataset;
     const item = this.actor.items.get(itemId);
 
-    if (item?.type !== 'maneuver') return;
+    if (item?.type === 'armor' && item.system.protection) {
+      const result = await HonorIntrigueProtectionRoll.roll([item]);
+      return ChatMessage.create({
+        flavor: game.i18n.localize('HONOR_INTRIGUE.Chat.Roll.Flavor.Protection'),
+        rolls: [result],
+        sound: CONFIG.sounds.dice,
+        speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+        system: {
+          protectionItems: { itemId: { formula: item.protection, name: item.name } },
+        },
+        type: 'damageResult',
+      }, { rollMode: game.settings.get('core', 'rollMode') });
+    } else if (item?.type === 'maneuver') {
+      return this.#rollManeuver(item);
+    }
+  }
 
-    return this.#rollManeuver(item);
+  /**
+   * Roll damage for an item.
+   */
+  static async #onRollItemDamage(event, target) {
+    const { itemId } = target.closest('.item').dataset;
+    const item = this.actor.items.get(itemId);
+
+    if (item?.type !== 'weapon') return;
+
+    return item.system.rollDamage();
   }
 
   /**
@@ -172,6 +248,16 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
 
     const part = target.closest('[data-application-part]').dataset.applicationPart;
     this.render({ parts: [part] });
+  }
+
+  /**
+   * Toggle the mastery status of a maneuver.
+   */
+  static async #toggleManeuverMastery(event, target) {
+    const { itemId } = target.closest('.item').dataset;
+    const item = this.actor.items.get(itemId);
+
+    await item.update({ system: { isMastered: !item.system.isMastered } });
   }
 
   /**
@@ -232,6 +318,31 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
   }
 
   /** @inheritDoc */
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+
+    const rankInputs = document.querySelectorAll('.tab-content input[data-name="career-rank"]');
+    for (const input of rankInputs) {
+      input.addEventListener('change', async (event) => {
+        const { itemId } = event.target.closest('.item').dataset;
+        const item = this.actor.items.get(itemId);
+
+        await item.update({ system: { rank: event.target.value } });
+      });
+    }
+
+    const qtyInputs = document.querySelectorAll('.tab-content input[data-name="item-quantity"]');
+    for (const input of qtyInputs) {
+      input.addEventListener('change', async (event) => {
+        const { itemId } = event.target.closest('.item').dataset;
+        const item = this.actor.items.get(itemId);
+
+        await item.update({ system: { quantity: event.target.value } });
+      });
+    }
+  }
+
+  /** @inheritDoc */
   async _prepareContext(options) {
     const ctx = await super._prepareContext(options);
 
@@ -284,6 +395,73 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     return context;
   }
 
+  /**
+   * Prepare the context for the maneuvers view.
+   * @return {Object|false} Returns false if this hero has no maneuvers.
+   */
+  async _prepareManeuversContext() {
+    const maneuvers = (await this._prepareEmbeddedItemContext('maneuver')).sort((a, b) => a.item.name.localeCompare(b.item.name, game.i18n.lang));
+
+    if (maneuvers.length === 0) return false;
+
+    return maneuvers.reduce((acc, curr) => {
+      curr.rollable = curr.item.system.requiresCheck || curr.item.system.requiresOpposedCheck;
+      curr.tags = [];
+
+      if (curr.item.system.requiresCheck) {
+        let chk = [];
+
+        if (curr.item.system.abilityCheck.quality) {
+          chk.push(hi.CONFIG.qualities[curr.item.system.abilityCheck.quality].label);
+        }
+        if (curr.item.system.abilityCheck.combatAbility) {
+          chk.push(hi.CONFIG.combatAbilities[curr.item.system.abilityCheck.combatAbility].label);
+        }
+
+        chk = chk.map(x => game.i18n.localize(x));
+        curr.tags.push(chk.join(' + '));
+
+        if (curr.item.system.requiresOpposedCheck) {
+          chk = [];
+
+          if (curr.item.system.abilityCheck.opposedBy.quality) {
+            chk.push(hi.CONFIG.qualities[curr.item.system.abilityCheck.opposedBy.quality].label);
+          }
+          if (curr.item.system.abilityCheck.opposedBy.combatAbility) {
+            chk.push(hi.CONFIG.combatAbilities[curr.item.system.abilityCheck.opposedBy.combatAbility].label);
+          }
+          chk = chk.map(x => game.i18n.localize(x));
+
+          curr.tags.push('vs ' + chk.join(' + '));
+        }
+      }
+
+      switch (curr.item.system.actionType) {
+        case 0: acc.free.push(curr); break;
+        case 1: acc.major.push(curr); break;
+        case 2: acc.minor.push(curr); break;
+        case 3: acc.reaction.push(curr); break;
+      }
+
+      return acc;
+    }, { major: [], minor: [], free: [], reaction: [] });
+  }
+
+  /**
+   * Prepare the context for all offensive weapons and equipment.
+   */
+  async _prepareOffensiveEquipment() {
+    const weapons = await Promise.all(this.actor.items
+      .filter(i => i.type === 'weapon')
+      .filter(w => w.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held)
+      .map(async w => {
+        w.maneuvers = await Promise.all(Array.from(w.system.maneuvers).map(async m => await fromUuid(m)));
+        return w;
+      }));
+
+    return [...weapons];
+  }
+
   /** @inheritDoc */
   async _preparePartContext(partId, context, options) {
     await super._preparePartContext(partId, context, options);
@@ -323,6 +501,10 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
             },
           })),
         };
+        break;
+      case 'maneuvers':
+        context.maneuvers = await this._prepareManeuversContext();
+        context.offensiveEquipment = await this._prepareOffensiveEquipment();
         break;
     }
 

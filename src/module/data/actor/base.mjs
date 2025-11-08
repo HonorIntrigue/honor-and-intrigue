@@ -77,31 +77,26 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   async applyDamage({ amount, withProtection }) {
     if (withProtection) {
       const result = await HonorIntrigueProtectionRoll.prompt({ actor: this.parent });
+      if (!result) return; // prompt cancelled
 
-      if (result) {
-        const { protectionItems, rollMode, rolls } = result;
-        const { id } = await ChatMessage.create({
-          flavor: game.i18n.localize('HONOR_INTRIGUE.Chat.Roll.Flavor.Protection'),
-          rollMode,
-          rolls,
-          sound: CONFIG.sounds.dice,
-          speaker: ChatMessage.getSpeaker({ actor: this.parent }),
-          system: {
-            protectionItems: protectionItems.filter(item => item.toggled).reduce((acc, curr) => ({
-              ...acc,
-              [curr.id]: { formula: curr.protection, name: curr.name },
-            }), {}),
-            total: amount,
-          },
-          type: 'damageResult',
-        }, { rollMode });
+      const { protectionItems, rollMode, rolls } = result;
+      const { id } = await ChatMessage.create({
+        flavor: game.i18n.localize('HONOR_INTRIGUE.Chat.Roll.Flavor.Protection'),
+        rolls,
+        sound: CONFIG.sounds.dice,
+        speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+        system: {
+          protectionItems,
+          total: amount,
+        },
+        type: 'damageResult',
+      }, { rollMode });
 
-        if (game.dice3d?.waitFor3DAnimationByMessageID instanceof Function) {
-          await game.dice3d.waitFor3DAnimationByMessageID(id);
-        }
-
-        amount = Math.max(1, amount - rolls[0].total);
+      if (game.dice3d?.waitFor3DAnimationByMessageID instanceof Function) {
+        await game.dice3d.waitFor3DAnimationByMessageID(id);
       }
+
+      amount = Math.max(1, amount - rolls[0].total);
     }
 
     return this.parent.update({ 'system.lifeblood.value': this.lifeblood.value - amount });
