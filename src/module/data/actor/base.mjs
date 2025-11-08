@@ -286,13 +286,21 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       changes.system.lifeblood.value = Math.max(changes.system.lifeblood.value, min);
       if (max) changes.system.lifeblood.value = Math.min(changes.system.lifeblood.value, max);
 
-      if (this.messageOnLifebloodChange) {
-        const diff = Math.abs(this.lifeblood.value - changes.system.lifeblood.value);
-        if (diff !== 0) {
+      const change = changes.system.lifeblood.value - this.lifeblood.value;
+      const diff = Math.abs(change);
+      if (diff !== 0) {
+        const tokens = this.parent.getActiveTokens();
+        for (const token of tokens) {
+          canvas.interface.createScrollingText(token.getCenterPoint(), change.signedString(), {
+            fill: change > 0 ? 'green' : 'red',
+          }).catch();
+        }
+
+        if (this.messageOnLifebloodChange) {
           let messageKey = '';
 
-          if (changes.system.lifeblood.value > this.lifeblood.value) messageKey = 'HONOR_INTRIGUE.Chat.Result.LifebloodGain';
-          else if (changes.system.lifeblood.value < this.lifeblood.value) messageKey = 'HONOR_INTRIGUE.Chat.Result.LifebloodLoss';
+          if (change > 0) messageKey = 'HONOR_INTRIGUE.Chat.Result.LifebloodGain';
+          else if (change < 0) messageKey = 'HONOR_INTRIGUE.Chat.Result.LifebloodLoss';
 
           await ChatMessage.create({
             content: game.i18n.format(messageKey, { amount: diff, name: this.parent.name }),
