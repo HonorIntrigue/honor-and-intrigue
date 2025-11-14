@@ -29,10 +29,11 @@ export default base => {
 
       return {
         ...ctx,
+        gm: game.user.isGM,
         isEditable: this.isEditable,
         isLimited: this.document.limited,
         isOwner: this.document.isOwner,
-        gm: game.user.isGM,
+        isNPC: this.document.type !== 'hero',
         system: this.document.system,
         systemFields: this.document.system.schema.fields,
         useAlternateD10: game.settings.get(systemID, 'd10') === true,

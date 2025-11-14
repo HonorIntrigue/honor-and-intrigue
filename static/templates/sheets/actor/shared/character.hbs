@@ -30,14 +30,14 @@
       wrapperClass='flaws-list'
     }}
 
-    {{#if (ne document.type 'hero')}}
+    {{#if isNPC}}
       <div class='background-field-group'>
         <p class='background-field-group-title'>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Background.Notes'}}</p>
         {{#if isEditable}}
-          {{formField systemFields.notes value=system.notes enriched=enrichedNotes toggled=true}}
+          {{formField notes.field value=notes.value enriched=notes.enriched toggled=true}}
         {{else}}
           <div class='background-field-group-enriched'>
-            {{{enrichedNotes}}}
+            {{{notes.enriched}}}
           </div>
         {{/if}}
       </div>

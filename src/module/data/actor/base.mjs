@@ -39,7 +39,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       adjustment: new fields.NumberField({ initial: 0, integer: true }),
       value: new fields.NumberField({ min: 0, initial: 0, integer: true }),
     }));
-    schema.notes = new fields.HTMLField({ textSearch: true, trim: true });
+    schema.notes = new fields.HTMLField({ textSearch: true });
 
     return schema;
   }
