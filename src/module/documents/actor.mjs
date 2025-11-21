@@ -68,4 +68,11 @@ export default class HonorIntrigueActor extends foundry.documents.Actor {
 
     super.toggleStatusEffect(statusId, { active, overlay });
   }
+
+  /** @inheritDoc */
+  _onEmbeddedDocumentChange() {
+    super._onEmbeddedDocumentChange();
+
+    this.system.party?.parent.sheet?.render();
+  }
 }
