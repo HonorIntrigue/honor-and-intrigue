@@ -1,3 +1,4 @@
+export { default as ActionItemSheet } from './action-sheet.mjs';
 export { default as ArmorItemSheet } from './armor-sheet.mjs';
 export { default as BoonFlawItemSheet } from './boon-flaw-sheet.mjs';
 export { default as CareerItemSheet } from './career-sheet.mjs';

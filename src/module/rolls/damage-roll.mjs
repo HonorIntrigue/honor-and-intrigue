@@ -45,7 +45,7 @@ export default class HonorIntrigueDamageRoll extends foundry.dice.Roll {
     if (!result) return false;
 
     const { rollMode, modifiers } = result;
-    const baseTerm = new Die({ number: result.numDice, faces: result.dieSize });
+    const baseTerm = new Die({ number: result.numDice ?? 0, faces: result.dieSize ?? 0 });
     const roll = new this(baseTerm.formula, options.data, {});
 
     if (result.flatModifier !== 0) {

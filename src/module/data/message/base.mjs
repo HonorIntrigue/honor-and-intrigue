@@ -7,9 +7,10 @@ export default class BaseMessageModel extends HonorIntrigueSystemModel {
 
     return {
       target: new fields.DocumentUUIDField({ required: false, initial: () => game.user.targets.first()?.actor?.uuid }),
-      targets: new fields.SetField(new fields.DocumentUUIDField({ nullable: false }), {
-        initial: () => Array.from(game.user.targets.map(t => t.actor?.uuid)),
-      }),
+      targets: new fields.SetField(
+        new fields.DocumentUUIDField({ nullable: false }),
+        { initial: () => Array.from(game.user.targets.map(t => t.actor?.uuid)) },
+      ),
     };
   }
 

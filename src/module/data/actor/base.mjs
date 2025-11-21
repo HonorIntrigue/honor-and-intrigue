@@ -35,6 +35,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       min: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       value: new fields.NumberField({ min: -6, initial: 1, integer: true, nullable: false, required: true }),
     });
+
     schema.arcanePower = new fields.SchemaField(({
       adjustment: new fields.NumberField({ initial: 0, integer: true }),
       value: new fields.NumberField({ min: 0, initial: 0, integer: true }),
@@ -201,19 +202,16 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     options.system.modifiers.penalties = modifiers.penalties;
     options.system.modifiers.flatModifier = modifiers.flat;
 
-    const messageData = {
+    return ChatMessage.create({
       flags: { core: { canPopout: true }, [systemID]: (options.flags || {}) },
       flavor: options.title ?? flavor,
       rolls,
-      rollMode,
       sound: CONFIG.sounds.dice,
       speaker: ChatMessage.getSpeaker({ actor: this.parent }),
       system: options.system,
       title: options.title ?? flavor,
       type: options.type,
-    };
-
-    return ChatMessage.create(messageData);
+    }, { rollMode });
   }
 
   /** @inheritDoc */

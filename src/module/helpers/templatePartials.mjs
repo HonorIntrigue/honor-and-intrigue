@@ -6,4 +6,5 @@ export default [
   'templates/sheets/actor/icons/d6.hbs',
   'templates/sheets/actor/icons/d10.hbs',
   'templates/sheets/actor/icons/d20.hbs',
+  'templates/sheets/item/partials/ability-check.hbs',
 ];

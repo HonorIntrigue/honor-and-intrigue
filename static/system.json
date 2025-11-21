@@ -30,6 +30,7 @@
       "quality": {}
     },
     "Item": {
+      "action": { "htmlFields": ["description"] },
       "armor": { "htmlFields": ["description"] },
       "boon": { "htmlFields": ["description"] },
       "career": { "htmlFields": ["description"] },

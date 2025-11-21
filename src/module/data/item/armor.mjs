@@ -19,7 +19,7 @@ export default class ArmorModel extends EquipmentModel {
     const schema = super.defineSchema();
 
     schema.protection = new fields.SchemaField({
-      dieSize: new fields.NumberField({ choices: hi.CONFIG.damageDiceValues, initial: 6, integer: true, nullable: false }),
+      dieSize: new fields.NumberField({ choices: hi.CONFIG.damageDiceValues, initial: 6, integer: true, nullable: true }),
       flatModifier: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       numDice: new fields.NumberField({ initial: 1, integer: true, min: 1 }),
     });
@@ -31,14 +31,6 @@ export default class ArmorModel extends EquipmentModel {
   prepareDerivedData() {
     super.prepareDerivedData();
 
-    this.protection.value = '';
-
-    if (this.protection.numDice) {
-      this.protection.value = `${this.protection.numDice}d${this.protection.dieSize}`;
-    }
-
-    if (this.protection.flatModifier !== 0) {
-      this.protection.value += this.protection.flatModifier.signedString();
-    }
+    this.protection.value = hi.utils.valueFromFormulaField(this.protection);
   }
 }

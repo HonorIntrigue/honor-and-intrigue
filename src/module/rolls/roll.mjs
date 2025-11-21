@@ -71,13 +71,13 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
    * Constructs an appropriate OperatorTerm and NumericTerm for the given value.
    * @param {Number} value
    * @param {Object} options
-   * @param {Boolean} [options.inverse] Inverse the number before considering its value.
+   * @param {Boolean} [options.negative] Use the negative of the number before considering its value, for applying subtraction.
    * @returns {[OperatorTerm, NumericTerm]}
    */
-  static constructNumericTerm(value, { inverse = false } = {}) {
+  static constructNumericTerm(value, { negative = false } = {}) {
     if (isNaN(value) || value === 0) return [];
 
-    if (inverse) value *= -1;
+    if (negative && value > 0) value *= -1;
 
     return [
       new OperatorTerm({ operator: value > 0 ? '+' : '-' }),
@@ -143,9 +143,9 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
 
     if (options.system.targetModifiers) {
       roll.terms.push(
-        ...this.constructNumericTerm(options.system.targetModifiers.quality?.value, { inverse: true }),
-        ...this.constructNumericTerm(options.system.targetModifiers.combatAbility?.value, { inverse: true }),
-        ...this.constructNumericTerm(options.system.targetModifiers.flatModifier?.value, { inverse: true }),
+        ...this.constructNumericTerm(options.system.targetModifiers.quality?.value, { negative: true }),
+        ...this.constructNumericTerm(options.system.targetModifiers.combatAbility?.value, { negative: true }),
+        ...this.constructNumericTerm(options.system.targetModifiers.flatModifier, { negative: true }),
       );
     }
 

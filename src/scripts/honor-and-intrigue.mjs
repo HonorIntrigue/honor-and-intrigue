@@ -89,6 +89,11 @@ Hooks.once('init', () => {
 
   Items.unregisterSheet('core', foundry.applications.sheets.ItemSheetV2);
   Items.registerSheet(HI_CONST.systemID, applications.sheets.itemSheets.HonorIntrigueItemSheet);
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.itemSheets.ActionItemSheet, {
+    types: ['action'],
+    makeDefault: true,
+    label: 'TYPES.Item.action',
+  });
   Items.registerSheet(HI_CONST.systemID, applications.sheets.itemSheets.ArmorItemSheet, {
     types: ['armor'],
     makeDefault: true,

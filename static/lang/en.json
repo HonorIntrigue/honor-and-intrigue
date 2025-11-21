@@ -110,6 +110,7 @@
             "weapon": "Arms"
           },
           "Maneuvers": {
+            "Actions": "Actions",
             "Damage": "Damage",
             "Free": "Free Action Maneuvers",
             "Major": "Major Action Maneuvers",
@@ -135,10 +136,12 @@
           "stash": "Stash"
         },
         "Tooltips": {
+          "ActionAbilityTooltip": "Roll {ability}",
           "AdjustDecrease": "Decrease",
           "AdjustIncrease": "Increase",
           "AtALoss": "<center>At a Loss</center><br/>You are in some manner severely distracted or impaired, albeit temporarily. You may be confused, disoriented, unbalanced, etc. You have -2 to all rolls and Defense.",
           "CreateItem": "Create Item",
+          "CreateSimpleAction": "Create an Action",
           "Delete": "Delete",
           "Edit": "Edit",
           "SendToChat": "Send to Chat"
@@ -181,6 +184,7 @@
       },
       "Roll": {
         "Flavor": {
+          "Action": "{action}",
           "Characteristic": "Ability Check: {characteristic}",
           "Damage": "{weapon} Damage",
           "Maneuver": "Maneuver: {maneuver}",
@@ -237,6 +241,7 @@
       },
       "Defaults": {
         "ItemName": {
+          "action": "New Action",
           "armor": "New Armor",
           "boon": "New Boon",
           "career": "New Career",

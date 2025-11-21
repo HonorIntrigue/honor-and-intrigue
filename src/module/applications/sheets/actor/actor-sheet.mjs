@@ -40,7 +40,10 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
 
   /** @inheritDoc */
   static PARTS = {
-    sidebar: { template: systemPath('templates/sheets/actor/base/sidebar.hbs'), scrollable: ['.characteristics-grid-container'] },
+    sidebar: {
+      template: systemPath('templates/sheets/actor/base/sidebar.hbs'),
+      scrollable: ['.characteristics-grid-container'],
+    },
     header: { template: systemPath('templates/sheets/actor/base/header.hbs') },
     content: { template: 'templates/generic/tab-navigation.hbs' },
     character: { template: systemPath('templates/sheets/actor/shared/character.hbs'), scrollable: [''] },
@@ -192,6 +195,8 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
         },
         type: 'damageResult',
       }, { rollMode: game.settings.get('core', 'rollMode') });
+    } else if (item?.type === 'action') {
+      return this.#rollAction(item);
     } else if (item?.type === 'maneuver') {
       return this.#rollManeuver(item);
     }
@@ -204,7 +209,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     const { itemId } = target.closest('.item').dataset;
     const item = this.actor.items.get(itemId);
 
-    if (item?.type !== 'weapon') return;
+    if (item?.type !== 'action' && item?.type !== 'weapon') return;
 
     return item.system.rollDamage();
   }
@@ -258,6 +263,26 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     const item = this.actor.items.get(itemId);
 
     await item.update({ system: { isMastered: !item.system.isMastered } });
+  }
+
+  /**
+   * Parse an action for its roll options and kick off the roll.
+   */
+  async #rollAction(action, options = {}) {
+    const { abilityCheck } = action.system;
+    options.modifiers ??= {};
+    options.system ??= {};
+    options.system.maneuver = action.uuid;
+    options.title ??= game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Action', { action: action.name });
+    options.type = 'maneuver';
+
+    if (abilityCheck.combatAbility) options.modifiers.combatAbility = abilityCheck.combatAbility;
+    if (abilityCheck.flatModifier) options.modifiers.flat = abilityCheck.flatModifier;
+
+    const message = await this.actor.rollCharacteristic(`qualities.${abilityCheck.quality}`, options);
+    if (message) message.update({ 'system.outcome': determineManeuverOutcome(message.rolls[0]) });
+
+    return message;
   }
 
   /**
@@ -507,6 +532,10 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
         };
         break;
       case 'maneuvers':
+        context.actions = await this._prepareEmbeddedItemContext('action', (item) => ({
+          ...item,
+          rollable: item.system.requiresCheck || item.system.requiresOpposedCheck,
+        }));
         context.maneuvers = await this._prepareManeuversContext();
         context.offensiveEquipment = await this._prepareOffensiveEquipment();
         break;

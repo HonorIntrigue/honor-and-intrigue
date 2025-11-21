@@ -28,10 +28,12 @@
                 <i class='fa-solid fa-grip-dots-vertical'></i>
               </a>
             {{/if}}
-            <div class='item-image {{#if entry.rollable}}rollable{{/if}}'
-                 {{#if entry.rollable}}data-action='rollItem'{{/if}}>
-              <img src='{{entry.item.img}}' alt='{{entry.item.name}}'>
-            </div>
+            {{#unless ../noImg}}
+              <div class='item-image {{#if entry.rollable}}rollable{{/if}}'
+                   {{#if entry.rollable}}data-action='rollItem'{{/if}}>
+                <img src='{{entry.item.img}}' alt='{{entry.item.name}}'>
+              </div>
+            {{/unless}}
             <div class='item-name' {{#if ../isEditable}}data-action='toggleItemExpanded'{{/if}}>{{entry.item.name}}</div>
           </div>
 

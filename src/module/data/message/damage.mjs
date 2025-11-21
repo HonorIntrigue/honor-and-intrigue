@@ -7,9 +7,7 @@ const fields = foundry.data.fields;
 export default class DamageMessageModel extends BaseMessageModel {
   /** @inheritDoc */
   static get metadata() {
-    return {
-      type: 'damage',
-    };
+    return { type: 'damage' };
   }
 
   /** @inheritDoc */

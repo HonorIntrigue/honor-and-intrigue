@@ -1,5 +1,22 @@
 export default class HonorIntrigueItem extends foundry.documents.Item {
   /** @inheritDoc */
+  static async createDialog(data = {}, createOptions = {}, dialogOptions = {}) {
+    return super.createDialog(data, createOptions, {
+      types: [
+        'armor',
+        'boon',
+        'career',
+        'equipment',
+        'flaw',
+        'maneuver',
+        'treasure',
+        'weapon',
+      ],
+      ...dialogOptions,
+    });
+  }
+
+  /** @inheritDoc */
   static getDefaultArtwork(itemData) {
     if (CONFIG.Item.dataModels[itemData.type]?.DEFAULT_ICON) {
       return { img: CONFIG.Item.dataModels[itemData.type].DEFAULT_ICON };

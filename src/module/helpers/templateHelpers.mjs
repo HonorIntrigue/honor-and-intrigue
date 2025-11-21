@@ -13,38 +13,61 @@ export function initialize() {
  * @param {Object} item
  */
 export function getItemControls(item) {
-  let result = '';
+  const result = document.createElement('div');
+  let child;
 
   switch (item.type) {
-    case 'armor':
-    case 'weapon': {
-      result = document.createElement('a');
-      result.dataset.action = 'toggleItemEquipped';
-      result.dataset.tooltip = item.system.carriedPositionLabel;
-      result.insertAdjacentHTML('beforeend', `<i class='${item.system.carriedPositionIcon}'></i>`);
+    case 'action': {
+      if (item.system.requiresCheck || item.system.requiresOpposedCheck) {
+        child = document.createElement('a');
+        child.dataset.action = 'rollItem';
+        child.dataset.tooltip = game.i18n.format('HONOR_INTRIGUE.Actor.Sheet.Tooltips.ActionAbilityTooltip', { ability: item.system.abilityTooltip });
+        child.insertAdjacentHTML('beforeend', '<i class="fa-solid fa-dice-d20"></i>');
+        result.appendChild(child);
+      }
+
+      if (item.system.dealsDamage) {
+        child = document.createElement('a');
+        child.dataset.action = 'rollItemDamage';
+        child.dataset.tooltip = game.i18n.format('HONOR_INTRIGUE.Actor.Sheet.Tooltips.ActionAbilityTooltip', { ability: item.system.damageTooltip });
+        child.insertAdjacentHTML('beforeend', '<i class="fa-solid fa-bomb"></i>');
+        result.appendChild(child);
+      }
+
       break;
     }
-    case 'maneuver': {
-      if (item.system.mastery) {
-        result = document.createElement('a');
-        result.dataset.action = 'toggleManeuverMastery';
-        result.dataset.tooltip = game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ToggleMastery');
-        result.insertAdjacentHTML('beforeend', `<i class='fa-${item.system.isMastered ? 'solid illuminate' : 'light'} fa-star-shooting'></i>`);
-      }
+    case 'armor':
+    case 'weapon': {
+      child = document.createElement('a');
+      child.dataset.action = 'toggleItemEquipped';
+      child.dataset.tooltip = item.system.carriedPositionLabel;
+      child.insertAdjacentHTML('beforeend', `<i class='${item.system.carriedPositionIcon}'></i>`);
+      result.appendChild(child);
       break;
     }
     case 'career': {
       if (item.system.isArcane) {
-        result = document.createElement('a');
-        result.dataset.tooltip = game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Careers.FIELDS.isArcane.hint');
-        result.insertAdjacentHTML('beforeend', '<i class="fa-solid illuminate fa-hat-wizard"></i>');
+        child = document.createElement('a');
+        child.dataset.tooltip = game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Careers.FIELDS.isArcane.hint');
+        child.insertAdjacentHTML('beforeend', '<i class="fa-solid illuminate fa-hat-wizard"></i>');
+        result.appendChild(child);
+      }
+      break;
+    }
+    case 'maneuver': {
+      if (item.system.mastery) {
+        child = document.createElement('a');
+        child.dataset.action = 'toggleManeuverMastery';
+        child.dataset.tooltip = game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ToggleMastery');
+        child.insertAdjacentHTML('beforeend', `<i class='fa-${item.system.isMastered ? 'solid illuminate' : 'light'} fa-star-shooting'></i>`);
+        result.appendChild(child);
       }
       break;
     }
   }
 
-  if (result) result = result.outerHTML;
-  return new Handlebars.SafeString(result);
+  // if (result) result = result.outerHTML;
+  return new Handlebars.SafeString(result.innerHTML);
 }
 
 /**

@@ -21,39 +21,13 @@ export default class WeaponItemSheet extends HonorIntrigueItemSheet {
   };
 
   /** @inheritDoc */
-  async _preparePartContext(partId, context, options) {
-    const ctx = await super._preparePartContext(partId, context, options);
-
-    if (partId === 'details') {
-      const { damageFormula } = context.system;
-
-      ctx.damageString = `${damageFormula.numDice}d${damageFormula.dieSize}`;
-
-      if (damageFormula.flatModifier > 0) ctx.damageString += ` + ${damageFormula.flatModifier}`;
-      else if (damageFormula.flatModifier < 0) ctx.damageString += ` - ${Math.abs(damageFormula.flatModifier)}`;
-    }
-
-    return ctx;
-  }
-
-  /** @inheritDoc */
   _processFormData(event, form, formData) {
-    const damageString = formData.get('damageString').replace(/\s/g, '');
-    formData.delete('damageString');
+    const data = super._processFormData(event, form, formData);
 
-    const parsedDamageString = /(\d+)d(\d+)([+-]\d+)?/.exec(damageString);
-
-    if (parsedDamageString?.length >= 3) {
-      formData.set('system.damageFormula.numDice', parsedDamageString[1]);
-      formData.set('system.damageFormula.dieSize', parsedDamageString[2]);
-
-      if (parsedDamageString[3]) {
-        formData.set('system.damageFormula.flatModifier', parsedDamageString[3]);
-      } else {
-        formData.set('system.damageFormula.flatModifier', 0);
-      }
+    if (foundry.utils.hasProperty(data, 'system.damageFormula.value') && !!data.system.damageFormula.value) {
+      data.system.damageFormula = hi.utils.valueToFormulaField(data.system.damageFormula.value);
     }
 
-    return super._processFormData(event, form, formData);
+    return data;
   }
 }

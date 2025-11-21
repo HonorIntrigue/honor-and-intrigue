@@ -20,9 +20,9 @@ export default class WeaponModel extends EquipmentModel {
     const schema = super.defineSchema();
 
     schema.damageFormula = new fields.SchemaField({
-      dieSize: new fields.NumberField({ choices: hi.CONFIG.damageDiceValues, initial: 6, integer: true, nullable: false }),
+      dieSize: new fields.NumberField({ choices: hi.CONFIG.damageDiceValues, initial: 6, integer: true, nullable: true }),
       flatModifier: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
-      numDice: new fields.NumberField({ initial: 1, integer: true, min: 1, nullable: false }),
+      numDice: new fields.NumberField({ initial: 1, integer: true, min: 1 }),
     });
     schema.handsHeld = new fields.NumberField({ initial: 0, integer: true, min: 0, max: 3, nullable: false });
     schema.loadActions = new fields.NumberField({ initial: 0, integer: true, min: 0 });
@@ -44,6 +44,13 @@ export default class WeaponModel extends EquipmentModel {
     if (item?.type === 'weapon') {
       return item.system.rollDamage({ maneuver });
     }
+  }
+
+  /** @inheritDoc */
+  prepareDerivedData() {
+    super.prepareDerivedData();
+
+    this.damageFormula.value = hi.utils.valueFromFormulaField(this.damageFormula);
   }
 
   /**
@@ -69,10 +76,7 @@ export default class WeaponModel extends EquipmentModel {
       rollMode,
       sound: CONFIG.sounds.dice,
       speaker: ChatMessage.getSpeaker({ actor: this.parent }),
-      system: {
-        targets: options.maneuver?.targets ?? [],
-        uuid: this.parent.uuid,
-      },
+      system: { uuid: this.parent.uuid },
       title: options.title,
       type: 'damage',
     }, { rollMode });
