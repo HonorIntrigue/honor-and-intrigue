@@ -139,6 +139,7 @@
           "ActionAbilityTooltip": "Roll {ability}",
           "AdjustDecrease": "Decrease",
           "AdjustIncrease": "Increase",
+          "AdjustProseSize": "Left-click to increase editor size, right-click to decrease<br/>Hold Shift to adjust in larger increments",
           "AtALoss": "<center>At a Loss</center><br/>You are in some manner severely distracted or impaired, albeit temporarily. You may be confused, disoriented, unbalanced, etc. You have -2 to all rolls and Defense.",
           "CreateItem": "Create Item",
           "CreateSimpleAction": "Create an Action",

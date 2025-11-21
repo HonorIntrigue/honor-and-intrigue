@@ -42,6 +42,8 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     }));
     schema.notes = new fields.HTMLField({ textSearch: true });
 
+    schema.elementOverrides = new fields.TypedObjectField(new fields.TypedObjectField(new fields.StringField()), { required: false });
+
     return schema;
   }
 

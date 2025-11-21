@@ -307,6 +307,36 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     return message;
   }
 
+  /**
+   * Adjusts the height of a prose-mirror element.
+   * @param {EditorView} proseEditor
+   * @param {MouseEvent|PointerEvent} event
+   */
+  async adjustProseHeight(proseEditor, event) {
+    const change = event.type === 'click' ? 1 : -1;
+    const el = proseEditor.view.dom.closest('prose-mirror');
+    const currValue = getComputedStyle(el).getPropertyValue('--min-height').replace('px', '');
+
+    if (currValue) {
+      const scale = event.shiftKey ? 40 : 20;
+      const newValue = `${parseInt(currValue) + (change * scale)}px`;
+      el.style.setProperty('--min-height', newValue);
+
+      if (el.name && this.document.system.elementOverrides) {
+        const fieldName = el.name.replaceAll('.', '_');
+        await this.document.update({
+          'system.elementOverrides': {
+            ...this.document.system.elementOverrides,
+            [fieldName]: {
+              ...this.document.system.elementOverrides[fieldName],
+              '--min-height': newValue,
+            },
+          },
+        }, { render: false });
+      }
+    }
+  }
+
   /** @inheritDoc */
   _configureRenderParts(options) {
     const parts = super._configureRenderParts(options);
@@ -340,13 +370,23 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     await super._onFirstRender(context, options);
 
     this._createContextMenu(this._getItemListContextOptions, '.item-list .item[data-item-id]', { parentClassHooks: false });
+
+    Hooks.on('proseMirrorMenu.activateListeners', (prose, html) => {
+      if (!this.element.contains(html)) return;
+
+      const btn = html.querySelector('button[data-action="adjust-height"]');
+      if (btn) {
+        btn.addEventListener('click', (evt) => this.adjustProseHeight(prose, evt));
+        btn.addEventListener('contextmenu', (evt) => this.adjustProseHeight(prose, evt));
+      }
+    });
   }
 
   /** @inheritDoc */
   async _onRender(context, options) {
     await super._onRender(context, options);
 
-    const rankInputs = document.querySelectorAll('.tab-content input[data-name="career-rank"]');
+    const rankInputs = this.element.querySelectorAll('.tab-content input[data-name="career-rank"]');
     for (const input of rankInputs) {
       input.addEventListener('change', async (event) => {
         const { itemId } = event.target.closest('.item').dataset;
@@ -356,7 +396,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
       });
     }
 
-    const qtyInputs = document.querySelectorAll('.tab-content input[data-name="item-quantity"]');
+    const qtyInputs = this.element.querySelectorAll('.tab-content input[data-name="item-quantity"]');
     for (const input of qtyInputs) {
       input.addEventListener('change', async (event) => {
         const { itemId } = event.target.closest('.item').dataset;
@@ -364,6 +404,16 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
 
         await item.update({ system: { quantity: event.target.value } });
       });
+    }
+
+    for (const [key, overrides] of Object.entries(this.actor.system.elementOverrides)) {
+      const el = this.element.querySelector(`[name="${key.replaceAll('_', '.')}"]`);
+
+      if (el) {
+        for (const [k, v] of Object.entries(overrides)) {
+          el.style.setProperty(k, v);
+        }
+      }
     }
   }
 

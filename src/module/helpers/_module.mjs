@@ -1,5 +1,6 @@
 import { initialize as initializeHandlebars } from './templateHelpers.mjs';
 
+export * from './decorators.mjs';
 export * from './hotReload.mjs';
 export { default as HonorIntrigueKeybindings } from './keybindings.mjs';
 export * from './localization.mjs';

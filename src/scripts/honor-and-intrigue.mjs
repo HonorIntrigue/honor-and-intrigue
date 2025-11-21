@@ -133,5 +133,13 @@ Hooks.once('ready', async () => {
   await game.settings.set(systemID, 'createdParty', true);
 });
 
+Hooks.on('getProseMirrorMenuItems', (el, items) => applications.hooks.adjustProseMenuItems(items));
 Hooks.on('renderChatMessageHTML', applications.hooks.renderChatMessageHTML);
+
+// Monkey-patch the activateListeners function to get a hook when the menu items are rendered.
+helpers.override(foundry.prosemirror.ProseMirrorMenu.prototype, 'activateListeners', helpers.after(function(html) {
+  Hooks.callAll('proseMirrorMenu.activateListeners', this, html);
+}));
+
+// TODO dev helper -- remove during CI/CD
 Hooks.on('hotReload', helpers.hotReload);

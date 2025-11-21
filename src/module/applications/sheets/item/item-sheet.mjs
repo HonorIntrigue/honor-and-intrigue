@@ -56,7 +56,7 @@ export default class HonorIntrigueItemSheet extends DocumentSheetMixin(foundry.a
     const { id } = await ActiveEffect.implementation.create({ name: game.i18n.localize('HONOR_INTRIGUE.Item.Defaults.RuleName') }, { parent: this.item });
     await this.render({ parts: ['rules'] });
 
-    const el = document.querySelector(`.effect-item[data-effect-id="${id}"]`);
+    const el = this.element.querySelector(`.effect-item[data-effect-id="${id}"]`);
 
     if (el) {
       el.scrollIntoView();
