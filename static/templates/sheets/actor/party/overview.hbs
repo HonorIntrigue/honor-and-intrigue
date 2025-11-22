@@ -6,7 +6,7 @@
       <div class='party-member' data-member-uuid='{{member.uuid}}'>
         <div class='party-member-portrait' data-action='openMember'>
           <img src='{{member.img}}' alt='{{member.name}}'>
-          <div class='party-member-lifeblood'>
+          <div class='party-member-lifeblood' data-tooltip='HONOR_INTRIGUE.Sheet.Labels.Lifeblood'>
             <span class='party-member-lifeblood-background'></span>
             <span class='party-member-lifeblood-foreground' style='width: {{member.lifebloodPercentage}}%'></span>
             <span class='party-member-lifeblood-value'>
@@ -14,12 +14,20 @@
               {{member.system.lifeblood.value}} / {{member.system.lifeblood.max}}
             </span>
           </div>
+          <div class='party-member-composure' data-tooltip='HONOR_INTRIGUE.Sheet.Labels.Composure'>
+            <span class='party-member-composure-background'></span>
+            <span class='party-member-composure-foreground' style='width: {{member.composurePercentage}}%'></span>
+            <span class='party-member-composure-value'>
+              <i class='fa-solid fa-head-side-brain'></i>
+              {{member.system.composure}} / 3
+            </span>
+          </div>
         </div>
         <div class='party-member-details'>
           <div class='party-member-details-header'>
             <div class='party-member-details-header-name'>
               <span data-action='openMember'>{{member.name}}</span>
-              <div class='party-member-details-header-fortune'>
+              <div class='party-member-details-header-fortune' data-tooltip='HONOR_INTRIGUE.Sheet.Labels.FortunePoints'>
                 <span>{{member.system.fortune.value}}</span>
                 <i class='fa-solid fa-stars'></i>
               </div>

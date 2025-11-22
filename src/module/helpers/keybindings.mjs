@@ -9,7 +9,21 @@ export default class HonorIntrigueKeybindings {
       openPartySheet: {
         name: 'HONOR_INTRIGUE.KEYBINDING.OpenPartySheet',
         editable: [{ key: 'KeyP' }],
-        onUp: async () => game.actors.party?.sheet?.render(true),
+        onUp: async () => {
+          const party = game.actors.party;
+          if (!party) return false;
+
+          const { sheet } = party;
+          if (sheet.rendered) {
+            if (sheet.minimized) {
+              sheet.maximize();
+            } else {
+              sheet.close();
+            }
+          } else {
+            sheet.render(true);
+          }
+        },
       },
     };
   }

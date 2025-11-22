@@ -348,6 +348,7 @@
   "TYPES": {
     "Actor": {
       "hero": "Hero",
+      "party": "Party",
       "pawn": "Pawn",
       "retainer": "Retainer",
       "villain": "Villain",

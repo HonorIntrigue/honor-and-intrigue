@@ -65,6 +65,7 @@ export default class PartySheet extends DocumentSheetMixin(foundry.applications.
           boons: a.itemTypes['boon'].sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang)),
           careers: a.itemTypes['career'].sort((a, b) => a.sort - b.sort),
           flaws: a.itemTypes['flaw'].sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang)),
+          composurePercentage: Math.round(Math.clamp(a.system.composure / 3, 0, 1) * 100),
           lifebloodPercentage: Math.round(Math.clamp(a.system.lifeblood.value / a.system.lifeblood.max, 0, 1) * 100),
         }));
         break;

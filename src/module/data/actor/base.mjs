@@ -244,7 +244,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       }
     }
 
-    this.party?.sheet?.render();
+    this.party?.parent.sheet?.render();
   }
 
   /** @inheritDoc */

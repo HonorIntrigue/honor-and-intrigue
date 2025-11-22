@@ -1,5 +1,5 @@
 /**
- * Monkey-patch decorates inspired by https://me.dt.in.th/page/JavaScript-override/
+ * Monkey-patch decorates inspired by https://me.dt.in.th/page/JavaScript-override/.
  *
  * @example Patch String#replaceAll() to always return uppercase
  * ```js
@@ -18,8 +18,8 @@ export function after(fn) {
       const result = original.apply(this, arguments);
       fn.apply(this, arguments);
       return result;
-    }
-  }
+    };
+  };
 }
 
 /**
@@ -30,8 +30,8 @@ export function before(fn) {
     return function() {
       fn.apply(this, arguments);
       return original.apply(this, arguments);
-    }
-  }
+    };
+  };
 }
 
 /**
@@ -42,8 +42,8 @@ export function chain(fn) {
   return function(original) {
     return function() {
       return fn.call(this, original.apply(this, arguments));
-    }
-  }
+    };
+  };
 }
 
 /**
