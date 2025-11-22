@@ -6,9 +6,6 @@ export default class FlawModel extends BaseItemModel {
 
   /** @inheritDoc */
   static get metadata() {
-    return {
-      ...super.metadata,
-      type: 'flaw',
-    };
+    return { ...super.metadata, type: 'flaw' };
   }
 }

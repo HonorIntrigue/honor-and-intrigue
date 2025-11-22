@@ -1,7 +1,5 @@
 import HonorIntrigueSystemModel from '../system-model.mjs';
 
-const fields = foundry.data.fields;
-
 export default class BaseItemModel extends HonorIntrigueSystemModel {
   /**
    * The default icon for newly created model documents.
@@ -13,6 +11,8 @@ export default class BaseItemModel extends HonorIntrigueSystemModel {
 
   /** @inheritDoc */
   static defineSchema() {
+    const fields = foundry.data.fields;
+
     return {
       description: new fields.HTMLField({ textSearch: true, trim: true }),
     };

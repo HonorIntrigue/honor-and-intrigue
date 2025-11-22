@@ -1,7 +1,5 @@
 import BaseItemModel from './base.mjs';
 
-const fields = foundry.data.fields;
-
 export default class EquipmentModel extends BaseItemModel {
   /** @inheritDoc */
   static get metadata() {
@@ -10,6 +8,7 @@ export default class EquipmentModel extends BaseItemModel {
 
   /** @inheritDoc */
   static defineSchema() {
+    const fields = foundry.data.fields;
     const schema = super.defineSchema();
 
     schema.carriedPosition = new fields.NumberField({ choices: hi.CONFIG.equipmentCarryChoices, initial: hi.CONFIG.CARRY_CHOICE.Stowed, integer: true });

@@ -1,21 +1,17 @@
 import EquipmentModel from './equipment.mjs';
 
-const fields = foundry.data.fields;
-
 export default class ArmorModel extends EquipmentModel {
   /** @inheritDoc */
   static DEFAULT_ICON = 'icons/svg/ice-shield.svg';
 
   /** @inheritDoc */
   static get metadata() {
-    return {
-      ...super.metadata,
-      type: 'armor',
-    };
+    return { ...super.metadata, type: 'armor' };
   }
 
   /** @inheritDoc */
   static defineSchema() {
+    const fields = foundry.data.fields;
     const schema = super.defineSchema();
 
     schema.protection = new fields.SchemaField({

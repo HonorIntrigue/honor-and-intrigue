@@ -7,10 +7,7 @@ export default class ManeuverModel extends ActionModel {
 
   /** @inheritDoc */
   static get metadata() {
-    return {
-      ...super.metadata,
-      type: 'maneuver',
-    };
+    return { ...super.metadata, type: 'maneuver' };
   }
 
   /** @inheritDoc */

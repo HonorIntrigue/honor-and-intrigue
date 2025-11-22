@@ -6,9 +6,6 @@ export default class BoonModel extends BaseItemModel {
 
   /** @inheritDoc */
   static get metadata() {
-    return {
-      ...super.metadata,
-      type: 'boon',
-    };
+    return { ...super.metadata, type: 'boon' };
   }
 }

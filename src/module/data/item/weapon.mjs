@@ -1,22 +1,18 @@
 import { HonorIntrigueDamageRoll } from '../../rolls/_module.mjs';
 import EquipmentModel from './equipment.mjs';
 
-const fields = foundry.data.fields;
-
 export default class WeaponModel extends EquipmentModel {
   /** @inheritDoc */
   static DEFAULT_ICON = 'icons/svg/sword.svg';
 
   /** @inheritDoc */
   static get metadata() {
-    return {
-      ...super.metadata,
-      type: 'weapon',
-    };
+    return { ...super.metadata, type: 'weapon' };
   }
 
   /** @inheritDoc */
   static defineSchema() {
+    const fields = foundry.data.fields;
     const schema = super.defineSchema();
 
     schema.damageFormula = new fields.SchemaField({
