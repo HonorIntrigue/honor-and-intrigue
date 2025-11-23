@@ -1,0 +1,47 @@
+{
+  "folder": "EPIBSDg5drCAZg8U",
+  "name": "Goad",
+  "type": "maneuver",
+  "_id": "5i0BOFjs52HJmwEl",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>Goad is a new Repartee mode of attack that is similar to a Taunt or Intimidation. However, while Taunt works by trying to embarrass an enemy to fluster them and Intimidation attempts to weaken their resolve to fight, Goad is in essence daring an enemy to hit you. It is a challenge to their courage. If you succeed, the enemy will have a Penalty Die to attack anybody but you. If you fail, the enemy gets a Bonus Die to attack you. Either way, you get their attention. This effect ends instantly if you or the enemy is attacked by anybody else. This technique can be an effective way to initiate a one-on-one duel even in the midst of a crowded melee, possibly enticing an enemy to pursue you across some precarious terrain and ordering lackeys to leave you to them.</p>",
+    "actionType": 1,
+    "abilityCheck": {
+      "flatModifier": 0,
+      "opposedBy": {
+        "flatModifier": 0,
+        "quality": "daring",
+        "combatAbility": ""
+      },
+      "quality": "daring",
+      "combatAbility": ""
+    },
+    "damageFormula": {
+      "dieSize": null,
+      "flatModifier": 0,
+      "numDice": null
+    },
+    "isMastered": false,
+    "mastery": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763861308637,
+    "modifiedTime": 1763861333397,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!5i0BOFjs52HJmwEl"
+}

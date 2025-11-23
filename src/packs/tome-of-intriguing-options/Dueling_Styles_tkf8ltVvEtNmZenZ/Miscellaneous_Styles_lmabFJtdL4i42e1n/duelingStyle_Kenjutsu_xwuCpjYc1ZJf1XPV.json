@@ -1,0 +1,46 @@
+{
+  "folder": "lmabFJtdL4i42e1n",
+  "name": "Kenjutsu",
+  "type": "duelingStyle",
+  "_id": "xwuCpjYc1ZJf1XPV",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Kenjutsu is a style from Japan that uses a katana wielded in two hands. It would be exceptionally rare in a campaign set in Europe but could potentially have been brought by a traveler. Kenjutsu focuses on speed and timing one’s strikes to defeat one’s opponent.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>You get +1 to Initiative Rolls and do +1 damage when wielding a katana in two hands.</p>",
+      "name": "Great Speed"
+    },
+    "finalSecret": {
+      "description": "<p>You spin with your blade in a whirling frenzy. You may spend a Fortune Point to make a free Bladework attack at -2 to hit, even if you have no remaining actions.</p>",
+      "name": "Steel Whirlwind"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.khWeFrnk4uBq9r5o",
+      "Compendium.honor-and-intrigue.maneuvers.Item.IAylyL2DjpGoR9a8",
+      "Compendium.honor-and-intrigue.maneuvers.Item.VWYkrcMKlXbl4THn",
+      "Compendium.honor-and-intrigue.maneuvers.Item.lgMH7U0CRuLvSJ6H",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq"
+    ],
+    "weaponry": "Katana"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763862517802,
+    "modifiedTime": 1763862585293,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!xwuCpjYc1ZJf1XPV"
+}

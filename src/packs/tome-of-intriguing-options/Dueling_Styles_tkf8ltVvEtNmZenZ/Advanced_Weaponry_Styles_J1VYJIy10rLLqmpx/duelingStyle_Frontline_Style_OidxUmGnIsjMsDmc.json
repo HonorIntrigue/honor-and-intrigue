@@ -1,0 +1,46 @@
+{
+  "folder": "J1VYJIy10rLLqmpx",
+  "name": "Frontline Style",
+  "type": "duelingStyle",
+  "_id": "OidxUmGnIsjMsDmc",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Based on techniques taught for ground engagements using automatic weapons, the Frontline Style emphasizes the quality of quantity.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>You ignore the -2 penalty to hit while hip-firing. You can arm and throw a grenade in a single Major Action.</p>",
+      "name": "Going In Hot"
+    },
+    "finalSecret": {
+      "description": "<p>Using Footwork for advantageous position, you get +2 Defense or Ranged. You also get a Bonus Die to evade explosions.</p>",
+      "name": "Take Cover"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.khWeFrnk4uBq9r5o",
+      "Compendium.honor-and-intrigue.maneuvers.Item.MI7jswpD4ADR7W6r",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.2g4bUyp38pdxQpth"
+    ],
+    "weaponry": "Blaster carbine, blast cannon, shotgun, repeating rifle, or submachine gun"
+  },
+  "effects": [],
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763863925075,
+    "modifiedTime": 1763863985577,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!OidxUmGnIsjMsDmc"
+}

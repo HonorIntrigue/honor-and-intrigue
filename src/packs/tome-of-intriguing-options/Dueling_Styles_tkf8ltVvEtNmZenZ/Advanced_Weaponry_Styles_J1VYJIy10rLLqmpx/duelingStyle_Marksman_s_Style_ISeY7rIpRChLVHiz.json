@@ -1,0 +1,46 @@
+{
+  "folder": "J1VYJIy10rLLqmpx",
+  "name": "Marksman’s Style",
+  "type": "duelingStyle",
+  "_id": "ISeY7rIpRChLVHiz",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Based on techniques employed by snipers and bounty hunters, the Marksman’s Style emphasizes accuracy over everything else.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>You can make Tag and Disarm attempts at range, replacing Melee with Ranged Combat Ability. Flair is used to hit with both Maneuvers, and range penalties apply on top of any other difficulty to the shot. A ranged Disarm attempt is always considered a “Quick Disarm”, thus incurring a Penalty Die on the roll. An opponent who is successfully Disarmed in this fashion also has a Close Call.</p>",
+      "name": "Trick Shooting"
+    },
+    "finalSecret": {
+      "description": "<p>If your weapon is ready to fire, you can spend a Fortune Point to make a free Ranged attack against an enemy within range that is about to attack you or an ally. This hasty shot has a Penalty Die on the damage roll. If the shot kills the target, their attack never occurs. If the target survives, their attack is made with a Penalty Die.</p>",
+      "name": "Snapshot"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.MI7jswpD4ADR7W6r",
+      "Compendium.honor-and-intrigue.maneuvers.Item.2g4bUyp38pdxQpth",
+      "Compendium.honor-and-intrigue.maneuvers.Item.TAMEMFI6zngPDVJv",
+      "Compendium.honor-and-intrigue.maneuvers.Item.qqisCOKRlMDStsAu",
+      "Compendium.honor-and-intrigue.maneuvers.Item.foPWobJ7yEjiw2HM"
+    ],
+    "weaponry": "Laser musket, disruptor rifle, or bolt- action rifle, usually with a scope"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763864217504,
+    "modifiedTime": 1763864290576,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!ISeY7rIpRChLVHiz"
+}

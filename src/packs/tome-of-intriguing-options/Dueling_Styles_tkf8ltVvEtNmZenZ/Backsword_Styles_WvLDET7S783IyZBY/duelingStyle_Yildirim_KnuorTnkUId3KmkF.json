@@ -1,0 +1,46 @@
+{
+  "folder": "WvLDET7S783IyZBY",
+  "name": "Yildirim",
+  "type": "duelingStyle",
+  "_id": "KnuorTnkUId3KmkF",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>While the Eastern Style, in its many variations, is the dominant style of swordsmanship with a single backsword, it is not the only style. The Yildirim style, originating in Turkey, translates to “lightning”. Like the Eastern Style, Yıldırım focuses on speed, but instead of defense, channels that speed offensively. A Yildirim swordsman is constantly advancing, even when under attack. A Yildirim swordsman avoids retreat whenever possible, and circles around an opponent to cut off his escape.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>You can utilize any of the Yildirim Maneuvers while charging (except Stop-Thrust). If you make a Minor Action while charging that receives the bonus, and you have a Major Action remaining, you can apply the charging bonus to both rolls (the Defense penalty also stacks with any others). So if you charge and Feint followed by Lunge, you can apply the +1 bonus to both the Feint and the Lunge. You are also an extremely fast runner, getting +5’ to your base movement speed, and +1 on rolls involving running on foot.</p>",
+      "name": "Charge!"
+    },
+    "finalSecret": {
+      "description": "<p>When you take damage from an opponent with whom you are engaged in hand to hand combat, and do not Yield Advantage, you can make a Bladework attack against that opponent immediately after taking the damage if you are still conscious.</p>",
+      "name": "I Do Not Yield"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.jUdyCVdnMEame7DG",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.qqisCOKRlMDStsAu",
+      "Compendium.honor-and-intrigue.maneuvers.Item.pQ8P2Iyr1rH0D85X",
+      "Compendium.honor-and-intrigue.maneuvers.Item.IAylyL2DjpGoR9a8"
+    ],
+    "weaponry": "A scimitar"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763860494264,
+    "modifiedTime": 1763860591277,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!KnuorTnkUId3KmkF"
+}

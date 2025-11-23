@@ -1,0 +1,46 @@
+{
+  "name": "Old Style",
+  "type": "duelingStyle",
+  "_id": "Diesc2oslvSPQD9A",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>This style of swordsmanship is what remains of knightly fighting with sword &amp; shield, using a broadsword and buckler (or fist). It is waning in popularity among gentry, but the military and traditionalists continue to favor this style. Though it has its roots in chivalry, the style itself is not chivalrous, as groin kicks were among the favorite moves.</p>",
+    "active": false,
+    "finalSecret": {
+      "description": "<p>You have become an expert at using the buckler and sword in harmony. Whenever you get a Mighty Success with the buckler (whether this is for an attack, Parry, Hilt Punch, or any other combat roll) you get a free Bladework attack with the broadsword.</p><p>Note: In Germany there is a variant of this style that uses a <em>Zweihänder</em> (Greatsword) instead of a broadsword and buckler. Their Final Secret grants a free sword attack if you get a Mighty Success with a non-damaging Maneuver, such as Dirty Fighting or Shove/Trip.</p>",
+      "name": "My Sword and Shield are One"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.PaCId9kKui2AiYje",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.M4J96MGZ96eMkACf"
+    ],
+    "weaponry": "Broadsword and buckler or a gauntleted fist",
+    "benefit": {
+      "name": "Iron Resolve",
+      "description": "<p>The ferocity of the Old Style enables the swordsman to remain conscious at 0 Lifeblood.</p>"
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763857895178,
+    "modifiedTime": 1763860737314,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!Diesc2oslvSPQD9A"
+}

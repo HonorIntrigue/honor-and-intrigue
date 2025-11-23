@@ -1,0 +1,46 @@
+{
+  "folder": "rsFwGaiHNHQap8lA",
+  "name": "Zweihander Style",
+  "type": "duelingStyle",
+  "_id": "QtAR62a14MDi1Nyj",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Derived from the Old Style, the Zweihander Style remains in use in Germany where it is common among the Doppelsöldner mercenaries clad in their bright motley uniforms. Because the two styles carry so much in common, it is very possible to master both the Old Style and the Zweihander Style (you do have to buy both Boons). While the two styles cannot be used simultaneously, you still would gain the additional Advantage for mastering each, as you are yet more experienced with another type of weaponry.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>The ferocity of the Zweihander Style enables the swordsman to remain conscious at 0 Lifeblood.</p>",
+      "name": "Iron Resolve"
+    },
+    "finalSecret": {
+      "description": "<p>You have become an expert at using your body and sword in harmony. Whenever you get a Mighty Success with a non-damaging Maneuver, such as Dirty Fighting, Beat, or Shove/Trip, you get a free Bladework Attack with the greatsword.</p>",
+      "name": "My Sword and Body are One"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.PaCId9kKui2AiYje",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.M4J96MGZ96eMkACf"
+    ],
+    "weaponry": "A greatsword (zweihander) usually combined with kicks, headbutts, and elbow-jabs"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763860997346,
+    "modifiedTime": 1763861090578,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!QtAR62a14MDi1Nyj"
+}

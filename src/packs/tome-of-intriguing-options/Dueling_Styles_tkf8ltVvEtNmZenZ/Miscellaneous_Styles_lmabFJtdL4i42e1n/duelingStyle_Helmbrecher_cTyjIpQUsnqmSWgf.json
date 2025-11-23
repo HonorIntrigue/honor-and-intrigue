@@ -1,0 +1,46 @@
+{
+  "folder": "lmabFJtdL4i42e1n",
+  "name": "Helmbrecher",
+  "type": "duelingStyle",
+  "_id": "cTyjIpQUsnqmSWgf",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>From the German for “helmet breaker”, the Helmbrecher style emphasizes the use of the mace or hammer to punch through heavy armor. While some may hold the sword in high esteem, Helmbrecher is about results rather than style. While by default it uses a one-handed weapon, it can be adapted to use a two-handed variant.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>Bladework attacks against armored opponents ignore 1 point of Protection.</p>",
+      "name": "Crack"
+    },
+    "finalSecret": {
+      "description": "<p>Bladework attacks against armored opponents ignore 2 points of Protection.</p>",
+      "name": "Shatter"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.RH0Lkzmoc1gTnZ0v",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.lgMH7U0CRuLvSJ6H"
+    ],
+    "weaponry": "Mace or Hammer"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763862680515,
+    "modifiedTime": 1763862740153,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!cTyjIpQUsnqmSWgf"
+}

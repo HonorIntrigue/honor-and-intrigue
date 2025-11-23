@@ -1,0 +1,46 @@
+{
+  "folder": "P98APDiY0Pto4cMa",
+  "name": "Lanzamiento",
+  "type": "duelingStyle",
+  "_id": "6Ejtz9O9jUpVfh0H",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>It is said that this style was started by a juggler who'd accidentally spilled a noble’s drink during his act. The juggler was challenged to a duel, and accepted. On the day of the duel, each fighter was allowed a choice of swords and daggers. Rather than one of each, the juggler simply chose two daggers. When the duel began, each man circled the other, sizing them up and planning their approach. As the noble lunged forward, two knives flew at him. Dodging one put him directly in the path of the other, striking him down.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>You can throw a dagger to use the Tag Maneuver, using Ranged instead of Melee. You can use the Barehand Parry Maneuver to defend against thrown weapons (including grenades), arrows, and similar ranged attacks. If you succeed, you take no damage and you also catch the weapon. You can spend 1 Fortune to immediately throw it back.</p>",
+      "name": "Catch as Catch Can"
+    },
+    "finalSecret": {
+      "description": "<p>When you use the Ranged Attack, Tag, or Staple action to throw a knife, you can split your action up to four times instead of the usual two. When you do so, the penalty you take to hit is equal to the number of knives you choose to throw (to a maximum of four). So you could throw four knives, with a -4 Penalty to hit with each or three knives with a -3 Penalty to hit with each. You can add your full Might to damage with thrown knives. You do not gain +1 Advantage for mastering this style.</p>",
+      "name": "Flurry of Knives"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.khWeFrnk4uBq9r5o",
+      "Compendium.honor-and-intrigue.maneuvers.Item.Y5xRklDmpCAG2pJv",
+      "Compendium.honor-and-intrigue.maneuvers.Item.foPWobJ7yEjiw2HM",
+      "Compendium.honor-and-intrigue.maneuvers.Item.qqisCOKRlMDStsAu",
+      "Compendium.honor-and-intrigue.maneuvers.Item.beGKvhwMXJ9LZgTB"
+    ],
+    "weaponry": "Throwing Knives or Daggers"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763861726756,
+    "modifiedTime": 1763861798568,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!6Ejtz9O9jUpVfh0H"
+}

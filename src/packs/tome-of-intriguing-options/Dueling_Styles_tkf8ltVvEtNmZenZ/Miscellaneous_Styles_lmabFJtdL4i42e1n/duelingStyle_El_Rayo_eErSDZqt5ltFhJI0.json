@@ -1,0 +1,46 @@
+{
+  "folder": "lmabFJtdL4i42e1n",
+  "name": "El Rayo",
+  "type": "duelingStyle",
+  "_id": "eErSDZqt5ltFhJI0",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Translated as “Lightning”, the El Rayo style teaches people how to fight very effectively with a whip. Speed and sheer boldness make this style stand out. Because this style often employs the whip as a tool for acrobatic stunts, the Born Athlete Boon is recommended.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>While using a whip, you can make the Grapple and Shove/Trip maneuvers using Flair instead of Might. You may also make the Quick Cut Maneuver with a whip (normally Quick Cut is only for bladed weapons). When using a whip to do Quick Cut, it does 1d2 damage each hit instead of half normal damage (but you cannot add your Might to this damage).</p>",
+      "name": "Swift as Lightning"
+    },
+    "finalSecret": {
+      "description": "<p>You are extremely adept at performing Stunts to take down Pawns. When using your whip to perform a stunt (like swinging into a group of Pawns like a wrecking ball, tripping them to fall like dominoes down the stairs, or simply cracking the whip to terrorize them into fleeing), you get a Bonus Die.</p>",
+      "name": "Master of Stunts"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.qqisCOKRlMDStsAu",
+      "Compendium.honor-and-intrigue.maneuvers.Item.UHHv4NevJTltv9Eg",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.TAMEMFI6zngPDVJv",
+      "Compendium.honor-and-intrigue.maneuvers.Item.VWYkrcMKlXbl4THn"
+    ],
+    "weaponry": "Whip"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763863604646,
+    "modifiedTime": 1763863670349,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!eErSDZqt5ltFhJI0"
+}

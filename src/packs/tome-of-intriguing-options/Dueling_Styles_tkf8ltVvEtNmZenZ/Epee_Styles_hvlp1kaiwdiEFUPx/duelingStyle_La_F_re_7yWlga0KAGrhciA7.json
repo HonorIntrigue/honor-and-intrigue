@@ -1,0 +1,46 @@
+{
+  "folder": "hvlp1kaiwdiEFUPx",
+  "name": "La Fère",
+  "type": "duelingStyle",
+  "_id": "7yWlga0KAGrhciA7",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Named for le Comte de la Fère, it is a style not invented by him but much associated with his employment of it. The style superficially resembles the French or Toreador Styles, employing an epee in one hand and a cape in the off-hand. However, it is an aggressive style, using the cape as though it were a weapon, often concealing a crushing fist.</p>",
+    "active": false,
+    "finalSecret": {
+      "description": "<p>When you strike an enemy with a Brawling attack, you get a Bonus Die to hit and damage with Bladework attacks against that enemy until the end of your next turn. This effect ends if you Yield Advantage in the meantime.</p>",
+      "name": "Relentless Attacker"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.jUdyCVdnMEame7DG",
+      "Compendium.honor-and-intrigue.maneuvers.Item.TAMEMFI6zngPDVJv",
+      "Compendium.honor-and-intrigue.maneuvers.Item.M4J96MGZ96eMkACf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.beGKvhwMXJ9LZgTB"
+    ],
+    "weaponry": "An epee and a cloak",
+    "benefit": {
+      "name": "The Iron Fist in the Velvet Cloak",
+      "description": "<p>You may use a cloak to Beat and Disarm, and you may also use it to Barehand Parry (as well as Cloak Parry). The cloak-covered hand has Protection of 1d2 if not protected by a heavy glove. When you get a Mighty Success using the cloak, you may make a free Brawling attack. You get +1 to any rolls to Goad an enemy while wielding a cloak.</p>"
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763858816957,
+    "modifiedTime": 1763859389577,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!7yWlga0KAGrhciA7"
+}

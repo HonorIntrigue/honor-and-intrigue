@@ -1,0 +1,46 @@
+{
+  "folder": "J1VYJIy10rLLqmpx",
+  "name": "Holdout Arsenal",
+  "type": "duelingStyle",
+  "_id": "bDzzKrQKqZrS3EuZ",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>The winner in almost any battle, is the one who is best prepared for it. This style is favored by bounty hunters and mercenaries eager to stay one step ahead of their foes via unorthodox equipment and tactics so they may be ready for any situation.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>You can use the Feint or Dirty Fighting Maneuver with a ranged weapon within one Range Increment using Ranged instead of Melee. To benefit from the Feint, you must attack with a different weapon (either Feint with your Magnificent Technology or attack with it). You get 1 extra Equipment Point as from the Magnificent Technology Boon.</p>",
+      "name": "Bring Them In Warm"
+    },
+    "finalSecret": {
+      "description": "<p>A Mighty Success with a Minor Action from one of the style's Maneuvers confers +1d6 Damage against the same target with your next Ranged Attack or Bladework against them if you hit. You get 2 extra Equipment Points as the Magnificent Technology Boon.</p>",
+      "name": "Bring Them In Cold"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.jUdyCVdnMEame7DG",
+      "Compendium.honor-and-intrigue.maneuvers.Item.UHHv4NevJTltv9Eg",
+      "Compendium.honor-and-intrigue.maneuvers.Item.khWeFrnk4uBq9r5o",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.PaCId9kKui2AiYje"
+    ],
+    "weaponry": "Magnificent Technology (Grappler Bracer, Hidden Weapon Gauntlet, etc.)."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763864138841,
+    "modifiedTime": 1763864208188,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!bDzzKrQKqZrS3EuZ"
+}

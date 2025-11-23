@@ -1,0 +1,46 @@
+{
+  "folder": "hvlp1kaiwdiEFUPx",
+  "name": "Toreador",
+  "type": "duelingStyle",
+  "_id": "TPe29KqnH5ScfeA3",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Inspired by the tradition of bullfighting, the Toreador style teaches the swordsman to wield a sword in one hand and use a cape in the other to distract and confuse.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>You have honed the art of misdirection to become deadly. On a successful Feint, you can use the Bonus Die for damage instead of to hit.</p><p>Against large animals or monsters, you do +2 Dmg.</p><p>You also get +1 to any rolls to Trick or Taunt an enemy while wielding a cape.</p>",
+      "name": "Ven, Toro!"
+    },
+    "finalSecret": {
+      "description": "<p>You get a Bonus Die to damage with a successful Riposte if it follows a Dodge or Cloak Parry. An enemy that charges you has a Penalty Die to damage, as you are adept in evading the worst of such an attack.</p>",
+      "name": "Deadly Diversion"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.jUdyCVdnMEame7DG",
+      "Compendium.honor-and-intrigue.maneuvers.Item.2g4bUyp38pdxQpth",
+      "Compendium.honor-and-intrigue.maneuvers.Item.jKm7owbaLovix1mg",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oFiMpGLjnJyBmMUz"
+    ],
+    "weaponry": "An epee and cape"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763859745697,
+    "modifiedTime": 1763859831889,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!TPe29KqnH5ScfeA3"
+}

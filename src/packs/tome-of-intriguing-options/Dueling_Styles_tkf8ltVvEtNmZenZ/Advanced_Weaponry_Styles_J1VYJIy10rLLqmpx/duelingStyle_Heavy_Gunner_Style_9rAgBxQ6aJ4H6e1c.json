@@ -1,0 +1,46 @@
+{
+  "folder": "J1VYJIy10rLLqmpx",
+  "name": "Heavy Gunner Style",
+  "type": "duelingStyle",
+  "_id": "9rAgBxQ6aJ4H6e1c",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Heavy gunners wield heavy fully automatic weapons, acting as key support for a squad either covering their retreat or pressing their advance, often against superior numbers.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>When using Sweeping Fire only one die (the higher) is reduced, not both. When using Suppressing Fire, you add a Penalty Die every two rounds, not each round.</p>",
+      "name": "Steady Spray"
+    },
+    "finalSecret": {
+      "description": "<p>When you use Concentrated Fire with a bipod or tripod, you also roll a Bonus Die on the damage roll. When you spend a Fortune to avoid a ranged attack, you do not suffer a Close Call. When you are laying Suppressing Fire, spending a Fortune Point does not break your fire. Damage can, but you may make a Might +Career Test with a difficulty equal to half the damage to continue firing instead.</p>",
+      "name": "Relentless"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.foPWobJ7yEjiw2HM",
+      "Compendium.honor-and-intrigue.maneuvers.Item.MI7jswpD4ADR7W6r",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq"
+    ],
+    "weaponry": "Heavy blaster carbine, light machine gun"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763864068267,
+    "modifiedTime": 1763864140481,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!9rAgBxQ6aJ4H6e1c"
+}

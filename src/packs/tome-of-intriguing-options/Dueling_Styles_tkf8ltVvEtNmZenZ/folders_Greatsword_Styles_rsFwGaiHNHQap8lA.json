@@ -1,0 +1,22 @@
+{
+  "type": "Item",
+  "folder": "tkf8ltVvEtNmZenZ",
+  "name": "Greatsword Styles",
+  "color": null,
+  "sorting": "a",
+  "_id": "rsFwGaiHNHQap8lA",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp",
+    "modifiedTime": 1763860952077
+  },
+  "_key": "!folders!rsFwGaiHNHQap8lA"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "Item",
+  "folder": "tkf8ltVvEtNmZenZ",
+  "name": "Broadsword Styles",
+  "color": null,
+  "sorting": "a",
+  "_id": "4mr99yhOtKPIOqLY",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!4mr99yhOtKPIOqLY"
+}

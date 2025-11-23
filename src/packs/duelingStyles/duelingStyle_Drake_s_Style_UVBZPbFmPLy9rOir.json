@@ -1,0 +1,46 @@
+{
+  "name": "Drake's Style",
+  "type": "duelingStyle",
+  "_id": "UVBZPbFmPLy9rOir",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Supposedly started by the famous Sea Dog himself, this style teaches buccaneers how to fight for their freedom from the lash or the noose using any means necessary. The student wields a cutlass in the main hand, and another weapon in the off-hand. This other weapon can be a second cutlass, an axe, a hook-hand, a knife, belaying pin, pistol butt, or any other relatively short weapon that happens to be lying around.</p>",
+    "active": false,
+    "finalSecret": {
+      "description": "<p>You have become so fierce you deal +1 damage with whatever weapon you are using in your off-hand, so long as it is a weapon that could be used with Drake’s school. So a boarding axe, hook-hand, belaying pin, pistol butt, etc. each becomes more deadly when wielded by you along with a cutlass.</p>",
+      "name": "Cross Bones"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.M4J96MGZ96eMkACf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.PaCId9kKui2AiYje",
+      "Compendium.honor-and-intrigue.maneuvers.Item.VWYkrcMKlXbl4THn",
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf"
+    ],
+    "weaponry": "A cutlass and a short off-hand weapon (either a cutlass, axe, hook-hand, knife, club, or even improvised weapon)",
+    "benefit": {
+      "name": "Any Port in a Storm",
+      "description": "<p>Swordsmen of Drake's Style ignore the penalties for using improvised weapons. In addition, you are also so accustomed to the pitch and roll of the sea that you do not suffer any penalty while Balancing and get a Bonus Die to avoid being knocked down whenever you are hit while Balancing.</p>"
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763857986100,
+    "modifiedTime": 1763860240358,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!UVBZPbFmPLy9rOir"
+}

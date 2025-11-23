@@ -1,0 +1,21 @@
+{
+  "type": "Item",
+  "folder": "tkf8ltVvEtNmZenZ",
+  "name": "Ranged Styles",
+  "color": null,
+  "sorting": "a",
+  "_id": "P98APDiY0Pto4cMa",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!P98APDiY0Pto4cMa"
+}

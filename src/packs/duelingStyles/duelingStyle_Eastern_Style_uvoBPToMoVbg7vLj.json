@@ -1,0 +1,46 @@
+{
+  "name": "Eastern Style",
+  "type": "duelingStyle",
+  "_id": "uvoBPToMoVbg7vLj",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Also called “the Polish Style,” this style is also common throughout Eastern Europe, including Russia and the Ottoman Empire. In Poland (and Eastern Europe in general) the side sword worn by nobility is not the rapier, but the saber. As it was originally designed for men on horseback, this style focuses on attacking the opponent’s upper body in a box-shaped pattern of attack. The proper stance with this style is to hold your saber high with your off-hand tucked behind your back, or gripping the reigns of your horse.</p><p>The name of the Eastern Style, of course, comes from the perspective of Western Europeans. The style itself goes by many names, depending on the nation in which it is used, and each has its own variations in technique as well. Weaponry also varies from Polish and Russian sabers to Arabic scimitars (all varieties of backswords). Below are some sample names you can use for the style based on region (you might even swap a Maneuver for another to further individualize them).</p><p><strong>Arabia</strong>: Saif</p><p><strong>Morocco</strong>: Nimcha</p><p><strong>Persia</strong>: Shamshir</p><p><strong>Poland</strong>: Szabla</p><p><strong>Russia</strong>: Shashka</p><p><strong>Turkey</strong>: Kilij</p><p><strong>Germany</strong>: Heidelburg</p>",
+    "active": false,
+    "finalSecret": {
+      "description": "<p>You spin with your blade in a whirling frenzy. You may spend a Fortune Point to make a free Bladework attack at -2 to hit, even if you have no remaining actions.</p>",
+      "name": "The Steel Whirlwind"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.lgMH7U0CRuLvSJ6H",
+      "Compendium.honor-and-intrigue.maneuvers.Item.pTX07NIC4mnRxlYq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.TAMEMFI6zngPDVJv",
+      "Compendium.honor-and-intrigue.maneuvers.Item.VWYkrcMKlXbl4THn",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oFiMpGLjnJyBmMUz"
+    ],
+    "weaponry": "A backsword",
+    "benefit": {
+      "name": "",
+      "description": "<p>Swordsmen of the Eastern style learn to be exceptionally fast, getting a +1 to initiative rolls.</p>"
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763857829506,
+    "modifiedTime": 1763860364082,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!uvoBPToMoVbg7vLj"
+}

@@ -1,0 +1,46 @@
+{
+  "folder": "lmabFJtdL4i42e1n",
+  "name": "Kurash (Wrestling)",
+  "type": "duelingStyle",
+  "_id": "sYCVKOgPbKPL4nlG",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Throughout central Asia, wrestling is the ultimate sport; both peasants and sultans alike cheer on their favorites in the ring, and victors can become famous and wealthy. While it is a popular form of entertainment, Kurash wrestling can also be a lethal means of combat. Kurash is a battle of skill, speed, strength, and above all, endurance; matches have been known to last for days.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>If you have an opponent in a Grapple, you can physically hurl them through the air and onto the ground by making a Shove/Trip attack against them at an increased difficulty (-2). If you succeed, the opponent is on the ground 1d6 feet away, At a Loss, and cannot recover until spending a Major Action or Yield Advantage.</p><p>You can also use the Beat Maneuver unarmed, even against an armed opponent, without any problem, as you simply push the opponent’s body off- balance, or hit their hand or haft of their weapon.</p>",
+      "name": "Lift and Throw"
+    },
+    "finalSecret": {
+      "description": "<p>Whenever you take damage, you can spend a Fortune Point to reduce the damage by 3 instead of by 2, or by 5 instead of by 4 against Pawns. After battle, you can spend a Fortune Point to recover 2 Lifeblood instead of 1. Your Maximum Lifeblood is also permanently increased by 1. Lastly, you get a Bonus Die on any roll to test long-term physical exertion, such as treading water, long distance running, etc.</p>",
+      "name": "Unyielding"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.aLU381yST1hyFJL4",
+      "Compendium.honor-and-intrigue.maneuvers.Item.UHHv4NevJTltv9Eg",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf"
+    ],
+    "weaponry": "Unarmed"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763862593387,
+    "modifiedTime": 1763862676568,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!sYCVKOgPbKPL4nlG"
+}

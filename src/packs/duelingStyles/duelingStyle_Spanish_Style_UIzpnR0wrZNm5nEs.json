@@ -1,0 +1,46 @@
+{
+  "name": "Spanish Style",
+  "type": "duelingStyle",
+  "_id": "UIzpnR0wrZNm5nEs",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Also known as “La Verdadera Destreza” (the True Art), this style emphasizes footwork and keeping your blade always pointed at your enemy. Fencers of this style train within a circle filled with geometric patterns, which are used to teach students lines of attack, footwork, and defense. Stepping to the side as you make an attack (or defense) is a hallmark of this style. This style teaches the swordsman to cut as well as thrust with the rapier.</p>",
+    "active": false,
+    "finalSecret": {
+      "description": "<p>You've become adept at standing your ground and parrying rather than retreat from attack. You may spend a Fortune Point to make a free Parry, even if you have no actions remaining.</p>",
+      "name": "Unmoving Steel Wall"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.VWYkrcMKlXbl4THn",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oFiMpGLjnJyBmMUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.2g4bUyp38pdxQpth",
+      "Compendium.honor-and-intrigue.maneuvers.Item.qqisCOKRlMDStsAu"
+    ],
+    "weaponry": "An epee",
+    "benefit": {
+      "name": "Slim Target",
+      "description": "<p>While you are armed with a rapier and keep your off-hand behind your back you may spend 1 Fortune Point for +2 to your Defense against a Melee attack.</p>"
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763854580385,
+    "modifiedTime": 1763859601462,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!UIzpnR0wrZNm5nEs"
+}

@@ -1,0 +1,46 @@
+{
+  "folder": "lmabFJtdL4i42e1n",
+  "name": "Little’s Quarterstaff Style",
+  "type": "duelingStyle",
+  "_id": "k9vyA4s46wrZoUTw",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Named for an ironically large man, John Little was reputed to be the best fighter with a quarterstaff in all England. One of the biggest draws of this style is its availability to the common man. When many localities decree that only gentlemen may wear swords, the humble staff remains a common man’s best means of defense. While it is intended for use with a staff, a practitioner of the style could make do with a walking stick instead.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>You've learned to grip a staff from the center for optimum leverage and speed. You can split actions while wielding a single long staff or while holding a cane in one hand.</p>",
+      "name": "Take All Comers"
+    },
+    "finalSecret": {
+      "description": "<p>You may spend a Fortune Point to make a free Parry, even if you have no actions remaining in the round.</p>",
+      "name": "“You Shall Not Pass”"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oFiMpGLjnJyBmMUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.PaCId9kKui2AiYje"
+    ],
+    "weaponry": "Quarterstaff or Cane"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763862746466,
+    "modifiedTime": 1763863509835,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!k9vyA4s46wrZoUTw"
+}

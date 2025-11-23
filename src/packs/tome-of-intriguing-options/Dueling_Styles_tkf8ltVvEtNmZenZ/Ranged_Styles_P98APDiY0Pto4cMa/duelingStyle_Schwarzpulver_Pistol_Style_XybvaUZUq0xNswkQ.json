@@ -1,0 +1,46 @@
+{
+  "folder": "P98APDiY0Pto4cMa",
+  "name": "Schwarzpulver Pistol Style",
+  "type": "duelingStyle",
+  "_id": "XybvaUZUq0xNswkQ",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>While the rules of pistol dueling vary from land to land, and the sword is still the primary weapon used for dueling until the 18th century, in the lands of Germany, pistol dueling achieved its most savage interpretation. Rather than consider the matter settled after a single shot, the duelists would draw their pistols on a signal and exchange shots and reload until only one man remained standing. Thus the ability to reload quickly was of great importance! This style was also proved practical on the battlefield in addition to the field of honor.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>Using a pistol, you can attempt to shoot a foe’s weapon out of their hand! This works as a “Quick Disarm” made using Savvy +Ranged instead of Might +Melee. Ranged penalties apply to the roll in addition to the base difficulty. An opponent disarmed in this fashion also has a Close Call.</p><p>You also ignore the -2 Penalty when hip-firing a pistol.</p>",
+      "name": "Not So Fast!"
+    },
+    "finalSecret": {
+      "description": "<p>The key to victory is never to flinch: it ruins your aim. When you spend Fortune to avoid a ranged attack, you do not get unnerved by a Close Call. In addition, you are so meticulous in the care and use of your pistols that you rarely ever suffer a serious misfire. When you roll a Misfire, instead of spending a Fortune Point to choose your result, you may spend a Fortune to simply avoid misfiring entirely. If you choose not to spend the Fortune Point, you may still roll a Bonus Die whenever you roll on the Misfire Table. However, you do not gain +1 Advantage for mastering this style.</p>",
+      "name": "Cool Under Fire"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.khWeFrnk4uBq9r5o",
+      "Compendium.honor-and-intrigue.maneuvers.Item.MI7jswpD4ADR7W6r",
+      "Compendium.honor-and-intrigue.maneuvers.Item.foPWobJ7yEjiw2HM",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.TAMEMFI6zngPDVJv"
+    ],
+    "weaponry": "Pistol"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763861893215,
+    "modifiedTime": 1763861983209,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!XybvaUZUq0xNswkQ"
+}

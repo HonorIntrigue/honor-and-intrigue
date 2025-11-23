@@ -1,0 +1,46 @@
+{
+  "folder": "hvlp1kaiwdiEFUPx",
+  "name": "Torbellino",
+  "type": "duelingStyle",
+  "_id": "F0L6TT5cev4abXo4",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Literally “Whirlwind”, the Torbellino style teaches swordsmen to wield a sword in each hand! Legend holds that this style is based on one brought to Spain by the Moors in the eighth century and adapted to the epee in the 15th century. The main fencing school to instruct in the Torbellino style is in Cordoba, and as such it is sometimes known as the Cordoba Style.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>You are a true terror when whirling your blades through an army of Pawns, dropping many who dare to get too close. When a Pawn misses you with an attack, you may make a Riposte against one Pawn. Unlike most uses of Riposte, you don’t need to succeed on a Dodge or Parry first.</p>",
+      "name": "The Steel Whirlwind"
+    },
+    "finalSecret": {
+      "description": "<p>If you get a Mighty Success with a Parry or Riposte, you may make an immediate Bladework attack with the other sword.</p>",
+      "name": "Two Bladed Defense"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.VWYkrcMKlXbl4THn",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.2g4bUyp38pdxQpth",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oFiMpGLjnJyBmMUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.pQ8P2Iyr1rH0D85X"
+    ],
+    "weaponry": "Two epees, one in each hand"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763859628094,
+    "modifiedTime": 1763859714585,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!F0L6TT5cev4abXo4"
+}

@@ -1,0 +1,46 @@
+{
+  "folder": "4mr99yhOtKPIOqLY",
+  "name": "Roland",
+  "type": "duelingStyle",
+  "_id": "o0M03wxpTaSgtXn0",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Drawing its name from Charlemagne’s legendary paladin, the Roland style hearkens back to the age of feudalism. While the Old Style has adapted to use the more modern buckler, Roland students still fight with a broadsword and a kite shield and cling to the concept of chivalry. Because they put such a high premium on bravery, students of the Roland Style should take the @UUID[Compendium.honor-and-intrigue.boons.Item.2mk3yHb0FJVOxQ14]{Laugh in the Face of Danger} Boon.</p><p><strong>Style Detriments:</strong> The Roland Style instills in its students a great deal of importance in the knightly virtues of valor, chivalry, and fair play. For this reason, fighters of the Roland Style have a Penalty Die to Dirty Fighting.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>Fighters of the Roland Style are trained in the use of a kite shield. This means that they do not lose the usual 1 point of Advantage, but do have a -1 Penalty to attempts to hide, acrobatics, (and other Career Tests the GM might find a large shield to hinder) and Initiative rolls. Swimming with the kite shield gives a -2 Penalty instead and no Penalty Die.</p><p>You have also learned to turn the extra weight of the kite shield from a liability into an asset. When using the shield to perform any Maneuver, your Might is considered 1 higher to resolve that action.</p>",
+      "name": "Knight of the Shield"
+    },
+    "finalSecret": {
+      "description": "<p>You are prepared to fight till the last breath to defend what you believe in. While you are reduced to 4 Lifeblood or less or have only 1 point of Advantage remaining, you gain a Bonus Die to all combat rolls (but once you regain some Advantage, such as with a Mighty Success, this effect ends).</p><p>You are also a truly courageous warrior, and your valor is contagious. When an enemy attempts to frighten you (with Intimidation or Terror) and fails, that enemy must make an immediate Daring check or lose 1 Composure. Your bravery is so inspiring that allies within 30’ who can see you get a Bonus Die to make Daring rolls to resist fear (including Close Calls, Intimidation, and Terror checks).</p>",
+      "name": "Valorous Rally"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.lgMH7U0CRuLvSJ6H",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oFiMpGLjnJyBmMUz"
+    ],
+    "weaponry": "A kite shield and broadsword. Variants of the style teach the student to wield an axe and shield or a mace and shield instead"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763860747426,
+    "modifiedTime": 1763860922877,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!o0M03wxpTaSgtXn0"
+}

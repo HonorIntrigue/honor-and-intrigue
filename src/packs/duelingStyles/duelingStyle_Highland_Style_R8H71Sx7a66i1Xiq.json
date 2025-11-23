@@ -1,0 +1,46 @@
+{
+  "name": "Highland Style",
+  "type": "duelingStyle",
+  "_id": "R8H71Sx7a66i1Xiq",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>This style continues to be popular in Scotland, despite the lighter blades favored in England. This style teaches the student to wield a claymore (greatsword). The student is taught to whirl their blade at great speed to “make great room” around themselves with their blade.</p>",
+    "active": false,
+    "finalSecret": {
+      "description": "<p>You've become so hardened by training you can withstand greater punishment than most men. Whenever you are damaged by an attack, you may spend a Fortune Point to reduce the damage by 3 (instead of the usual 2).</p>",
+      "name": "Unstoppable Tenacity"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.lgMH7U0CRuLvSJ6H",
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.TAMEMFI6zngPDVJv"
+    ],
+    "weaponry": "A greatsword (claymore)",
+    "benefit": {
+      "name": "Faster Than I Look",
+      "description": "<p>While armed with a claymore, you do not have the usual -1 penalty to Parry.</p>"
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763858124421,
+    "modifiedTime": 1763860976176,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!R8H71Sx7a66i1Xiq"
+}

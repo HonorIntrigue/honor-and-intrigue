@@ -1,0 +1,46 @@
+{
+  "folder": "lmabFJtdL4i42e1n",
+  "name": "Myrmidon",
+  "type": "duelingStyle",
+  "_id": "r2oo6omycKm9JAEW",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Named for the soldiers under the command of Achilles in the Trojan War, fighters of the Myrmidon style favor the spear and shield of a Greek hoplite. But aside from tight formations, Myrmidons also excel at single combat or skirmishing with these weapons. It seems to have influenced both the Roland and Old Styles.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>Myrmidons are trained in the use of a round shield. This means that they do not lose the usual 1 point of Advantage but do have a -1 Penalty to attempts to hide, acrobatics, (and other Career Tests the GM might find a large shield to hinder) and Initiative rolls. Swimming with the shield gives a -2 Penalty instead and no Penalty Die.</p><p>You have also learned to turn the extra weight of the shield from a liability into an asset. When using the shield to perform any Maneuver, your Might is considered 1 higher to resolve that action.</p>",
+      "name": "Shield Expertise"
+    },
+    "finalSecret": {
+      "description": "<p>You have become an expert at using the shield and spear in harmony. Whenever you get a Mighty Success with the shield (whether this is for a Parry, Hilt Punch, Shove, or any other combat roll), you get a free Bladework or Hurl Spear attack with the spear.</p>",
+      "name": "My Spear and Shield are One"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.IAylyL2DjpGoR9a8",
+      "Compendium.honor-and-intrigue.maneuvers.Item.KTdcjzoHuoWuYWRQ"
+    ],
+    "weaponry": "A round shield and spear."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763863517492,
+    "modifiedTime": 1763863594910,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!r2oo6omycKm9JAEW"
+}

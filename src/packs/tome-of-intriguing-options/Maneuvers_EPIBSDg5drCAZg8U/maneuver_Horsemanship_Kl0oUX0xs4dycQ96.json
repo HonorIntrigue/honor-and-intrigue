@@ -1,0 +1,47 @@
+{
+  "folder": "EPIBSDg5drCAZg8U",
+  "name": "Horsemanship",
+  "type": "maneuver",
+  "_id": "Kl0oUX0xs4dycQ96",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>The Horsemanship Maneuver is to the mounted combatant what the Footwork Maneuver is for the swordsman on foot. It can be used to get around or past an opponent or obstacle, or allow you to disengage from an opponent unwilling to let you escape. The difficulty is either the foe’s Savvy or a set difficulty decided by the GM based on how difficult the obstacle should be to evade.</p><p>In some scenarios, the GM may declare that a certain position (such as the top of a hill or near a low-hanging branch) is very advantageous in a fight, granting +1 Defense or +1 Melee to whoever holds that position. Taking such a position off an opponent would require a Horsemanship roll.</p>",
+    "actionType": 2,
+    "abilityCheck": {
+      "flatModifier": 0,
+      "opposedBy": {
+        "flatModifier": 0,
+        "quality": "savvy",
+        "combatAbility": ""
+      },
+      "quality": "flair",
+      "combatAbility": "melee"
+    },
+    "damageFormula": {
+      "dieSize": null,
+      "flatModifier": 0,
+      "numDice": null
+    },
+    "isMastered": false,
+    "mastery": "Bonus Die to Horsemanship rolls, +1 to resist Horsemanship Maneuvers. This Maneuver is for use in combat, while the Born in the Saddle Boon is for non-combat riding."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763861250869,
+    "modifiedTime": 1763861283467,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!Kl0oUX0xs4dycQ96"
+}

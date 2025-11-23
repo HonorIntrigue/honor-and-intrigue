@@ -1,0 +1,46 @@
+{
+  "name": "Small Sword Style",
+  "type": "duelingStyle",
+  "_id": "4Y2EvVRSuvj353GT",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>A style that has recently grown out of the Netherlands, and is becoming popular among some of the French nobility, the Small Sword style uses the stiffer, shorter small sword over the rapier. It has no cutting edge at all, so it cannot be used to perform cuts, only thrusts.</p><p>Its short length makes it a quicker weapon to use, and the style emphasizes speed. The student learns to fight with their off-hand behind their back, while wielding the small sword in the main hand.</p>",
+    "active": false,
+    "finalSecret": {
+      "description": "<p>You move with the speed of lightning. You can split your actions into three actions with the small sword. Each action is taken at a -4 penalty, however.</p>",
+      "name": "The Swarm of Hornets"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.khWeFrnk4uBq9r5o",
+      "Compendium.honor-and-intrigue.maneuvers.Item.IAylyL2DjpGoR9a8",
+      "Compendium.honor-and-intrigue.maneuvers.Item.2g4bUyp38pdxQpth",
+      "Compendium.honor-and-intrigue.maneuvers.Item.pTX07NIC4mnRxlYq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oFiMpGLjnJyBmMUz"
+    ],
+    "weaponry": "A small sword",
+    "benefit": {
+      "name": "A Mighty Sting",
+      "description": "<p>Students of the Small Sword Style have learned to make up for its shorter blade, making it just as deadly as a rapier in their hands (it does 1d6 damage instead of 1d3+1).</p>"
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763857747943,
+    "modifiedTime": 1763859893671,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!4Y2EvVRSuvj353GT"
+}

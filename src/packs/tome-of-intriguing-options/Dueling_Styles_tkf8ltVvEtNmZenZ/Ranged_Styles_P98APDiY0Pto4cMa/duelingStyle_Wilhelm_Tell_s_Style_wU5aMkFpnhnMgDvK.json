@@ -1,0 +1,46 @@
+{
+  "folder": "P98APDiY0Pto4cMa",
+  "name": "Wilhelm Tell’s Style",
+  "type": "duelingStyle",
+  "_id": "wU5aMkFpnhnMgDvK",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Named for a famous Swiss marksman so accurate, he once shot an apple from the head of his own son, this crossbow technique is used by the best shots around the world, where it goes by an assortment of names. It was initially favored by medieval marksmen, but it will remain in use by snipers long after the development of gunpowder simply for its ability to kill without much noise.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>Like their famous predecessor, practitioners of Wilhelm Tell’s Style are adept in shooting at small targets and making impressive trick shots. You can make Tag and Disarm attempts using a crossbow at range, replacing Melee with Ranged Combat Ability. Flair is used to hit with both Maneuvers, and range penalties apply on top of any other difficulty to the shot. A ranged Disarm attempt is always considered a “Quick Disarm”, thus incurring a Penalty Die on the roll. An opponent who is successfully Disarmed in this fashion also has a Close Call.</p>",
+      "name": "Trick Shooting"
+    },
+    "finalSecret": {
+      "description": "<p>Your reflexes have become so keen that you can shoot an enemy in the nick of time as long as you have a quarrel ready. If your crossbow is loaded, you can spend a Fortune Point to make a free Ranged attack against an enemy within range that is about to attack you or an ally. This hastily aimed shot has a Penalty Die on the damage roll. If the shot kills the target, their attack never occurs. If the target survives your shot, the attack is made with a Penalty Die. However, you do not gain +1 Advantage for mastering this style.</p>",
+      "name": "Snapshot"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.MI7jswpD4ADR7W6r",
+      "Compendium.honor-and-intrigue.maneuvers.Item.Y5xRklDmpCAG2pJv",
+      "Compendium.honor-and-intrigue.maneuvers.Item.TAMEMFI6zngPDVJv",
+      "Compendium.honor-and-intrigue.maneuvers.Item.qqisCOKRlMDStsAu",
+      "Compendium.honor-and-intrigue.maneuvers.Item.foPWobJ7yEjiw2HM"
+    ],
+    "weaponry": "Crossbow"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763862071188,
+    "modifiedTime": 1763862165115,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!wU5aMkFpnhnMgDvK"
+}

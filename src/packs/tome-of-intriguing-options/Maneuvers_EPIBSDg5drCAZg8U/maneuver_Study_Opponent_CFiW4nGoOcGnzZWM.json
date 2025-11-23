@@ -1,0 +1,47 @@
+{
+  "folder": "EPIBSDg5drCAZg8U",
+  "name": "Study Opponent",
+  "type": "maneuver",
+  "_id": "CFiW4nGoOcGnzZWM",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>Roll a Savvy + Duelist (Career) test for you vs. the opponent's Duelist Career (you learn their rank automatically when performing this Maneuver). If the opponent does not have Duelist or the equivalent, you make an Easy (+1) test instead. If you succeed, you learn one fact about their fighting technique. On a Mighty Success you learn two facts. On a Calamitous Failure, you give yourself away and your opponent gains 1 Advantage (even over their maximum). Some examples of facts you can learn (you get to choose what type you want to learn):</p><ul><li><p>What dueling style the opponent is using and their level of mastery.</p></li><li><p>Their best Quality.</p></li><li><p>Their Rank in one Combat ability you've seen them use.</p></li><li><p>What defenses they have against one particular maneuver. This would include if they are using Forefend Maneuver against it, as well as the difficulty to use the maneuver on them.</p></li><li><p>Their bonus to up to two maneuvers you've seen them do (includes whether they are a master of that maneuver or not).</p></li></ul>",
+    "actionType": 2,
+    "abilityCheck": {
+      "flatModifier": 0,
+      "opposedBy": {
+        "flatModifier": 0,
+        "quality": "",
+        "combatAbility": ""
+      },
+      "quality": "savvy",
+      "combatAbility": ""
+    },
+    "damageFormula": {
+      "dieSize": null,
+      "flatModifier": 0,
+      "numDice": null
+    },
+    "isMastered": false,
+    "mastery": "Bonus Die to use Study Opponent and +1 to resist Study Opponent by others"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763858545415,
+    "modifiedTime": 1763858641839,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!CFiW4nGoOcGnzZWM"
+}

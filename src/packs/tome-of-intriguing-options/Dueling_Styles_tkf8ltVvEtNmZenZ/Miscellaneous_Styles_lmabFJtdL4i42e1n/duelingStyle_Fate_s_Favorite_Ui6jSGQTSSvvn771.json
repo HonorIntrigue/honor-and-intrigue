@@ -1,0 +1,46 @@
+{
+  "folder": "lmabFJtdL4i42e1n",
+  "name": "Fate’s Favorite",
+  "type": "duelingStyle",
+  "_id": "Ui6jSGQTSSvvn771",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Even the lowly and unlikely have risen to be great heroes, when Fate has decided they are to be so. This “style” of combat is not so much “learned” as it is stumbled upon by those Fate has chosen to survive against all odds. People who use the Fate’s Favorite style are not considered warriors. They are people who may be forced to defend themselves with whatever happens to be lying around, and by Fate, it happens to be just what they needed. Despite a lack of true martial training, those who become Fate’s Favorite have a confounding ability to not be hit by enemies. It is not a style of combat— it is a perceivable pattern of an otherwise untrained weakling managing to fight off enemies through sheer dumb luck, again and again.</p><p>Most of the maneuvers used in this style will appear to be complete accidents to the observer. Fate’s Favorite may trip on the back of a stool, causing them to sway off balance, thus ducking below an enemy’s swung sword. An enemy that lunges forward at the character may get caught in some curtains that cover their face, etc.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>You always seem to be able to find something with which to defend yourself. You have no penalties with improvised weapons.</p>",
+      "name": ""
+    },
+    "finalSecret": {
+      "description": "<p>When you spend a Fortune Point to increase the damage of an attack with an Improvised Weapon after rolling, it increases by an amount equal to the number of Fortune Points you have remaining, rather than by +1. If this is your last Fortune Point, instead roll 1d6 and add it to your damage roll.</p>",
+      "name": "Luck Strike"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.qqisCOKRlMDStsAu",
+      "Compendium.honor-and-intrigue.maneuvers.Item.2g4bUyp38pdxQpth",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.PaCId9kKui2AiYje"
+    ],
+    "weaponry": "Whatever Fate provides (improvised weapons)"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763862347329,
+    "modifiedTime": 1763862428404,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!Ui6jSGQTSSvvn771"
+}

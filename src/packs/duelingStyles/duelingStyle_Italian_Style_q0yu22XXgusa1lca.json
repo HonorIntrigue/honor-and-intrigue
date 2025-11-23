@@ -1,0 +1,46 @@
+{
+  "name": "Italian Style",
+  "type": "duelingStyle",
+  "_id": "q0yu22XXgusa1lca",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Also known as “Florentine Style,” the Italian style follows the adage that “the best defense is a good offense”. For this reason, strength training in the sword arm is of great importance, as well as being able to strike down your opponent quickly. While the main gauche is usually meant as a defensive weapon, students of the Italian style are quite deadly with it and use it as much for offense as for defense, much to their opponents’ surprise.</p>",
+    "active": false,
+    "finalSecret": {
+      "description": "<p>If you get a Mighty Success on an attack with either weapon, you may make a free Bladework attack with the other weapon as well.</p>",
+      "name": "The Cross Lunge"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.pQ8P2Iyr1rH0D85X",
+      "Compendium.honor-and-intrigue.maneuvers.Item.IAylyL2DjpGoR9a8",
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.M4J96MGZ96eMkACf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.RH0Lkzmoc1gTnZ0v"
+    ],
+    "weaponry": "An epee and a main gauche",
+    "benefit": {
+      "name": "A Strong Offense",
+      "description": "<p>In your hands, a main gauche does 1d6 damage instead of 1d6-1. In addition, students of the Italian style have a very strong grip, getting +1 to resist being disarmed.</p>"
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763857571096,
+    "modifiedTime": 1763859566868,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!q0yu22XXgusa1lca"
+}

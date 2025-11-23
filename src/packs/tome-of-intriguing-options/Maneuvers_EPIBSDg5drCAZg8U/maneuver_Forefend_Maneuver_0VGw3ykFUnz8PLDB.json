@@ -1,0 +1,47 @@
+{
+  "folder": "EPIBSDg5drCAZg8U",
+  "name": "Forefend Maneuver",
+  "type": "maneuver",
+  "_id": "0VGw3ykFUnz8PLDB",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>An enemy who becomes predictable becomes much less dangerous. You anticipate their mode of attack and prepare a defense against it.</p><p>Choose an offensive Melee or Brawl maneuver. Your opponent gains a Penalty Die to use it on you. This lasts until you disengage (either on purpose or by Yielding Advantage), or use Forefend Maneuver again to name a different maneuver.</p><p><strong>Note:</strong> There are two ways to approach using this maneuver. One way is for the user to secretly write down the name of the maneuver they are preparing against. The other is to openly declare it. Which method is used is up the GM based on the play-style of the group. Secretly writing it down can allow mystery until it is used (at which point the offending attacker rolls a Penalty Die), but has the added step of having to write something down. Openly declaring the maneuver means that the opponent is now much less likely to use it, in essence allowing one duelist to “veto” a certain maneuver. Each has their advantage and drawback.</p>",
+    "actionType": 2,
+    "abilityCheck": {
+      "flatModifier": 0,
+      "opposedBy": {
+        "flatModifier": 0,
+        "quality": "",
+        "combatAbility": ""
+      },
+      "quality": "",
+      "combatAbility": ""
+    },
+    "damageFormula": {
+      "dieSize": null,
+      "flatModifier": 0,
+      "numDice": null
+    },
+    "isMastered": false,
+    "mastery": "Choose two maneuvers when you use Forefend Maneuver"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763858659843,
+    "modifiedTime": 1763858723282,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!0VGw3ykFUnz8PLDB"
+}

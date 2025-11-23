@@ -1,0 +1,47 @@
+{
+  "folder": "EPIBSDg5drCAZg8U",
+  "name": "Quick Mount/Dismount",
+  "type": "maneuver",
+  "_id": "5tLFovP8b4JHzjWY",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "<p>You try to mount or dismount a horse quickly. If you succeed at this roll, you leap onto (or off) the saddle but do not expend the Minor Action. If you fail, you either spend the Minor Action or split your action and take the penalty.</p>",
+    "actionType": 2,
+    "abilityCheck": {
+      "flatModifier": -2,
+      "opposedBy": {
+        "flatModifier": 0,
+        "quality": "",
+        "combatAbility": ""
+      },
+      "quality": "flair",
+      "combatAbility": ""
+    },
+    "damageFormula": {
+      "dieSize": null,
+      "flatModifier": 0,
+      "numDice": null
+    },
+    "isMastered": false,
+    "mastery": "Success is Automatic (you always can mount or dismount a horse without expending a Minor Action or taking a penalty)."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763861345675,
+    "modifiedTime": 1763861373874,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!5tLFovP8b4JHzjWY"
+}

@@ -1,0 +1,46 @@
+{
+  "name": "Academy Style",
+  "type": "duelingStyle",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>This style focuses on the intellectual aspects of swordplay to an even greater degree than the Spanish Style. Manuals used by duelists of the Academy Style are full of angles, lines, and mathematical formulae as well as insights into frequently observed patterns. Duelists of the Academy Style not only memorize these patterns; they learn to observe them in their opponents, making even the briefest of moments into a careful study.</p>",
+    "active": false,
+    "finalSecret": {
+      "description": "<p>You have become so attuned to the science of the blade that you can predict how the fight will go in your mind and choose the moment to end it on your own terms. When you succeed with Study Opponent, you can choose to spend a Fortune Point for a Bonus Die even after seeing the result of a dice roll against that opponent. Once you use this ability, you must succeed on Study Opponent again to re-use it.</p>",
+      "name": "Ready for Anything"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.tome-of-intriguing-options.Item.CFiW4nGoOcGnzZWM",
+      "Compendium.honor-and-intrigue.tome-of-intriguing-options.Item.0VGw3ykFUnz8PLDB",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oFiMpGLjnJyBmMUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.IAylyL2DjpGoR9a8",
+      "Compendium.honor-and-intrigue.maneuvers.Item.2g4bUyp38pdxQpth"
+    ],
+    "weaponry": "An epee, either alone or with a dagger in the off-hand",
+    "benefit": {
+      "name": "I Saw That Coming",
+      "description": "<p>You’ve learned to read people in a duel the same way a poker player can read the “tells” of their opponent. When you use Forefend Maneuver and the resulting Penalty Die causes the opponent’s attack to miss you, you may Riposte as if you had successfully Parried an attack.</p>"
+    }
+  },
+  "effects": [],
+  "folder": "hvlp1kaiwdiEFUPx",
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763858474803,
+    "modifiedTime": 1763859327668,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_id": "tUNNRtOscoJg79I1",
+  "sort": 0,
+  "_key": "!items!tUNNRtOscoJg79I1"
+}

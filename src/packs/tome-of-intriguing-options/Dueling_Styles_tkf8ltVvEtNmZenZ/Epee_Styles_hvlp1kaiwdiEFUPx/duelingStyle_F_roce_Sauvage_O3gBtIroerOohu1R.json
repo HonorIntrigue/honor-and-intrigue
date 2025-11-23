@@ -1,0 +1,46 @@
+{
+  "folder": "hvlp1kaiwdiEFUPx",
+  "name": "Féroce-Sauvage",
+  "type": "duelingStyle",
+  "_id": "O3gBtIroerOohu1R",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>The rapier is known as a gentleman’s weapon, a symbol of elegance and sophistication that emphasizes brain over brawn. Duelists of the Féroce-Sauvage Style frequently disabuse swordsman of this misguided prejudice as they lash out in a frenzy. In some ways, Féroce-Sauvage seems to derive from the brutal Old Style, while adding a modern panache of flashy and unpredictable moves. The strength of the style is its unpredictability, as it is so different from most conventional methods for the epee. Among these is the use of the epee to Moulinet, even though it is primarily a thrusting weapon, and the use of improvised weapons or even hurled swords.</p>",
+    "active": false,
+    "finalSecret": {
+      "description": "<p>You have learned to harness the thrill and fury of combat to wade headlong into the enemy. Whenever you use Charge to make a Bladework or Brawling attack, you may roll to hit and damage with a Bonus Die. If you defeat a Pawn as part of your charge, you may elect to keep moving to another target (or you can stop and engage adjacent Pawns using Reckless Rage).</p>",
+      "name": "Fighting Fury"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.Hys7dwlWKnbtxZtZ",
+      "Compendium.honor-and-intrigue.maneuvers.Item.PaCId9kKui2AiYje",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.lgMH7U0CRuLvSJ6H"
+    ],
+    "weaponry": "An epee, often with an improvised weapon",
+    "benefit": {
+      "name": "Reckless Rage",
+      "description": "<p>When you defeat a Pawn with a Bladework or Brawling attack, you do not take any penalty on subsequent attacks against Pawns. Add your full Might to Blade Throw damage and you can use Blade Throw to hurl just about any Improvised Weapon at an enemy with a 5’ Range Increment. You also get +1 to Intimidate an enemy while wielding an Improvised Weapon.</p>"
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763858898689,
+    "modifiedTime": 1763859369232,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!O3gBtIroerOohu1R"
+}

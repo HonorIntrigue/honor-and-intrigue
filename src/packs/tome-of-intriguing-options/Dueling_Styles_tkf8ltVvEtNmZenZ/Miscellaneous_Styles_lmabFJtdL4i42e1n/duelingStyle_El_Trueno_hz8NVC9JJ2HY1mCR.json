@@ -1,0 +1,46 @@
+{
+  "folder": "lmabFJtdL4i42e1n",
+  "name": "El Trueno",
+  "type": "duelingStyle",
+  "_id": "hz8NVC9JJ2HY1mCR",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Literally “Thunder”, the El Trueno style is based on using a whip with brutal efficiency. It is said that this style was perfected by the torturers of the Inquisition, who could not only use a whip to strip a man’s hide from his bones, but also beat him senseless with the handle or strangle him.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>Practitioners of the El Trueno Style learn how to kill with a whip. A whip does 1d3 Dmg instead of 1d3-1. When using a whip as a garrote to Choke, you can still take a Reaction or Yield Advantage, but doing so forces you to release your grip.</p>",
+      "name": "Deadly Weapon"
+    },
+    "finalSecret": {
+      "description": "<p>With a flick of your wrist, you can cause the whip to loop around your enemy’s neck and cut off their breath. On a Mighty Success with a Bladework attack, you can make a free Choke/Crush attack as if your opponent were Grappled. If the attack succeeds, you begin strangling them immediately and they are also Grappled. If the Choke/Crush fails, the whip uncoils and the opponent is not Grappled.</p>",
+      "name": "Hangman’s Jig"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.UHHv4NevJTltv9Eg",
+      "Compendium.honor-and-intrigue.maneuvers.Item.aLU381yST1hyFJL4",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.TAMEMFI6zngPDVJv"
+    ],
+    "weaponry": "Whip"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763863749918,
+    "modifiedTime": 1763863815094,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!hz8NVC9JJ2HY1mCR"
+}

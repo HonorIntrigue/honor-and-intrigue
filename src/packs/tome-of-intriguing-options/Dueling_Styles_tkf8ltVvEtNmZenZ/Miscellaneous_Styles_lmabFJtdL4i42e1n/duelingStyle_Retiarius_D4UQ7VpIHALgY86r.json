@@ -1,0 +1,46 @@
+{
+  "folder": "lmabFJtdL4i42e1n",
+  "name": "Retiarius",
+  "type": "duelingStyle",
+  "_id": "D4UQ7VpIHALgY86r",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>The Retiarius Style gets its name from ancient gladiators who fought with the net and trident. The gladiators were meant to emulate a fisherman, and their traditional opponent wore scaly armor and a helmet resembling a fish. Though this style of fighting has long since fallen out of fashion, it is not completely forgotten, and talented warriors can be found using it in coastal villages. A fighter of the Retiarius Style learns to use the net defensively while also maximizing use of the trident. Because it requires the trident be wielded in one hand, a Retiarius should have a Might of 1 or greater.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>When you successfully use the net to make the Cloak Parry maneuver, you can use the trident to make the Riposte maneuver with a Bonus Die. You also get +1 when using the net to Feint.</p>",
+      "name": "Flourish and Stab"
+    },
+    "finalSecret": {
+      "description": "<p>Your mastery of the net increases the range increment to 10’. If you get a Mighty Success when using the net to use Dirty Fighting, the opponent loses their next turn before they can try to escape your net.</p>",
+      "name": "Master of the Net"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.PaCId9kKui2AiYje",
+      "Compendium.honor-and-intrigue.maneuvers.Item.jKm7owbaLovix1mg",
+      "Compendium.honor-and-intrigue.maneuvers.Item.M4J96MGZ96eMkACf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.jUdyCVdnMEame7DG",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oFiMpGLjnJyBmMUz"
+    ],
+    "weaponry": "A net and trident"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763863677836,
+    "modifiedTime": 1763863742155,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!D4UQ7VpIHALgY86r"
+}

@@ -1,0 +1,46 @@
+{
+  "folder": "J1VYJIy10rLLqmpx",
+  "name": "Paired Pistoleer",
+  "type": "duelingStyle",
+  "_id": "n5ymhQx64ZsbBQea",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>The only thing better than a good blaster by your side is <em>two</em> good blasters by your side!</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>After a successful Dodge, you can Riposte using Ranged instead of Melee if the target is within 2 Range Increments so long as you have at least one pistol ready.</p>",
+      "name": "Return Fire"
+    },
+    "finalSecret": {
+      "description": "<p>You can rain fire almost like an automatic weapon. You can use Concentrated Fire, Sweeping Fire, and Suppressing Fire with two pistols. When you do so, you roll damage with a Bonus Die.</p>",
+      "name": "Deadly Barrage"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.khWeFrnk4uBq9r5o",
+      "Compendium.honor-and-intrigue.maneuvers.Item.MI7jswpD4ADR7W6r",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.2g4bUyp38pdxQpth",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oFiMpGLjnJyBmMUz"
+    ],
+    "weaponry": "Two blaster or modern pistols"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763864297538,
+    "modifiedTime": 1763864363107,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!n5ymhQx64ZsbBQea"
+}

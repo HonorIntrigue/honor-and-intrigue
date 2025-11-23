@@ -1,0 +1,46 @@
+{
+  "folder": "4mr99yhOtKPIOqLY",
+  "name": "Falkinson",
+  "type": "duelingStyle",
+  "_id": "36AVJHTdsDNTgP0u",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Hailing from the Scandinavian countries, the Falkinson style focuses on the use of a particular broadsword known as a “bastard sword” or a “hand-and-a-half” sword, which has a cross-guard and no basket-hilt, as well as a slightly longer blade. While the weapon can be wielded one-handed or two-handed, the style focuses on allowing the wielder to switch grips depending on their current priorities in a duel. As such, it is a style known for its flexibility.</p><p>When used in one hand, the off-hand can be used to wield another weapon, hold a shield, grab a rope, or some other utilitarian or defensive purpose. When wielded in two hands, the wielder maximizes their strength, making attacks more damaging. The style taught by this school is rough indeed, and a Falkinson graduate often has several scars to prove it. There are two sets of bonuses for practitioners, depending on how the sword is gripped. The player must choose which grip bonus s/he is getting at the start of every turn.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>While wielding a bastard sword in two hands, you do an additional +1 damage with it, which also affects Sword Break attempts. While wielding a bastard sword in one hand, you receive +1 to your Defense against Melee and Brawling attacks.</p>",
+      "name": "Versatility"
+    },
+    "finalSecret": {
+      "description": "<p>While wielding a bastard sword in two hands, you can wager a Fortune Point to reroll a damage roll and use whichever was higher. If the result on the rerolled d6 less than the original roll, you get to keep the Fortune Point. You must pay the Fortune Point if the roll was a tie, or higher than the original. While wielding a bastard sword in one hand, you may reroll any failed Parry by spending a Fortune Point. If you fail again, you can spend another Fortune Point to try again, as long as you have Fortune Points remaining.</p>",
+      "name": "Falkinson’s Gambit"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.M4J96MGZ96eMkACf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.RH0Lkzmoc1gTnZ0v",
+      "Compendium.honor-and-intrigue.maneuvers.Item.lgMH7U0CRuLvSJ6H",
+      "Compendium.honor-and-intrigue.maneuvers.Item.PaCId9kKui2AiYje"
+    ],
+    "weaponry": "A broadsword, specifically a bastard sword"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763860610477,
+    "modifiedTime": 1763860699684,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!36AVJHTdsDNTgP0u"
+}

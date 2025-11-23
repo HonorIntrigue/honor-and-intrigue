@@ -1,0 +1,46 @@
+{
+  "folder": "OCvai93EvZ7GOUPI",
+  "name": "El Cid (Caballero Style)",
+  "type": "duelingStyle",
+  "_id": "4yHr2evtqLqn8Ucr",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Named for the famed Spanish knight, the El Cid Style trains the fighter in the art of mounted swordsmanship. The tradition has been passed down since medieval times, and Spain has produced some of the finest horsemen and swordsmen in all Europe, making their Caballeros a force to be reckoned with.</p><p>It is recommended that those who wish to learn the El Cid Style also have the Born in the Saddle Boon (which grants a Bonus Die to non-combat riding checks). Most characters trained in the El Cid style should have the Soldier career, as this is a form of military training.</p><p>Style Detriments: You may only use the El Cid Style while you are mounted. Likewise, because your feet are not on the ground, you cannot use Lunge or Footwork at all while using the El Cid Style. When Moulinet is used, it can only attack on one side of the horse.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>You can Yield Advantage to attacks while mounted. A Mighty Success against a mounted opponent gives a free Shove/Trip attempt to knock them out of the saddle. Against opponents on foot, you have +1 Defense against Melee or Brawling attacks.</p>",
+      "name": "Tall in the Saddle"
+    },
+    "finalSecret": {
+      "description": "<p>Against opponents on foot, you do +1 Damage. Against opponents on horseback, you have +1 Defense against Melee or Brawling attacks due to your superior training. Finally, if you are unhorsed, you can spend a Fortune Point to keep yourself in the saddle.</p>",
+      "name": "A True Knight"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.tome-of-intriguing-options.Item.Kl0oUX0xs4dycQ96",
+      "Compendium.honor-and-intrigue.maneuvers.Item.lgMH7U0CRuLvSJ6H",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.VWYkrcMKlXbl4THn",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz"
+    ],
+    "weaponry": "Sword from horseback (It is likely a broadsword or saber, but some even use a rapier)."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763861596894,
+    "modifiedTime": 1763861711319,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!4yHr2evtqLqn8Ucr"
+}

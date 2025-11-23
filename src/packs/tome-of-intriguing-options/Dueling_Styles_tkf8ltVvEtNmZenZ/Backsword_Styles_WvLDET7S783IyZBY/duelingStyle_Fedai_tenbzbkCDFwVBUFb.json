@@ -1,0 +1,46 @@
+{
+  "folder": "WvLDET7S783IyZBY",
+  "name": "Fedai",
+  "type": "duelingStyle",
+  "_id": "tenbzbkCDFwVBUFb",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>This style, (pronounced “Fed-Aye-EE”), is favored by city watch and the sultan’s palace guards, as it aids them in subduing threats (it is always better to take someone alive when possible, both for justice and to improve security).</p><p>It is a somewhat versatile style in that the fighter is trained to use a heavy scimitar with a slightly longer handle and blade, allowing it to be used in either one or two hands, letting the swordsman to switch from powerful two-handed chops to having a free hand to subdue an enemy. The swordsman can, of course, still function with a regular scimitar, but loses the two-handed swing as an option.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>If you get a Mighty Success with a Grapple or Beat, you may make an immediate Quick Disarm or Bladework attempt against the opponent.</p>",
+      "name": ""
+    },
+    "finalSecret": {
+      "description": "<p>When wielding the Heavy Scimitar in one hand, you no longer have the -1 Penalty to Parry. When wielding the Heavy Scimitar in two hands, you get a Bonus Die to damage rolls with it.</p>",
+      "name": "Heavy Blade Master"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.UHHv4NevJTltv9Eg",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.lgMH7U0CRuLvSJ6H",
+      "Compendium.honor-and-intrigue.maneuvers.Item.TAMEMFI6zngPDVJv"
+    ],
+    "weaponry": "A heavy scimitar that can be wielded in one or two hands. In two hands, this sword does 1d6+1 Dmg. In one hand, it has -1 to Parry"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763860377459,
+    "modifiedTime": 1763860469266,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!tenbzbkCDFwVBUFb"
+}

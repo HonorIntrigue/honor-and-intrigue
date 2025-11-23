@@ -1,0 +1,46 @@
+{
+  "folder": "P98APDiY0Pto4cMa",
+  "name": "Sharpe Musket Style",
+  "type": "duelingStyle",
+  "_id": "w9QbvhqdVEly1asS",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>This style is named for an English infantry officer ordered to defend a castle no matter the cost. When an enemy army approached, he told his men there was but a single choice: fight on or die. With a single company, he managed to hold off a veritable army. Sharpe’s men fought with a tenacity, adaptability, and coolness under fire yet unseen. The style uses a musket both at range and in melee, usually affixed with a bayonet. It focuses on remaining cool under pressure and making every shot count.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>Up to twice per round, when you drop an opponent or get a Mighty Success while using a musket (even in Melee), you may make a free Quick Load check. If your musket was already loaded you may make a free Ranged Attack with a Penalty Die.</p>",
+      "name": "Make Ready"
+    },
+    "finalSecret": {
+      "description": "<p>When an opponent spends a Fortune Point to avoid your musket fire and fails their Daring roll against a Close Call, they must also Yield Advantage. An opponent Defeated in this manner will flee the scene unless you have an ally nearby to capture or dispatch them. Whenever you kill a Pawn with a musket, 1d3 adjacent Pawns must make a Moderate (+0) Daring test or retreat.</p>",
+      "name": "Advance"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.foPWobJ7yEjiw2HM",
+      "Compendium.honor-and-intrigue.maneuvers.Item.MI7jswpD4ADR7W6r",
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.pQ8P2Iyr1rH0D85X",
+      "Compendium.honor-and-intrigue.maneuvers.Item.IAylyL2DjpGoR9a8"
+    ],
+    "weaponry": "Musket, often affixed with a bayonet"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763861996774,
+    "modifiedTime": 1763862062773,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!w9QbvhqdVEly1asS"
+}

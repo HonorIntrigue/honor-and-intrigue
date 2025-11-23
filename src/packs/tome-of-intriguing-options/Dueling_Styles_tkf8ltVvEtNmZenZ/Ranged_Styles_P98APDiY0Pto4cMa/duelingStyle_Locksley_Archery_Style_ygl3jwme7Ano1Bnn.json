@@ -1,0 +1,46 @@
+{
+  "folder": "P98APDiY0Pto4cMa",
+  "name": "Locksley Archery Style",
+  "type": "duelingStyle",
+  "_id": "ygl3jwme7Ano1Bnn",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Named for the famous English highwayman, Sir Robin of Locksley (also known as Robin Hood), the Locksley Archery Style continues to teach the way of the bow long after it has fallen out of military usage. In the 17th century, bows are still used for amusement, but combatants trained with the Locksley style prove that it is still a deadly weapon.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>You can make Tag and Disarm attempts using Range instead of Melee, and Flair instead of Might (for Disarm). You also have +1 to use a bow to perform Stunts.</p>",
+      "name": "Splitting the Arrow"
+    },
+    "finalSecret": {
+      "description": "<p>You can loose arrows at incredible speed. You may split actions in the round while armed with a bow and arrows if you make a successful Quick Draw check. In addition, you may fire up to four arrows in a round in this manner instead of the normal two actions for splitting your action. When you do so, the penalty you take to hit is equal to the number of arrows you choose to fire (to a maximum of four). So you could fire four arrows, with a -4 Penalty to hit with each or three arrows with a -3 Penalty to hit with each. In addition, you do +1 Dmg when doing a Called Shot with a bow. However, you do not gain +1 Advantage for mastering this style.</p>",
+      "name": "Hail of Arrows"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.khWeFrnk4uBq9r5o",
+      "Compendium.honor-and-intrigue.maneuvers.Item.foPWobJ7yEjiw2HM",
+      "Compendium.honor-and-intrigue.maneuvers.Item.Y5xRklDmpCAG2pJv",
+      "Compendium.honor-and-intrigue.maneuvers.Item.qqisCOKRlMDStsAu",
+      "Compendium.honor-and-intrigue.maneuvers.Item.TAMEMFI6zngPDVJv"
+    ],
+    "weaponry": "Bow and arrows"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763861809832,
+    "modifiedTime": 1763861883935,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!ygl3jwme7Ano1Bnn"
+}

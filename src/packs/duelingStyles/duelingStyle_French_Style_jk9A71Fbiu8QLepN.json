@@ -1,0 +1,46 @@
+{
+  "name": "French Style",
+  "type": "duelingStyle",
+  "_id": "jk9A71Fbiu8QLepN",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Originally influenced by the Spanish and Italian styles, the French style uses flashy Actions to befuddle the opponent and also favors the use of a small weapon (like a main gauche or baton) or cloak in the off- hand. The French Style emphasizes tricks and flashy moves, and the swordsman is well used to such things. You can’t kid a kidder, as they say.</p>",
+    "active": false,
+    "finalSecret": {
+      "description": "<p>You've learned how to defeat an opponent before striking a telling blow by getting into his mind. When you get a Mighty Success with a Major Action that doesn’t do damage (such as Tag or Dirty Fighting) you gain a Fortune Point. This Fortune Point does not grant you any Advancement, however.</p>",
+      "name": "Power of Confidence"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.pTX07NIC4mnRxlYq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.qqisCOKRlMDStsAu",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oFiMpGLjnJyBmMUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.jUdyCVdnMEame7DG"
+    ],
+    "weaponry": "An epee and small off-hand weapon or cloak. A baton (1-handed club), dagger, main gauche, or parrying dagger are all acceptable choices.",
+    "benefit": {
+      "name": "You Can’t Kid a Kidder",
+      "description": "<p>You can spend a Fortune Point to get +2 to resist any Melee Maneuver that does not target your Defense. Thus, a French Style duelist with a Savvy of 2 targeted with a Feint Maneuver, could spend a Fortune Point to make the difficulty -4 instead of -2.</p>"
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763857671766,
+    "modifiedTime": 1763859455277,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!jk9A71Fbiu8QLepN"
+}

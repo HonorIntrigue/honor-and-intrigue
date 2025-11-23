@@ -1,0 +1,46 @@
+{
+  "folder": "lmabFJtdL4i42e1n",
+  "name": "Boxing",
+  "type": "duelingStyle",
+  "_id": "INbBY1TRlzsTou9M",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Since ancient Greece and Rome, boxing has existed both as a spectator sport and as a means of defense. Boxers fight unarmed, but they are certainly dangerous if they’ve been sufficiently trained. The training regimen involves a great deal of endurance training. It is suggested that a fighter of the Boxing Style take Born Athlete as well as Thick Skinned.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>Your fists are extremely hard and do 1d3 Dmg with punches and add your full Might to the damage.</p><p>Counterpunch: You can Riposte with a punch, using Brawl instead of Melee.</p><p>You can also use the Beat Maneuver unarmed, even against an armed opponent, without any problem, as you simply push the opponent’s body off- balance, or hit their hand or haft of their weapon.</p>",
+      "name": "Punching Power"
+    },
+    "finalSecret": {
+      "description": "<p>You do not flinch from a fight, even against enemies wielding swords. You are never considered Unarmed, even when fighting an armed opponent. In addition, you have mastered combination punches, allowing you to strike with great speed. You can split a Major Action into three Brawling Attacks at -3 to hit each.</p>",
+      "name": "Lethal Weapons"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.2g4bUyp38pdxQpth",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oFiMpGLjnJyBmMUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.beGKvhwMXJ9LZgTB",
+      "Compendium.honor-and-intrigue.maneuvers.Item.mz2r2lHIYgqqQ4Qf"
+    ],
+    "weaponry": "Unarmed (though heavy gloves are a good idea if your enemy is armed)."
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763862197099,
+    "modifiedTime": 1763862270379,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!INbBY1TRlzsTou9M"
+}

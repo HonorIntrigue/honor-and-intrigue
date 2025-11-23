@@ -1,0 +1,46 @@
+{
+  "folder": "lmabFJtdL4i42e1n",
+  "name": "Yilan Azidiş Style",
+  "type": "duelingStyle",
+  "_id": "UbzQAOeXna3DPOoQ",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Literally “Serpent Fang”, this style, often favored by trained killers, uses a pair of kris knives, held with the blades facing down. Assassins trained in this style often supplement their blades with venom, which gave the style its name. By using two knives, the fighter also can use one to Feint or Bind, while the other knife is used to stab, or two opponents can be neutralized at once by splitting an action.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>Practitioners of the Yilan Azidiş style become adept in ensuring their victims die. A Called Shot that succeeds in doing damage to a victim will also cause the victim to lose 1 Lifeblood per round for 1d3 rounds. Multiple stabs can leave multiple bleeding wounds; the effects stack. A successful moderate (+0) Physician + Savvy task roll will stop the bleeding, but only if the physician and the victim do nothing else on their turn for that round but tend to the wounds, during which time they would be At a Loss.</p>",
+      "name": "Bleeding Wounds"
+    },
+    "finalSecret": {
+      "description": "<p>A master of Yilan Azidiş has learned to use both kris knives as one. A Mighty Success using Bladework or Lunge with either weapon gives a free Bladework attack with the second weapon as well.</p>",
+      "name": "Striking Serpent"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.khWeFrnk4uBq9r5o",
+      "Compendium.honor-and-intrigue.maneuvers.Item.pQ8P2Iyr1rH0D85X",
+      "Compendium.honor-and-intrigue.maneuvers.Item.M4J96MGZ96eMkACf",
+      "Compendium.honor-and-intrigue.maneuvers.Item.PaCId9kKui2AiYje",
+      "Compendium.honor-and-intrigue.maneuvers.Item.jUdyCVdnMEame7DG"
+    ],
+    "weaponry": "A pair of kris knives"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763863823861,
+    "modifiedTime": 1763863896283,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!UbzQAOeXna3DPOoQ"
+}

@@ -1,0 +1,46 @@
+{
+  "folder": "WvLDET7S783IyZBY",
+  "name": "Badiya Siklon",
+  "type": "duelingStyle",
+  "_id": "rJU0Rw3H1Zau57uC",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>The Bedouin know of many dangers that await for those crossing the burning sands, but the scorching sun and poisonous vipers pale in comparison to the danger of being buried alive in a sandstorm, which can come out of nowhere.</p><p>Another danger that caravan masters have learned to fear is assaults by bandits. Those who are wise know to hire capable guards able to ward them off, even when outnumbered. Swordsmen trained in the Badiya Sikon (“Desert Cyclone”) style are prized for this purpose, nimbly slicing their way through a dozen caravan raiders, and evening the odds in seconds.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>You rip through your opponents like a terrible sandstorm, spinning through them in a vortex of flashing steel. When using the Moulinet or Bladework Maneuver against Pawns, you can re-roll the first failed attack roll.</p>",
+      "name": "Reaping Whirlwind"
+    },
+    "finalSecret": {
+      "description": "<p>When you have your foe on his heels, you cannot be stopped. Whenever a foe Yields Advantage to you, you get +1 to your next Bladework attack against that opponent. If they Yield Advantage again, the bonus increases to +2, and to +3 if they Yield Advantage again, and so on. If you successfully strike the foe for damage, miss, or the foe successfully uses a Reaction, this benefit is negated. If you miss the foe, however, you cannot Yield Advantage again until the start of your next turn. This ability is especially useful in concert with dual wielding, as it offsets the penalty for Splitting Actions. Alternatively, it works well in concert with making a Called Shot, as you are pressing the foe until you have them right where you want them before you make the last lethal cut.</p>",
+      "name": "Relentless Storm"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.VWYkrcMKlXbl4THn",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oWLuawgCA4xqnItq",
+      "Compendium.honor-and-intrigue.maneuvers.Item.oFiMpGLjnJyBmMUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.lgMH7U0CRuLvSJ6H",
+      "Compendium.honor-and-intrigue.maneuvers.Item.2g4bUyp38pdxQpth"
+    ],
+    "weaponry": "A pair of scimitars"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763860092166,
+    "modifiedTime": 1763860191143,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!rJU0Rw3H1Zau57uC"
+}

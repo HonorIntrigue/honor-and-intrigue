@@ -1,0 +1,46 @@
+{
+  "folder": "lmabFJtdL4i42e1n",
+  "name": "Halberd Style",
+  "type": "duelingStyle",
+  "_id": "2mF5ZWKuCuOJ3dUu",
+  "img": "icons/svg/combat.svg",
+  "system": {
+    "description": "<p>Developed by the famed Swiss Guard, this style is part of the training of elite bodyguards throughout Europe, where it is taught in military drill. One cannot simply “enroll” to learn the Halberd Style; one must enlist and be accepted. The student fights with a halberd, learning to adjust their grip to hit and block with the haft as well as using the axe blade and the spear at the top.</p>",
+    "active": false,
+    "benefit": {
+      "description": "<p>While armed with a halberd, the student gets +1 Defense against Melee and Brawling attacks, a bonus they can choose to apply to either themselves or to somebody next to them (the person they are charged with defending). Also, even though it isn’t normally thrown, you may throw a halberd with a 10’ Range Increment using the Hurl Axe/Spear Maneuver. Finally, fighters trained in the Halberd Style forgo the usual -1 penalty to Parry for two-handed weapons.</p>",
+      "name": "Adept Protector"
+    },
+    "finalSecret": {
+      "description": "<p>Whenever your charge would be hit by an attack, you can spend a Fortune Point to make yourself the target instead. You may Parry or Dodge this attack normally. You may also spend a Fortune Point to give your charge a Close Call against a ranged attack, shoving them out of the way.</p>",
+      "name": "The Final Defense"
+    },
+    "maneuvers": [
+      "Compendium.honor-and-intrigue.maneuvers.Item.NOZYKNyJeTjJQlUz",
+      "Compendium.honor-and-intrigue.maneuvers.Item.lgMH7U0CRuLvSJ6H",
+      "Compendium.honor-and-intrigue.maneuvers.Item.LCPhcMzefZ0IZkyr",
+      "Compendium.honor-and-intrigue.maneuvers.Item.KTdcjzoHuoWuYWRQ",
+      "Compendium.honor-and-intrigue.maneuvers.Item.IAylyL2DjpGoR9a8"
+    ],
+    "weaponry": "Halberd"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1763862436661,
+    "modifiedTime": 1763862510021,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!2mF5ZWKuCuOJ3dUu"
+}
