@@ -41,6 +41,13 @@
           </div>
         {{/if}}
       </div>
+    {{else}}
+      {{> 'systems/honor-and-intrigue/templates/api/item-list.hbs'
+        dataType='duelingStyle'
+        items=duelingStyles
+        title=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Character.DuelingStyles')
+        wrapperClass='dueling-styles-list'
+      }}
     {{/if}}
   </div>
 </section>

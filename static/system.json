@@ -34,6 +34,7 @@
       "armor": { "htmlFields": ["description"] },
       "boon": { "htmlFields": ["description"] },
       "career": { "htmlFields": ["description"] },
+      "duelingStyle": { "htmlFields": ["benefit.description", "description", "finalSecret.description"] },
       "equipment": { "htmlFields": ["description"] },
       "flaw": { "htmlFields": ["description"] },
       "maneuver": { "htmlFields": ["description"] },
@@ -85,6 +86,11 @@
       "type": "Item"
     },
     {
+      "name": "duelingStyles",
+      "label": "HONOR_INTRIGUE.COMPENDIUM.duelingStyles",
+      "type": "Item"
+    },
+    {
       "name": "equipment",
       "label": "HONOR_INTRIGUE.COMPENDIUM.equipment",
       "type": "Item"
@@ -114,7 +120,7 @@
     {
       "name": "Honor + Intrigue",
       "color": "#283343",
-      "packs": ["boons", "careers", "equipment", "flaws", "macros", "maneuvers", "tome-of-intriguing-options"]
+      "packs": ["boons", "careers", "duelingStyles", "equipment", "flaws", "macros", "maneuvers", "tome-of-intriguing-options"]
     }
   ],
   "primaryTokenAttribute": "lifeblood",

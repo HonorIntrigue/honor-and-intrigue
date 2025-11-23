@@ -3,7 +3,7 @@
      data-tab='{{tabs.description.id}}'>
   <div class='tab-content'>
     {{#if this.isEditable}}
-      {{formInput description.field value=description.value enriched=description.enriched}}
+      {{formInput description.field value=description.value enriched=description.enriched toggled=true}}
     {{else}}
       {{{description.enriched}}}
     {{/if}}

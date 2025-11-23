@@ -146,15 +146,11 @@ export default class HonorIntrigueItemSheet extends DocumentSheetMixin(foundry.a
   /** @inheritDoc */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
-
-    context.description = {
-      enriched: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.description, {
-        rollData: this.document.getRollData(),
-        secrets: this.document.isOwner,
-      }),
-      field: context.systemFields.description,
-      value: this.document.system.description,
-    };
+    context.description = await hi.utils.enrichedFieldToContext(
+      this.document,
+      context.systemFields.description,
+      this.document.system.description,
+    );
 
     return context;
   }

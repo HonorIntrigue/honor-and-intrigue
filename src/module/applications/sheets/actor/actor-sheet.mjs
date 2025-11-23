@@ -17,6 +17,7 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
       rollItem: this.#onRollItem,
       rollItemDamage: this.#onRollItemDamage,
       rollTaggedManeuver: this.#onRollTaggedManeuver,
+      toggleActiveStyle: this.#toggleActiveStyle,
       toggleItemEquipped: this.#toggleItemEquipped,
       toggleItemExpanded: this.#toggleItemExpanded,
       toggleManeuverMastery: this.#toggleManeuverMastery,
@@ -225,6 +226,18 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
     const maneuver = this.actor.itemTypes.maneuver.find(m => m._stats.compendiumSource === itemUuid) || await fromUuid(itemUuid);
 
     return this.#rollManeuver(maneuver, { system: { relatedItemUuid: item.uuid } });
+  }
+
+  /**
+   * Toggle the actor's active dueling style.
+   */
+  static async #toggleActiveStyle(event, target) {
+    const { itemId } = target.closest('.item').dataset;
+    const item = this.actor.items.get(itemId);
+    const state = !item.system.active;
+
+    await Promise.all(this.actor.itemTypes['duelingStyle'].map(async (style) => style.update({ system: { active: false } })));
+    await item.update({ system: { active: state } });
   }
 
   /**
@@ -547,15 +560,22 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
 
     switch (partId) {
       case 'character': {
-        const [careers, boons, flaws] = await Promise.all([
+        const [careers, boons, flaws, duelingStyles] = await Promise.all([
           this._prepareEmbeddedItemContext('career'),
           this._prepareEmbeddedItemContext('boon'),
           this._prepareEmbeddedItemContext('flaw'),
+          this._prepareEmbeddedItemContext('duelingStyle'),
         ]);
 
         context.careers = careers;
         context.boons = boons.sort((a, b) => a.item.name.localeCompare(b.item.name, game.i18n.lang));
         context.flaws = flaws.sort((a, b) => a.item.name.localeCompare(b.item.name, game.i18n.lang));
+        context.duelingStyles = duelingStyles.sort((a, b) => {
+          if (a.item.system.active && !b.item.system.active) return -1;
+          else if (!a.item.system.active && b.item.system.active) return 1;
+
+          return a.item.name.localeCompare(b.item.name, game.i18n.lang);
+        });
         break;
       }
       case 'inventory':

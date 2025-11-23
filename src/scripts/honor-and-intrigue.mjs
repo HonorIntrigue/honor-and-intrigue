@@ -108,6 +108,11 @@ Hooks.once('init', () => {
     makeDefault: true,
     label: 'TYPES.Item.career',
   });
+  Items.registerSheet(HI_CONST.systemID, applications.sheets.itemSheets.DuelingStyleSheet, {
+    types: ['duelingStyle'],
+    makeDefault: true,
+    label: 'TYPES.Item.duelingStyle',
+  });
   Items.registerSheet(HI_CONST.systemID, applications.sheets.itemSheets.ManeuverItemSheet, {
     types: ['maneuver'],
     makeDefault: true,

@@ -2,6 +2,7 @@ export { default as ActionModel } from './action.mjs';
 export { default as ArmorModel } from './armor.mjs';
 export { default as BoonModel } from './boon.mjs';
 export { default as CareerModel } from './career.mjs';
+export { default as DuelingStyleModel } from './dueling-style.mjs';
 export { default as EquipmentModel } from './equipment.mjs';
 export { default as FlawModel } from './flaw.mjs';
 export { default as ManeuverModel } from './maneuver.mjs';

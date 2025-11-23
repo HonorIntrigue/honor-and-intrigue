@@ -6,6 +6,7 @@ export default class HonorIntrigueItem extends foundry.documents.Item {
         'armor',
         'boon',
         'career',
+        'duelingStyle',
         'equipment',
         'flaw',
         'maneuver',

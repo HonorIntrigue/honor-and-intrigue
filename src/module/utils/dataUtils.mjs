@@ -1,4 +1,10 @@
 /**
+ * @typedef {Object} EnrichedField
+ * @property {String} enriched
+ * @property {DataField} field
+ * @property {String} value
+ */
+/**
  * @typedef {Object} FormulaField
  * @property {Number} numDice
  * @property {Number} [dieSize]
@@ -6,6 +12,24 @@
  */
 
 const FormulaRegex = /^(\d+)d(\d+)([+-]\d+)?$/;
+
+/**
+ * Prepares context for a HTML enriched field.
+ * @param {ClientDocument} document
+ * @param {DataField} field
+ * @param {String} value
+ * @returns {EnrichedField}
+ */
+export async function enrichedFieldToContext(document, field, value) {
+  return {
+    enriched: await foundry.applications.ux.TextEditor.implementation.enrichHTML(value, {
+      rollData: document.getRollData(),
+      secrets: document.isOwner,
+    }),
+    field: field,
+    value: value,
+  };
+}
 
 /**
  * Prepare a `value` string for a dice formula field.

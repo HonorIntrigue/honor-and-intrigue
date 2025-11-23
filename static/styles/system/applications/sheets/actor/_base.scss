@@ -148,6 +148,25 @@
       }
     }
 
+    &.dueling-styles-list {
+      .dueling-style-mastery {
+        display: grid;
+        grid-template: 1fr / 1fr;
+        height: 20px;
+        width: 100px;
+
+        > span { grid-area: 1 / 1 }
+
+        &-background { background-color: var(--color-dark-3) }
+        &-foreground {
+          background-color: var(--color-gold-dull);
+          &[width='100%'] {
+            background-color: var(--color-gold);
+          }
+        }
+      }
+    }
+
     &.offensive-equipment {
       .item {
         > div:first-of-type {

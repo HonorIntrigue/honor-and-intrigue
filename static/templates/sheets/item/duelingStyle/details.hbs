@@ -1,0 +1,20 @@
+<section class='tab scrollable {{tabs.details.id}}{{#if tabs.details.cssClass}} {{tabs.details.cssClass}}{{/if}}'
+         data-group='{{tabs.details.group}}'
+         data-tab='{{tabs.details.id}}'>
+  <div class='tab-content standard-form'>
+    {{formGroup systemFields.maneuvers value=system.maneuvers}}
+    {{formGroup systemFields.weaponry value=system.weaponry}}
+
+    <div class='form-field-group'>
+      <span>{{localize 'HONOR_INTRIGUE.Item.Sheet.DuelingStyle.FIELDS.benefit.label'}}</span>
+      {{formGroup systemFields.benefit.fields.name value=system.benefit.name}}
+      {{formGroup benefit.description.field value=benefit.description.value enriched=benefit.description.enriched stacked=false toggled=true}}
+    </div>
+
+    <div class='form-field-group'>
+      <span>{{localize 'HONOR_INTRIGUE.Item.Sheet.DuelingStyle.FIELDS.finalSecret.label'}}</span>
+      {{formGroup systemFields.finalSecret.fields.name value=system.finalSecret.name}}
+      {{formGroup finalSecret.description.field value=finalSecret.description.value enriched=finalSecret.description.enriched stacked=false toggled=true}}
+    </div>
+  </div>
+</section>

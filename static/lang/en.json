@@ -9,6 +9,7 @@
     "COMPENDIUM": {
       "boons": "Boons",
       "careers": "Careers",
+      "duelingStyles": "Dueling Styles",
       "equipment": "Equipment",
       "flaws": "Flaws",
       "macros": "Macros",
@@ -87,6 +88,8 @@
           "Character": {
             "Boons": "Boons",
             "Careers": "Careers",
+            "DuelingStyles": "Dueling Styles",
+            "DuelingStyleProgress": "{value} / {max} maneuvers mastered",
             "Flaws": "Flaws",
             "Notes": "Notes"
           },
@@ -246,6 +249,7 @@
           "armor": "New Armor",
           "boon": "New Boon",
           "career": "New Career",
+          "duelingStyle": "New Dueling Style",
           "equipment": "New Equipment",
           "flaw": "New Flaw",
           "maneuver": "New Maneuver",
@@ -284,6 +288,30 @@
           "throwable": {
             "label": "Throwable",
             "hint": "Set to allow this weapon to be thrown"
+          }
+        },
+        "DuelingStyle": {
+          "FIELDS": {
+            "active": {
+              "label": "Active",
+              "hint": "Toggle Active Style"
+            },
+            "benefit": {
+              "description": { "label": "Description" },
+              "label": "Style Benefit",
+              "name": { "label": "Name" }
+            },
+            "finalSecret": {
+              "description": { "label": "Description" },
+              "label": "Final Secret",
+              "name": { "label": "Name" }
+            },
+            "maneuvers": {
+              "label": "Associated Maneuvers"
+            },
+            "weaponry": {
+              "label": "Weaponry"
+            }
           }
         },
         "Labels": {
@@ -358,6 +386,7 @@
       "armor": "Armor",
       "boon": "Boon",
       "career": "Career",
+      "duelingStyle": "Dueling Style",
       "equipment": "Equipment",
       "flaw": "Flaw",
       "maneuver": "Maneuver",
