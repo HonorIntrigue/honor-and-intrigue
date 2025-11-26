@@ -1,5 +1,22 @@
 <section class='tab scrollable {{tabs.stash.id}}{{#if tabs.stash.cssClass}} {{tabs.stash.cssClass}}{{/if}}'
          data-group='{{tabs.stash.group}}'
          data-tab='{{tabs.stash.id}}'>
-  party stash
+  <div class='tab-content'>
+    {{#*inline 'inventorySection'}}
+      {{> 'systems/honor-and-intrigue/templates/api/item-list.hbs'
+        adjustable=true
+        dataType=type
+        draggable=true
+        items=(lookup stash type)
+        quantityFieldName='quantity'
+        title=(localize (concat 'HONOR_INTRIGUE.Actor.Sheet.Labels.Inventory.' type))
+        wrapperClass=(concat type '-list')
+      }}
+    {{/inline}}
+
+    {{> inventorySection type='weapon'}}
+    {{> inventorySection type='armor'}}
+    {{> inventorySection type='equipment'}}
+    {{> inventorySection type='treasure'}}
+  </div>
 </section>

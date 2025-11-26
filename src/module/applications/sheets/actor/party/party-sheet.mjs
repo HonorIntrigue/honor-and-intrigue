@@ -1,16 +1,12 @@
 import { systemPath } from '../../../../constants.mjs';
-import { DocumentSheetMixin } from '../../../api/_module.mjs';
+import HonorIntrigueActorSheet from '../actor-sheet.mjs';
 
-export default class PartySheet extends DocumentSheetMixin(foundry.applications.sheets.ActorSheetV2) {
+export default class PartySheet extends HonorIntrigueActorSheet {
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
     actions: {
       openDetail: this.#onOpenDetail,
       openMember: this.#onOpenMember,
-    },
-    position: {
-      height: 600,
-      width: 800,
     },
   };
 
@@ -69,6 +65,16 @@ export default class PartySheet extends DocumentSheetMixin(foundry.applications.
           lifebloodPercentage: Math.round(Math.clamp(a.system.lifeblood.value / a.system.lifeblood.max, 0, 1) * 100),
         }));
         break;
+      case 'stash': {
+        const [armor, equipment, treasure, weapon] = await Promise.all([
+          super._prepareEmbeddedItemContext('armor'),
+          super._prepareEmbeddedItemContext('equipment'),
+          super._prepareEmbeddedItemContext('treasure'),
+          super._prepareEmbeddedItemContext('weapon'),
+        ]);
+        context.stash = { armor, equipment, treasure, weapon };
+        break;
+      }
     }
 
     return context;

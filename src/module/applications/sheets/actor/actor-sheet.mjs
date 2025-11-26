@@ -419,12 +419,14 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
       });
     }
 
-    for (const [key, overrides] of Object.entries(this.actor.system.elementOverrides)) {
-      const el = this.element.querySelector(`[name="${key.replaceAll('_', '.')}"]`);
+    if (this.actor.system.elementOverrides) {
+      for (const [key, overrides] of Object.entries(this.actor.system.elementOverrides)) {
+        const el = this.element.querySelector(`[name="${key.replaceAll('_', '.')}"]`);
 
-      if (el) {
-        for (const [k, v] of Object.entries(overrides)) {
-          el.style.setProperty(k, v);
+        if (el) {
+          for (const [k, v] of Object.entries(overrides)) {
+            el.style.setProperty(k, v);
+          }
         }
       }
     }
