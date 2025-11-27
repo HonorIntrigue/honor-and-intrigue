@@ -1,7 +1,8 @@
 import { systemPath } from '../../../constants.mjs';
+import { ManeuverSupportMixin } from '../../api/_module.mjs';
 import HonorIntrigueActorSheet from './actor-sheet.mjs';
 
-export default class CharacterActorSheet extends HonorIntrigueActorSheet {
+export default class CharacterActorSheet extends ManeuverSupportMixin(HonorIntrigueActorSheet) {
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
     actions: {

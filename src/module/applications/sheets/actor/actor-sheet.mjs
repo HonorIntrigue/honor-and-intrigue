@@ -1,41 +1,23 @@
 import { systemPath } from '../../../constants.mjs';
 import { HonorIntrigueProtectionRoll } from '../../../rolls/_module.mjs';
 import { determineManeuverOutcome } from '../../../utils/rollUtils.mjs';
-import { DocumentSheetMixin } from '../../api/_module.mjs';
+import { DocumentSheetMixin, ItemCRUDMixin } from '../../api/_module.mjs';
 
-export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.applications.sheets.ActorSheetV2) {
+export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheetMixin(foundry.applications.sheets.ActorSheetV2)) {
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
     actions: {
-      addItem: this.#onAddItem,
-      adjustItem: this.#onAdjustItem,
-      deleteItem: this.#onDeleteItem,
-      openItem: this.#onOpenItem,
-      populateManeuvers: this.#onPopulateManeuvers,
-      resetManeuvers: this.#onResetManeuvers,
       rollCharacteristic: this.#onRollCharacteristic,
       rollItem: this.#onRollItem,
       rollItemDamage: this.#onRollItemDamage,
       rollTaggedManeuver: this.#onRollTaggedManeuver,
-      toggleActiveStyle: this.#toggleActiveStyle,
       toggleItemEquipped: this.#toggleItemEquipped,
       toggleItemExpanded: this.#toggleItemExpanded,
-      toggleManeuverMastery: this.#toggleManeuverMastery,
     },
     classes: ['actor'],
     position: {
       height: 800,
       width: 900,
-    },
-    window: {
-      controls: [
-        {
-          action: 'resetManeuvers',
-          icon: 'fa-solid fa-broom-wide',
-          label: 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Reset',
-          ownership: 'OWNER',
-        },
-      ],
     },
   };
 
@@ -66,107 +48,6 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
    * @type {Set<String>}
    */
   #expanded = new Set();
-
-  /**
-   * Add a new inline item.
-   */
-  static async #onAddItem(event, target) {
-    const { type } = target.dataset;
-    const options = { type, name: game.i18n.localize(`HONOR_INTRIGUE.Item.Defaults.ItemName.${type}`) };
-    const renderSheet = ['boon', 'career', 'flaw', 'maneuver'].includes(type);
-
-    if (type === 'maneuver') {
-      options.system = { actionType: target.dataset.actionType };
-    }
-
-    const [item] = await this.actor.createEmbeddedDocuments('Item', [options]);
-
-    if (renderSheet) {
-      return item.sheet.render(true);
-    }
-  }
-
-  /**
-   * Adjusts the quantity of an item.
-   */
-  static async #onAdjustItem(event, target) {
-    const { itemId } = target.closest('.item').dataset;
-    const item = this.actor.items.get(itemId);
-    const field = item.type === 'career' ? 'rank' : 'quantity';
-    let change = target.dataset.adjustment === 'increment' ? 1 : -1;
-
-    if (change === -1 && item.system[field] === 0) {
-      return HonorIntrigueActorSheet.#onDeleteItem.call(this, event, target);
-    }
-
-    if (event.shiftKey) change *= 5;
-    else if (event.ctrlKey) change *= 10;
-
-    return item.update({ [`system.${field}`]: Math.max(0, item.system[field] + change) });
-  }
-
-  /**
-   * Delete an embedded item.
-   */
-  static async #onDeleteItem(event, target) {
-    const { itemId } = target.closest('.item').dataset;
-    const item = this.actor.items.get(itemId);
-
-    const confirm = event.shiftKey || (await foundry.applications.api.DialogV2.confirm({
-      window: { title: game.i18n.format('HONOR_INTRIGUE.Dialog.Confirm.DeleteWithPlaceholder', { item: item.name }) },
-      content: game.i18n.localize('HONOR_INTRIGUE.Dialog.Confirm.DeleteItem'),
-    }));
-
-    if (confirm) {
-      await item.delete();
-    }
-  }
-
-  /**
-   * Open an item sheet.
-   */
-  static #onOpenItem(event, target) {
-    const { itemId } = target.closest('.item').dataset;
-    const item = this.actor.items.get(itemId);
-
-    item.sheet.render(true);
-  }
-
-  /**
-   * Populate this actor with default maneuvers from the system compendium.
-   */
-  static async #onPopulateManeuvers() {
-    const pack = game.packs.get(`${hi.CONST.systemID}.maneuvers`);
-
-    if (!pack || pack.index.size === 0) {
-      ui.notifications.warn('Unable to load the system pack of maneuvers. Please check your compendium collection.');
-      return;
-    }
-
-    const docs = await pack.getDocuments();
-    const objs = docs.map(cd => game.items.fromCompendium(cd));
-
-    await Item.implementation.createDocuments(objs, { parent: this.actor });
-    return this.render({ parts: ['maneuvers'] });
-  }
-
-  /**
-   * Handle header control to reset the maneuvers content.
-   */
-  static async #onResetManeuvers() {
-    const maneuvers = this.actor.itemTypes.maneuver;
-
-    if (maneuvers.length > 0) {
-      const confirm = await foundry.applications.api.DialogV2.confirm({
-        window: { title: game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Reset') },
-        content: game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ResetWarning'),
-      });
-
-      if (confirm) {
-        await Item.deleteDocuments(maneuvers.map(m => m.id), { parent: this.actor });
-      }
-    }
-  }
 
   /**
    * Begin rolling a characteristic such as a Quality or Combat Ability.
@@ -229,18 +110,6 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
   }
 
   /**
-   * Toggle the actor's active dueling style.
-   */
-  static async #toggleActiveStyle(event, target) {
-    const { itemId } = target.closest('.item').dataset;
-    const item = this.actor.items.get(itemId);
-    const state = !item.system.active;
-
-    await Promise.all(this.actor.itemTypes['duelingStyle'].map(async (style) => style.update({ system: { active: false } })));
-    await item.update({ system: { active: state } });
-  }
-
-  /**
    * Cycle the equipped state of an item.
    */
   static async #toggleItemEquipped(event, target) {
@@ -266,16 +135,6 @@ export default class HonorIntrigueActorSheet extends DocumentSheetMixin(foundry.
 
     const part = target.closest('[data-application-part]').dataset.applicationPart;
     this.render({ parts: [part] });
-  }
-
-  /**
-   * Toggle the mastery status of a maneuver.
-   */
-  static async #toggleManeuverMastery(event, target) {
-    const { itemId } = target.closest('.item').dataset;
-    const item = this.actor.items.get(itemId);
-
-    await item.update({ system: { isMastered: !item.system.isMastered } });
   }
 
   /**

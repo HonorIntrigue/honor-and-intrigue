@@ -6,6 +6,7 @@ export default class HeroSheet extends CharacterActorSheet {
   static DEFAULT_OPTIONS = {
     actions: {
       adjustAdvancementPoints: { handler: this.#adjustAdvancementPoints, buttons: [0, 2] },
+      toggleActiveStyle: this.#toggleActiveStyle,
     },
   };
 
@@ -31,6 +32,18 @@ export default class HeroSheet extends CharacterActorSheet {
     let change = event.type === 'click' ? 1 : -1;
     if (event.shiftKey) change *= 5;
     this.actor.update({ system: { advancementPoints: { value: Math.max(0, this.actor.system.advancementPoints.value + change) } } });
+  }
+
+  /**
+   * Toggle the actor's active dueling style.
+   */
+  static async #toggleActiveStyle(event, target) {
+    const { itemId } = target.closest('.item').dataset;
+    const item = this.actor.items.get(itemId);
+    const state = !item.system.active;
+
+    await Promise.all(this.actor.itemTypes['duelingStyle'].map(async (style) => style.update({ system: { active: false } })));
+    await item.update({ system: { active: state } });
   }
 
   /** @inheritDoc */
