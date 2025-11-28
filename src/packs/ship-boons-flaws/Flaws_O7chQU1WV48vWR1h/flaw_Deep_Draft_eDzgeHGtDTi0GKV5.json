@@ -1,0 +1,29 @@
+{
+  "folder": "O7chQU1WV48vWR1h",
+  "name": "Deep Draft",
+  "type": "flaw",
+  "_id": "eDzgeHGtDTi0GKV5",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>Your ship cuts deep underwater and is prone to wrecks in shallow water. Your helmsman gets a Penalty Die whenever rolling to avoid shoals, rocks, sandbars, reefs, etc. </p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359751251,
+    "modifiedTime": 1764359754006,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!eDzgeHGtDTi0GKV5"
+}

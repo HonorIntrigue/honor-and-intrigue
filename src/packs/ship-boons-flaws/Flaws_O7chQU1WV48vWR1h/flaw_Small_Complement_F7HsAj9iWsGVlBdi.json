@@ -1,0 +1,29 @@
+{
+  "folder": "O7chQU1WV48vWR1h",
+  "name": "Small Complement",
+  "type": "flaw",
+  "_id": "F7HsAj9iWsGVlBdi",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>You have difficulty recruiting and supplying a full Complement of crew. You begin with only 75% Complement, meaning that the ship has -1 to all rolls and your Crew rating of the ship is 1 lower as well.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359614219,
+    "modifiedTime": 1764359617833,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!F7HsAj9iWsGVlBdi"
+}

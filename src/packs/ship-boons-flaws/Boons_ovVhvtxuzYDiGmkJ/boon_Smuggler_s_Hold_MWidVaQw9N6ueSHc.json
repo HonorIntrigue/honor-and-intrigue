@@ -1,0 +1,29 @@
+{
+  "folder": "ovVhvtxuzYDiGmkJ",
+  "name": "Smuggler's Hold",
+  "type": "boon",
+  "_id": "MWidVaQw9N6ueSHc",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>Your ship has hidden compartments to help get by nosy customs officials. Up to 1 Ton of cargo can be totally hidden per point of Size. Anyone searching for it would literally have to tear the ship apart to find it.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359158367,
+    "modifiedTime": 1764359170040,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!MWidVaQw9N6ueSHc"
+}

@@ -1,0 +1,29 @@
+{
+  "folder": "O7chQU1WV48vWR1h",
+  "name": "Unarmed",
+  "type": "flaw",
+  "_id": "sOfJoO4bRcfSOtds",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>Your ship carries no guns at all. Your ship’s Guns Quality is non-existent (just put an “X” for the value), and it cannot fire any volleys. This does leave more room for cargo, at least.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359721412,
+    "modifiedTime": 1764359724393,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!sOfJoO4bRcfSOtds"
+}

@@ -1,0 +1,68 @@
+{
+  "folder": "ovVhvtxuzYDiGmkJ",
+  "name": "Unsinkable",
+  "type": "boon",
+  "_id": "Kro5GLWix1MNJJdF",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>Your ship is as sturdy as they come. It has +10 to its maximum Timber.</p>"
+  },
+  "effects": [
+    {
+      "name": "Unsinkable",
+      "_id": "yQsvdnaIrcolUrHu",
+      "img": null,
+      "type": "base",
+      "system": {},
+      "changes": [
+        {
+          "key": "system.timber.max",
+          "value": "10",
+          "mode": 2
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "honor-and-intrigue",
+        "systemVersion": "0.0.0",
+        "createdTime": 1764359396681,
+        "modifiedTime": 1764359414329,
+        "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+      },
+      "_key": "!items.effects!Kro5GLWix1MNJJdF.yQsvdnaIrcolUrHu"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359387108,
+    "modifiedTime": 1764359388782,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!Kro5GLWix1MNJJdF"
+}

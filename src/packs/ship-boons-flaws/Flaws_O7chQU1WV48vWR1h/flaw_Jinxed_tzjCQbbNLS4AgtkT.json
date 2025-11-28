@@ -1,0 +1,29 @@
+{
+  "folder": "O7chQU1WV48vWR1h",
+  "name": "Jinxed",
+  "type": "flaw",
+  "_id": "tzjCQbbNLS4AgtkT",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>The ship seems to attract trouble. When the GM rolls for random Hazards, he rolls twice and takes the result that is most “interesting”.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359646043,
+    "modifiedTime": 1764359649602,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!tzjCQbbNLS4AgtkT"
+}

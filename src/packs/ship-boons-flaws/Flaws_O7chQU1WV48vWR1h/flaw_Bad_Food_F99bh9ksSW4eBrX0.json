@@ -1,0 +1,29 @@
+{
+  "folder": "O7chQU1WV48vWR1h",
+  "name": "Bad Food",
+  "type": "flaw",
+  "_id": "F99bh9ksSW4eBrX0",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>Whether it is spoilage, vermin, or a terrible cook, the Ship wastes 1 Ton of Supplies per month at sea.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359597310,
+    "modifiedTime": 1764359600500,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!F99bh9ksSW4eBrX0"
+}

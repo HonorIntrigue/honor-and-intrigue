@@ -1,0 +1,29 @@
+{
+  "folder": "ovVhvtxuzYDiGmkJ",
+  "name": "Sailmaker",
+  "type": "boon",
+  "_id": "fdkC7ivnAUZX57fU",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>Most ships have to go into port to repair their sails. Your ship has a sailmaker aboard who can repair damaged sails, as well as the extra sails and rigging stowed to make the repairs necessary.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359179070,
+    "modifiedTime": 1764359188525,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!fdkC7ivnAUZX57fU"
+}

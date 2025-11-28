@@ -1,0 +1,29 @@
+{
+  "folder": "ovVhvtxuzYDiGmkJ",
+  "name": "Long Guns",
+  "type": "boon",
+  "_id": "Lgnt8JXPk4hzAVOg",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>Your cannon have especially long reach. Treat any target as if they were one range increment closer.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359557480,
+    "modifiedTime": 1764359562464,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!Lgnt8JXPk4hzAVOg"
+}

@@ -111,6 +111,11 @@
       "type": "Item"
     },
     {
+      "name": "ship-boons-flaws",
+      "label": "HONOR_INTRIGUE.COMPENDIUM.ship-boons-flaws",
+      "type": "Item"
+    },
+    {
       "name": "tome-of-intriguing-options",
       "label": "HONOR_INTRIGUE.COMPENDIUM.tome-of-intriguing-options",
       "type": "Item"
@@ -120,7 +125,7 @@
     {
       "name": "Honor + Intrigue",
       "color": "#283343",
-      "packs": ["boons", "careers", "duelingStyles", "equipment", "flaws", "macros", "maneuvers", "tome-of-intriguing-options"]
+      "packs": ["boons", "careers", "duelingStyles", "equipment", "flaws", "macros", "maneuvers", "ship-boons-flaws", "tome-of-intriguing-options"]
     }
   ],
   "primaryTokenAttribute": "lifeblood",

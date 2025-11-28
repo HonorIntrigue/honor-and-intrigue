@@ -1,0 +1,29 @@
+{
+  "folder": "ovVhvtxuzYDiGmkJ",
+  "name": "Ramming Prow",
+  "type": "boon",
+  "_id": "OdpMKnpbI3eiStEt",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>A ship with a ramming prow has +1 to attack and does an extra +[[/r 1d6]] Timber damage to an enemy ship when it rams them.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359508990,
+    "modifiedTime": 1764359537778,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!OdpMKnpbI3eiStEt"
+}

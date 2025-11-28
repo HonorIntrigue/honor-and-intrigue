@@ -1,0 +1,29 @@
+{
+  "folder": "O7chQU1WV48vWR1h",
+  "name": "Fragile",
+  "type": "flaw",
+  "_id": "lwWmsjtU8T2r8Ipo",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>Your ship cannot withstand a broadside very well. It has -10 Timber from its maximum, or half the maximum, whichever would be more. So a Size 0 ship would have 5 Timber instead of 10, while a Size 4 ship would have 40 Timber instead of 50.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359736779,
+    "modifiedTime": 1764359739810,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!lwWmsjtU8T2r8Ipo"
+}

@@ -1,0 +1,29 @@
+{
+  "folder": "ovVhvtxuzYDiGmkJ",
+  "name": "Fearsome Reputation",
+  "type": "boon",
+  "_id": "8cAyiVbPEhisto1d",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p> Your ship is legendary  (whether by actual deeds or gossip), and inspires fear  in those who see it. You get a Bonus Die when trying  to convince merchants to surrender their cargos to  you.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359373405,
+    "modifiedTime": 1764359378683,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!8cAyiVbPEhisto1d"
+}

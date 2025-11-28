@@ -1,0 +1,29 @@
+{
+  "folder": "O7chQU1WV48vWR1h",
+  "name": "Small Hold",
+  "type": "flaw",
+  "_id": "48SKxX9JPixw7yaA",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>Your ship can carry a maximum of 8 Tons per point of Size, or be overburdened by carrying as much as 10 Tons per point of Size.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359683855,
+    "modifiedTime": 1764359684871,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!48SKxX9JPixw7yaA"
+}

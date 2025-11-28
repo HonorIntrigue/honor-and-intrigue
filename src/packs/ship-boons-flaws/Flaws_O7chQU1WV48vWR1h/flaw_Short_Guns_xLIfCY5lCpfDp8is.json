@@ -1,0 +1,29 @@
+{
+  "folder": "O7chQU1WV48vWR1h",
+  "name": "Short Guns",
+  "type": "flaw",
+  "_id": "xLIfCY5lCpfDp8is",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>Your cannon have a short range. Treat any target as if they were 1 range increment further away when firing upon them (except at Point-Blank).</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359804194,
+    "modifiedTime": 1764359806976,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!xLIfCY5lCpfDp8is"
+}

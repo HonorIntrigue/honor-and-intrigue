@@ -1,0 +1,29 @@
+{
+  "folder": "ovVhvtxuzYDiGmkJ",
+  "name": "Extra Gunports",
+  "type": "boon",
+  "_id": "QDmwl62lSckC36fJ",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>The ship has more than the usual number of gunports for its class. The ship’s Guns rating is not limited by its Size. In addition, when figuring the damage caused by a volley and penalties for maneuvering, treat the ship as if its Size were 1 greater. Lastly the ship’s guns use up a number of Tons equal to the Guns rating squared. So a ship with Size 2, Guns 3 would take up 9 Tons with its guns, not 6 Tons.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359284817,
+    "modifiedTime": 1764359302659,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!QDmwl62lSckC36fJ"
+}

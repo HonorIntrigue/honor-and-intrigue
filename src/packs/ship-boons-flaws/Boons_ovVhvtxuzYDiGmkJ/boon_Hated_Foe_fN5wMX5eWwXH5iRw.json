@@ -1,0 +1,29 @@
+{
+  "folder": "ovVhvtxuzYDiGmkJ",
+  "name": "Hated Foe",
+  "type": "boon",
+  "_id": "fN5wMX5eWwXH5iRw",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>There is someone out there your crew hates, whether it is the British, Corsairs, Pirates, etc. Whenever facing this foe, you get a Bonus Die to all rolls using the Crew Quality.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359316312,
+    "modifiedTime": 1764359324312,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!fN5wMX5eWwXH5iRw"
+}

@@ -1,0 +1,29 @@
+{
+  "folder": "ovVhvtxuzYDiGmkJ",
+  "name": "Oars",
+  "type": "boon",
+  "_id": "t8szBYzKll7lmdfy",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>The ship is able to move by rowing even when there is no wind, or when sailing against it. This can be hugely advantageous in certain situations. You ignore penalties for bad wind conditions. However you have to carry twice as many men aboard your ship (but only half that number count towards the “crew”), causing your food to deplete at double the rate. In addition, rowers are usually galley slaves and prone to mutiny.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359051616,
+    "modifiedTime": 1764359082037,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!t8szBYzKll7lmdfy"
+}

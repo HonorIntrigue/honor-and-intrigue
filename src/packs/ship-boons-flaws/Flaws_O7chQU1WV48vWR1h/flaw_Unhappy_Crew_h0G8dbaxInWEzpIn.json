@@ -1,0 +1,29 @@
+{
+  "folder": "O7chQU1WV48vWR1h",
+  "name": "Unhappy Crew",
+  "type": "flaw",
+  "_id": "h0G8dbaxInWEzpIn",
+  "img": "icons/svg/stoned.svg",
+  "system": {
+    "description": "<p>The crew hates the captain and will betray him at the first opportunity. They are unlikely to fight very well if boarded, and may even join the other side after the battle. You get a Penalty Die when rolling to make or repel boarding actions.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359584797,
+    "modifiedTime": 1764359589356,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!h0G8dbaxInWEzpIn"
+}

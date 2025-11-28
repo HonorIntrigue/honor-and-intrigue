@@ -1,0 +1,29 @@
+{
+  "folder": "ovVhvtxuzYDiGmkJ",
+  "name": "Shallow Draft",
+  "type": "boon",
+  "_id": "wDi7VgUDPD4XRBAc",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "description": "<p>When you’ve got a light load aboard (no more than 20 Tons) you get a Bonus Die to rolls to avoid the dangers of shallows such as reefs or shoals, which can prove invaluable in a chase.</p>"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gzs91c0iwOtmt0Wp": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "honor-and-intrigue",
+    "systemVersion": "0.0.0",
+    "createdTime": 1764359235101,
+    "modifiedTime": 1764359239192,
+    "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+  },
+  "_key": "!items!wDi7VgUDPD4XRBAc"
+}
