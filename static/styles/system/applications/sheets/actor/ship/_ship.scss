@@ -1,0 +1,90 @@
+.honor-intrigue.sheet.ship {
+  --portrait-size: 210px;
+
+  .resources {
+    .resource-item {
+      &:nth-child(2) {
+        .resource-value {
+          input[type='number'] {
+            width: 60px;
+          }
+        }
+      }
+
+      .resource-label {
+        width: 90px;
+      }
+    }
+  }
+
+  .tab {
+    &.hold {
+      .ship-tonnage {
+        display: grid;
+        grid-template: 1fr / 1fr;
+        font-size: var(--font-size-14);
+
+        > span {
+          grid-area: 1 / 1;
+          height: 30px;
+        }
+
+        &-background { background-color: var(--color-dark-3) }
+        &-foreground {
+          background-color: var(--color-cool-3);
+
+          &-reserved {
+            background-color: var(--color-warm-3);
+            display: block;
+            height: 100%;
+          }
+        }
+
+        &-value {
+          align-items: center;
+          display: flex;
+          color: var(--color-light-1);
+          gap: 0.5em;
+          padding: 0 0.5em;
+        }
+      }
+    }
+
+    &.management {
+      .crew-duties-list {
+        &-item {
+          min-height: 50px;
+          position: relative;
+
+          &.drop-target {
+            &:before {
+              border: 1px dashed light-dark(var(--color-navy), var(--color-gold-dull));
+              bottom: 0;
+              content: '';
+              left: 0;
+              position: absolute;
+              right: 0;
+              top: 0;
+            }
+          }
+
+          .item-name {
+            &:has(> :nth-child(2)) {
+              display: flex;
+              flex-direction: column;
+
+              :first-child {
+                font-size: var(--font-h5-size);
+              }
+
+              .subtitle {
+                color: var(--color-text-subtle);
+                font-style: italic;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

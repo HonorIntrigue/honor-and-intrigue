@@ -86,6 +86,11 @@ Hooks.once('init', () => {
     makeDefault: true,
     label: 'TYPES.Actor.party',
   });
+  Actors.registerSheet(HI_CONST.systemID, applications.sheets.actorSheets.ShipSheet, {
+    types: ['ship'],
+    makeDefault: true,
+    label: 'TYPES.Actor.ship',
+  });
 
   Items.unregisterSheet('core', foundry.applications.sheets.ItemSheetV2);
   Items.registerSheet(HI_CONST.systemID, applications.sheets.itemSheets.HonorIntrigueItemSheet);

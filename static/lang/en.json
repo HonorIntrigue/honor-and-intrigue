@@ -59,6 +59,56 @@
         "savvy": "Savvy",
         "terror": "Terror"
       },
+      "ship": {
+        "duties": {
+          "captain":  {
+            "label": "Captain",
+            "hint": "Officer in charge of the ship"
+          },
+          "firstMate": {
+            "label": "First Mate",
+            "hint": "Second in command of the ship, usually first to lead boarding parties, responsible for overseeing most deck operations"
+          },
+          "helmsman":  {
+            "label": "Helmsman",
+            "hint": "Any sailor who is steering the ship"
+          },
+          "gunner": {
+            "label": "Master Gunner",
+            "hint": "Officer in charge of firing the ship's guns, and also maintains and secures the firearms in the ship’s weapons locker"
+          },
+          "carpenter":  {
+            "label": "Carpenter",
+            "hint": "Responsible for repairs (or modifications) to the ship"
+          },
+          "surgeon": {
+            "label": "Surgeon",
+            "hint": "The ship's medical officer, for surgeries and all other medical ailments"
+          }
+        },
+        "qualities": {
+          "sails": {
+            "label": "Sails",
+            "hint": "Representing the ship’s mobility, both in speed and maneuverability. You add Sails to a roll when you need to avoid an obstacle, or try to flee or chase down an enemy vessel."
+          },
+          "guns": {
+            "label": "Guns",
+            "hint": "Represents how many cannons the ship is carrying. The more cannons, the greater the odds of inflicting serious damage on an enemy vessel."
+          },
+          "crew": {
+            "label": "Crew",
+            "hint": "Represents not how many crewmen you have, but how well trained and disciplined they are. The higher the Crew Quality, the higher the morale of the ship. Crew is added to a roll for a boarding action, or to repel boarders."
+          },
+          "hull": {
+            "label": "Hull",
+            "hint": "Represents how sturdy the ship is. Hull isn’t usually added to a roll, but instead adds to the base Timber of a ship."
+          },
+          "size": {
+            "label": "Size",
+            "hint": "Represents how large a ship is, which has an impact on a number of other things. The bigger the ship, the slower and less maneuverable it will be, but it will likewise be able to carry more guns and sailors (as well as cargo)."
+          }
+        }
+      },
       "Party": {
         "CreateMember": "Create Member",
         "DefaultName": "The Heroes",
@@ -128,6 +178,18 @@
             "ResetWarning": "Proceeding will permanently erase all maneuvers in this actor's collection. Are you sure you wish to proceed?",
             "ToggleMastery": "Change Mastery"
           },
+          "Ship": {
+            "Class": "Class",
+            "Complement": "Complement",
+            "CrewDuties": "Crew Duties",
+            "HoldCapacity": "Tonnage: {value} / {max} ({reserved} reserved)",
+            "Tabs": {
+              "actions": "Ship Actions",
+              "hold": "Ship's Hold",
+              "management": "Management"
+            },
+            "Timber": "Timber"
+          },
           "Quantity": "Quantity"
         },
         "Tabs": {
@@ -193,7 +255,8 @@
           "Characteristic": "Ability Check: {characteristic}",
           "Damage": "{weapon} Damage",
           "Maneuver": "Maneuver: {maneuver}",
-          "Protection": "<strong>Protection</strong>"
+          "Protection": "<strong>Protection</strong>",
+          "ShipQuality": "{actor}: {ship} - {quality}"
         },
         "Modifier": {
           "Ability": "{number} {ability}",
@@ -381,7 +444,8 @@
       "pawn": "Pawn",
       "retainer": "Retainer",
       "villain": "Villain",
-      "creature": "Creature"
+      "creature": "Creature",
+      "ship": "Ship"
     },
     "Item": {
       "armor": "Armor",

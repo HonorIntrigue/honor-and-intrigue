@@ -1,0 +1,67 @@
+<aside class='sheet-sidebar'>
+  <div class='portrait'>
+    <img src='{{document.img}}' alt='{{document.name}}' data-action='editImage' data-edit='img'>
+
+    <div class='primary-resources'>
+      <div class='resources'>
+        <div class='resource-item'>
+          <div class='resource-value'>
+            {{formInput (getValueField 'timber' 'value') value=(getValueFieldValue 'timber' 'value') type='number'
+                        max=(getValueFieldValue 'timber' 'max')
+                        min=(getValueFieldValue 'timber' 'min')}}
+            <p>/</p>
+            <p class='resource-value-label'>{{getValueFieldValue 'timber' 'max'}}</p>
+          </div>
+          <span class='resource-label'>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Ship.Timber'}}</span>
+        </div>
+
+        <div class='resource-item'>
+          <div class='resource-value'>
+            {{formInput (getValueField 'complement' 'value') value=this.system.complement.display type='number'}}
+          </div>
+          <span class='resource-label'>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Ship.Complement'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='characteristics'>
+    <div class='characteristics-grid-container'>
+      <div class='characteristics-grid-container-subgrid'>
+        {{> "systems/honor-and-intrigue/templates/api/label-bar.hbs" label="HONOR_INTRIGUE.Sheet.Labels.Qualities"}}
+
+        {{#each this.system.qualities as |quality key|}}
+          {{> 'characteristic'
+            dotkey=(concat "qualities." key)
+            field_type="qualities"
+            field_name=key
+            rollable=true
+          }}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</aside>
+
+{{#*inline 'characteristic'~}}
+  <div class='characteristic'>
+    {{#if (and @root.isEditable rollable)}}
+      <a class='roll-icon'
+         {{#if @root.isEditable}}data-action='rollCharacteristic'{{/if}}
+         data-characteristic='{{dotkey}}'
+         data-tooltip='HONOR_INTRIGUE.Actor.ship.{{dotkey}}.label'>
+        {{#if @root.useAlternateD10}}
+          {{> "systems/honor-and-intrigue/templates/sheets/actor/icons/d10.hbs" }}
+        {{else}}
+          {{> "systems/honor-and-intrigue/templates/sheets/actor/icons/d6.hbs" }}
+        {{/if}}
+      </a>
+    {{/if}}
+    <div class='characteristic-value'>
+      {{formInput (@root.getValueField field_type field_name) value=(@root.getValueFieldValue field_type field_name)
+                  type='number'}}
+    </div>
+    <p class='characteristic-label'
+       data-tooltip='HONOR_INTRIGUE.Actor.ship.{{dotkey}}.hint'>{{localize (concat "HONOR_INTRIGUE.Actor.ship." dotkey ".label")}}</p>
+  </div>
+{{~/inline}}

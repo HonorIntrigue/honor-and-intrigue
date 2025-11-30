@@ -42,6 +42,25 @@ HONOR_INTRIGUE.combatAbilities = {
 };
 preLocalize('combatAbilities', { keys: ['label'] });
 
+HONOR_INTRIGUE.shipDuties = {
+  captain: { label: 'HONOR_INTRIGUE.Actor.ship.duties.captain.label', sort: 0 }, // initiative, repel boarders, ramming
+  firstMate: { label: 'HONOR_INTRIGUE.Actor.ship.duties.firstMate.label', sort: 1 }, // boarding
+  helmsman: { label: 'HONOR_INTRIGUE.Actor.ship.duties.helmsman.label', sort: 2 }, // maneuvering
+  gunner: { label: 'HONOR_INTRIGUE.Actor.ship.duties.gunner.label', sort: 3 }, // volley, special shots
+  carpenter: { label: 'HONOR_INTRIGUE.Actor.ship.duties.carpenter.label', sort: 4 }, // ship repairs
+  surgeon: { label: 'HONOR_INTRIGUE.Actor.ship.duties.surgeon.label', sort: 5 }, // healing
+};
+preLocalize('shipDuties', { keys: ['label'] });
+
+HONOR_INTRIGUE.shipQualities = {
+  sails: { label: 'HONOR_INTRIGUE.Actor.ship.qualities.sails.label', rollKey: 'sails' },
+  guns: { label: 'HONOR_INTRIGUE.Actor.ship.qualities.guns.label', rollKey: 'guns' },
+  crew: { label: 'HONOR_INTRIGUE.Actor.ship.qualities.crew.label', rollKey: 'crew' },
+  hull: { label: 'HONOR_INTRIGUE.Actor.ship.qualities.hull.label', rollKey: 'hull' },
+  size: { label: 'HONOR_INTRIGUE.Actor.ship.qualities.size.label', rollKey: 'size' },
+};
+preLocalize('shipQualities', { keys: ['label'] });
+
 HONOR_INTRIGUE.actionTypes = {
   0: { label: 'HONOR_INTRIGUE.ACTION_TYPE.free' },
   1: { label: 'HONOR_INTRIGUE.ACTION_TYPE.major' },

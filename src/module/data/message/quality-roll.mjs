@@ -15,7 +15,7 @@ export default class QualityRollMessageModel extends BaseMessageModel {
 
     schema.quality = new fields.SchemaField({
       key: new fields.StringField({
-        choices: Object.values(hi.CONFIG.qualities).map(v => v.rollKey),
+        choices: [...Object.values(hi.CONFIG.qualities), ...Object.values(hi.CONFIG.shipQualities)].map(v => v.rollKey),
         nullable: false,
         required: true,
       }),
@@ -52,7 +52,7 @@ export default class QualityRollMessageModel extends BaseMessageModel {
 
     const mods = [
       game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
-        ability: game.i18n.localize(hi.CONFIG.qualities[this.quality.key].label),
+        ability: game.i18n.localize((hi.CONFIG.qualities[this.quality.key] ?? hi.CONFIG.shipQualities[this.quality.key]).label),
         number: this.quality.value.signedString(),
       }),
     ];

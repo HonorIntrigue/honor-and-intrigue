@@ -21,7 +21,8 @@
       "pawn": { "htmlFields": ["notes"] },
       "retainer": { "htmlFields": ["notes"] },
       "villain": { "htmlFields": ["notes"] },
-      "creature": { "htmlFields": ["notes"] }
+      "creature": { "htmlFields": ["notes"] },
+      "ship": { "htmlFields": ["notes"] }
     },
     "ChatMessage": {
       "damage": {},

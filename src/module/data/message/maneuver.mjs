@@ -1,6 +1,6 @@
 import { systemPath } from '../../constants.mjs';
 import { WeaponModel } from '../item/_module.mjs';
-import QualityRollMessageModel from './qualityRoll.mjs';
+import QualityRollMessageModel from './quality-roll.mjs';
 
 const fields = foundry.data.fields;
 

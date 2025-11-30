@@ -1,0 +1,36 @@
+<section class='tab scrollable {{tabs.hold.id}}{{#if tabs.hold.cssClass}} {{tabs.hold.cssClass}}{{/if}}'
+         data-group='{{tabs.hold.group}}'
+         data-tab='{{tabs.hold.id}}'>
+  <div class='tab-content'>
+    {{#*inline 'inventorySection'}}
+      {{> 'systems/honor-and-intrigue/templates/api/item-list.hbs'
+        adjustable=true
+        dataType=type
+        items=(lookup inventory type)
+        quantityFieldName='quantity'
+        title=(localize (concat 'HONOR_INTRIGUE.Actor.Sheet.Labels.Inventory.' type))
+        wrapperClass=(concat type '-list')
+      }}
+    {{/inline}}
+
+    {{> inventorySection type='weapon'}}
+    {{> inventorySection type='armor'}}
+    {{> inventorySection type='equipment'}}
+    {{> inventorySection type='treasure'}}
+
+    {{log this}}
+    <div class='ship-tonnage'>
+      <span class='ship-tonnage-background'></span>
+      <span class='ship-tonnage-foreground' style='width: {{system.tons.percentage}}%'>
+        <span class='ship-tonnage-foreground-reserved' style='width: {{system.tons.reserved.percentage}}%'></span>
+      </span>
+      <span class='ship-tonnage-value'>
+        {{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Ship.HoldCapacity'
+                   value=system.tons.value
+                   max=system.tons.max
+                   reserved=system.tons.reserved.value
+        }}
+      </span>
+    </div>
+  </div>
+</section>

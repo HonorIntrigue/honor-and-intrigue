@@ -67,10 +67,10 @@ export default class PartySheet extends HonorIntrigueActorSheet {
         break;
       case 'stash': {
         const [armor, equipment, treasure, weapon] = await Promise.all([
-          super._prepareEmbeddedItemContext('armor'),
-          super._prepareEmbeddedItemContext('equipment'),
-          super._prepareEmbeddedItemContext('treasure'),
-          super._prepareEmbeddedItemContext('weapon'),
+          this._prepareEmbeddedItemContext('armor'),
+          this._prepareEmbeddedItemContext('equipment'),
+          this._prepareEmbeddedItemContext('treasure'),
+          this._prepareEmbeddedItemContext('weapon'),
         ]);
         context.stash = { armor, equipment, treasure, weapon };
         break;

@@ -8,6 +8,7 @@ export default class HonorIntrigueActor extends foundry.documents.Actor {
         'retainer',
         'villain',
         'creature',
+        'ship',
       ],
       ...dialogOptions,
     });

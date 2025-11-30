@@ -1,0 +1,14 @@
+<header class='sheet-header'>
+  <div class='characteristic-row'>
+    <h1 class='character-name'>
+      {{formInput fields.name value=source.name}}
+    </h1>
+  </div>
+
+  <div class='characteristic-row'>
+    <div class='flexcol flex1'>
+      {{> "systems/honor-and-intrigue/templates/api/label-bar.hbs" label="HONOR_INTRIGUE.Actor.Sheet.Labels.Ship.Class"}}
+      {{formInput systemFields.class value=this.system.class}}
+    </div>
+  </div>
+</header>
