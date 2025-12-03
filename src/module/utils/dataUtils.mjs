@@ -43,7 +43,7 @@ export function valueFromFormulaField(field) {
   }
 
   if (field.flatModifier !== 0) {
-    value += field.flatModifier.signedString();
+    value += new Intl.NumberFormat(game.i18n.lang, { signDisplay: 'always' }).format(field.flatModifier);
   }
 
   return value;
@@ -56,7 +56,6 @@ export function valueFromFormulaField(field) {
  */
 export function valueToFormulaField(value) {
   value = value.replaceAll(/\s/g, '');
-  value = value.replace('−', '-'); // revert Foundry.signedString() em-dash
 
   if (/^[+-]?\d+$/.test(value)) {
     return { dieSize: null, numDice: null, flatModifier: parseInt(value) };
