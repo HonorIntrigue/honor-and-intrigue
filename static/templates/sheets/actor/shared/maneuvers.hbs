@@ -12,42 +12,14 @@
       }}
     {{/if}}
 
-    {{#if (gt offensiveEquipment.length 0)}}
-      <div class='item-list offensive-equipment'>
-        <div class='item-list-header'>
-          <span>{{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ReadiedEquipment'}}</span>
-        </div>
-
-        <ol class='item-list-items'>
-          {{#each offensiveEquipment as |entry|}}
-            <li class='item' data-item-id='{{entry.id}}' data-document-class='Item'>
-              <div>
-                <div class='item-image'>
-                  <img src='{{entry.img}}' alt='{{entry.name}}'>
-                </div>
-                <div class='item-name'>
-                  <span>{{entry.name}}</span>
-
-                  {{#if (eq entry.type 'weapon')}}
-                    <button type='button' data-action='rollItemDamage'>
-                      {{localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Damage'}}
-                    </button>
-                  {{/if}}
-                </div>
-              </div>
-              {{#if (gt entry.maneuvers.length 0)}}
-                <div class='item-tags'>
-                  {{#each entry.maneuvers as |eqm|}}
-                    <button type='button' data-action='rollTaggedManeuver' data-item-uuid='{{eqm.uuid}}'>
-                      {{eqm.name}}
-                    </button>
-                  {{/each}}
-                </div>
-              {{/if}}
-            </li>
-          {{/each}}
-        </ol>
-      </div>
+    {{#if (gt readiedEquipment.length 0)}}
+      {{> 'systems/honor-and-intrigue/templates/api/item-list.hbs'
+        hideDefaultControls=true
+        items=readiedEquipment
+        openOnClick=true
+        title=(localize 'HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.ReadiedEquipment')
+        wrapperClass='readied-equipment'
+      }}
     {{/if}}
 
     {{#if maneuvers}}

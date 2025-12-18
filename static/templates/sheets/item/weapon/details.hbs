@@ -11,6 +11,10 @@
     </div>
     {{formGroup systemFields.handsHeld value=system.handsHeld type='number'}}
     {{formGroup systemFields.rangeIncrement value=system.rangeIncrement type='number'}}
+    {{formGroup (getValueField 'loadActions' 'needed') value=(getValueFieldValue 'loadActions' 'needed') type='number'
+                hint=(localize 'HONOR_INTRIGUE.Item.Sheet.FIELDS.loadActions.hint')
+                label=(localize 'HONOR_INTRIGUE.Item.Sheet.FIELDS.loadActions.label')
+    }}
     {{formGroup systemFields.throwable value=system.throwable}}
     {{formGroup systemFields.maneuvers value=system.maneuvers}}
   </div>

@@ -36,7 +36,7 @@ export default base => {
      * Adjusts the quantity of an item.
      */
     static async #onAdjustItem(event, target) {
-      const { itemId } = target.closest('.item').dataset;
+      const { itemId } = target.closest('.item[data-item-id]').dataset;
       const item = this.document.items.get(itemId);
       const field = item.type === 'career' ? 'rank' : 'quantity';
       let change = target.dataset.adjustment === 'increment' ? 1 : -1;
@@ -55,7 +55,7 @@ export default base => {
      * Delete an embedded item.
      */
     static async #onDeleteItem(event, target) {
-      const { itemId } = target.closest('.item').dataset;
+      const { itemId } = target.closest('.item[data-item-id]').dataset;
       const item = this.document.items.get(itemId);
 
       const confirm = event.shiftKey || (await foundry.applications.api.DialogV2.confirm({
@@ -72,7 +72,7 @@ export default base => {
      * Open an item sheet.
      */
     static #onOpenItem(event, target) {
-      const { itemId } = target.closest('.item').dataset;
+      const { itemId } = target.closest('.item[data-item-id]').dataset;
       const item = this.document.items.get(itemId);
 
       item.sheet.render(true);

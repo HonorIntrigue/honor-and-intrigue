@@ -29,6 +29,8 @@ export default base => {
 
       return {
         ...ctx,
+        getValueField: (type, name) => this.document.system.schema.getField(`${type}.${name}`),
+        getValueFieldValue: (type, name) => foundry.utils.getProperty(this.document.system, `${type}.${name}`),
         gm: game.user.isGM,
         isEditable: this.isEditable,
         isLimited: this.document.limited,

@@ -7,6 +7,7 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
     actions: {
+      loadWeapon: this.#onLoadWeapon,
       rollCharacteristic: this.#onRollCharacteristic,
       rollItem: this.#onRollItem,
       rollItemDamage: this.#onRollItemDamage,
@@ -48,6 +49,19 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
    * @type {Set<String>}
    */
   #expanded = new Set();
+
+  /**
+   * Updates the load counter of a weapon.
+   */
+  static async #onLoadWeapon(event, target) {
+    const { itemId } = target.closest('.item[data-item-id]').dataset;
+    const item = this.actor.items.get(itemId);
+    const change = event.type === 'click' ? 1 : -1;
+
+    if (change === 1 && item.system.isLoaded) return;
+
+    return item.update({ system: { loadActions: { spent: item.system.loadActions.spent + change } } });
+  }
 
   /**
    * Begin rolling a characteristic such as a Quality or Combat Ability.
@@ -103,10 +117,16 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
     const { itemId } = target.closest('.item').dataset;
     const item = this.actor.items.get(itemId);
 
+    if (!item.system.isLoaded) await ui.notifications.warn('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.UseUnloaded', { localize: true });
+
     const { itemUuid } = target.dataset;
     const maneuver = this.actor.itemTypes.maneuver.find(m => m._stats.compendiumSource === itemUuid) || await fromUuid(itemUuid);
 
-    return this.#rollManeuver(maneuver, { system: { relatedItemUuid: item.uuid } });
+    const result = await this.#rollManeuver(maneuver, { system: { relatedItemUuid: item.uuid } });
+
+    if (item.system.loadActions?.needed > 0 && result) {
+      await item.update({ system: { 'loadActions.spent': 0 } });
+    }
   }
 
   /**
@@ -128,7 +148,7 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
    * Toggle the expanded state of an embedded item.
    */
   static async #toggleItemExpanded(event, target) {
-    const { itemId } = target.closest('.item').dataset;
+    const { itemId } = target.closest('[data-item-id]').dataset;
 
     if (this.#expanded.has(itemId)) this.#expanded.delete(itemId);
     else this.#expanded.add(itemId);
@@ -278,6 +298,11 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
       });
     }
 
+    const loadBtns = this.element.querySelectorAll('.tab-content button[data-action="loadWeapon"]');
+    for (const btn of loadBtns) {
+      btn.addEventListener('contextmenu', async (event) => HonorIntrigueActorSheet.#onLoadWeapon.call(this, event, event.target));
+    }
+
     if (this.actor.system.elementOverrides) {
       for (const [key, overrides] of Object.entries(this.actor.system.elementOverrides)) {
         const el = this.element.querySelector(`[name="${key.replaceAll('_', '.')}"]`);
@@ -299,8 +324,6 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
       ...ctx,
       actorType: this.document.type ?? 'actor',
       atALoss: this.document.statuses.has('at-a-loss'),
-      getValueField: (type, name) => this.document.system.schema.getField(`${type}.${name}`),
-      getValueFieldValue: (type, name) => foundry.utils.getProperty(this.document.system, `${type}.${name}`),
       hasArcanePower: this.document.itemTypes['career'].some(c => c.system.isArcane),
       notes: {
         enriched: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.notes, {
@@ -315,19 +338,26 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
 
   /**
    * Prepare the context for an embedded item type.
+   * @param {String} itemType Core type of embedded Item, as per Foundry itemType grouping.
+   * @param {Function} [additionalContextFn] Optional function that adds context to the returned items.
+   * @param {Function} [sortFn] Optional function to use for sorting the resulting item set.
    */
-  async _prepareEmbeddedItemContext(itemType, additionalContextFn = undefined) {
+  async _prepareEmbeddedItemContext(itemType, additionalContextFn = undefined, sortFn = undefined) {
     if (!this.actor.itemTypes[itemType]) return {};
 
-    return (await Promise.all(this.actor.itemTypes[itemType].map(async (item) => {
+    const items = await Promise.all(this.actor.itemTypes[itemType].map(async (item) => {
       const ctx = await this._prepareItemContext(item);
 
       if (additionalContextFn) {
-        foundry.utils.mergeObject(ctx, (await additionalContextFn(item)));
+        foundry.utils.mergeObject(ctx, await additionalContextFn(item));
       }
 
       return ctx;
-    }))).sort((a, b) => a.item.sort - b.item.sort);
+    }));
+
+    if (sortFn) return items.sort(sortFn);
+
+    return items.sort((a, b) => a.item.sort - b.item.sort);
   }
 
   /**
@@ -353,7 +383,7 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
    * @return {Object|false} Returns false if this hero has no maneuvers.
    */
   async _prepareManeuversContext() {
-    const maneuvers = (await this._prepareEmbeddedItemContext('maneuver')).sort((a, b) => a.item.name.localeCompare(b.item.name, game.i18n.lang));
+    const maneuvers = (await this._prepareEmbeddedItemContext('maneuver')).sort(this._sortItemByName);
 
     if (maneuvers.length === 0) return false;
 
@@ -400,21 +430,6 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
     }, { major: [], minor: [], free: [], reaction: [] });
   }
 
-  /**
-   * Prepare the context for all offensive weapons and equipment.
-   */
-  async _prepareOffensiveEquipment() {
-    const weapons = await Promise.all(this.actor.items
-      .filter(i => i.type === 'weapon')
-      .filter(w => w.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held)
-      .map(async w => {
-        w.maneuvers = await Promise.all(Array.from(w.system.maneuvers).map(async m => await fromUuid(m)));
-        return w;
-      }));
-
-    return [...weapons];
-  }
-
   /** @inheritDoc */
   async _preparePartContext(partId, context, options) {
     await super._preparePartContext(partId, context, options);
@@ -423,19 +438,19 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
       case 'character': {
         const [careers, boons, flaws, duelingStyles] = await Promise.all([
           this._prepareEmbeddedItemContext('career'),
-          this._prepareEmbeddedItemContext('boon'),
-          this._prepareEmbeddedItemContext('flaw'),
+          this._prepareEmbeddedItemContext('boon', undefined, this._sortItemByName),
+          this._prepareEmbeddedItemContext('flaw', undefined, this._sortItemByName),
           this._prepareEmbeddedItemContext('duelingStyle'),
         ]);
 
         context.careers = careers;
-        context.boons = boons.sort((a, b) => a.item.name.localeCompare(b.item.name, game.i18n.lang));
-        context.flaws = flaws.sort((a, b) => a.item.name.localeCompare(b.item.name, game.i18n.lang));
+        context.boons = boons;
+        context.flaws = flaws;
         context.duelingStyles = duelingStyles.sort((a, b) => {
           if (a.item.system.active && !b.item.system.active) return -1;
           else if (!a.item.system.active && b.item.system.active) return 1;
 
-          return a.item.name.localeCompare(b.item.name, game.i18n.lang);
+          return this._sortItemByName(a, b);
         });
         break;
       }
@@ -449,9 +464,9 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
               },
             },
             rollable: !!item.system.protection,
-          })),
-          equipment: await this._prepareEmbeddedItemContext('equipment'),
-          treasure: await this._prepareEmbeddedItemContext('treasure'),
+          }), this._sortItemByName),
+          equipment: await this._prepareEmbeddedItemContext('equipment', undefined, this._sortItemByName),
+          treasure: await this._prepareEmbeddedItemContext('treasure', undefined, this._sortItemByName),
           weapon: await this._prepareEmbeddedItemContext('weapon', (item) => ({
             item: {
               system: {
@@ -459,20 +474,37 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
                 carriedPositionLabel: game.i18n.localize(hi.CONFIG.equipmentCarryChoices[item.system.carriedPosition].label),
               },
             },
-          })),
+          }), this._sortItemByName),
         };
         break;
       case 'maneuvers':
         context.actions = await this._prepareEmbeddedItemContext('action', (item) => ({
           ...item,
           rollable: item.system.requiresCheck || item.system.requiresOpposedCheck,
-        }));
+        }), this._sortItemByName);
         context.maneuvers = await this._prepareManeuversContext();
-        context.offensiveEquipment = await this._prepareOffensiveEquipment();
+        context.readiedEquipment = await this._prepareReadiedEquipment();
         break;
     }
 
     return context;
+  }
+
+  /**
+   * Prepare the context for all offensive weapons and equipment.
+   */
+  async _prepareReadiedEquipment() {
+    const weapons = await Promise.all(this.actor.items
+      .filter(i => i.type === 'weapon')
+      .filter(w => w.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held)
+      .map(async w => {
+        w.maneuvers = (await Promise.all(Array.from(w.system.maneuvers).map(async m => await fromUuid(m))))
+          .filter(m => m.system.requiresCheck)
+          .sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang));
+        return { item: { ...w, id: w.id, type: 'readiedEquipment' } };
+      }));
+
+    return weapons.sort(this._sortItemByName);
   }
 
   /** @inheritDoc */
@@ -490,5 +522,12 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
     for (const key in data) {
       if (!['header', 'sidebar', 'content', 'character', 'background'].includes(key)) delete data[key];
     }
+  }
+
+  /**
+   * Helper function to sort embedded item entries by name.
+   */
+  _sortItemByName(a, b) {
+    return a.item.name.localeCompare(b.item.name, game.i18n.lang);
   }
 }

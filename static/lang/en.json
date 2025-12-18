@@ -161,7 +161,9 @@
             "armor": "Armor",
             "equipment": "Equipment",
             "treasure": "Treasure",
-            "weapon": "Arms"
+            "weapon": "Arms",
+            "Load": "Load {actionsSpent}/{actionsRequired}",
+            "Loaded": "Loaded"
           },
           "Maneuvers": {
             "Actions": "Actions",
@@ -176,7 +178,8 @@
             "ReadiedEquipment": "Readied Equipment",
             "Reset": "Clear All Maneuvers",
             "ResetWarning": "Proceeding will permanently erase all maneuvers in this actor's collection. Are you sure you wish to proceed?",
-            "ToggleMastery": "Change Mastery"
+            "ToggleMastery": "Change Mastery",
+            "UseUnloaded": "The weapon is not loaded, are you sure you want to proceed?"
           },
           "Ship": {
             "Class": "Class",
@@ -334,6 +337,10 @@
           "handsHeld": {
             "label": "Hands Held",
             "hint": "One- or two-handed"
+          },
+          "loadActions": {
+            "label": "Load Actions",
+            "hint": "The number of Minor actions required to load this weapon"
           },
           "maneuvers": {
             "label": "Associated Maneuvers"

@@ -72,9 +72,11 @@ export default class PartyModel extends HonorIntrigueSystemModel {
   _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);
 
-    const removedMembers = (options.removedMembers ?? []).map(id => fromUuidSync(id)).filter(a => a instanceof HonorIntrigueActor);
-    for (const actor of removedMembers) {
-      actor.system.party = null;
+    if (userId === game.user.id && game.user.isGM) {
+      const removedMembers = (options.removedMembers ?? []).map(id => fromUuidSync(id)).filter(a => a instanceof HonorIntrigueActor);
+      for (const actor of removedMembers) {
+        actor.system.party = null;
+      }
     }
   }
 

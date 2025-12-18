@@ -80,6 +80,22 @@ export function getItemControls(item) {
       }
       break;
     }
+    case 'readiedEquipment': {
+      if (item.system.loadActions.needed > 0) {
+        result.innerHTML += `
+        <button type='button' data-action='loadWeapon'>
+          <i class='fa-solid fa-${item.system.isLoaded ? 'check' : 'chart-bullet'}'></i>
+          ${game.i18n.format(`HONOR_INTRIGUE.Actor.Sheet.Labels.Inventory.Load${item.system.isLoaded ? 'ed' : ''}`, { actionsRequired: item.system.loadActions.needed, actionsSpent: item.system.loadActions.spent })}
+        </button>
+        `;
+      }
+
+      result.innerHTML += `
+        <div class='item-controls-maneuvers'>${item.maneuvers.map(m => `<button type='button' data-action='rollTaggedManeuver' data-item-uuid='${m.uuid}'>${m.name}</button>`).join('')}</div>
+        <button type='button' data-action='rollItemDamage'><i class='fa-solid fa-bomb'></i>${game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Damage')}</button>
+      `;
+      break;
+    }
   }
 
   return new Handlebars.SafeString(result.innerHTML.trim());

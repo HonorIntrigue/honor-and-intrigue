@@ -34,7 +34,16 @@
                 <img src='{{entry.item.img}}' alt='{{entry.item.name}}'>
               </div>
             {{/unless}}
-            <div class='item-name' {{#if ../isEditable}}data-action='toggleItemExpanded'{{/if}}>{{entry.item.name}}</div>
+            <div class='item-name'
+              {{#if ../isEditable~}}
+                {{#if ../openOnClick}}
+                 data-action='openItem'
+                {{else}}
+                 data-action='toggleItemExpanded'
+                {{/if}}
+              {{~/if}}>
+              {{entry.item.name}}
+            </div>
           </div>
 
           {{#if ../adjustable}}
@@ -56,12 +65,14 @@
           {{#if ../isEditable}}
             <div class='item-controls'>
               {{{getItemControls entry.item}}}
-              <a data-action='openItem' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.Edit'>
-                <i class='fa-solid fa-pen-to-square'></i>
-              </a>
-              <a data-action='deleteItem' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.Delete'>
-                <i class='fa-solid fa-trash'></i>
-              </a>
+              {{#unless ../hideDefaultControls}}
+                <a data-action='openItem' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.Edit'>
+                  <i class='fa-solid fa-pen-to-square'></i>
+                </a>
+                <a data-action='deleteItem' data-tooltip='HONOR_INTRIGUE.Actor.Sheet.Tooltips.Delete'>
+                  <i class='fa-solid fa-trash'></i>
+                </a>
+              {{/unless}}
             </div>
           {{/if}}
 

@@ -168,20 +168,26 @@
       }
     }
 
-    &.offensive-equipment {
-      .item {
-        > div:first-of-type {
-          grid-column: 1 / -1;
+    &.readied-equipment {
+      grid-template-columns: 1fr 1fr;
 
-          .item-name {
-            align-items: center;
-            display: flex;
-            justify-content: space-between;
+      .item-controls {
+        gap: 0.25rem;
+
+        button {
+          --button-size: 1.5em;
+          font-variant-caps: all-small-caps;
+
+          &[data-action='loadWeapon'] {
+            white-space: nowrap;
           }
         }
 
-        .item-tags {
-          padding-left: 0;
+        &-maneuvers {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.1rem;
+          justify-content: flex-end;
         }
       }
     }

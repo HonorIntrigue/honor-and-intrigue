@@ -21,8 +21,10 @@ export default class WeaponModel extends EquipmentModel {
       numDice: new fields.NumberField({ initial: 1, integer: true, min: 1 }),
     });
     schema.handsHeld = new fields.NumberField({ initial: 0, integer: true, min: 0, max: 3, nullable: false });
-    schema.loadActions = new fields.NumberField({ initial: 0, integer: true, min: 0 });
-    schema.isLoaded = new fields.BooleanField({ initial: true });
+    schema.loadActions = new fields.SchemaField({
+      needed: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
+      spent: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
+    });
     schema.maneuvers = new fields.SetField(new fields.DocumentUUIDField({ type: 'Item' }));
     schema.rangeIncrement = new fields.NumberField({ initial: 0, integer: true, min: 0, nullable: false });
     schema.throwable = new fields.BooleanField({ initial: false });
@@ -40,6 +42,13 @@ export default class WeaponModel extends EquipmentModel {
     if (item?.type === 'weapon') {
       return item.system.rollDamage({ maneuver });
     }
+  }
+
+  /**
+   * Utility flag that indicates if this loadable weapon is loaded.
+   */
+  get isLoaded() {
+    return this.loadActions.spent >= this.loadActions.needed;
   }
 
   /** @inheritDoc */
