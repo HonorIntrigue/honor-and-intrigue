@@ -13,13 +13,18 @@
       "numDice": 1
     },
     "handsHeld": 1,
-    "loadActions": 0,
+    "loadActions": {
+      "needed": 0,
+      "spent": 0
+    },
+    "isLoaded": true,
     "maneuvers": [
       "Compendium.honor-and-intrigue.maneuvers.Item.Pu2MNZHYns847biy",
       "Compendium.honor-and-intrigue.maneuvers.Item.VWYkrcMKlXbl4THn"
     ],
     "rangeIncrement": 0,
-    "throwable": false
+    "throwable": false,
+    "quantity": 1
   },
   "effects": [],
   "sort": 0,
@@ -32,11 +37,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.347",
+    "coreVersion": "13.351",
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1758225657176,
-    "modifiedTime": 1758225716057,
+    "modifiedTime": 1766096491197,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!GQzU2xxTo1Khbq4q"

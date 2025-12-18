@@ -15,7 +15,13 @@
     "maneuvers": [
       "Compendium.honor-and-intrigue.maneuvers.Item.Pu2MNZHYns847biy",
       "Compendium.honor-and-intrigue.maneuvers.Item.Hys7dwlWKnbtxZtZ"
-    ]
+    ],
+    "carriedPosition": 2,
+    "quantity": 1,
+    "loadActions": {
+      "needed": 0,
+      "spent": 0
+    }
   },
   "effects": [],
   "folder": "nqFJ80X6V2qJAXpi",
@@ -28,11 +34,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.347",
+    "coreVersion": "13.351",
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1757793233196,
-    "modifiedTime": 1758207272887,
+    "modifiedTime": 1766096491197,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_id": "ury8Y6rKynaOHoxh",

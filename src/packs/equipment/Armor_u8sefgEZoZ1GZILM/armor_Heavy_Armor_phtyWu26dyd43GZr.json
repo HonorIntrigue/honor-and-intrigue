@@ -11,7 +11,8 @@
       "dieSize": 6,
       "flatModifier": 0,
       "numDice": 1
-    }
+    },
+    "quantity": 1
   },
   "effects": [],
   "sort": 0,
@@ -24,11 +25,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.347",
+    "coreVersion": "13.351",
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1758227029889,
-    "modifiedTime": 1758227032618,
+    "modifiedTime": 1766096491197,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!phtyWu26dyd43GZr"

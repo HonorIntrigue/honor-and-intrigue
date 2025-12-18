@@ -5,7 +5,7 @@
   "_id": "8SlNk2qdqvrdYmZL",
   "img": "icons/weapons/artillery/cannon-engraved-gold.webp",
   "system": {
-    "description": "<p>Also known as a “boarding cannon,” a swivel gun is an anti-personnel weapon, usually mounted on the side of a ship or fortress. It has a range increment of 50 feet and does 2d6+4 damage. It is too heavy for a person to carry, and must be mounted in order to fire. It takes 10 Minor Actions to reload, which can be shared between up to two crewmen. Because it is so inaccurate, a swivel gun has a Penalty Die to hit with ranged attack rolls at a single target. Instead, it is typically used to fire into crowds, where it can kill 1d6+1 pawns and has no Penalty Die to hit.</p>",
+    "description": "<p>Also known as a “boarding cannon,” a swivel gun is an anti-personnel weapon, usually mounted on the side of a ship or fortress. It has a range increment of 50 feet and does [[/r 2d6+4]] damage. It is too heavy for a person to carry, and must be mounted in order to fire. It takes 10 Minor Actions to reload, which can be shared between up to two crewmen. Because it is so inaccurate, a swivel gun has a Penalty Die to hit with ranged attack rolls at a single target. Instead, it is typically used to fire into crowds, where it can kill 1d6+1 pawns and has no Penalty Die to hit.</p>",
     "carriedPosition": 0,
     "damageFormula": {
       "dieSize": 6,
@@ -13,12 +13,17 @@
       "numDice": 2
     },
     "handsHeld": 0,
-    "loadActions": 0,
+    "loadActions": {
+      "needed": 10,
+      "spent": 0
+    },
+    "isLoaded": true,
     "maneuvers": [
       "Compendium.honor-and-intrigue.maneuvers.Item.8x5ylJwiWf0O65DU"
     ],
     "rangeIncrement": 50,
-    "throwable": false
+    "throwable": false,
+    "quantity": 1
   },
   "effects": [],
   "sort": 0,
@@ -31,11 +36,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.347",
+    "coreVersion": "13.351",
     "systemId": "honor-and-intrigue",
     "systemVersion": "0.0.0",
     "createdTime": 1758226225454,
-    "modifiedTime": 1758226257596,
+    "modifiedTime": 1766096491197,
     "lastModifiedBy": "gzs91c0iwOtmt0Wp"
   },
   "_key": "!items!8SlNk2qdqvrdYmZL"
