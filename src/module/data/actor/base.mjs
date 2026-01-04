@@ -1,5 +1,6 @@
 import { systemID } from '../../constants.mjs';
 import { HonorIntrigueProtectionRoll, HonorIntrigueRoll } from '../../rolls/_module.mjs';
+import { determineManeuverOutcome } from '../../utils/rollUtils.mjs';
 import HonorIntrigueSystemModel from '../system-model.mjs';
 
 const fields = foundry.data.fields;
@@ -154,7 +155,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
    * Prompt the user to roll a characteristic.
    * @param characteristic
    * @param options
-   * @returns {Promise<messageData>|undefined}
+   * @returns {Promise<ChatMessage|undefined>}
    */
   async rollCharacteristic(characteristic, options = {}) {
     const data = this.parent.getRollData();
@@ -214,6 +215,33 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       title: options.title ?? flavor,
       type: options.type,
     }, { rollMode });
+  }
+
+  /**
+   * Roll a maneuver item.
+   * @param {ManeuverModel} maneuver Reference to the maneuver data.
+   * @param {Object} [options] Options passed to the roll interface.
+   * @returns {Promise<ChatMessage|undefined>} The generated message, if the roll was completed.
+   */
+  async rollManeuver(maneuver, options = {}) {
+    const { abilityCheck } = maneuver.system;
+    options.modifiers ??= {};
+    options.system ??= {};
+    options.system.maneuver = maneuver.uuid;
+    options.title ??= game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Maneuver', { maneuver: maneuver.name });
+    options.type = 'maneuver';
+
+    if (abilityCheck.combatAbility) options.modifiers.combatAbility = abilityCheck.combatAbility;
+    if (abilityCheck.flatModifier) options.modifiers.flat = abilityCheck.flatModifier;
+
+    if (maneuver.system.isMastered && /^bonus die/i.test(maneuver.system.mastery)) options.modifiers.bonuses = 1;
+
+    const message = await this.rollCharacteristic(`qualities.${abilityCheck.quality}`, options);
+    if (message && maneuver.system.requiresOpposedCheck) {
+      await message.update({ 'system.outcome': determineManeuverOutcome(message.rolls[0]) });
+    }
+
+    return message;
   }
 
   /** @inheritDoc */

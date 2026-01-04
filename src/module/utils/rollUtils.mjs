@@ -1,9 +1,14 @@
 import { systemID } from '../constants.mjs';
 
 /**
+ * @typedef {Object} ManeuverOutcome
+ * @property {Number} difference The difference between the maneuver total and the target DC.
+ * @property {String<ROLL_OUTCOME.key>} result The outcome result key, taken from the `ROLL_OUTCOME` enum.
+ */
+/**
  * Determine the outcome of a roll.
  * @param {HonorIntrigueRoll} roll
- * @returns {String<ROLL_OUTCOME.key>} The key value of the outcome.
+ * @returns {ManeuverOutcome}
  */
 export function determineManeuverOutcome(roll) {
   const useD10 = game.settings.get(systemID, 'd10') === true;
@@ -29,5 +34,5 @@ export function determineManeuverOutcome(roll) {
     outcome = outcomes.Failure;
   }
 
-  return outcome.key;
+  return { difference: total - targetDC, result: outcome.key };
 }

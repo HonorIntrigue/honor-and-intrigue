@@ -158,45 +158,20 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
   }
 
   /**
-   * Parse an action for its roll options and kick off the roll.
+   * Parses an action for its roll options and kicks off the roll.
    */
   async #rollAction(action, options = {}) {
-    const { abilityCheck } = action.system;
-    options.modifiers ??= {};
-    options.system ??= {};
-    options.system.maneuver = action.uuid;
-    options.title ??= game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Action', { action: action.name });
-    options.type = 'maneuver';
-
-    if (abilityCheck.combatAbility) options.modifiers.combatAbility = abilityCheck.combatAbility;
-    if (abilityCheck.flatModifier) options.modifiers.flat = abilityCheck.flatModifier;
-
-    const message = await this.actor.rollCharacteristic(`qualities.${abilityCheck.quality}`, options);
-    if (message) message.update({ 'system.outcome': determineManeuverOutcome(message.rolls[0]) });
-
-    return message;
+    return this.actor.system.rollManeuver(action, {
+      ...options,
+      title: game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Action', { action: action.name }),
+    });
   }
 
   /**
-   * Parse a maneuver for its roll options and kick off the roll.
+   * Parses a maneuver for its roll options and kicks off the roll.
    */
   async #rollManeuver(maneuver, options = {}) {
-    const { abilityCheck } = maneuver.system;
-    options.modifiers ??= {};
-    options.system ??= {};
-    options.system.maneuver = maneuver.uuid;
-    options.title ??= game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Maneuver', { maneuver: maneuver.name });
-    options.type = 'maneuver';
-
-    if (abilityCheck.combatAbility) options.modifiers.combatAbility = abilityCheck.combatAbility;
-    if (abilityCheck.flatModifier) options.modifiers.flat = abilityCheck.flatModifier;
-
-    if (maneuver.system.isMastered && /^bonus die/i.test(maneuver.system.mastery)) options.modifiers.bonuses = 1;
-
-    const message = await this.actor.rollCharacteristic(`qualities.${abilityCheck.quality}`, options);
-    if (message) message.update({ 'system.outcome': determineManeuverOutcome(message.rolls[0]) });
-
-    return message;
+    return this.actor.system.rollManeuver(maneuver, options);
   }
 
   /**

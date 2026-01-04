@@ -1,10 +1,11 @@
 import BaseActorModel from './base.mjs';
 
-const fields = foundry.data.fields;
+const { hasProperty } = foundry.utils;
 
 export default class CharacterActorModel extends BaseActorModel {
   /** @inheritDoc */
   static defineSchema() {
+    const fields = foundry.data.fields;
     const schema = super.defineSchema();
 
     schema.advantage = new fields.NumberField({ min: 0, max: 10, initial: 3, integer: true, nullable: false });
@@ -33,8 +34,18 @@ export default class CharacterActorModel extends BaseActorModel {
   _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);
 
-    if (userId === game.user.id && foundry.utils.hasProperty(changed, 'system.advantage')) {
-      this.parent.toggleStatusEffect('defeated', { active: changed.system.advantage === 0 });
+    if (userId === game.user.id) {
+      if (hasProperty(changed, 'system.advantage')) {
+        this.parent.toggleStatusEffect('defeated', { active: changed.system.advantage === 0 });
+      }
+
+      if (hasProperty(changed, 'system.fortune.value')) {
+        game.messages.filter(m => m.system.target === this.parent.uuid).forEach(async m => game.system.socketHandler.doIfOrEmit(
+          async () => m.update({ '_stats.modifiedTime': Date.now() }),
+          m.canUserModify(game.user, 'update'),
+          { type: 'MESSAGE_REFRESH', gmOnly: true, message: { id: m.id } },
+        ));
+      }
     }
   }
 
@@ -43,7 +54,27 @@ export default class CharacterActorModel extends BaseActorModel {
     const allowed = await super._preUpdate(changes, options, user);
     if (allowed === false) return false;
 
-    if (foundry.utils.hasProperty(changes, 'system.fortune.value')) {
+    if (hasProperty(changes, 'system.advantage')) {
+      changes.system.advantage = Math.max(0, changes.system.advantage);
+
+      const diff = Math.abs(this.advantage - changes.system.advantage);
+      if (diff === 0) return true;
+
+      let messageKey;
+
+      if (changes.system.advantage > this.advantage) messageKey = 'HONOR_INTRIGUE.Chat.Result.AdvantageGain';
+      else if (changes.system.advantage < this.advantage) messageKey = 'HONOR_INTRIGUE.Chat.Result.AdvantageLoss';
+
+      await ChatMessage.create({
+        speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+        content: game.i18n.format(messageKey, {
+          position: game.i18n.localize(hi.CONFIG.advantageLabel(changes.system.advantage)),
+          name: this.parent.name,
+        }),
+      });
+    }
+
+    if (hasProperty(changes, 'system.fortune.value')) {
       const diff = Math.abs(this.fortune.value - changes.system.fortune.value);
       if (diff === 0) return true;
 

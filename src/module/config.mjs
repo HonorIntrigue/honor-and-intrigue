@@ -22,6 +22,14 @@ _______________________________________________________________
     Failure: { key: 'failure', label: 'HONOR_INTRIGUE.ROLL_OUTCOME.Failure' },
     CritFailure: { key: 'crit-failure', label: 'HONOR_INTRIGUE.ROLL_OUTCOME.CritFailure' },
   },
+  advantageLabel: (value) => {
+    const key = value === 0 ? 'Defeated' :
+      value === 1 ? 'Scrambling' :
+        value === 2 ? 'Retreating' :
+          'EnGarde';
+
+    return `HONOR_INTRIGUE.Actor.Sheet.Labels.Advantage.${key}`;
+  },
   defaultPartyId: 'xxDefaultPartyxx',
 };
 

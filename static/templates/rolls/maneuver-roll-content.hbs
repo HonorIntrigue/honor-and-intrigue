@@ -14,7 +14,12 @@
     <div class='outcome'>
       <p>
         {{localize 'HONOR_INTRIGUE.Chat.Result.Outcome'}}
-        <span class='outcome-{{outcome.key}}'>{{localize outcome.label}}</span>
+        <span class='outcome-{{outcome.key}}'>
+          {{localize outcome.label}}
+          {{#if reasonOutcomeModified}}
+            ({{localize (concat 'HONOR_INTRIGUE.Chat.Result.OutcomeModified.' reasonOutcomeModified)}})
+          {{/if}}
+        </span>
       </p>
     </div>
   {{/if}}

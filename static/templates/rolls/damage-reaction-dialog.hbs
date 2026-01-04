@@ -1,0 +1,11 @@
+<section class='roll-dialog-content'>
+  <div class='standard-form'>
+    <label for='maneuverChoiceInput'>{{localize 'HONOR_INTRIGUE.Dialog.DamageReaction.Prompt'}}</label>
+    <p class='hint'>{{localize 'HONOR_INTRIGUE.Dialog.DamageReaction.PromptHint'}}</p>
+    <div class='form-fields'>
+      <select id='maneuverChoiceInput' name='maneuverChoiceInput'>
+        {{selectOptions maneuverChoices blank='' labelAttr='name' selected=maneuverChoiceInput valueAttr='id'}}
+      </select>
+    </div>
+  </div>
+</section>

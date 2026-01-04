@@ -19,6 +19,8 @@ export default class BaseMessageModel extends HonorIntrigueSystemModel {
    * @param {HTMLElement} html The pending HTML.
    */
   async alterMessageHTML(html) {
+    html.classList.add(this.parent.type);
+
     const footerButtons = await this._constructFooterButtons();
 
     if (footerButtons.length > 0) {

@@ -1,11 +1,12 @@
 <div class='apply-damage-section'>
   {{#each targets as |target|}}
     <div class='target-area' data-target-uuid='{{target.uuid}}'>
+      <hr />
       <div class='target-area-header'>
-        <p>
-          <i class='fa-solid {{ifThen (eq target.type 'creature') 'fa-crab' 'fa-person-half-dress'}}'></i>
+        <span>
+          <i class='fa-solid {{ifThen (eq target.type 'creature') 'fa-dragon' 'fa-person-half-dress'}}'></i>
           {{target.name}}
-        </p>
+        </span>
         <i class='fa-solid fa-satellite-dish'
            data-action='pingTarget'
            data-tooltip='HONOR_INTRIGUE.Chat.Buttons.Ping.hint'
@@ -18,14 +19,12 @@
                   data-action='applyDamage'
                   data-tooltip='HONOR_INTRIGUE.Chat.Buttons.ApplyDamage.hint'
                   data-tooltip-direction='UP'>
-            <i class='fa-solid fa-heart-crack'></i>
             {{localize 'HONOR_INTRIGUE.Chat.Buttons.ApplyDamage.label' amount=../damageTotal}}
           </button>
           <button type='button'
                   data-action='applyProtection'
                   data-tooltip='HONOR_INTRIGUE.Chat.Buttons.Protection.hint'
                   data-tooltip-direction='UP'>
-            <i class='fa-solid fa-shield-halved'></i>
             {{localize 'HONOR_INTRIGUE.Chat.Buttons.Protection.label'}}
           </button>
         </div>

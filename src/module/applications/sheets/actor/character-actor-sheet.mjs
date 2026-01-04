@@ -57,15 +57,15 @@ export default class CharacterActorSheet extends ManeuverSupportMixin(HonorIntri
 
   /** @inheritDoc */
   async _renderHTML(context, options) {
-    const [img, label] =
-      this.actor.system.advantage === 0 ? ['advantage_defeated', 'Defeated'] :
-        this.actor.system.advantage === 1 ? ['advantage_scrambling', 'Scrambling'] :
-          this.actor.system.advantage === 2 ? ['advantage_retreating', 'Retreating'] :
-            ['advantage_en-garde', 'EnGarde'];
+    const img =
+      this.actor.system.advantage === 0 ? 'advantage_defeated' :
+        this.actor.system.advantage === 1 ? 'advantage_scrambling' :
+          this.actor.system.advantage === 2 ? 'advantage_retreating' :
+            'advantage_en-garde';
     const htmlString = await foundry.applications.handlebars.renderTemplate(systemPath('templates/sheets/actor/partials/advantage-panel.hbs'), {
       advantage: this.actor.system.advantage,
       advantageLevelImg: systemPath(`assets/images/${img}.webp`),
-      advantageLevelLabel: game.i18n.localize(`HONOR_INTRIGUE.Actor.Sheet.Labels.Advantage.${label}`),
+      advantageLevelLabel: game.i18n.localize(hi.CONFIG.advantageLabel(this.actor.system.advantage)),
       isEditable: this.isEditable,
       offset: this.element.style.width,
     });

@@ -11,14 +11,8 @@
  * @returns {HTMLButtonElement}
  */
 export function constructButton({ classes = [], dataset = {}, disabled = false, icon = '', img = '', label = '', type = 'button' }) {
-  const button = document.createElement('button');
+  const button = constructElement('button', { classes, dataset });
   button.type = type;
-
-  button.classList.add(...classes);
-
-  for (const [key, value] of Object.entries(dataset)) {
-    button.dataset[key] = value;
-  }
 
   if (disabled) {
     button.disabled = true;
@@ -35,4 +29,23 @@ export function constructButton({ classes = [], dataset = {}, disabled = false, 
   button.innerHTML = `${image}${label}`;
 
   return button;
+}
+
+/**
+ * Construct an HTML element with defined attributes.
+ * @param {String} tagName HTML tag name.
+ * @param {Object} [options] Options data applied to the element.
+ * @param {String[]} [options.classes] A list of classes to apply to the element `classList`.
+ * @param {Record<string, *>} [options.dataset] A set of `dataset` attributes passed to the element.
+ * @returns {HTMLElement}
+ */
+export function constructElement(tagName, { classes = [], dataset = {} } = {}) {
+  const el = document.createElement(tagName);
+  el.classList.add(...classes);
+
+  for (const [key, value] of Object.entries(dataset)) {
+    el.dataset[key] = value;
+  }
+
+  return el;
 }

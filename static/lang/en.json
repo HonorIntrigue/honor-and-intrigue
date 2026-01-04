@@ -221,14 +221,18 @@
     "Chat": {
       "Buttons": {
         "ApplyDamage": {
-          "label": "Damage",
+          "label": "Apply Damage",
           "hint": "Applies damage to this target"
+        },
+        "Dodge": {
+          "label": "Dodge",
+          "hint": "Use the Dodge Reaction Maneuver to temporarily increase your Defense by +2"
         },
         "Ping": {
           "hint": "Ping the target to locate it in the scene"
         },
         "Protection": {
-          "label": "Protect",
+          "label": "Damage with Protection",
           "hint": "Applies damage to this target after rolling its Protection"
         },
         "RollDamage": {
@@ -237,6 +241,19 @@
         },
         "SetTargets": {
           "hint": "Set the message targets to the current targets"
+        },
+        "SpendFortune": {
+          "disabled": "Not enough Fortune to alter the outcome of this maneuver",
+          "label": "Spend {amount} Fortune",
+          "hint": "Spend {amount} Fortune to turn the hit into a Close Call"
+        },
+        "UseReaction": {
+          "label": "Use Reaction",
+          "hint": "Use a Reaction Maneuver to actively defend against the attack"
+        },
+        "YieldAdvantage": {
+          "label": "Yield Advantage",
+          "hint": "Yield advantage to give ground instead of taking the damage"
         }
       },
       "Result": {
@@ -244,12 +261,20 @@
         "AdvancementGainSingular": "{name} has gained {amount} Advancement Point.",
         "AdvancementLoss": "{name} has lost {amount} Advancement Points.",
         "AdvancementLossSingular": "{name} has lost {amount} Advancement Point.",
+        "AdvantageGain": "{name} has gained Advantage, now {position}.",
+        "AdvantageLoss": "{name} has lost Advantage, now {position}.",
         "FortuneGain": "{name} has gained {amount} Fortune.",
         "FortuneLoss": "{name} has lost {amount} Fortune.",
         "LifebloodGain": "{name} has gained {amount} Lifeblood.",
         "LifebloodLoss": "{name} has lost {amount} Lifeblood.",
         "NoTokenSelected": "You must have at least one token selected.",
         "Outcome": "Result: ",
+        "OutcomeModified": {
+          "dodge": "Dodged!",
+          "fortune": "Spent Fortune Points",
+          "reaction": "Used the {maneuver} Reaction Maneuver",
+          "yield": "Yielded Advantage"
+        },
         "Target": "Target: {name}"
       },
       "Roll": {
@@ -284,6 +309,13 @@
       "Confirm": {
         "DeleteWithPlaceholder": "Delete \"{item}\"?",
         "DeleteItem": "Are you sure you wish to delete this item?"
+      },
+      "DamageReaction": {
+        "MasteryHint": "(mastered)",
+        "Prompt": "Choose a Reaction Maneuver to use:",
+        "PromptHint": "If a contested roll is required, you will be prompted to do so after submitting your choice.",
+        "Submit": "Submit",
+        "Title": "Reaction Maneuver"
       },
       "Result": {
         "NoHeroesSelected": "You must select one or more heroes first.",
