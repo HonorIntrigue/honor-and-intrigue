@@ -7,8 +7,7 @@ export default class CharacterActorSheet extends ManeuverSupportMixin(HonorIntri
   static DEFAULT_OPTIONS = {
     actions: {
       adjustAdvantage: this.#adjustAdvantage,
-      adjustFortune: { handler: this.#adjustFortune, buttons: [0, 2] },
-      refreshFortune: this.#onRefreshFortune,
+      adjustFortune: this.#adjustFortune,
       toggleAdvantagePanel: this.#onToggleAdvantagePanel,
     },
   };
@@ -29,16 +28,11 @@ export default class CharacterActorSheet extends ManeuverSupportMixin(HonorIntri
   /**
    * Adjusts the character's total fortune points.
    */
-  static async #adjustFortune(event) {
-    const change = event.type === 'click' ? 1 : -1;
-    await this.actor.update({ 'system.fortune.value': this.actor.system.fortune.value + change });
-  }
+  static async #adjustFortune(event, target) {
+    let change = target.dataset.adjustment === 'increment' ? 1 : -1;
+    if (event.shiftKey) change *= 5;
 
-  /**
-   * Refresh the character's Fortune statistic.
-   */
-  static async #onRefreshFortune() {
-    await this.actor.update({ 'system.fortune.value': this.actor.system.fortune.base + this.actor.system.qualities.flair });
+    await this.actor.update({ 'system.fortune.value': this.actor.system.fortune.value + change });
   }
 
   /**

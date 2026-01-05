@@ -7,6 +7,7 @@ export default class PartySheet extends HonorIntrigueActorSheet {
     actions: {
       openDetail: this.#onOpenDetail,
       openMember: this.#onOpenMember,
+      refreshFortune: this.#onRefreshFortune,
     },
   };
 
@@ -47,6 +48,16 @@ export default class PartySheet extends HonorIntrigueActorSheet {
     const member = await fromUuid(memberUuid);
 
     if (member) member.sheet.render(true);
+  }
+
+  /**
+   * Refresh all hero Fortune points.
+   */
+  static async #onRefreshFortune() {
+    return await Promise.all(this.actor.system.members.map(async m => {
+      m = await fromUuid(m);
+      return m.update({ 'system.fortune.value': m.system.fortune.base + m.system.qualities.flair });
+    }));
   }
 
   /** @inheritDoc */

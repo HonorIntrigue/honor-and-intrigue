@@ -27,13 +27,28 @@
         {{formInput systemFields.motivation value=this.system.motivation}}
       </div>
 
-      <div class='fortune-points' data-tooltip='HONOR_INTRIGUE.Sheet.Labels.FortunePoints'>
-        <span {{#if isEditable}}data-action='adjustFortune'{{/if}}>{{system.fortune.value}}</span>
-        <i class='fa-solid fa-stars'
+      <div class='fortune-points'>
+        <span>{{localize 'HONOR_INTRIGUE.Sheet.Labels.FortunePoints'}}</span>
+        <div class='fortune-adjustment'>
           {{#if isEditable}}
-           data-action='refreshFortune'
-           data-tooltip='HONOR_INTRIGUE.Sheet.Labels.FortunePointsRefresh'
-          {{/if}}></i>
+            <span>{{system.fortune.value}}</span>
+            <div class='fortune-adjustment-controls'>
+              <button class='icon fa-solid fa-chevron-up'
+                      data-action='adjustFortune'
+                      data-adjustment='increment'></button>
+              <button class='icon fa-solid fa-chevron-down'
+                      data-action='adjustFortune'
+                      data-adjustment='decrement'></button>
+            </div>
+          {{else}}
+            <span {{#if isEditable}}data-action='adjustFortune'{{/if}}>{{system.fortune.value}}</span>
+            <i class='fa-solid fa-stars'
+              {{#if isEditable}}
+               data-action='refreshFortune'
+               data-tooltip='HONOR_INTRIGUE.Sheet.Labels.FortunePointsRefresh'
+              {{/if}}></i>
+          {{/if}}
+        </div>
       </div>
     </div>
   {{/if}}
