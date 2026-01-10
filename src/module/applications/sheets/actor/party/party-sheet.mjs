@@ -24,7 +24,7 @@ export default class PartySheet extends HonorIntrigueActorSheet {
     primary: {
       initial: 'overview',
       labelPrefix: 'HONOR_INTRIGUE.Actor.Sheet.Tabs',
-      tabs: [{ id: 'overview' }, { id: 'stash' }],
+      tabs: [{ id: 'overview', restrict: HonorIntrigueActorSheet.restrictToObserver }, { id: 'stash', restrict: HonorIntrigueActorSheet.restrictToObserver }],
     },
   };
 
@@ -89,5 +89,10 @@ export default class PartySheet extends HonorIntrigueActorSheet {
     }
 
     return context;
+  }
+
+  /** @inheritDoc */
+  _restrictLimited(data) {
+    super._restrictLimited(data);
   }
 }

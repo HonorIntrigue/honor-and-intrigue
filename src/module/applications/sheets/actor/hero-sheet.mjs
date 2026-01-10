@@ -1,4 +1,5 @@
 import { systemPath } from '../../../constants.mjs';
+import HonorIntrigueActorSheet from './actor-sheet.mjs';
 import CharacterActorSheet from './character-actor-sheet.mjs';
 
 export default class HeroSheet extends CharacterActorSheet {
@@ -21,7 +22,7 @@ export default class HeroSheet extends CharacterActorSheet {
     ...super.TABS,
     primary: {
       ...super.TABS.primary,
-      tabs: super.TABS.primary.tabs.concat({ id: 'background' }),
+      tabs: super.TABS.primary.tabs.concat({ id: 'background', restrict: HonorIntrigueActorSheet.restrictToOwner }),
     },
   };
 

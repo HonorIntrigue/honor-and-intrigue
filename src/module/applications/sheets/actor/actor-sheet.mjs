@@ -1,6 +1,6 @@
+import { DOCUMENT_OWNERSHIP_LEVELS } from '../../../../../foundry/common/constants.mjs';
 import { systemPath } from '../../../constants.mjs';
 import { HonorIntrigueProtectionRoll } from '../../../rolls/_module.mjs';
-import { determineManeuverOutcome } from '../../../utils/rollUtils.mjs';
 import { DocumentSheetMixin, ItemCRUDMixin } from '../../api/_module.mjs';
 
 export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheetMixin(foundry.applications.sheets.ActorSheetV2)) {
@@ -22,7 +22,10 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
     },
   };
 
-  /** @inheritDoc */
+  /**
+   * @type {HandlebarsApplication.PARTS}
+   * Parts can also define a `restrict` function to filter from the view based on user permissions.
+   */
   static PARTS = {
     sidebar: {
       template: systemPath('templates/sheets/actor/base/sidebar.hbs'),
@@ -35,14 +38,45 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
     inventory: { template: systemPath('templates/sheets/actor/shared/inventory.hbs'), scrollable: [''] },
   };
 
-  /** @inheritDoc */
+  /**
+   * @type {ApplicationV2.TABS}
+   * Tabs can also define a `restrict` function to filter from the view based on user permissions.
+   */
   static TABS = {
     primary: {
       initial: 'character',
       labelPrefix: 'HONOR_INTRIGUE.Actor.Sheet.Tabs',
-      tabs: [{ id: 'character' }, { id: 'maneuvers' }, { id: 'inventory' }],
+      tabs: [
+        { id: 'character' },
+        { id: 'maneuvers', restrict: HonorIntrigueActorSheet.restrictToOwner },
+        { id: 'inventory', restrict: HonorIntrigueActorSheet.restrictToOwner },
+      ],
     },
   };
+
+  /**
+   * Permission test for restricting view components.
+   * @returns {Boolean} `true` if the current user has at least `LIMITED` ownership.
+   */
+  static restrictToLimited() {
+    return !this.document.testUserPermission(game.user, DOCUMENT_OWNERSHIP_LEVELS.LIMITED);
+  }
+
+  /**
+   * Permission test for restricting view components.
+   * @returns {Boolean} `true` if the current user has at least `OBSERVER` ownership.
+   */
+  static restrictToObserver() {
+    return !this.document.testUserPermission(game.user, DOCUMENT_OWNERSHIP_LEVELS.OBSERVER);
+  }
+
+  /**
+   * Permission test for restricting view components.
+   * @returns {Boolean} `true` if the current user is the document owner.
+   */
+  static restrictToOwner() {
+    return !this.document.isOwner;
+  }
 
   /**
    * A set of expanded items.
@@ -207,7 +241,13 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
   /** @inheritDoc */
   _configureRenderParts(options) {
     const parts = super._configureRenderParts(options);
-    if (!this.document.isOwner) this._restrictLimited(parts);
+
+    for (const [key, part] of Object.entries(parts)) {
+      if (part.restrict instanceof Function && part.restrict.call(this, part)) {
+        delete parts[key];
+      }
+    }
+
     return parts;
   }
 
@@ -485,18 +525,14 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
   /** @inheritDoc */
   _prepareTabs(group) {
     const tabs = super._prepareTabs(group);
-    if (!this.document.isOwner && group === 'primary') this._restrictLimited(tabs);
-    return tabs;
-  }
 
-  /**
-   * Removes tabs for viewers with limited permission.
-   * @param {Record<string, any>} data The parts or tabs object to modify.
-   */
-  _restrictLimited(data) {
-    for (const key in data) {
-      if (!['header', 'sidebar', 'content', 'character', 'background'].includes(key)) delete data[key];
+    for (const [key, tab] of Object.entries(tabs)) {
+      if (tab.restrict instanceof Function && tab.restrict.call(this, tab, group)) {
+        delete tabs[key];
+      }
     }
+
+    return tabs;
   }
 
   /**
