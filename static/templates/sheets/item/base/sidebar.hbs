@@ -2,6 +2,13 @@
   <div class='portrait'>
     <img src='{{document.img}}' alt='{{document.name}}' data-action='editImage' data-edit='img'>
   </div>
+
+  <div class='sidebar-details'>
+    {{#if (hasProperty system 'quantity')}}
+      {{formField systemFields.quantity value=system.quantity type='number'}}
+    {{/if}}
+  </div>
+
   {{#if @partial-block}}
     {{> @partial-block}}
   {{/if}}

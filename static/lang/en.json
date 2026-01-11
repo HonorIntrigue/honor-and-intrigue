@@ -388,6 +388,9 @@
             "label": "Range Increment",
             "hint": "0 for melee"
           },
+          "quantity": {
+            "label": "Quantity"
+          },
           "throwable": {
             "label": "Throwable",
             "hint": "Set to allow this weapon to be thrown"

@@ -4,6 +4,7 @@
 export function initialize() {
   Handlebars.registerHelper({
     getItemControls,
+    hasProperty,
     spread,
   });
 }
@@ -99,6 +100,14 @@ export function getItemControls(item) {
   }
 
   return new Handlebars.SafeString(result.innerHTML.trim());
+}
+
+/**
+ * Tests if the object has a property or nested property given a string key.
+ * @see foundry.utils.hasProperty
+ */
+export function hasProperty(object, key) {
+  return foundry.utils.hasProperty(object, key);
 }
 
 /**
