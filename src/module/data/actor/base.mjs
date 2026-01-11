@@ -244,6 +244,12 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     return message;
   }
 
+  /**
+   * Performs updates or other tasks at the start of a combat involving this actor.
+   * @param {Combatant} combatant
+   */
+  async startCombat(combatant) { }
+
   /** @inheritDoc */
   _onDelete(options, userId) {
     super._onDelete(options, userId);

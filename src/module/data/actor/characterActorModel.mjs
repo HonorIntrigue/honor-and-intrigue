@@ -31,6 +31,13 @@ export default class CharacterActorModel extends BaseActorModel {
   }
 
   /** @inheritDoc */
+  async startCombat(combatant) {
+    await this.parent.update({ system: { advantage: 3 } });
+
+    return super.startCombat(combatant);
+  }
+
+  /** @inheritDoc */
   _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);
 
@@ -54,7 +61,7 @@ export default class CharacterActorModel extends BaseActorModel {
     const allowed = await super._preUpdate(changes, options, user);
     if (allowed === false) return false;
 
-    if (hasProperty(changes, 'system.advantage')) {
+    if (this.parent.inCombat && hasProperty(changes, 'system.advantage')) {
       changes.system.advantage = Math.max(0, changes.system.advantage);
 
       const diff = Math.abs(this.advantage - changes.system.advantage);
