@@ -2,7 +2,8 @@ name: Publish Release
 
 on:
   release:
-    types: [published]
+    types: [ published ]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -69,13 +70,21 @@ jobs:
 
       - name: Publish to FoundryVTT
         run: |
-          curl -fsSL -X POST https://api.foundryvtt.com/_api/packages/release_version/ \
+          MINIMUM=$(jq -r '.compatibility.minimum' public/system.json)
+          VERIFIED=$(jq -r '.compatibility.verified' public/system.json)
+          curl -fsSL -X POST https://foundryvtt.com/_api/packages/release_version/ \
             -H "Content-Type: application/json" \
-            -H "Authorization: token ${{ secrets.PACKAGE_TOKEN }}" \
-            -d '{
-              "id": "honor-and-intrigue",
-              "release": {
-                "version": "${{ steps.get-version.outputs.version-without-v }}",
-                "manifest": "https://github.com/${{ github.repository }}/releases/download/${{ github.event.release.tag_name }}/system.json"
+            -H "Authorization: ${{ secrets.PACKAGE_TOKEN }}" \
+            -d @- <<EOF
+          {
+            "id": "honor-and-intrigue",
+            "release": {
+              "version": "${{ steps.get-version.outputs.version-without-v }}",
+              "manifest": "https://github.com/${{ github.repository }}/releases/download/${{ github.event.release.tag_name }}/system.json",
+              "compatibility": {
+                "minimum": "$MINIMUM",
+                "verified": "$VERIFIED"
               }
-            }'
+            }
+          }
+          EOF
