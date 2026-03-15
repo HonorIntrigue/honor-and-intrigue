@@ -1,25 +1,29 @@
-<li class='directory-item folder flexcol {{#if (lookup expandedFolders party.id)}}expanded{{/if}}'
-    data-party data-entry-id='{{party.id}}' data-uuid='{{party.uuid}}'>
-  <header class='folder-header' data-action='togglePartyFolder'>
-    <i class='fa-solid fa-folder-open fa-fw' inert></i>
-    <img src='{{party.img}}' hidden />
-    <span class='folder-name ellipsis'>{{party.name}}</span>
-    <button type='button'
-            class='icon fa-solid fa-file'
-            data-action='openPartySheet'
-            data-tooltip='HONOR_INTRIGUE.Actor.Party.OpenSheet'></button>
-    {{#if canCreateEntry}}
-      <button type='button'
-              class='create-button create-entry icon icon-plus fa-solid fa-user'
-              data-action='createMember'
-              data-tooltip='HONOR_INTRIGUE.Actor.Party.CreateMember'></button>
-    {{/if}}
-  </header>
-  <ol class='subdirectory plain'>
-    {{#each party.members~}}
-      {{> 'templates/sidebar/partials/document-partial.hbs'}}
-    {{else}}
-      <li class='blank' data-entry-id=''>{{localize 'HONOR_INTRIGUE.Actor.Party.NoMembers'}}</li>
-    {{/each}}
-  </ol>
-</li>
+<ol class='plain parties'>
+  {{#if party}}
+    <li class='directory-item folder flexcol {{#if (lookup expandedFolders party.id)}}expanded{{/if}}'
+        data-party data-entry-id='{{party.id}}' data-uuid='{{party.uuid}}'>
+      <header class='folder-header' data-action='togglePartyFolder'>
+        <i class='fa-solid fa-folder-open fa-fw' inert></i>
+        <img src='{{party.img}}' hidden />
+        <span class='folder-name ellipsis'>{{party.name}}</span>
+        <button type='button'
+                class='icon fa-solid fa-file'
+                data-action='openPartySheet'
+                data-tooltip='HONOR_INTRIGUE.Actor.Party.OpenSheet'></button>
+        {{#if canCreateEntry}}
+          <button type='button'
+                  class='create-button create-entry icon icon-plus fa-solid fa-user'
+                  data-action='createMember'
+                  data-tooltip='HONOR_INTRIGUE.Actor.Party.CreateMember'></button>
+        {{/if}}
+      </header>
+      <ol class='subdirectory plain'>
+        {{#each party.members~}}
+          {{> 'templates/sidebar/partials/document-partial.hbs'}}
+        {{else}}
+          <li class='blank' data-entry-id=''>{{localize 'HONOR_INTRIGUE.Actor.Party.NoMembers'}}</li>
+        {{/each}}
+      </ol>
+    </li>
+  {{/if}}
+</ol>

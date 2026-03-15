@@ -188,7 +188,7 @@ export default class HonorIntrigueActorDirectory extends foundry.applications.si
         }
 
         context.expandedFolders = this.#expandedFolders;
-        context.party = this._preparePartyContext(activeParty);
+        context.party = activeParty ? this._preparePartyContext(activeParty) : null;
         break;
       }
     }
