@@ -1,11 +1,11 @@
 {
   "name": "honor-and-intrigue",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A system for the Honor + Intrigue Swashbuckling RPG on Foundry Virtual Tabletop",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/eryon/honor-and-intrigue.git"
+    "url": "https://github.com/HonorIntrigue/honor-and-intrigue.git"
   },
   "scripts": {
     "build": "yarn build:clean && npx concurrently 'yarn:build:*(!clean)'",

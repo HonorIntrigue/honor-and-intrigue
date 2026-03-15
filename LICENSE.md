@@ -1,4 +1,4 @@
-Copyright 2026 https://github.com/eryon/honor-and-intrigue
+Copyright 2026 https://github.com/HonorIntrigue/honor-and-intrigue
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

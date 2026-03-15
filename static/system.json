@@ -11,7 +11,7 @@
 
   "compatibility": {
     "minimum": "13",
-    "verified": "13.347"
+    "verified": "13.351"
   },
   "documentTypes": {
     "ActiveEffect": {},
@@ -151,9 +151,9 @@
   "changelog": "CHANGELOG.md",
   "license": "LICENSE.md",
   "readme": "README.md",
-  "bugs": "https://github.com/eryon/honor-and-intrigue/issues",
-  "download": "https://github.com/eryon/honor-and-intrigue/releases/download",
-  "manifest": "https://raw.githubusercontent.com/eryon/honor-and-intrigue/releases/latest/download/system.json",
-  "url": "https://github.com/eryon/honor-and-intrigue",
-  "version": "0.0.0"
+  "bugs": "https://github.com/HonorIntrigue/honor-and-intrigue/issues",
+  "download": "https://github.com/HonorIntrigue/honor-and-intrigue/releases/download",
+  "manifest": "https://raw.githubusercontent.com/HonorIntrigue/honor-and-intrigue/releases/latest/download/system.json",
+  "url": "https://github.com/HonorIntrigue/honor-and-intrigue",
+  "version": "0.1.0"
 }

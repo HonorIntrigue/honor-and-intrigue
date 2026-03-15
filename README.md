@@ -10,6 +10,10 @@ on [itch.io](https://basicactiongames.itch.io/honor-intrigue)
 or [DriveThruRPG](https://www.drivethrurpg.com/en/product/99286/honor-intrigue), and consider purchasing the [_Tome of
 Intriguing Options_](https://basicactiongames.itch.io/tome-of-intriguing-options) supplement as well!
 
+![Foundry Version](https://img.shields.io/endpoint?url=https://foundryshields.com/version?packageName=honor-and-intrigue)
+![Latest Release](https://img.shields.io/github/v/release/HonorIntrigue/honor-and-intrigue)
+![CI](https://img.shields.io/github/actions/workflow/status/HonorIntrigue/honor-and-intrigue/publish-release.yml)
+
 ## Work in Progress
 
 This system is a work in progress and functionality is not complete. If you have suggestions or feedback, please file a
