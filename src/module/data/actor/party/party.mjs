@@ -1,4 +1,3 @@
-import { DOCUMENT_OWNERSHIP_LEVELS } from '../../../../../foundry/common/constants.mjs';
 import HonorIntrigueActor from '../../../documents/actor.mjs';
 import HonorIntrigueSystemModel from '../../system-model.mjs';
 
@@ -87,7 +86,7 @@ export default class PartyModel extends HonorIntrigueSystemModel {
 
     data.folder = null;
     this.parent.updateSource({
-      ownership: { default: DOCUMENT_OWNERSHIP_LEVELS.OBSERVER },
+      ownership: { default: CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER },
       prototypeToken: {
         actorLink: true,
         disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,

@@ -1,4 +1,3 @@
-import { DOCUMENT_OWNERSHIP_LEVELS } from '../../../../../foundry/common/constants.mjs';
 import { systemPath } from '../../../constants.mjs';
 import { HonorIntrigueProtectionRoll } from '../../../rolls/_module.mjs';
 import { DocumentSheetMixin, ItemCRUDMixin } from '../../api/_module.mjs';
@@ -59,7 +58,7 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
    * @returns {Boolean} `true` if the current user has at least `LIMITED` ownership.
    */
   static restrictToLimited() {
-    return !this.document.testUserPermission(game.user, DOCUMENT_OWNERSHIP_LEVELS.LIMITED);
+    return !this.document.testUserPermission(game.user, CONST.DOCUMENT_OWNERSHIP_LEVELS.LIMITED);
   }
 
   /**
@@ -67,7 +66,7 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
    * @returns {Boolean} `true` if the current user has at least `OBSERVER` ownership.
    */
   static restrictToObserver() {
-    return !this.document.testUserPermission(game.user, DOCUMENT_OWNERSHIP_LEVELS.OBSERVER);
+    return !this.document.testUserPermission(game.user, CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER);
   }
 
   /**
