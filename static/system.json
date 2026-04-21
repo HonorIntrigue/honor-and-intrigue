@@ -155,5 +155,5 @@
   "download": "https://github.com/HonorIntrigue/honor-and-intrigue/releases/download",
   "manifest": "https://raw.githubusercontent.com/HonorIntrigue/honor-and-intrigue/releases/latest/download/system.json",
   "url": "https://github.com/HonorIntrigue/honor-and-intrigue",
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
