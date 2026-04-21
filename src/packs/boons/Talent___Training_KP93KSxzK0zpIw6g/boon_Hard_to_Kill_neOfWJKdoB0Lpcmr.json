@@ -7,7 +7,46 @@
   "system": {
     "description": "<p>Add +2 Lifeblood to your total.</p>"
   },
-  "effects": [],
+  "effects": [
+    {
+      "name": "Hard to Kill",
+      "_id": "KQZDPhJWkftXXWEN",
+      "img": null,
+      "type": "base",
+      "system": {},
+      "changes": [
+        {
+          "key": "system.lifeblood.max",
+          "value": "2",
+          "mode": 2
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "honor-and-intrigue",
+        "systemVersion": "0.1.1",
+        "createdTime": 1776793089643,
+        "modifiedTime": 1776793129540,
+        "lastModifiedBy": "gzs91c0iwOtmt0Wp"
+      },
+      "_key": "!items.effects!neOfWJKdoB0Lpcmr.KQZDPhJWkftXXWEN"
+    }
+  ],
   "sort": 0,
   "ownership": {
     "default": 0,
