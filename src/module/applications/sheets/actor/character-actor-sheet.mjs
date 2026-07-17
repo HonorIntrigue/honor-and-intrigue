@@ -6,16 +6,11 @@ export default class CharacterActorSheet extends ManeuverSupportMixin(HonorIntri
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
     actions: {
-      adjustAdvantage: this.#adjustAdvantage,
-      adjustFortune: this.#adjustFortune,
-      toggleAdvantagePanel: this.#onToggleAdvantagePanel,
+      adjustAdvantage: CharacterActorSheet.#adjustAdvantage,
+      adjustFortune: CharacterActorSheet.#adjustFortune,
+      toggleAdvantagePanel: CharacterActorSheet.#onToggleAdvantagePanel,
     },
   };
-
-  /**
-   * Reference to the element holding the advantage panel.
-   */
-  #advantageEl;
 
   /**
    * Adjusts the character's advantage.
@@ -41,6 +36,11 @@ export default class CharacterActorSheet extends ManeuverSupportMixin(HonorIntri
   static async #onToggleAdvantagePanel() {
     this.#advantageEl?.classList.toggle('expanded');
   }
+
+  /**
+   * Reference to the element holding the advantage panel.
+   */
+  #advantageEl;
 
   /** @inheritDoc */
   _onPosition(position) {
@@ -90,5 +90,9 @@ export default class CharacterActorSheet extends ManeuverSupportMixin(HonorIntri
     } else {
       this.element.insertAdjacentElement('beforeend', this.#advantageEl);
     }
+  }
+
+  expandAdvantagePanel() {
+    this.#advantageEl?.classList.add('expanded');
   }
 }
