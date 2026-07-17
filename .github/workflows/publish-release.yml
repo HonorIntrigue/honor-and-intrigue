@@ -29,14 +29,12 @@ jobs:
         run: echo "version-without-v=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
 
       - name: Substitute links for versioned ones
-        id: sub_link_version
-        uses: devops-actions/variable-substitution@v2.0.0
-        with:
-          files: static/system.json
-        env:
-          download: https://github.com/${{ github.repository }}/releases/download/${{ github.event.release.tag_name }}/honor-and-intrigue.zip
-          manifest: https://github.com/${{ github.repository }}/releases/latest/download/system.json
-          version: ${{ steps.get-version.outputs.version-without-v }}
+        run: |
+          jq --arg dl "https://github.com/${{ github.repository }}/releases/download/${{ github.event.release.tag_name }}/honor-and-intrigue.zip" \
+             --arg mf "https://github.com/${{ github.repository }}/releases/latest/download/system.json" \
+             --arg ver "${{ steps.get-version.outputs.version-without-v }}" \
+             '.download=$dl | .manifest=$mf | .version=$ver' \
+             static/system.json > static/system.json.tmp && mv static/system.json.tmp static/system.json
 
       - name: Build package
         run: |
