@@ -9,5 +9,14 @@
         }
       }
     }
+
+    .entry-name {
+      line-height: unset;
+    }
+
+    .entry-subtitle {
+      color: var(--color-dark-6);
+      font-size: var(--font-size-12);
+    }
   }
 }

@@ -1,0 +1,11 @@
+<li class='directory-item entry document {{ @root.documentCls }} flexrow' data-entry-id='{{ id }}' data-action='activateEntry'>
+  {{#if thumbnail}}
+    <img class='thumbnail' src='{{ thumbnail }}' alt='{{ name }}' loading='lazy'>
+  {{/if}}
+  <div class='entry-name-stack flexcol'>
+    <a class='entry-name ellipsis'>{{ name }}</a>
+    {{#if (or (eq type 'creature') (eq type 'retainer') (eq type 'pawn') (eq type 'villain'))}}
+      <span class='entry-subtitle ellipsis'>{{ localize (concat 'TYPES.Actor.' type) }}</span>
+    {{/if}}
+  </div>
+</li>

@@ -18,6 +18,9 @@ export default class HonorIntrigueActorDirectory extends foundry.applications.si
     party: { template: systemPath('templates/sidebar/party-directory-partial.hbs') },
   };
 
+  /** @inheritDoc */
+  static _entryPartial = systemPath('templates/sidebar/actor-entry-partial.hbs');
+
   /**
    * Creates a new member in the active party.
    */
@@ -74,16 +77,6 @@ export default class HonorIntrigueActorDirectory extends foundry.applications.si
    * @type {Record<string, boolean>}
    */
   #expandedFolders = {};
-
-  /** @inheritDoc */
-  collapseAll() {
-    super.collapseAll();
-
-    for (const el of this.element.querySelectorAll('.folder[data-party]')) {
-      el.classList.remove('expanded');
-      delete this.#expandedFolders[el.dataset.entryId ?? ''];
-    }
-  }
 
   /**
    * Saves the expanded state of the party folder.
@@ -211,5 +204,15 @@ export default class HonorIntrigueActorDirectory extends foundry.applications.si
       name: party.name,
       uuid: party.uuid,
     };
+  }
+
+  /** @inheritDoc */
+  collapseAll() {
+    super.collapseAll();
+
+    for (const el of this.element.querySelectorAll('.folder[data-party]')) {
+      el.classList.remove('expanded');
+      delete this.#expandedFolders[el.dataset.entryId ?? ''];
+    }
   }
 }
