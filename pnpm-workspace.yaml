@@ -1,0 +1,6 @@
+allowBuilds:
+  '@biomejs/biome': true
+  '@parcel/watcher': true
+  classic-level: true
+  esbuild: true
+  lightningcss-cli: true

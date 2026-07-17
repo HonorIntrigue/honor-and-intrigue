@@ -8,30 +8,29 @@
  * }));
  * ```
  */
+/** biome-ignore-all lint/complexity/noArguments: false positive */
 
 /**
  * Run a function after executing another, returning the result of the original function.
  */
 export function after(fn) {
-  return function(original) {
-    return function() {
+  return (original) =>
+    function () {
       const result = original.apply(this, arguments);
       fn.apply(this, arguments);
       return result;
     };
-  };
 }
 
 /**
  * Run a function before executing another, returning the result of the original function.
  */
 export function before(fn) {
-  return function(original) {
-    return function() {
+  return (original) =>
+    function () {
       fn.apply(this, arguments);
       return original.apply(this, arguments);
     };
-  };
 }
 
 /**
@@ -39,11 +38,10 @@ export function before(fn) {
  * passed the results of the original function.
  */
 export function chain(fn) {
-  return function(original) {
-    return function() {
+  return (original) =>
+    function () {
       return fn.call(this, original.apply(this, arguments));
     };
-  };
 }
 
 /**

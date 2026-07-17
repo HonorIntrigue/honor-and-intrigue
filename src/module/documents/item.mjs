@@ -2,17 +2,7 @@ export default class HonorIntrigueItem extends foundry.documents.Item {
   /** @inheritDoc */
   static async createDialog(data = {}, createOptions = {}, dialogOptions = {}) {
     return super.createDialog(data, createOptions, {
-      types: [
-        'armor',
-        'boon',
-        'career',
-        'duelingStyle',
-        'equipment',
-        'flaw',
-        'maneuver',
-        'treasure',
-        'weapon',
-      ],
+      types: ['armor', 'boon', 'career', 'duelingStyle', 'equipment', 'flaw', 'maneuver', 'treasure', 'weapon'],
       ...dialogOptions,
     });
   }

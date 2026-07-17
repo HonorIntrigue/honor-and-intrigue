@@ -31,7 +31,11 @@ export default class RollDialog extends FormApplicationMixin(foundry.application
     const input = target.parentNode.querySelector(`input[id=${field}]`);
     if (!(field in this.options.context.modifiers)) return;
 
-    this.options.context.modifiers[field] = Math.clamp(this.options.context.modifiers[field] - 1, input.min || Number.NEGATIVE_INFINITY, input.max || Number.MAX_VALUE);
+    this.options.context.modifiers[field] = Math.clamp(
+      this.options.context.modifiers[field] - 1,
+      input.min || Number.NEGATIVE_INFINITY,
+      input.max || Number.MAX_VALUE,
+    );
     this.render({ parts: ['content'] });
   }
 
@@ -92,50 +96,60 @@ export default class RollDialog extends FormApplicationMixin(foundry.application
     const { context } = this.options;
     const ctx = {
       ...context,
-      selectFields: [{
-        id: 'difficulty',
-        label: 'HONOR_INTRIGUE.Dialog.Roll.Difficulty',
-        options: hi.CONFIG.difficulties,
-        value: context.modifiers.difficulty ?? 'moderate',
-      }, {
-        id: 'combatAbility',
-        label: 'HONOR_INTRIGUE.Dialog.Roll.CombatAbility',
-        options: [{ label: 'HONOR_INTRIGUE.Dialog.Roll.None', rollKey: 'none' }].concat(...Object.values(hi.CONFIG.combatAbilities)),
-        value: context.modifiers.combatAbility ?? 'none',
-        valueAttr: 'rollKey',
-      }],
-      stepperFields: [{
-        id: 'bonuses',
-        label: 'HONOR_INTRIGUE.Dialog.Roll.BonusDie',
-        min: 0,
-        max: 10,
-        stepSize: 1,
-        value: context.modifiers.bonuses,
-      }, {
-        id: 'penalties',
-        label: 'HONOR_INTRIGUE.Dialog.Roll.PenaltyDie',
-        min: 0,
-        max: 10,
-        stepSize: 1,
-        value: context.modifiers.penalties,
-      }, {
-        id: 'flat',
-        label: 'HONOR_INTRIGUE.Dialog.Roll.Flat',
-        max: 10,
-        stepSize: 1,
-        value: context.modifiers.flat,
-      }],
+      selectFields: [
+        {
+          id: 'difficulty',
+          label: 'HONOR_INTRIGUE.Dialog.Roll.Difficulty',
+          options: hi.CONFIG.difficulties,
+          value: context.modifiers.difficulty ?? 'moderate',
+        },
+        {
+          id: 'combatAbility',
+          label: 'HONOR_INTRIGUE.Dialog.Roll.CombatAbility',
+          options: [{ label: 'HONOR_INTRIGUE.Dialog.Roll.None', rollKey: 'none' }].concat(
+            ...Object.values(hi.CONFIG.combatAbilities),
+          ),
+          value: context.modifiers.combatAbility ?? 'none',
+          valueAttr: 'rollKey',
+        },
+      ],
+      stepperFields: [
+        {
+          id: 'bonuses',
+          label: 'HONOR_INTRIGUE.Dialog.Roll.BonusDie',
+          min: 0,
+          max: 10,
+          stepSize: 1,
+          value: context.modifiers.bonuses,
+        },
+        {
+          id: 'penalties',
+          label: 'HONOR_INTRIGUE.Dialog.Roll.PenaltyDie',
+          min: 0,
+          max: 10,
+          stepSize: 1,
+          value: context.modifiers.penalties,
+        },
+        {
+          id: 'flat',
+          label: 'HONOR_INTRIGUE.Dialog.Roll.Flat',
+          max: 10,
+          stepSize: 1,
+          value: context.modifiers.flat,
+        },
+      ],
     };
 
     if (context.type !== 'maneuver') {
       ctx.selectFields.push({
         id: 'career',
         label: 'HONOR_INTRIGUE.Dialog.Roll.Career',
-        options: [{ label: 'HONOR_INTRIGUE.Dialog.Roll.None', value: 'none' }]
-          .concat(context.actor.itemTypes['career'].map(career => ({
+        options: [{ label: 'HONOR_INTRIGUE.Dialog.Roll.None', value: 'none' }].concat(
+          context.actor.itemTypes.career.map((career) => ({
             label: `(+${career.system.rank}) ${career.name}`,
             value: career.id,
-          }))),
+          })),
+        ),
         value: context.modifiers.career ?? 'none',
       });
     }

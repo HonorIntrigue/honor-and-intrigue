@@ -1,11 +1,7 @@
 import { systemID } from '../constants.mjs';
 import { HonorIntrigueActiveEffect } from '../documents/_module.mjs';
 
-const {
-  Die,
-  NumericTerm,
-  OperatorTerm,
-} = foundry.dice.terms;
+const { Die, NumericTerm, OperatorTerm } = foundry.dice.terms;
 
 export default class HonorIntrigueRoll extends foundry.dice.Roll {
   static DICE_FACES = {
@@ -18,8 +14,7 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
    * @returns {Number}
    */
   static get dieSize() {
-    if (game.settings.get(systemID, 'd10') === true)
-      return HonorIntrigueRoll.DICE_FACES.d10;
+    if (game.settings.get(systemID, 'd10') === true) return HonorIntrigueRoll.DICE_FACES.d10;
 
     return HonorIntrigueRoll.DICE_FACES.d6;
   }
@@ -48,22 +43,26 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
     if (options.type !== 'maneuver') return;
 
     const target = game.user.targets.first();
-    if (!target || !target.actor) return;
+    if (!target?.actor) return;
 
     const maneuver = await fromUuid(options.system.maneuver);
-    if (!maneuver || !maneuver.system.requiresOpposedCheck) return;
+    if (!maneuver?.system.requiresOpposedCheck) return;
 
-    const { abilityCheck: { opposedBy } } = maneuver.system;
+    const {
+      abilityCheck: { opposedBy },
+    } = maneuver.system;
     options.system.targetModifiers ??= {};
 
-    if (opposedBy.quality) options.system.targetModifiers.quality = {
-      key: opposedBy.quality,
-      value: target.actor.system.qualities[opposedBy.quality],
-    };
-    if (opposedBy.combatAbility) options.system.targetModifiers.combatAbility = {
-      key: opposedBy.combatAbility,
-      value: target.actor.system.combatAbilities[opposedBy.combatAbility],
-    };
+    if (opposedBy.quality)
+      options.system.targetModifiers.quality = {
+        key: opposedBy.quality,
+        value: target.actor.system.qualities[opposedBy.quality],
+      };
+    if (opposedBy.combatAbility)
+      options.system.targetModifiers.combatAbility = {
+        key: opposedBy.combatAbility,
+        value: target.actor.system.combatAbilities[opposedBy.combatAbility],
+      };
     if (opposedBy.flatModifier) options.system.targetModifiers.flatModifier = opposedBy.flatModifier;
   }
 
@@ -75,14 +74,11 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
    * @returns {[OperatorTerm, NumericTerm]}
    */
   static constructNumericTerm(value, { negative = false } = {}) {
-    if (isNaN(value) || value === 0) return [];
+    if (Number.isNaN(value) || value === 0) return [];
 
     if (negative && value > 0) value *= -1;
 
-    return [
-      new OperatorTerm({ operator: value > 0 ? '+' : '-' }),
-      new NumericTerm({ number: Math.abs(value) }),
-    ];
+    return [new OperatorTerm({ operator: value > 0 ? '+' : '-' }), new NumericTerm({ number: Math.abs(value) })];
   }
 
   /**
@@ -150,7 +146,9 @@ export default class HonorIntrigueRoll extends foundry.dice.Roll {
     }
 
     if (options.system.statusModifiers) {
-      Object.values(options.system.statusModifiers).forEach(({ value }) => roll.terms.push(...this.constructNumericTerm(value)));
+      Object.values(options.system.statusModifiers).forEach(({ value }) => {
+        roll.terms.push(...this.constructNumericTerm(value));
+      });
     }
 
     roll.resetFormula();

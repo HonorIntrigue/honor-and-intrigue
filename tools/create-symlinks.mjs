@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import { askQuestion } from './askQuestion.mjs';
 
 const installPath = await askQuestion('Enter your Foundry install path: ');

@@ -10,7 +10,15 @@
  * @param {HTMLButtonElement['type']} [options.type = 'button'] Button type.
  * @returns {HTMLButtonElement}
  */
-export function constructButton({ classes = [], dataset = {}, disabled = false, icon = '', img = '', label = '', type = 'button' }) {
+export function constructButton({
+  classes = [],
+  dataset = {},
+  disabled = false,
+  icon = '',
+  img = '',
+  label = '',
+  type = 'button',
+}) {
   const button = constructElement('button', { classes, dataset });
   button.type = type;
 

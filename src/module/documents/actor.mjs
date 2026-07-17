@@ -2,14 +2,7 @@ export default class HonorIntrigueActor extends foundry.documents.Actor {
   /** @inheritDoc */
   static async createDialog(data = {}, createOptions = {}, dialogOptions = {}) {
     return super.createDialog(data, createOptions, {
-      types: [
-        'hero',
-        'pawn',
-        'retainer',
-        'villain',
-        'creature',
-        'ship',
-      ],
+      types: ['hero', 'pawn', 'retainer', 'villain', 'creature', 'ship'],
       ...dialogOptions,
     });
   }
@@ -26,13 +19,13 @@ export default class HonorIntrigueActor extends foundry.documents.Actor {
     const { activeGM } = game.users;
     if (activeGM) return activeGM;
 
-    const activeUsers = game.users.filter(u => u.active);
-    const playerOwner = activeUsers.find(u => u.character?.id === this.id);
+    const activeUsers = game.users.filter((u) => u.active);
+    const playerOwner = activeUsers.find((u) => u.character?.id === this.id);
     if (playerOwner) return playerOwner;
 
     const firstUpdater = game.users
-      .filter(u => this.canUserModify(u, 'update'))
-      .sort((a, b) => a.id > b.id ? 1 : -1)
+      .filter((u) => this.canUserModify(u, 'update'))
+      .sort((a, b) => (a.id > b.id ? 1 : -1))
       .shift();
     return firstUpdater ?? null;
   }

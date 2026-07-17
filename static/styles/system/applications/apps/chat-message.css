@@ -1,0 +1,122 @@
+.chat-message {
+  & hr {
+    border-top: 2px groove var(--color-gold);
+    margin: 0;
+  }
+
+  .flavor-text {
+    font-weight: bold;
+  }
+
+  .message-content {
+    .dice-total {
+      position: relative;
+
+      > i {
+        left: 0.25rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &:hover {
+          font-weight: normal;
+        }
+      }
+    }
+
+    .modifiers {
+      column-gap: 0.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 0.25rem;
+      row-gap: 0.1rem;
+
+      .modifier {
+        border: 1px dotted var(--color-navy);
+        border-radius: 5px;
+        margin: 0;
+        padding: 0 0.25rem;
+
+        &.status-modifier {
+          color: var(--color-red);
+          border: 1px solid var(--color-red);
+        }
+      }
+    }
+
+    .maneuver-roll-content {
+      font-size: var(--font-size-12);
+      margin-top: 0.25rem;
+
+      & p {
+        margin: 0.25rem 0;
+      }
+    }
+
+    .outcome {
+      .outcome-crit-success {
+        color: darkgreen;
+        font-weight: bold;
+      }
+
+      .outcome-success {
+        color: mediumblue;
+      }
+
+      .outcome-failure {
+        color: darkred;
+      }
+
+      .outcome-crit-failure {
+        color: darkred;
+        font-weight: bold;
+      }
+    }
+  }
+
+  & footer {
+    align-items: center;
+    display: flex;
+    margin-top: 0.5rem;
+
+    > button {
+      flex: 1;
+    }
+
+    .apply-damage-section {
+      flex: 1;
+
+      .target-area {
+        display: flex;
+        flex-direction: column;
+
+        > hr {
+          margin: 0.25rem 0;
+        }
+
+        > div {
+          align-items: center;
+          display: flex;
+          gap: 0.25rem;
+
+          i[data-action] {
+            cursor: pointer;
+          }
+
+          &.target-area-buttons {
+            align-items: stretch;
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+
+  &.maneuver {
+    & footer {
+      align-items: stretch;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+  }
+}

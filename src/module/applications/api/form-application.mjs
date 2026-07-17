@@ -1,4 +1,4 @@
-export default base => {
+export default (base) => {
   // eslint-disable-next-line @jsdoc/require-jsdoc
   return class FormApplication extends foundry.applications.api.HandlebarsApplicationMixin(base) {
     static DEFAULT_OPTIONS = {

@@ -1,0 +1,18 @@
+.honor-intrigue {
+  .label-bar {
+    & span {
+      font-size: var(--font-size-13);
+      padding-left: 0.5rem;
+    }
+
+    & button {
+      --button-size: 16px;
+    }
+
+    > hr {
+      background: linear-gradient(90deg, light-dark(var(--color-navy), var(--color-gold)) 50%, transparent 80%);
+      height: 2px;
+      margin: 0;
+    }
+  }
+}

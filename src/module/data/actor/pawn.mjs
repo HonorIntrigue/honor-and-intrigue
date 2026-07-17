@@ -15,8 +15,12 @@ export default class PawnModel extends BaseActorModel {
   static defineSchema() {
     const schema = super.defineSchema();
 
-    Object.values(schema.qualities.fields).forEach(quality => quality.max = 2);
-    Object.values(schema.combatAbilities.fields).forEach(ability => ability.max = 2);
+    Object.values(schema.qualities.fields).forEach((quality) => {
+      quality.max = 2;
+    });
+    Object.values(schema.combatAbilities.fields).forEach((ability) => {
+      ability.max = 2;
+    });
 
     schema.competence = new fields.NumberField({ initial: 0, integer: true, nullable: false });
 
@@ -29,16 +33,16 @@ export default class PawnModel extends BaseActorModel {
   }
 
   /** @inheritDoc */
-  getInitiativeFormula() {
-    return String(this.competence);
-  }
-
-  /** @inheritDoc */
   async _preCreate(data, options, user) {
     const allowed = await super._preCreate(data, options, user);
     if (allowed === false) return false;
 
     this.parent.updateSource({ system: { lifeblood: { min: 0 } } });
     return true;
+  }
+
+  /** @inheritDoc */
+  getInitiativeFormula() {
+    return String(this.competence);
   }
 }

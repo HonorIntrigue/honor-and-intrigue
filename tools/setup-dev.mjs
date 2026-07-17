@@ -1,10 +1,12 @@
 #!/usr/bin/env node
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import { askQuestion } from './askQuestion.mjs';
 
 const installPath = await askQuestion('Enter the absolute path to your Foundry application (main.js): ');
-let dataPath = await askQuestion('Enter the absolute path to your Foundry data directory (containing the "Data" directory): ');
+let dataPath = await askQuestion(
+  'Enter the absolute path to your Foundry data directory (containing the "Data" directory): ',
+);
 
 if (!installPath || !dataPath) {
   console.error('❌ Unable to acquire Foundry paths, process interrupted.');
@@ -35,7 +37,12 @@ const symlinkStats = fs.lstatSync(symlinkPath, { throwIfNoEntry: false });
 
 if (symlinkStats) {
   const atPath = symlinkStats.isDirectory() ? 'folder' : symlinkStats.isSymbolicLink() ? 'symlink' : 'file';
-  const proceed = (await askQuestion(`An "honor-and-intrigue" ${atPath} already exists in the systems directory. Replace with new symlink (y/n)? `)).toLowerCase() === 'y';
+  const proceed =
+    (
+      await askQuestion(
+        `An "honor-and-intrigue" ${atPath} already exists in the systems directory. Replace with new symlink (y/n)? `,
+      )
+    ).toLowerCase() === 'y';
 
   if (!proceed) {
     console.log('❌ Aborting');
@@ -51,7 +58,7 @@ try {
   }
 
   fs.symlinkSync(path.resolve(process.cwd(), 'public'), symlinkPath);
-} catch(err) {
+} catch (err) {
   if (err instanceof Error) {
     console.error(`❌ An error was encountered trying to create a symlink: ${err.message}`);
     process.exit(1);

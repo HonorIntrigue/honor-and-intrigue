@@ -26,7 +26,10 @@ export default class CharacterActorModel extends BaseActorModel {
     const composureLoss = Math.abs(this.schema.fields.composure.max - this.composure);
 
     if (composureLoss !== 0) {
-      options.system.statusModifiers['composure'] = { label: 'HONOR_INTRIGUE.Chat.Roll.Modifier.ComposureLoss', value: -composureLoss };
+      options.system.statusModifiers.composure = {
+        label: 'HONOR_INTRIGUE.Chat.Roll.Modifier.ComposureLoss',
+        value: -composureLoss,
+      };
     }
   }
 
@@ -47,11 +50,15 @@ export default class CharacterActorModel extends BaseActorModel {
       }
 
       if (hasProperty(changed, 'system.fortune.value')) {
-        game.messages.filter(m => m.system.target === this.parent.uuid).forEach(async m => game.system.socketHandler.doIfOrEmit(
-          async () => m.update({ '_stats.modifiedTime': Date.now() }),
-          m.canUserModify(game.user, 'update'),
-          { type: 'MESSAGE_REFRESH', gmOnly: true, message: { id: m.id } },
-        ));
+        game.messages
+          .filter((m) => m.system.target === this.parent.uuid)
+          .forEach(async (m) =>
+            game.system.socketHandler.doIfOrEmit(
+              async () => m.update({ '_stats.modifiedTime': Date.now() }),
+              m.canUserModify(game.user, 'update'),
+              { type: 'MESSAGE_REFRESH', gmOnly: true, message: { id: m.id } },
+            ),
+          );
       }
     }
   }

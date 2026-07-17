@@ -21,21 +21,24 @@ export default class PartyModel extends HonorIntrigueSystemModel {
    * @param {BaseActorModel[]} membersToAdd
    */
   async addMembers(...membersToAdd) {
-    const newMembers = membersToAdd.filter(a => a.type === 'hero' && !this.members.has(a.uuid));
+    const newMembers = membersToAdd.filter((a) => a.type === 'hero' && !this.members.has(a.uuid));
 
     await Promise.all([
       ...newMembers.map(async (m) => {
         m.system.party = this;
         return m.update({ folder: null });
       }),
-      this.parent.update({ system: { members: [...this.members, ...newMembers.map(m => m.uuid)] } }),
+      this.parent.update({ system: { members: [...this.members, ...newMembers.map((m) => m.uuid)] } }),
     ]);
     ui.actors.render();
   }
 
   /** @inheritDoc */
   canUserModify(user, action) {
-    return (super.canUserModify(user, action) || (action === 'update' && this.members.some(m => m.canUserModify(user, action))));
+    return (
+      super.canUserModify(user, action) ||
+      (action === 'update' && this.members.some((m) => m.canUserModify(user, action)))
+    );
   }
 
   /** @inheritDoc */
@@ -44,7 +47,7 @@ export default class PartyModel extends HonorIntrigueSystemModel {
 
     for (const memberUuid of this.members.values()) {
       const member = fromUuidSync(memberUuid);
-      if (member && member.system) member.system.party ??= this;
+      if (member?.system) member.system.party ??= this;
     }
   }
 
@@ -53,7 +56,9 @@ export default class PartyModel extends HonorIntrigueSystemModel {
    * @param {BaseActorModel[]} membersToRemove
    */
   async removeMembers(...membersToRemove) {
-    await this.parent.update({ system: { members: [...this.members.filter(id => !membersToRemove.some(m => m.uuid === id))] } });
+    await this.parent.update({
+      system: { members: [...this.members.filter((id) => !membersToRemove.some((m) => m.uuid === id))] },
+    });
     ui.actors.render();
   }
 
@@ -72,7 +77,9 @@ export default class PartyModel extends HonorIntrigueSystemModel {
     super._onUpdate(changed, options, userId);
 
     if (userId === game.user.id && game.user.isGM) {
-      const removedMembers = (options.removedMembers ?? []).map(id => fromUuidSync(id)).filter(a => a instanceof HonorIntrigueActor);
+      const removedMembers = (options.removedMembers ?? [])
+        .map((id) => fromUuidSync(id))
+        .filter((a) => a instanceof HonorIntrigueActor);
       for (const actor of removedMembers) {
         actor.system.party = null;
       }
@@ -101,7 +108,7 @@ export default class PartyModel extends HonorIntrigueSystemModel {
 
     const newMemberIds = changed.system?.members;
     if (newMemberIds) {
-      options.removedMembers = Array.from(this.members.filter(id => !newMemberIds.includes(id)));
+      options.removedMembers = Array.from(this.members.filter((id) => !newMemberIds.includes(id)));
     }
 
     return super._preUpdate(changed, options, user);

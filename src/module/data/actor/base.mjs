@@ -13,22 +13,24 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
 
     const quality = { min: -1, max: 6, initial: 0, integer: true, nullable: false };
     schema.qualities = new fields.SchemaField(
-      Object.values(hi.CONFIG.qualities)
-        .filter(({ types }) => {
-          if (!types) return true;
-          return types.some(t => this.metadata.type === t);
-        }).reduce((obj, { label, rollKey }) => ({
-          ...obj,
-          [rollKey]: new fields.NumberField({ ...quality, label }),
-        }), {}),
+      Object.fromEntries(
+        Object.values(hi.CONFIG.qualities)
+          .filter(({ types }) => {
+            if (!types) return true;
+            return types.some((t) => this.metadata.type === t);
+          })
+          .map(({ label, rollKey }) => [rollKey, new fields.NumberField({ ...quality, label })]),
+      ),
     );
 
     const combatAbility = { min: -1, max: 5, initial: 0, integer: true, nullable: false };
     schema.combatAbilities = new fields.SchemaField(
-      Object.values(hi.CONFIG.combatAbilities).reduce((obj, { label, rollKey }) => ({
-        ...obj,
-        [rollKey]: new fields.NumberField({ ...combatAbility, label }),
-      }), {}),
+      Object.fromEntries(
+        Object.values(hi.CONFIG.combatAbilities).map(({ label, rollKey }) => [
+          rollKey,
+          new fields.NumberField({ ...combatAbility, label }),
+        ]),
+      ),
     );
 
     schema.lifeblood = new fields.SchemaField({
@@ -37,13 +39,15 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       value: new fields.NumberField({ min: -6, initial: 1, integer: true, nullable: false, required: true }),
     });
 
-    schema.arcanePower = new fields.SchemaField(({
+    schema.arcanePower = new fields.SchemaField({
       adjustment: new fields.NumberField({ initial: 0, integer: true }),
       value: new fields.NumberField({ min: 0, initial: 0, integer: true }),
-    }));
+    });
     schema.notes = new fields.HTMLField({ textSearch: true });
 
-    schema.elementOverrides = new fields.TypedObjectField(new fields.TypedObjectField(new fields.StringField()), { required: false });
+    schema.elementOverrides = new fields.TypedObjectField(new fields.TypedObjectField(new fields.StringField()), {
+      required: false,
+    });
 
     return schema;
   }
@@ -84,17 +88,20 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       if (!result) return; // prompt cancelled
 
       const { protectionItems, rollMode, rolls } = result;
-      const { id } = await ChatMessage.create({
-        flavor: game.i18n.localize('HONOR_INTRIGUE.Chat.Roll.Flavor.Protection'),
-        rolls,
-        sound: CONFIG.sounds.dice,
-        speaker: ChatMessage.getSpeaker({ actor: this.parent }),
-        system: {
-          protectionItems,
-          total: amount,
+      const { id } = await ChatMessage.create(
+        {
+          flavor: game.i18n.localize('HONOR_INTRIGUE.Chat.Roll.Flavor.Protection'),
+          rolls,
+          sound: CONFIG.sounds.dice,
+          speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+          system: {
+            protectionItems,
+            total: amount,
+          },
+          type: 'damageResult',
         },
-        type: 'damageResult',
-      }, { rollMode });
+        { rollMode },
+      );
 
       if (game.dice3d?.waitFor3DAnimationByMessageID instanceof Function) {
         await game.dice3d.waitFor3DAnimationByMessageID(id);
@@ -123,7 +130,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
   /** @inheritDoc */
   prepareBaseData() {
     super.prepareBaseData();
-    this.party ??= game.actors?.find(a => a.type === 'party' && a.system.members.has(this.parent.uuid))?.system;
+    this.party ??= game.actors?.find((a) => a.type === 'party' && a.system.members.has(this.parent.uuid))?.system;
   }
 
   /** @inheritDoc */
@@ -141,13 +148,13 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       this.combatAbilities.defense -= 2;
     }
 
-    const arcaneCareer = this.parent.itemTypes['career']
-      .filter(c => c.system.isArcane)
+    const arcaneCareer = this.parent.itemTypes.career
+      .filter((c) => c.system.isArcane)
       .sort((a, b) => a.system.rank - b.system.rank)
       .at(-1);
     if (arcaneCareer) {
       this.arcanePower.career = arcaneCareer.id;
-      this.arcanePower.max = (10 + arcaneCareer.system.rank) + this.arcanePower.adjustment;
+      this.arcanePower.max = 10 + arcaneCareer.system.rank + this.arcanePower.adjustment;
     }
   }
 
@@ -205,16 +212,19 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
     options.system.modifiers.penalties = modifiers.penalties;
     options.system.modifiers.flatModifier = modifiers.flat;
 
-    return ChatMessage.create({
-      flags: { core: { canPopout: true }, [systemID]: (options.flags || {}) },
-      flavor: options.title ?? flavor,
-      rolls,
-      sound: CONFIG.sounds.dice,
-      speaker: ChatMessage.getSpeaker({ actor: this.parent }),
-      system: options.system,
-      title: options.title ?? flavor,
-      type: options.type,
-    }, { rollMode });
+    return ChatMessage.create(
+      {
+        flags: { core: { canPopout: true }, [systemID]: options.flags || {} },
+        flavor: options.title ?? flavor,
+        rolls,
+        sound: CONFIG.sounds.dice,
+        speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+        system: options.system,
+        title: options.title ?? flavor,
+        type: options.type,
+      },
+      { rollMode },
+    );
   }
 
   /**
@@ -248,7 +258,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
    * Performs updates or other tasks at the start of a combat involving this actor.
    * @param {Combatant} combatant
    */
-  async startCombat(combatant) { }
+  async startCombat(combatant) {}
 
   /** @inheritDoc */
   _onDelete(options, userId) {
@@ -320,9 +330,11 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
       if (diff !== 0) {
         const tokens = this.parent.getActiveTokens();
         for (const token of tokens) {
-          canvas.interface.createScrollingText(token.getCenterPoint(), change.signedString(), {
-            fill: change > 0 ? 'green' : 'red',
-          }).catch();
+          canvas.interface
+            .createScrollingText(token.getCenterPoint(), change.signedString(), {
+              fill: change > 0 ? 'green' : 'red',
+            })
+            .catch();
         }
 
         if (this.messageOnLifebloodChange) {
@@ -341,7 +353,7 @@ export default class BaseActorModel extends HonorIntrigueSystemModel {
 
     if (hasProperty(changes, 'system.arcanePower.adjustment')) {
       const arcaneCareer = this.parent.items.get(this.arcanePower.career);
-      changes.system.arcanePower.adjustment -= (10 + arcaneCareer.system.rank);
+      changes.system.arcanePower.adjustment -= 10 + arcaneCareer.system.rank;
     }
 
     if (hasProperty(changes, 'system.arcanePower.value')) {

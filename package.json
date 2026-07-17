@@ -1,52 +1,37 @@
 {
   "name": "honor-and-intrigue",
-  "version": "0.1.2",
   "description": "A system for the Honor + Intrigue Swashbuckling RPG on Foundry Virtual Tabletop",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/HonorIntrigue/honor-and-intrigue.git"
   },
   "scripts": {
-    "build": "yarn build:clean && npx concurrently 'yarn:build:*(!clean)'",
-    "build:clean": "rm -fr public/",
-    "build:code": "rollup -c",
-    "build:css": "npx sass -s compressed --no-source-map static/styles:public/css",
+    "build": "node tools/build.mjs",
+    "build:code": "esbuild src/scripts/honor-and-intrigue.mjs --bundle --format=esm --sourcemap --outfile=public/honor-and-intrigue.mjs",
+    "build:css": "npx lightningcss --bundle --minify -o public/css/honor-and-intrigue.css static/styles/honor-and-intrigue.css && npx lightningcss --bundle --minify -o public/css/honor-and-intrigue-elements.css static/styles/honor-and-intrigue-elements.css && npx lightningcss --bundle --minify -o public/css/honor-and-intrigue-variables.css static/styles/honor-and-intrigue-variables.css",
     "build:packs": "node ./tools/pullJSONtoLDB.mjs",
     "createSymlinks": "node ./tools/create-symlinks.mjs",
-    "dev": "node ./tools/start-dev.mjs",
-    "dev:clean": "find public/ -not -name 'packs' -print0 | xargs -0 rm -fr --",
-    "dev:code": "rollup -c --watch",
-    "dev:css": "npx sass -w --update static/styles:public/css",
+    "dev": "node tools/start-dev.mjs",
+    "dev:code": "esbuild src/scripts/honor-and-intrigue.mjs --bundle --format=esm --sourcemap --outfile=public/honor-and-intrigue.mjs --watch",
+    "dev:css": "npx chokidar 'static/styles/**/*.css' -c 'pnpm build:css'",
     "dev:setup": "node ./tools/setup-dev.mjs",
-    "lint": "eslint src/scripts/honor-and-intrigue.mjs src/module/**/*",
-    "lint:fix": "eslint --fix src/scripts/honor-and-intrigue.mjs src/module/**/*",
+    "lint": "biome check --max-diagnostics 999 src/",
+    "lint:fix": "biome check --fix src/",
     "unpack": "node ./tools/pushLDBtoJSON.mjs"
   },
   "browserslist": [
     "last 3 versions"
   ],
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.33.0",
-    "@eslint/json": "^0.13.1",
-    "@foundryvtt/foundryvtt-cli": "^2.0.0",
-    "@guanghechen/rollup-plugin-copy": "^6.0.8",
-    "@html-eslint/eslint-plugin": "^0.45.0",
-    "@html-eslint/parser": "^0.45.0",
-    "@stylistic/eslint-plugin": "^5.2.3",
-    "concurrently": "^9.2.0",
-    "eslint": "^9.33.0",
-    "eslint-plugin-jsdoc": "^54.1.1",
-    "globals": "^16.3.0",
+    "@biomejs/biome": "^2.5.4",
+    "@foundryvtt/foundryvtt-cli": "^3.0.4",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^10.0.3",
+    "esbuild": "^0.28.1",
+    "lightningcss-cli": "^1.32.0",
     "readline": "^1.3.0",
-    "rollup": "^4.46.4",
-    "rollup-plugin-delete": "^3.0.1",
-    "sass": "^1.90.0",
-    "showdown": "^2.1.0",
-    "typescript": "^5.9.2",
-    "typescript-eslint": "^8.40.0",
-    "wait-on": "^8.0.4"
+    "typescript": "^7.0.2",
+    "wait-on": "^9.0.10"
   },
-  "packageManager": "yarn@4.13.0"
+  "packageManager": "pnpm@11.13.1+sha512.b2fc7683b8a6525414e7d13e1ba28caaddde96bf66ec540bfaeb7e702b81f3e0be4d1f295edf7f9fe0396740a8dce4509c582ddf79891f4543fea32d37645f25"
 }

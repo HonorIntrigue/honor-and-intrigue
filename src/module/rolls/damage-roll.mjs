@@ -1,8 +1,4 @@
-const {
-  Die,
-  NumericTerm,
-  OperatorTerm,
-} = foundry.dice.terms;
+const { Die, NumericTerm, OperatorTerm } = foundry.dice.terms;
 
 export default class HonorIntrigueDamageRoll extends foundry.dice.Roll {
   /**
@@ -50,14 +46,14 @@ export default class HonorIntrigueDamageRoll extends foundry.dice.Roll {
 
     if (result.flatModifier !== 0) {
       roll.terms.push(
-        new OperatorTerm({ operator: (result.flatModifier > 0 ? '+' : '-') }),
+        new OperatorTerm({ operator: result.flatModifier > 0 ? '+' : '-' }),
         new NumericTerm({ number: Math.abs(result.flatModifier) }),
       );
     }
 
     if (result.modifiers.includeMightSelector) {
       roll.terms.push(
-        new OperatorTerm({ operator: (result.mightValue >= 0 ? '+' : '-') }),
+        new OperatorTerm({ operator: result.mightValue >= 0 ? '+' : '-' }),
         new NumericTerm({ number: Math.abs(result.mightValue) }),
       );
     }

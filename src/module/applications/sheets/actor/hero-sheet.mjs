@@ -32,7 +32,9 @@ export default class HeroSheet extends CharacterActorSheet {
   static async #adjustAdvancementPoints(event) {
     let change = event.type === 'click' ? 1 : -1;
     if (event.shiftKey) change *= 5;
-    this.actor.update({ system: { advancementPoints: { value: Math.max(0, this.actor.system.advancementPoints.value + change) } } });
+    this.actor.update({
+      system: { advancementPoints: { value: Math.max(0, this.actor.system.advancementPoints.value + change) } },
+    });
   }
 
   /**
@@ -43,7 +45,9 @@ export default class HeroSheet extends CharacterActorSheet {
     const item = this.actor.items.get(itemId);
     const state = !item.system.active;
 
-    await Promise.all(this.actor.itemTypes['duelingStyle'].map(async (style) => style.update({ system: { active: false } })));
+    await Promise.all(
+      this.actor.itemTypes.duelingStyle.map(async (style) => style.update({ system: { active: false } })),
+    );
     await item.update({ system: { active: state } });
   }
 
@@ -53,10 +57,15 @@ export default class HeroSheet extends CharacterActorSheet {
 
     switch (partId) {
       case 'background':
-        context.enrichedBackground = (await Promise.all(
-          Object.entries(this.actor.system.background)
-            .map(async ([key, value]) => ({ [key]: await foundry.applications.ux.TextEditor.implementation.enrichHTML(value, { secrets: this.document.isOwner }) })),
-        )).reduce((acc, curr) => ({ ...acc, ...curr }), {});
+        context.enrichedBackground = (
+          await Promise.all(
+            Object.entries(this.actor.system.background).map(async ([key, value]) => ({
+              [key]: await foundry.applications.ux.TextEditor.implementation.enrichHTML(value, {
+                secrets: this.document.isOwner,
+              }),
+            })),
+          )
+        ).reduce((acc, curr) => Object.assign(acc, curr), {});
         break;
     }
 

@@ -58,15 +58,15 @@ export function valueToFormulaField(value) {
   value = value.replaceAll(/\s/g, '');
 
   if (/^[+-]?\d+$/.test(value)) {
-    return { dieSize: null, numDice: null, flatModifier: parseInt(value) };
+    return { dieSize: null, numDice: null, flatModifier: parseInt(value, 10) };
   } else if (FormulaRegex.test(value)) {
     const formulaMatch = FormulaRegex.exec(value);
 
     if (formulaMatch?.length > 1) {
       return {
-        numDice: parseInt(formulaMatch.at(1)),
-        dieSize: parseInt(formulaMatch.at(2)),
-        flatModifier: parseInt(formulaMatch.at(3) ?? 0),
+        numDice: parseInt(formulaMatch.at(1), 10),
+        dieSize: parseInt(formulaMatch.at(2), 10),
+        flatModifier: parseInt(formulaMatch.at(3) ?? 0, 10),
       };
     }
   } else {

@@ -18,24 +18,33 @@ export default class ManeuverMessageModel extends QualityRollMessageModel {
     // A required reference to the maneuver (either in the compendium or owner by an actor).
     schema.maneuver = new fields.DocumentUUIDField({ required: true, nullable: false, blank: false });
     // A reference to the calculated outcome of the roll.
-    schema.outcome = new fields.SchemaField({
-      difference: new fields.NumberField({ integer: true }),
-      originalResult: new fields.StringField({ choices: Object.values(hi.CONFIG.ROLL_OUTCOME).map(v => v.key) }),
-      modifiedReason: new fields.StringField(),
-      result: new fields.StringField({ choices: Object.values(hi.CONFIG.ROLL_OUTCOME).map(v => v.key) }),
-    }, { required: false });
+    schema.outcome = new fields.SchemaField(
+      {
+        difference: new fields.NumberField({ integer: true }),
+        originalResult: new fields.StringField({ choices: Object.values(hi.CONFIG.ROLL_OUTCOME).map((v) => v.key) }),
+        modifiedReason: new fields.StringField(),
+        result: new fields.StringField({ choices: Object.values(hi.CONFIG.ROLL_OUTCOME).map((v) => v.key) }),
+      },
+      { required: false },
+    );
     // An optional reference to the readied equipment item for this maneuver.
     schema.relatedItemUuid = new fields.StringField({ blank: false });
     // A list of modifiers from the target affecting the roll outcome.
     schema.targetModifiers = new fields.SchemaField({
-      quality: new fields.SchemaField({
-        key: new fields.StringField({ choices: Object.values(hi.CONFIG.qualities).map(v => v.rollKey) }),
-        value: new fields.NumberField({ integer: true }),
-      }, { required: false }),
-      combatAbility: new fields.SchemaField({
-        key: new fields.StringField({ choices: Object.values(hi.CONFIG.combatAbilities).map(v => v.rollKey) }),
-        value: new fields.NumberField({ integer: true }),
-      }, { required: false }),
+      quality: new fields.SchemaField(
+        {
+          key: new fields.StringField({ choices: Object.values(hi.CONFIG.qualities).map((v) => v.rollKey) }),
+          value: new fields.NumberField({ integer: true }),
+        },
+        { required: false },
+      ),
+      combatAbility: new fields.SchemaField(
+        {
+          key: new fields.StringField({ choices: Object.values(hi.CONFIG.combatAbilities).map((v) => v.rollKey) }),
+          value: new fields.NumberField({ integer: true }),
+        },
+        { required: false },
+      ),
       flatModifier: new fields.NumberField({ integer: true, initial: 0 }),
     });
 
@@ -48,26 +57,43 @@ export default class ManeuverMessageModel extends QualityRollMessageModel {
 
     const mods = [];
 
-    if (this.targetModifiers.quality?.value) mods.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
-      ability: game.i18n.localize(hi.CONFIG.qualities[this.targetModifiers.quality.key].label),
-      number: this.targetModifiers.quality.value.signedString(),
-    }));
-    if (this.targetModifiers.combatAbility?.value) mods.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
-      ability: game.i18n.localize(hi.CONFIG.combatAbilities[this.targetModifiers.combatAbility.key].label),
-      number: this.targetModifiers.combatAbility.value.signedString(),
-    }));
-    if (this.targetModifiers.flatModifier !== 0) mods.push(game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Flat', { number: this.targetModifiers.flatModifier.signedString() }));
+    if (this.targetModifiers.quality?.value)
+      mods.push(
+        game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
+          ability: game.i18n.localize(hi.CONFIG.qualities[this.targetModifiers.quality.key].label),
+          number: this.targetModifiers.quality.value.signedString(),
+        }),
+      );
+    if (this.targetModifiers.combatAbility?.value)
+      mods.push(
+        game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Ability', {
+          ability: game.i18n.localize(hi.CONFIG.combatAbilities[this.targetModifiers.combatAbility.key].label),
+          number: this.targetModifiers.combatAbility.value.signedString(),
+        }),
+      );
+    if (this.targetModifiers.flatModifier !== 0)
+      mods.push(
+        game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Modifier.Flat', {
+          number: this.targetModifiers.flatModifier.signedString(),
+        }),
+      );
 
-    const details = await foundry.applications.handlebars.renderTemplate(systemPath('templates/rolls/maneuver-roll-content.hbs'), {
-      modifiers: mods.join(','),
-      outcome: Object.values(hi.CONFIG.ROLL_OUTCOME).find(v => v.key === this.outcome?.result),
-      reasonOutcomeModified: this.outcome?.modifiedReason,
-      target: await fromUuid(this.target),
-    });
+    const details = await foundry.applications.handlebars.renderTemplate(
+      systemPath('templates/rolls/maneuver-roll-content.hbs'),
+      {
+        modifiers: mods.join(','),
+        outcome: Object.values(hi.CONFIG.ROLL_OUTCOME).find((v) => v.key === this.outcome?.result),
+        reasonOutcomeModified: this.outcome?.modifiedReason,
+        target: await fromUuid(this.target),
+      },
+    );
 
     html.querySelector('.message-content').insertAdjacentHTML('beforeend', details);
 
-    if (this.outcome?.result === hi.CONFIG.ROLL_OUTCOME.CritSuccess.key || this.outcome?.result === hi.CONFIG.ROLL_OUTCOME.CritFailure.key) {
+    if (
+      this.outcome?.result === hi.CONFIG.ROLL_OUTCOME.CritSuccess.key ||
+      this.outcome?.result === hi.CONFIG.ROLL_OUTCOME.CritFailure.key
+    ) {
       html.querySelector('.dice-result .dice-total')?.classList.toggle(`outcome-${this.outcome.result}`);
     }
   }
@@ -77,55 +103,69 @@ export default class ManeuverMessageModel extends QualityRollMessageModel {
     const buttons = await super._constructFooterButtons();
 
     const [maneuver, target] = await Promise.all([fromUuid(this.maneuver), fromUuid(this.target)]);
-    const isSuccess = [hi.CONFIG.ROLL_OUTCOME.CritSuccess.key, hi.CONFIG.ROLL_OUTCOME.Success.key].includes(this.outcome?.result);
-    if (isSuccess && target && target.isOwner) {
+    const isSuccess = [hi.CONFIG.ROLL_OUTCOME.CritSuccess.key, hi.CONFIG.ROLL_OUTCOME.Success.key].includes(
+      this.outcome?.result,
+    );
+    if (isSuccess && target?.isOwner) {
       if (maneuver.system.abilityCheck?.opposedBy?.combatAbility === hi.CONFIG.combatAbilities.defense.rollKey) {
         if (this.outcome.difference <= 1) {
-          buttons.push(hi.utils.constructButton({
-            dataset: {
-              action: 'dodge',
-              tooltip: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.Dodge.hint'),
-            },
-            label: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.Dodge.label'),
-          }));
+          buttons.push(
+            hi.utils.constructButton({
+              dataset: {
+                action: 'dodge',
+                tooltip: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.Dodge.hint'),
+              },
+              label: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.Dodge.label'),
+            }),
+          );
         }
 
-        buttons.push(hi.utils.constructButton({
-          dataset: {
-            action: 'reaction',
-            tooltip: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.UseReaction.hint'),
-          },
-          label: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.UseReaction.label'),
-        }));
+        buttons.push(
+          hi.utils.constructButton({
+            dataset: {
+              action: 'reaction',
+              tooltip: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.UseReaction.hint'),
+            },
+            label: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.UseReaction.label'),
+          }),
+        );
       }
 
       if (target.system instanceof CharacterActorModel) {
         // TODO add this flag to compendium ranged attacks
-        const fortuneNeededToAvoid = maneuver.getFlag(hi.CONST.systemID, 'rangedAttack') ? 1 : (this.outcome.difference + 1); // Add 1 to push the result BELOW the target difficulty
+        const fortuneNeededToAvoid = maneuver.getFlag(hi.CONST.systemID, 'rangedAttack')
+          ? 1
+          : this.outcome.difference + 1; // Add 1 to push the result BELOW the target difficulty
 
         if (fortuneNeededToAvoid) {
           const hasEnoughFortune = target.system.fortune.value < fortuneNeededToAvoid;
-          buttons.push(hi.utils.constructButton({
-            dataset: {
-              action: 'fortune',
-              amount: fortuneNeededToAvoid,
-              tooltip: hasEnoughFortune ?
-                game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.SpendFortune.disabled') :
-                game.i18n.format('HONOR_INTRIGUE.Chat.Buttons.SpendFortune.hint', { amount: fortuneNeededToAvoid }),
-            },
-            disabled: hasEnoughFortune,
-            label: game.i18n.format('HONOR_INTRIGUE.Chat.Buttons.SpendFortune.label', { amount: fortuneNeededToAvoid }),
-          }));
+          buttons.push(
+            hi.utils.constructButton({
+              dataset: {
+                action: 'fortune',
+                amount: fortuneNeededToAvoid,
+                tooltip: hasEnoughFortune
+                  ? game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.SpendFortune.disabled')
+                  : game.i18n.format('HONOR_INTRIGUE.Chat.Buttons.SpendFortune.hint', { amount: fortuneNeededToAvoid }),
+              },
+              disabled: hasEnoughFortune,
+              label: game.i18n.format('HONOR_INTRIGUE.Chat.Buttons.SpendFortune.label', {
+                amount: fortuneNeededToAvoid,
+              }),
+            }),
+          );
         }
 
         if (target.system.advantage > 0) {
-          buttons.push(hi.utils.constructButton({
-            dataset: {
-              action: 'yield',
-              tooltip: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.YieldAdvantage.hint'),
-            },
-            label: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.YieldAdvantage.label'),
-          }));
+          buttons.push(
+            hi.utils.constructButton({
+              dataset: {
+                action: 'yield',
+                tooltip: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.YieldAdvantage.hint'),
+              },
+              label: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.YieldAdvantage.label'),
+            }),
+          );
         }
       }
     }
@@ -133,14 +173,16 @@ export default class ManeuverMessageModel extends QualityRollMessageModel {
     const item = await fromUuid(this.relatedItemUuid);
     if (item && (this.parent.isAuthor || this.parent.isOwner || item.isOwner)) {
       buttons.push(hi.utils.constructElement('hr'));
-      buttons.push(hi.utils.constructButton({
-        dataset: {
-          action: 'damage',
-          itemUuid: this.relatedItemUuid,
-          tooltip: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.RollDamage.hint'),
-        },
-        label: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.RollDamage.label'),
-      }));
+      buttons.push(
+        hi.utils.constructButton({
+          dataset: {
+            action: 'damage',
+            itemUuid: this.relatedItemUuid,
+            tooltip: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.RollDamage.hint'),
+          },
+          label: game.i18n.localize('HONOR_INTRIGUE.Chat.Buttons.RollDamage.label'),
+        }),
+      );
     }
 
     return buttons;
@@ -150,7 +192,9 @@ export default class ManeuverMessageModel extends QualityRollMessageModel {
   addListeners(html) {
     super.addListeners(html);
 
-    html.querySelector('[data-action="damage"]')?.addEventListener('click', () => WeaponModel.rollDamageFromMessage(this));
+    html
+      .querySelector('[data-action="damage"]')
+      ?.addEventListener('click', () => WeaponModel.rollDamageFromMessage(this));
     html.querySelector('[data-action="dodge"]')?.addEventListener('click', this.onActionDodge.bind(this));
     html.querySelector('[data-action="reaction"]')?.addEventListener('click', this.onActionReaction.bind(this));
     html.querySelector('[data-action="fortune"]')?.addEventListener('click', this.onActionFortune.bind(this));
@@ -162,13 +206,14 @@ export default class ManeuverMessageModel extends QualityRollMessageModel {
    */
   async onActionDodge() {
     return game.system.socketHandler.doIfOrEmit(
-      async () => this.parent.update({
-        'system.outcome': {
-          modifiedReason: 'dodge',
-          originalResult: this.outcome.result,
-          result: hi.CONFIG.ROLL_OUTCOME.Failure.key,
-        },
-      }),
+      async () =>
+        this.parent.update({
+          'system.outcome': {
+            modifiedReason: 'dodge',
+            originalResult: this.outcome.result,
+            result: hi.CONFIG.ROLL_OUTCOME.Failure.key,
+          },
+        }),
       this.parent.canUserModify(game.user, 'update'),
       { type: 'MESSAGE_ACTION_DODGE', message: { id: this.parent.id } },
     );
@@ -211,14 +256,17 @@ export default class ManeuverMessageModel extends QualityRollMessageModel {
     const target = await fromUuid(this.target);
     const result = await foundry.applications.api.DialogV2.input({
       classes: ['honor-intrigue', 'roll-dialog'],
-      content: await foundry.applications.handlebars.renderTemplate(systemPath('templates/rolls/damage-reaction-dialog.hbs'), {
-        // TODO add non-conflicting compendium reactions
-        maneuverChoices: (target.itemTypes['maneuver']?.filter(i => i.system.actionType === 3) ?? []).map(i => ({
-          id: i.id,
-          mastered: i.system.isMastered,
-          name: `${i.name}${i.system.isMastered ? ` ${game.i18n.localize('HONOR_INTRIGUE.Dialog.DamageReaction.MasteryHint')}` : ''}`,
-        })),
-      }),
+      content: await foundry.applications.handlebars.renderTemplate(
+        systemPath('templates/rolls/damage-reaction-dialog.hbs'),
+        {
+          // TODO add non-conflicting compendium reactions
+          maneuverChoices: (target.itemTypes.maneuver?.filter((i) => i.system.actionType === 3) ?? []).map((i) => ({
+            id: i.id,
+            mastered: i.system.isMastered,
+            name: `${i.name}${i.system.isMastered ? ` ${game.i18n.localize('HONOR_INTRIGUE.Dialog.DamageReaction.MasteryHint')}` : ''}`,
+          })),
+        },
+      ),
       window: { title: 'HONOR_INTRIGUE.Dialog.DamageReaction.Title' },
     });
 

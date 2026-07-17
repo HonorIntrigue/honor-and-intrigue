@@ -2,7 +2,9 @@ import { systemPath } from '../../../constants.mjs';
 import { HonorIntrigueProtectionRoll } from '../../../rolls/_module.mjs';
 import { DocumentSheetMixin, ItemCRUDMixin } from '../../api/_module.mjs';
 
-export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheetMixin(foundry.applications.sheets.ActorSheetV2)) {
+export default class HonorIntrigueActorSheet extends ItemCRUDMixin(
+  DocumentSheetMixin(foundry.applications.sheets.ActorSheetV2),
+) {
   /** @inheritDoc */
   static DEFAULT_OPTIONS = {
     actions: {
@@ -114,16 +116,19 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
 
     if (item?.type === 'armor' && item.system.protection) {
       const result = await HonorIntrigueProtectionRoll.roll([item]);
-      return ChatMessage.create({
-        flavor: game.i18n.localize('HONOR_INTRIGUE.Chat.Roll.Flavor.Protection'),
-        rolls: [result],
-        sound: CONFIG.sounds.dice,
-        speaker: ChatMessage.getSpeaker({ actor: this.parent }),
-        system: {
-          protectionItems: { itemId: { formula: item.protection, name: item.name } },
+      return ChatMessage.create(
+        {
+          flavor: game.i18n.localize('HONOR_INTRIGUE.Chat.Roll.Flavor.Protection'),
+          rolls: [result],
+          sound: CONFIG.sounds.dice,
+          speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+          system: {
+            protectionItems: { itemId: { formula: item.protection, name: item.name } },
+          },
+          type: 'damageResult',
         },
-        type: 'damageResult',
-      }, { rollMode: game.settings.get('core', 'rollMode') });
+        { rollMode: game.settings.get('core', 'rollMode') },
+      );
     } else if (item?.type === 'action') {
       return this.#rollAction(item);
     } else if (item?.type === 'maneuver') {
@@ -150,10 +155,12 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
     const { itemId } = target.closest('.item').dataset;
     const item = this.actor.items.get(itemId);
 
-    if (!item.system.isLoaded) await ui.notifications.warn('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.UseUnloaded', { localize: true });
+    if (!item.system.isLoaded)
+      await ui.notifications.warn('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.UseUnloaded', { localize: true });
 
     const { itemUuid } = target.dataset;
-    const maneuver = this.actor.itemTypes.maneuver.find(m => m._stats.compendiumSource === itemUuid) || await fromUuid(itemUuid);
+    const maneuver =
+      this.actor.itemTypes.maneuver.find((m) => m._stats.compendiumSource === itemUuid) || (await fromUuid(itemUuid));
 
     const result = await this.#rollManeuver(maneuver, { system: { relatedItemUuid: item.uuid } });
 
@@ -168,11 +175,7 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
   static async #toggleItemEquipped(event, target) {
     const { itemId } = target.closest('.item').dataset;
     const item = this.actor.items.get(itemId);
-    const nextPosition = (
-      item.system.carriedPosition === 0 ? 1 : (
-        item.system.carriedPosition === 1 ? 2 : 0
-      )
-    );
+    const nextPosition = item.system.carriedPosition === 0 ? 1 : item.system.carriedPosition === 1 ? 2 : 0;
 
     await item.update({ system: { carriedPosition: nextPosition } });
   }
@@ -219,20 +222,23 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
 
     if (currValue) {
       const scale = event.shiftKey ? 40 : 20;
-      const newValue = `${parseInt(currValue) + (change * scale)}px`;
+      const newValue = `${parseInt(currValue, 10) + change * scale}px`;
       el.style.setProperty('--min-height', newValue);
 
       if (el.name && this.document.system.elementOverrides) {
         const fieldName = el.name.replaceAll('.', '_');
-        await this.document.update({
-          'system.elementOverrides': {
-            ...this.document.system.elementOverrides,
-            [fieldName]: {
-              ...this.document.system.elementOverrides[fieldName],
-              '--min-height': newValue,
+        await this.document.update(
+          {
+            'system.elementOverrides': {
+              ...this.document.system.elementOverrides,
+              [fieldName]: {
+                ...this.document.system.elementOverrides[fieldName],
+                '--min-height': newValue,
+              },
             },
           },
-        }, { render: false });
+          { render: false },
+        );
       }
     }
   }
@@ -255,27 +261,31 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
    * @returns {ContextMenuEntry[]}
    */
   _getItemListContextOptions() {
-    return [{
-      name: 'HONOR_INTRIGUE.Actor.Sheet.Tooltips.SendToChat',
-      icon: '<i class="fa-solid fa-message-lines"></i>',
-      callback: async (target) => {
-        const { itemId } = target.dataset;
-        const item = this.actor.items.get(itemId);
+    return [
+      {
+        name: 'HONOR_INTRIGUE.Actor.Sheet.Tooltips.SendToChat',
+        icon: '<i class="fa-solid fa-message-lines"></i>',
+        callback: async (target) => {
+          const { itemId } = target.dataset;
+          const item = this.actor.items.get(itemId);
 
-        return ChatMessage.create({
-          content: item.system.description,
-          flavor: `${game.i18n.localize(`TYPES.Item.${item.type}`)}: ${item.name}`,
-          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        });
+          return ChatMessage.create({
+            content: item.system.description,
+            flavor: `${game.i18n.localize(`TYPES.Item.${item.type}`)}: ${item.name}`,
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          });
+        },
       },
-    }];
+    ];
   }
 
   /** @inheritDoc */
   async _onFirstRender(context, options) {
     await super._onFirstRender(context, options);
 
-    this._createContextMenu(this._getItemListContextOptions, '.item-list .item[data-item-id]', { parentClassHooks: false });
+    this._createContextMenu(this._getItemListContextOptions, '.item-list .item[data-item-id]', {
+      parentClassHooks: false,
+    });
 
     Hooks.on('proseMirrorMenu.activateListeners', (prose, html) => {
       if (!this.element.contains(html)) return;
@@ -314,7 +324,9 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
 
     const loadBtns = this.element.querySelectorAll('.tab-content button[data-action="loadWeapon"]');
     for (const btn of loadBtns) {
-      btn.addEventListener('contextmenu', async (event) => HonorIntrigueActorSheet.#onLoadWeapon.call(this, event, event.target));
+      btn.addEventListener('contextmenu', async (event) =>
+        HonorIntrigueActorSheet.#onLoadWeapon.call(this, event, event.target),
+      );
     }
 
     if (this.actor.system.elementOverrides) {
@@ -338,7 +350,7 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
       ...ctx,
       actorType: this.document.type ?? 'actor',
       atALoss: this.document.statuses.has('at-a-loss'),
-      hasArcanePower: this.document.itemTypes['career'].some(c => c.system.isArcane),
+      hasArcanePower: this.document.itemTypes.career.some((c) => c.system.isArcane),
       notes: {
         enriched: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.notes, {
           rollData: this.document.getRollData(),
@@ -359,15 +371,17 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
   async _prepareEmbeddedItemContext(itemType, additionalContextFn = undefined, sortFn = undefined) {
     if (!this.actor.itemTypes[itemType]) return {};
 
-    const items = await Promise.all(this.actor.itemTypes[itemType].map(async (item) => {
-      const ctx = await this._prepareItemContext(item);
+    const items = await Promise.all(
+      this.actor.itemTypes[itemType].map(async (item) => {
+        const ctx = await this._prepareItemContext(item);
 
-      if (additionalContextFn) {
-        foundry.utils.mergeObject(ctx, await additionalContextFn(item));
-      }
+        if (additionalContextFn) {
+          foundry.utils.mergeObject(ctx, await additionalContextFn(item));
+        }
 
-      return ctx;
-    }));
+        return ctx;
+      }),
+    );
 
     if (sortFn) return items.sort(sortFn);
 
@@ -401,47 +415,58 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
 
     if (maneuvers.length === 0) return false;
 
-    return maneuvers.reduce((acc, curr) => {
-      curr.rollable = curr.item.system.requiresCheck || curr.item.system.requiresOpposedCheck;
-      curr.tags = [];
+    return maneuvers.reduce(
+      (acc, curr) => {
+        curr.rollable = curr.item.system.requiresCheck || curr.item.system.requiresOpposedCheck;
+        curr.tags = [];
 
-      if (curr.item.system.requiresCheck) {
-        let chk = [];
+        if (curr.item.system.requiresCheck) {
+          let chk = [];
 
-        if (curr.item.system.abilityCheck.quality) {
-          chk.push(hi.CONFIG.qualities[curr.item.system.abilityCheck.quality].label);
-        }
-        if (curr.item.system.abilityCheck.combatAbility) {
-          chk.push(hi.CONFIG.combatAbilities[curr.item.system.abilityCheck.combatAbility].label);
-        }
-
-        chk = chk.map(x => game.i18n.localize(x));
-        curr.tags.push(chk.join(' + '));
-
-        if (curr.item.system.requiresOpposedCheck) {
-          chk = [];
-
-          if (curr.item.system.abilityCheck.opposedBy.quality) {
-            chk.push(hi.CONFIG.qualities[curr.item.system.abilityCheck.opposedBy.quality].label);
+          if (curr.item.system.abilityCheck.quality) {
+            chk.push(hi.CONFIG.qualities[curr.item.system.abilityCheck.quality].label);
           }
-          if (curr.item.system.abilityCheck.opposedBy.combatAbility) {
-            chk.push(hi.CONFIG.combatAbilities[curr.item.system.abilityCheck.opposedBy.combatAbility].label);
+          if (curr.item.system.abilityCheck.combatAbility) {
+            chk.push(hi.CONFIG.combatAbilities[curr.item.system.abilityCheck.combatAbility].label);
           }
-          chk = chk.map(x => game.i18n.localize(x));
 
-          curr.tags.push('vs ' + chk.join(' + '));
+          chk = chk.map((x) => game.i18n.localize(x));
+          curr.tags.push(chk.join(' + '));
+
+          if (curr.item.system.requiresOpposedCheck) {
+            chk = [];
+
+            if (curr.item.system.abilityCheck.opposedBy.quality) {
+              chk.push(hi.CONFIG.qualities[curr.item.system.abilityCheck.opposedBy.quality].label);
+            }
+            if (curr.item.system.abilityCheck.opposedBy.combatAbility) {
+              chk.push(hi.CONFIG.combatAbilities[curr.item.system.abilityCheck.opposedBy.combatAbility].label);
+            }
+            chk = chk.map((x) => game.i18n.localize(x));
+
+            curr.tags.push(`vs ${chk.join(' + ')}`);
+          }
         }
-      }
 
-      switch (curr.item.system.actionType) {
-        case 0: acc.free.push(curr); break;
-        case 1: acc.major.push(curr); break;
-        case 2: acc.minor.push(curr); break;
-        case 3: acc.reaction.push(curr); break;
-      }
+        switch (curr.item.system.actionType) {
+          case 0:
+            acc.free.push(curr);
+            break;
+          case 1:
+            acc.major.push(curr);
+            break;
+          case 2:
+            acc.minor.push(curr);
+            break;
+          case 3:
+            acc.reaction.push(curr);
+            break;
+        }
 
-      return acc;
-    }, { major: [], minor: [], free: [], reaction: [] });
+        return acc;
+      },
+      { major: [], minor: [], free: [], reaction: [] },
+    );
   }
 
   /** @inheritDoc */
@@ -470,32 +495,48 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
       }
       case 'inventory':
         context.inventory = {
-          armor: await this._prepareEmbeddedItemContext('armor', (item) => ({
-            item: {
-              system: {
-                carriedPositionIcon: `fa-light ${item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Dropped ? 'fa-bars' : item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held ? 'fa-solid fa-shirt illuminate' : 'fa-sack'}`,
-                carriedPositionLabel: game.i18n.localize(hi.CONFIG.equipmentCarryChoices[item.system.carriedPosition].label),
+          armor: await this._prepareEmbeddedItemContext(
+            'armor',
+            (item) => ({
+              item: {
+                system: {
+                  carriedPositionIcon: `fa-light ${item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Dropped ? 'fa-bars' : item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held ? 'fa-solid fa-shirt illuminate' : 'fa-sack'}`,
+                  carriedPositionLabel: game.i18n.localize(
+                    hi.CONFIG.equipmentCarryChoices[item.system.carriedPosition].label,
+                  ),
+                },
               },
-            },
-            rollable: !!item.system.protection,
-          }), this._sortItemByName),
+              rollable: !!item.system.protection,
+            }),
+            this._sortItemByName,
+          ),
           equipment: await this._prepareEmbeddedItemContext('equipment', undefined, this._sortItemByName),
           treasure: await this._prepareEmbeddedItemContext('treasure', undefined, this._sortItemByName),
-          weapon: await this._prepareEmbeddedItemContext('weapon', (item) => ({
-            item: {
-              system: {
-                carriedPositionIcon: `fa-light ${item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Dropped ? 'fa-bars' : item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held ? 'fa-solid fa-shirt illuminate' : 'fa-sack'}`,
-                carriedPositionLabel: game.i18n.localize(hi.CONFIG.equipmentCarryChoices[item.system.carriedPosition].label),
+          weapon: await this._prepareEmbeddedItemContext(
+            'weapon',
+            (item) => ({
+              item: {
+                system: {
+                  carriedPositionIcon: `fa-light ${item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Dropped ? 'fa-bars' : item.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held ? 'fa-solid fa-shirt illuminate' : 'fa-sack'}`,
+                  carriedPositionLabel: game.i18n.localize(
+                    hi.CONFIG.equipmentCarryChoices[item.system.carriedPosition].label,
+                  ),
+                },
               },
-            },
-          }), this._sortItemByName),
+            }),
+            this._sortItemByName,
+          ),
         };
         break;
       case 'maneuvers':
-        context.actions = await this._prepareEmbeddedItemContext('action', (item) => ({
-          ...item,
-          rollable: item.system.requiresCheck || item.system.requiresOpposedCheck,
-        }), this._sortItemByName);
+        context.actions = await this._prepareEmbeddedItemContext(
+          'action',
+          (item) => ({
+            ...item,
+            rollable: item.system.requiresCheck || item.system.requiresOpposedCheck,
+          }),
+          this._sortItemByName,
+        );
         context.maneuvers = await this._prepareManeuversContext();
         context.readiedEquipment = await this._prepareReadiedEquipment();
         break;
@@ -508,15 +549,17 @@ export default class HonorIntrigueActorSheet extends ItemCRUDMixin(DocumentSheet
    * Prepare the context for all offensive weapons and equipment.
    */
   async _prepareReadiedEquipment() {
-    const weapons = await Promise.all(this.actor.items
-      .filter(i => i.type === 'weapon')
-      .filter(w => w.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held)
-      .map(async w => {
-        w.maneuvers = (await Promise.all(Array.from(w.system.maneuvers).map(async m => await fromUuid(m))))
-          .filter(m => m.system.requiresCheck)
-          .sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang));
-        return { item: { ...w, id: w.id, type: 'readiedEquipment' } };
-      }));
+    const weapons = await Promise.all(
+      this.actor.items
+        .filter((i) => i.type === 'weapon')
+        .filter((w) => w.system.carriedPosition === hi.CONFIG.CARRY_CHOICE.Held)
+        .map(async (w) => {
+          w.maneuvers = (await Promise.all(Array.from(w.system.maneuvers).map(async (m) => await fromUuid(m))))
+            .filter((m) => m.system.requiresCheck)
+            .sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang));
+          return { item: { ...w, id: w.id, type: 'readiedEquipment' } };
+        }),
+    );
 
     return weapons.sort(this._sortItemByName);
   }

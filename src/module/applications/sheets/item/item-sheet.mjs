@@ -53,7 +53,10 @@ export default class HonorIntrigueItemSheet extends DocumentSheetMixin(foundry.a
    * Handler for creating a new rule.
    */
   static async #onCreateRule() {
-    const { id } = await ActiveEffect.implementation.create({ name: game.i18n.localize('HONOR_INTRIGUE.Item.Defaults.RuleName') }, { parent: this.item });
+    const { id } = await ActiveEffect.implementation.create(
+      { name: game.i18n.localize('HONOR_INTRIGUE.Item.Defaults.RuleName') },
+      { parent: this.item },
+    );
     await this.render({ parts: ['rules'] });
 
     const el = this.element.querySelector(`.effect-item[data-effect-id="${id}"]`);
@@ -100,34 +103,6 @@ export default class HonorIntrigueItemSheet extends DocumentSheetMixin(foundry.a
     return parts;
   }
 
-  /**
-   * Handles changing the name of an inline rule.
-   */
-  async onRuleNameChange(event) {
-    const { effectId } = event.target.closest('[data-effect-id]').dataset;
-    if (!effectId) return;
-
-    const effect = this.item.effects.get(effectId);
-    await effect.update({ name: event.target.value });
-  }
-
-  /**
-   * Handles the change of a field in the list of rule changes.
-   */
-  async onRuleChangesFieldChange(event) {
-    const { effectId } = event.target.closest('[data-effect-id]').dataset;
-    const { index } = event.target.closest('li').dataset || -1;
-    if (!effectId || index === -1) return;
-
-    const effect = this.item.effects.get(effectId);
-    const changes = effect.changes;
-    const { dataset: { name }, value } = event.target;
-
-    changes[index][name] = value;
-    await effect.update({ changes });
-    this.render({ parts: ['rules'] });
-  }
-
   /** @inheritDoc */
   async _onRender(context, options) {
     await super._onRender(context, options);
@@ -161,8 +136,7 @@ export default class HonorIntrigueItemSheet extends DocumentSheetMixin(foundry.a
 
     switch (partId) {
       case 'rules':
-        context.modes = Object.entries(CONST.ACTIVE_EFFECT_MODES).reduce((modes, [k, v]) => ({
-          ...modes,
+        context.modes = Object.entries(CONST.ACTIVE_EFFECT_MODES).map(([k, v]) => ({
           [v]: game.i18n.localize(`EFFECT.MODE_${k}`),
         }));
         context.priorities = foundry.applications.sheets.ActiveEffectConfig.DEFAULT_PRIORITIES;
@@ -187,5 +161,36 @@ export default class HonorIntrigueItemSheet extends DocumentSheetMixin(foundry.a
     for (const key in data) {
       if (!['header', 'sidebar', 'content', 'description'].includes(key)) delete data[key];
     }
+  }
+
+  /**
+   * Handles the change of a field in the list of rule changes.
+   */
+  async onRuleChangesFieldChange(event) {
+    const { effectId } = event.target.closest('[data-effect-id]').dataset;
+    const { index } = event.target.closest('li').dataset || -1;
+    if (!effectId || index === -1) return;
+
+    const effect = this.item.effects.get(effectId);
+    const changes = effect.changes;
+    const {
+      dataset: { name },
+      value,
+    } = event.target;
+
+    changes[index][name] = value;
+    await effect.update({ changes });
+    this.render({ parts: ['rules'] });
+  }
+
+  /**
+   * Handles changing the name of an inline rule.
+   */
+  async onRuleNameChange(event) {
+    const { effectId } = event.target.closest('[data-effect-id]').dataset;
+    if (!effectId) return;
+
+    const effect = this.item.effects.get(effectId);
+    await effect.update({ name: event.target.value });
   }
 }

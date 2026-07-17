@@ -1,6 +1,6 @@
 import { systemID } from '../../constants.mjs';
 
-export default base => {
+export default (base) => {
   // eslint-disable-next-line @jsdoc/require-jsdoc
   return class DocumentSheet extends foundry.applications.api.HandlebarsApplicationMixin(base) {
     /** @inheritDoc */

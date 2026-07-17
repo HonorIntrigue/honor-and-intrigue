@@ -23,10 +23,7 @@ _______________________________________________________________
     CritFailure: { key: 'crit-failure', label: 'HONOR_INTRIGUE.ROLL_OUTCOME.CritFailure' },
   },
   advantageLabel: (value) => {
-    const key = value === 0 ? 'Defeated' :
-      value === 1 ? 'Scrambling' :
-        value === 2 ? 'Retreating' :
-          'EnGarde';
+    const key = value === 0 ? 'Defeated' : value === 1 ? 'Scrambling' : value === 2 ? 'Retreating' : 'EnGarde';
 
     return `HONOR_INTRIGUE.Actor.Sheet.Labels.Advantage.${key}`;
   },
@@ -36,7 +33,11 @@ _______________________________________________________________
 HONOR_INTRIGUE.qualities = {
   might: { label: 'HONOR_INTRIGUE.Actor.qualities.might', rollKey: 'might' },
   daring: { label: 'HONOR_INTRIGUE.Actor.qualities.daring', rollKey: 'daring' },
-  flair: { label: 'HONOR_INTRIGUE.Actor.qualities.flair', rollKey: 'flair', types: ['hero', 'pawn', 'retainer', 'villain'] },
+  flair: {
+    label: 'HONOR_INTRIGUE.Actor.qualities.flair',
+    rollKey: 'flair',
+    types: ['hero', 'pawn', 'retainer', 'villain'],
+  },
   savvy: { label: 'HONOR_INTRIGUE.Actor.qualities.savvy', rollKey: 'savvy' },
   terror: { label: 'HONOR_INTRIGUE.Actor.qualities.terror', rollKey: 'terror', types: ['creature'] },
 };
@@ -90,7 +91,7 @@ HONOR_INTRIGUE.damageDice = [
   { label: 'd10', value: 10 },
   { label: 'd12', value: 12 },
 ];
-HONOR_INTRIGUE.damageDiceValues = HONOR_INTRIGUE.damageDice.map(x => x.value);
+HONOR_INTRIGUE.damageDiceValues = HONOR_INTRIGUE.damageDice.map((x) => x.value);
 
 HONOR_INTRIGUE.damageTypes = {
   energy: {

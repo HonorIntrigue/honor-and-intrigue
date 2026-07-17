@@ -1,8 +1,8 @@
-import { HONOR_INTRIGUE } from '../module/config.mjs';
-import { systemID } from '../module/constants.mjs';
-import * as HI_CONST from '../module/constants.mjs';
 import * as applications from '../module/applications/_module.mjs';
 import * as collections from '../module/collection/_module.mjs';
+import { HONOR_INTRIGUE } from '../module/config.mjs';
+import * as HI_CONST from '../module/constants.mjs';
+import { systemID } from '../module/constants.mjs';
 import * as data from '../module/data/_module.mjs';
 import * as documents from '../module/documents/_module.mjs';
 import * as helpers from '../module/helpers/_module.mjs';
@@ -24,8 +24,8 @@ Hooks.once('init', () => {
 
   CONFIG.HONOR_INTRIGUE = HONOR_INTRIGUE;
   game.system.socketHandler = new helpers.HonorIntrigueSocketHandler();
-  helpers.HonorIntrigueKeybindings.registerKeybindings();
-  helpers.HonorIntrigueSettingsHandler.registerSettings();
+  helpers.registerKeybindings();
+  helpers.registerSettings();
 
   // Assign document classes
   for (const docCls of Object.values(documents)) {
@@ -45,14 +45,17 @@ Hooks.once('init', () => {
     }
   }
 
-  foundry.applications.handlebars.loadTemplates(templates.map(t => HI_CONST.systemPath(t))).catch(console.error);
+  foundry.applications.handlebars.loadTemplates(templates.map((t) => HI_CONST.systemPath(t))).catch(console.error);
 
   CONFIG.Actor.collection = collections.HonorIntrigueActors;
   CONFIG.Dice.rolls = [rolls.HonorIntrigueRoll, rolls.HonorIntrigueDamageRoll, rolls.HonorIntrigueProtectionRoll];
   CONFIG.ui.actors = applications.sidebar.HonorIntrigueActorDirectory;
 
   const effectsToKeep = ['dead', 'prone'];
-  CONFIG.statusEffects = [...CONFIG.statusEffects.filter(se => effectsToKeep.includes(se.id)), ...HONOR_INTRIGUE.statusEffects].sort((a, b) => a.id.localeCompare(b.id));
+  CONFIG.statusEffects = [
+    ...CONFIG.statusEffects.filter((se) => effectsToKeep.includes(se.id)),
+    ...HONOR_INTRIGUE.statusEffects,
+  ].sort((a, b) => a.id.localeCompare(b.id));
 
   const { Actors, Items } = foundry.documents.collections;
 
@@ -132,12 +135,15 @@ Hooks.once('init', () => {
 
 Hooks.once('ready', async () => {
   if (game.user !== game.users.activeGM || game.settings.get(systemID, 'createdParty')) return;
-  if (!game.actors.some(a => a.type === 'party')) {
-    await Actor.create({
-      _id: HONOR_INTRIGUE.defaultPartyId,
-      name: game.i18n.localize('HONOR_INTRIGUE.Actor.Party.DefaultName'),
-      type: 'party',
-    }, { keepId: true });
+  if (!game.actors.some((a) => a.type === 'party')) {
+    await Actor.create(
+      {
+        _id: HONOR_INTRIGUE.defaultPartyId,
+        name: game.i18n.localize('HONOR_INTRIGUE.Actor.Party.DefaultName'),
+        type: 'party',
+      },
+      { keepId: true },
+    );
     await game.settings.set(systemID, 'worldPartyId', HONOR_INTRIGUE.defaultPartyId);
   }
   await game.settings.set(systemID, 'createdParty', true);
@@ -147,9 +153,13 @@ Hooks.on('getProseMirrorMenuItems', (el, items) => applications.hooks.adjustPros
 Hooks.on('renderChatMessageHTML', applications.hooks.renderChatMessageHTML);
 
 // Monkey-patch the activateListeners function to get a hook when the menu items are rendered.
-helpers.override(foundry.prosemirror.ProseMirrorMenu.prototype, 'activateListeners', helpers.after(function(html) {
-  Hooks.callAll('proseMirrorMenu.activateListeners', this, html);
-}));
+helpers.override(
+  foundry.prosemirror.ProseMirrorMenu.prototype,
+  'activateListeners',
+  helpers.after(function (html) {
+    Hooks.callAll('proseMirrorMenu.activateListeners', this, html);
+  }),
+);
 
 // TODO dev helper -- remove during CI/CD
 Hooks.on('hotReload', helpers.hotReload);

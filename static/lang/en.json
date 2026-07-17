@@ -61,7 +61,7 @@
       },
       "ship": {
         "duties": {
-          "captain":  {
+          "captain": {
             "label": "Captain",
             "hint": "Officer in charge of the ship"
           },
@@ -69,7 +69,7 @@
             "label": "First Mate",
             "hint": "Second in command of the ship, usually first to lead boarding parties, responsible for overseeing most deck operations"
           },
-          "helmsman":  {
+          "helmsman": {
             "label": "Helmsman",
             "hint": "Any sailor who is steering the ship"
           },
@@ -77,7 +77,7 @@
             "label": "Master Gunner",
             "hint": "Officer in charge of firing the ship's guns, and also maintains and secures the firearms in the ship’s weapons locker"
           },
-          "carpenter":  {
+          "carpenter": {
             "label": "Carpenter",
             "hint": "Responsible for repairs (or modifications) to the ship"
           },

@@ -21,27 +21,17 @@ export default class DamageMessageModel extends BaseMessageModel {
   }
 
   /** @inheritDoc */
-  async alterMessageHTML(html) {
-    await super.alterMessageHTML(html);
-
-    if (this.parent.isAuthor || this.parent.isOwner) {
-      html.querySelector('.dice-result .dice-total')
-        .insertAdjacentHTML('afterbegin',
-          '<i class="fa-solid fa-bullseye-arrow set-targets" data-action="setTargets" data-tooltip="HONOR_INTRIGUE.Chat.Buttons.SetTargets.hint"></i>',
-        );
-    }
-  }
-
-  /** @inheritDoc */
   async _constructFooterButtons() {
     const buttons = await super._constructFooterButtons();
 
-    buttons.push(foundry.utils.parseHTML(
-      await foundry.applications.handlebars.renderTemplate(systemPath('templates/rolls/damage-roll-footer.hbs'), {
-        damageTotal: this.parent.rolls[0].total,
-        targets: (await Promise.all(this.targets.map(async t => await fromUuid(t)))).filter(t => t),
-      }),
-    ));
+    buttons.push(
+      foundry.utils.parseHTML(
+        await foundry.applications.handlebars.renderTemplate(systemPath('templates/rolls/damage-roll-footer.hbs'), {
+          damageTotal: this.parent.rolls[0].total,
+          targets: (await Promise.all(this.targets.map(async (t) => await fromUuid(t)))).filter((t) => t),
+        }),
+      ),
+    );
 
     return buttons;
   }
@@ -51,9 +41,29 @@ export default class DamageMessageModel extends BaseMessageModel {
    */
   addListeners(html) {
     html.querySelector('[data-action="setTargets"]')?.addEventListener('click', this.onSetTargets.bind(this));
-    html.querySelectorAll('[data-action="pingTarget"]').forEach(el => el.addEventListener('click', this.onPingTarget));
-    html.querySelectorAll('[data-action="applyDamage"]').forEach(el => el.addEventListener('click', this.onApplyDamage.bind(this)));
-    html.querySelectorAll('[data-action="applyProtection"]').forEach(el => el.addEventListener('click', this.onApplyProtection.bind(this)));
+    html.querySelectorAll('[data-action="pingTarget"]').forEach((el) => {
+      el.addEventListener('click', this.onPingTarget);
+    });
+    html.querySelectorAll('[data-action="applyDamage"]').forEach((el) => {
+      el.addEventListener('click', this.onApplyDamage.bind(this));
+    });
+    html.querySelectorAll('[data-action="applyProtection"]').forEach((el) => {
+      el.addEventListener('click', this.onApplyProtection.bind(this));
+    });
+  }
+
+  /** @inheritDoc */
+  async alterMessageHTML(html) {
+    await super.alterMessageHTML(html);
+
+    if (this.parent.isAuthor || this.parent.isOwner) {
+      html
+        .querySelector('.dice-result .dice-total')
+        .insertAdjacentHTML(
+          'afterbegin',
+          '<i class="fa-solid fa-bullseye-arrow set-targets" data-action="setTargets" data-tooltip="HONOR_INTRIGUE.Chat.Buttons.SetTargets.hint"></i>',
+        );
+    }
   }
 
   /**
@@ -88,7 +98,7 @@ export default class DamageMessageModel extends BaseMessageModel {
    * Handle resetting the targets on request.
    */
   async onSetTargets() {
-    const targets = game.user.targets.map(t => t.actor?.uuid);
+    const targets = game.user.targets.map((t) => t.actor?.uuid);
     this.parent.update({ system: { target: targets.first(), targets: Array.from(targets) } });
   }
 }

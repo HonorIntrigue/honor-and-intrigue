@@ -24,7 +24,10 @@ export default class PartySheet extends HonorIntrigueActorSheet {
     primary: {
       initial: 'overview',
       labelPrefix: 'HONOR_INTRIGUE.Actor.Sheet.Tabs',
-      tabs: [{ id: 'overview', restrict: HonorIntrigueActorSheet.restrictToObserver }, { id: 'stash', restrict: HonorIntrigueActorSheet.restrictToObserver }],
+      tabs: [
+        { id: 'overview', restrict: HonorIntrigueActorSheet.restrictToObserver },
+        { id: 'stash', restrict: HonorIntrigueActorSheet.restrictToObserver },
+      ],
     },
   };
 
@@ -54,10 +57,12 @@ export default class PartySheet extends HonorIntrigueActorSheet {
    * Refresh all hero Fortune points.
    */
   static async #onRefreshFortune() {
-    return await Promise.all(this.actor.system.members.map(async m => {
-      m = await fromUuid(m);
-      return m.update({ 'system.fortune.value': m.system.fortune.base + m.system.qualities.flair });
-    }));
+    return await Promise.all(
+      this.actor.system.members.map(async (m) => {
+        m = await fromUuid(m);
+        return m.update({ 'system.fortune.value': m.system.fortune.base + m.system.qualities.flair });
+      }),
+    );
   }
 
   /** @inheritDoc */
@@ -66,12 +71,12 @@ export default class PartySheet extends HonorIntrigueActorSheet {
 
     switch (partId) {
       case 'overview':
-        context.members = (await Promise.all(context.system.members.map(async m => fromUuid(m)))).map(a => ({
+        context.members = (await Promise.all(context.system.members.map(async (m) => fromUuid(m)))).map((a) => ({
           ...a,
           uuid: a.uuid,
-          boons: a.itemTypes['boon'].sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang)),
-          careers: a.itemTypes['career'].sort((a, b) => a.sort - b.sort),
-          flaws: a.itemTypes['flaw'].sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang)),
+          boons: a.itemTypes.boon.sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang)),
+          careers: a.itemTypes.career.sort((a, b) => a.sort - b.sort),
+          flaws: a.itemTypes.flaw.sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang)),
           composurePercentage: Math.round(Math.clamp(a.system.composure / 3, 0, 1) * 100),
           lifebloodPercentage: Math.round(Math.clamp(a.system.lifeblood.value / a.system.lifeblood.max, 0, 1) * 100),
         }));

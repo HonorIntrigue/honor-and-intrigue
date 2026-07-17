@@ -1,4 +1,4 @@
-export default base => {
+export default (base) => {
   /**
    * Adds CRUD actions for embedded items.
    */
@@ -58,10 +58,14 @@ export default base => {
       const { itemId } = target.closest('.item[data-item-id]').dataset;
       const item = this.document.items.get(itemId);
 
-      const confirm = event.shiftKey || (await foundry.applications.api.DialogV2.confirm({
-        window: { title: game.i18n.format('HONOR_INTRIGUE.Dialog.Confirm.DeleteWithPlaceholder', { item: item.name }) },
-        content: game.i18n.localize('HONOR_INTRIGUE.Dialog.Confirm.DeleteItem'),
-      }));
+      const confirm =
+        event.shiftKey ||
+        (await foundry.applications.api.DialogV2.confirm({
+          window: {
+            title: game.i18n.format('HONOR_INTRIGUE.Dialog.Confirm.DeleteWithPlaceholder', { item: item.name }),
+          },
+          content: game.i18n.localize('HONOR_INTRIGUE.Dialog.Confirm.DeleteItem'),
+        }));
 
       if (confirm) {
         await item.delete();

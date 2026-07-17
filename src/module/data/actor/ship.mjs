@@ -15,17 +15,21 @@ export default class ShipActorModel extends HonorIntrigueSystemModel {
 
     const quality = { min: 0, max: 5, initial: 0, integer: true, nullable: false };
     schema.qualities = new fields.SchemaField(
-      Object.values(hi.CONFIG.shipQualities).reduce((obj, { label, rollKey }) => ({
-        ...obj,
-        [rollKey]: new fields.NumberField({ ...quality, label }),
-      }), {}),
+      Object.fromEntries(
+        Object.values(hi.CONFIG.shipQualities).map(({ label, rollKey }) => [
+          rollKey,
+          new fields.NumberField({ ...quality, label }),
+        ]),
+      ),
     );
 
     schema.duties = new fields.SchemaField(
-      Object.entries(hi.CONFIG.shipDuties).reduce((obj, [key, { label }]) => ({
-        ...obj,
-        [key]: new fields.DocumentUUIDField({ label, required: false, type: 'Actor' }),
-      }), {}),
+      Object.fromEntries(
+        Object.entries(hi.CONFIG.shipDuties).map(([key, { label }]) => [
+          key,
+          new fields.DocumentUUIDField({ label, required: false, type: 'Actor' }),
+        ]),
+      ),
     );
 
     schema.class = new fields.StringField();
@@ -46,15 +50,15 @@ export default class ShipActorModel extends HonorIntrigueSystemModel {
     super.prepareDerivedData();
 
     this.complement.display = this.complement.value * 100;
-    this.timber.max = 10 + (10 * this.qualities.size) + (5 * this.qualities.hull);
+    this.timber.max = 10 + 10 * this.qualities.size + 5 * this.qualities.hull;
 
     this.tons = {};
     this.tons.max = Math.max(5, 10 * this.qualities.size);
     this.tons.reserved = { value: this.qualities.size * (this.qualities.guns === 0 ? 0.5 : this.qualities.guns) };
     this.tons.value = this.tons.reserved.value; // TODO add cargo weight
 
-    this.tons.percentage = Math.round(this.tons.value / this.tons.max * 100);
-    this.tons.reserved.percentage = Math.round(this.tons.reserved.value / this.tons.value * 100);
+    this.tons.percentage = Math.round((this.tons.value / this.tons.max) * 100);
+    this.tons.reserved.percentage = Math.round((this.tons.reserved.value / this.tons.value) * 100);
 
     if (this.tons.value > this.tons.max) {
       this.tons.overburdened = { limit: 12 * this.qualities.size };
@@ -123,16 +127,19 @@ export default class ShipActorModel extends HonorIntrigueSystemModel {
     options.system.modifiers.penalties = modifiers.penalties;
     options.system.modifiers.flatModifier = modifiers.flat;
 
-    return ChatMessage.create({
-      flags: { core: { canPopout: true }, [systemID]: (options.flags || {}) },
-      flavor: options.title ?? flavor,
-      rolls,
-      sound: CONFIG.sounds.dice,
-      speaker: ChatMessage.getSpeaker({ actor }),
-      system: options.system,
-      title: options.title ?? flavor,
-      type: options.type,
-    }, { rollMode });
+    return ChatMessage.create(
+      {
+        flags: { core: { canPopout: true }, [systemID]: options.flags || {} },
+        flavor: options.title ?? flavor,
+        rolls,
+        sound: CONFIG.sounds.dice,
+        speaker: ChatMessage.getSpeaker({ actor }),
+        system: options.system,
+        title: options.title ?? flavor,
+        type: options.type,
+      },
+      { rollMode },
+    );
   }
 
   /** @inheritDoc */

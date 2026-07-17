@@ -4,7 +4,7 @@
  */
 export function tokensToActors(tokens) {
   tokens ??= canvas?.tokens?.controlled ?? [];
-  const actors = tokens.map(token => token.actor).filter(_ => _);
+  const actors = tokens.map((token) => token.actor).filter((_) => _);
 
   return new Set(actors);
 }

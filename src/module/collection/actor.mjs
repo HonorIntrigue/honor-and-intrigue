@@ -8,12 +8,12 @@ export default class HonorIntrigueActors extends foundry.documents.collections.A
     const partyId = game.settings.get(systemID, 'worldPartyId');
     const actor = this.get(partyId);
 
-    return actor?.type === 'party' ? actor : this.find(a => a.type === 'party');
+    return actor?.type === 'party' ? actor : this.find((a) => a.type === 'party');
   }
 
   /** @inheritDoc */
   _getVisibleTreeContents() {
-    return super._getVisibleTreeContents().filter(a => a.type !== 'party' && !a.system.party);
+    return super._getVisibleTreeContents().filter((a) => a.type !== 'party' && !a.system.party);
   }
 
   /** @inheritDoc */

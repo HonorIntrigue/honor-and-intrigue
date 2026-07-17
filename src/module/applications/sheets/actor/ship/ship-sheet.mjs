@@ -64,7 +64,9 @@ export default class ShipSheet extends ItemCRUDMixin(HonorIntrigueActorSheet) {
     event.stopPropagation();
 
     if (event.type === 'dragenter') {
-      this.element.querySelectorAll('.drop-target').forEach(el => el.classList.remove('drop-target'));
+      this.element.querySelectorAll('.drop-target').forEach((el) => {
+        el.classList.remove('drop-target');
+      });
     } else if (event.type === 'dragleave') {
       const el = document.elementFromPoint(event.clientX, event.clientY);
       const parent = el.closest('.crew-duties-list-item');
@@ -76,7 +78,9 @@ export default class ShipSheet extends ItemCRUDMixin(HonorIntrigueActorSheet) {
 
   /** @inheritDoc */
   async _onDrop(event) {
-    this.element.querySelectorAll('.drop-target').forEach(el => el.classList.remove('drop-target'));
+    this.element.querySelectorAll('.drop-target').forEach((el) => {
+      el.classList.remove('drop-target');
+    });
     return super._onDrop(event);
   }
 
@@ -106,6 +110,16 @@ export default class ShipSheet extends ItemCRUDMixin(HonorIntrigueActorSheet) {
   }
 
   /** @inheritDoc */
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+
+    this.element.querySelectorAll('.crew-duties .crew-duties-list-item').forEach((el) => {
+      el.addEventListener('dragenter', this._onDragHighlight.bind(this));
+      el.addEventListener('dragleave', this._onDragHighlight.bind(this));
+    });
+  }
+
+  /** @inheritDoc */
   async _preparePartContext(partId, context, options) {
     await super._preparePartContext(partId, context, options);
 
@@ -127,10 +141,12 @@ export default class ShipSheet extends ItemCRUDMixin(HonorIntrigueActorSheet) {
           this._prepareEmbeddedItemContext('flaw'),
           Promise.all(
             Object.entries(hi.CONFIG.shipDuties)
-              .reduce((acc, [key, { label, sort }]) => [
-                ...acc,
-                { key, label: game.i18n.localize(label), sort, value: this.actor.system.duties[key] },
-              ], [])
+              .map(([key, { label, sort }]) => ({
+                key,
+                label: game.i18n.localize(label),
+                sort,
+                value: this.actor.system.duties[key],
+              }))
               .sort((a, b) => a.sort - b.sort)
               .map(async (v) => ({ ...v, value: await fromUuid(v.value) })),
           ),
@@ -152,15 +168,5 @@ export default class ShipSheet extends ItemCRUDMixin(HonorIntrigueActorSheet) {
     }
 
     return context;
-  }
-
-  /** @inheritDoc */
-  async _onRender(context, options) {
-    await super._onRender(context, options);
-
-    this.element.querySelectorAll('.crew-duties .crew-duties-list-item').forEach(el => {
-      el.addEventListener('dragenter', this._onDragHighlight.bind(this));
-      el.addEventListener('dragleave', this._onDragHighlight.bind(this));
-    });
   }
 }

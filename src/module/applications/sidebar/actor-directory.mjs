@@ -24,10 +24,14 @@ export default class HonorIntrigueActorDirectory extends foundry.applications.si
   static async #onCreateMember(event, target) {
     const { entryId } = target.closest('[data-entry-id]').dataset;
     const party = game.actors.get(entryId);
-    const actor = await HonorIntrigueActor.createDialog({}, {}, {
-      position: { width: 320, left: window.innerWidth - 630, top: target.offsetTop ?? 0 },
-      types: ['hero', 'retainer'],
-    });
+    const actor = await HonorIntrigueActor.createDialog(
+      {},
+      {},
+      {
+        position: { width: 320, left: window.innerWidth - 630, top: target.offsetTop ?? 0 },
+        types: ['hero', 'retainer'],
+      },
+    );
 
     if (actor?.type) {
       this.#expandedFolders[party.id] = true;
@@ -92,7 +96,7 @@ export default class HonorIntrigueActorDirectory extends foundry.applications.si
   _getFolderContextOptions() {
     const options = super._getFolderContextOptions();
 
-    return options.map(opt => ({
+    return options.map((opt) => ({
       ...opt,
       condition: (header) => {
         const li = header.closest('.directory-item');
@@ -151,9 +155,9 @@ export default class HonorIntrigueActorDirectory extends foundry.applications.si
   async _onRender(context, options) {
     // Ensure the directory gets rendered with the party at the top
     if (options.parts.includes('directory')) {
-      const partyPart = this.parts['party'];
+      const partyPart = this.parts.party;
       partyPart.remove();
-      this.parts['directory'].prepend(partyPart);
+      this.parts.directory.prepend(partyPart);
     }
 
     await super._onRender(context, options);
@@ -166,7 +170,7 @@ export default class HonorIntrigueActorDirectory extends foundry.applications.si
     // Reveal the party folder for actors matching a search, and ensure opened party folders remain open
     const folderLikes = this.element.querySelectorAll('.folder[data-party]');
     for (const folder of folderLikes) {
-      if (query !== '' && folder.querySelectorAll('.actor').some(li => li.style.display !== 'none')) {
+      if (query !== '' && folder.querySelectorAll('.actor').some((li) => li.style.display !== 'none')) {
         folder.style.display = 'flex';
         folder.classList.add('expanded');
       } else {
@@ -203,7 +207,7 @@ export default class HonorIntrigueActorDirectory extends foundry.applications.si
     return {
       id: party.id,
       img: party.img,
-      members: party.system.members.map(id => fromUuidSync(id)),
+      members: party.system.members.map((id) => fromUuidSync(id)),
       name: party.name,
       uuid: party.uuid,
     };

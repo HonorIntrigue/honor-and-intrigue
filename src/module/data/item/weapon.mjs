@@ -16,7 +16,12 @@ export default class WeaponModel extends EquipmentModel {
     const schema = super.defineSchema();
 
     schema.damageFormula = new fields.SchemaField({
-      dieSize: new fields.NumberField({ choices: hi.CONFIG.damageDiceValues, initial: 6, integer: true, nullable: true }),
+      dieSize: new fields.NumberField({
+        choices: hi.CONFIG.damageDiceValues,
+        initial: 6,
+        integer: true,
+        nullable: true,
+      }),
       flatModifier: new fields.NumberField({ initial: 0, integer: true, nullable: false }),
       numDice: new fields.NumberField({ initial: 1, integer: true, min: 1 }),
     });
@@ -74,16 +79,19 @@ export default class WeaponModel extends EquipmentModel {
 
     const { modifiers, rollMode, rolls } = result;
 
-    return ChatMessage.create({
-      flags: { core: { canPopout: true } },
-      flavor: `<strong>${game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Damage', { weapon: this.parent.name })}</strong>`,
-      rolls,
-      rollMode,
-      sound: CONFIG.sounds.dice,
-      speaker: ChatMessage.getSpeaker({ actor: this.parent }),
-      system: { uuid: this.parent.uuid },
-      title: options.title,
-      type: 'damage',
-    }, { rollMode });
+    return ChatMessage.create(
+      {
+        flags: { core: { canPopout: true } },
+        flavor: `<strong>${game.i18n.format('HONOR_INTRIGUE.Chat.Roll.Flavor.Damage', { weapon: this.parent.name })}</strong>`,
+        rolls,
+        rollMode,
+        sound: CONFIG.sounds.dice,
+        speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+        system: { uuid: this.parent.uuid },
+        title: options.title,
+        type: 'damage',
+      },
+      { rollMode },
+    );
   }
 }

@@ -1,0 +1,269 @@
+@import "base/header.css";
+@import "base/sidebar.css";
+@import "party/party.css";
+@import "ship/ship.css";
+@import "tabs/tabs.css";
+
+.honor-intrigue.sheet.actor {
+  /** required for the advantage panel to be visible **/
+  overflow: visible;
+
+  .item-list {
+    border: 1px solid light-dark(var(--color-navy), var(--color-gold-dull));
+    display: grid;
+    grid-column-gap: 0.25rem;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr;
+
+    &.adjustable {
+      grid-template-columns: 2fr 60px 1fr;
+    }
+
+    .item-list-header {
+      align-items: center;
+      background: light-dark(var(--color-navy), var(--color-gold-dull));
+      display: grid;
+      font-weight: bold;
+      color: light-dark(var(--color-gold-dull), var(--color-navy));
+      grid-column: 1 / -1;
+      grid-row: 1;
+      grid-template-columns: subgrid;
+      padding: 0.1em 0.25em;
+
+      & :first-child {
+        font-size: var(--font-size-18);
+      }
+
+      & :nth-child(2) {
+        text-align: center;
+      }
+
+      .item-controls-header {
+        grid-column: -1;
+        justify-self: flex-end;
+      }
+    }
+
+    .suggestion-box {
+      margin: 1rem;
+    }
+
+    .item-list-items {
+      align-items: center;
+      display: grid;
+      grid-column: 1 / -1;
+      grid-template-columns: subgrid;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .item {
+        align-items: center;
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: subgrid;
+        margin: 0;
+        padding: 0.25em;
+
+        &:nth-child(even) {
+          background: light-dark(hsla(0, 0%, 0%, 0.15), var(--color-navy-light));
+        }
+
+        &:nth-child(odd) {
+          background: light-dark(hsla(0, 0%, 0%, 0.25), var(--color-navy));
+        }
+
+        > div {
+          align-items: center;
+          display: flex;
+          gap: 0.5rem;
+        }
+
+        .draggable {
+          padding-left: 0.25rem;
+        }
+
+        .item-image {
+          width: 30px;
+        }
+
+        .item-name {
+          cursor: pointer;
+          flex: 1;
+        }
+
+        .item-quantity {
+          justify-content: center;
+
+          > span {
+            text-align: center;
+            width: 30px;
+          }
+        }
+
+        .item-controls {
+          grid-column: -1;
+          justify-content: flex-end;
+
+          i[class*="fa-"] {
+            min-width: 18px;
+            text-align: center;
+            vertical-align: middle;
+            width: 18px;
+          }
+        }
+
+        .item-embed {
+          grid-column: 1 / -1;
+          padding: 0 1em;
+        }
+
+        .item-tags {
+          gap: 0.1rem;
+          grid-column: 1 / -1;
+          grid-row: 2;
+          padding: 0.5em 1em 0 1em;
+
+          .item-tag {
+            border: 1px dotted light-dark(var(--color-navy), var(--color-gold-dull));
+            border-radius: 5px;
+            padding: 0 0.25rem;
+
+            > p {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &.boons-list {
+      .item-name {
+        color: var(--color-green);
+      }
+    }
+
+    &.flaws-list {
+      .item-name {
+        color: var(--color-red);
+      }
+    }
+
+    &.dueling-styles-list {
+      .dueling-style-mastery {
+        display: grid;
+        grid-template: 1fr / 1fr;
+        height: 20px;
+        width: 100px;
+
+        > span {
+          grid-area: 1 / 1;
+        }
+
+        .dueling-style-mastery-background {
+          background-color: var(--color-dark-3);
+        }
+        .dueling-style-mastery-foreground {
+          background-color: var(--color-gold-dull);
+          &[width="100%"] {
+            background-color: var(--color-gold);
+          }
+        }
+      }
+    }
+
+    &.readied-equipment {
+      grid-template-columns: 1fr 1fr;
+
+      .item-controls {
+        gap: 0.25rem;
+
+        & button {
+          --button-size: 1.5em;
+          font-variant-caps: all-small-caps;
+
+          &[data-action="loadWeapon"] {
+            white-space: nowrap;
+          }
+        }
+
+        .item-controls-maneuvers {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.1rem;
+          justify-content: flex-end;
+        }
+      }
+    }
+
+    #context-menu {
+      width: unset;
+    }
+  }
+
+  .advantage-panel {
+    background: var(--color-navy);
+    border: 1px solid var(--color-border);
+    border-top: none;
+    bottom: 0;
+    margin-left: -1px;
+    position: absolute;
+    transform: rotate(270deg);
+    transform-origin: 0 0;
+    z-index: -1;
+
+    .control-header {
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      text-align: center;
+    }
+
+    .advantage-panel-content {
+      display: none;
+    }
+
+    &.expanded {
+      border-left: none;
+      border-top: unset;
+      transform: none;
+
+      .control-header {
+        display: none;
+      }
+
+      .advantage-panel-content {
+        display: flex;
+        flex-direction: column;
+
+        > button {
+          --button-size: 1.25em;
+          align-self: flex-end;
+          margin-right: 0.25rem;
+          margin-top: 0.25rem;
+        }
+      }
+
+      .advantage-panel-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0 0.5rem 0.5rem 0.5rem;
+        text-align: center;
+
+        & button {
+          min-width: 120px;
+        }
+
+        .advantage-level {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.minimized .advantage-panel,
+  &.minimizing .advantage-panel,
+  &.maximizing .advantage-panel {
+    display: none;
+  }
+}

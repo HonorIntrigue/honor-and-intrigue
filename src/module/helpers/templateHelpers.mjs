@@ -57,10 +57,13 @@ export function getItemControls(item) {
     }
     case 'duelingStyle': {
       result.innerHTML += `
-        <div class='dueling-style-mastery' data-tooltip='${game.i18n.format('HONOR_INTRIGUE.Actor.Sheet.Labels.Character.DuelingStyleProgress', {
-          max: item.system.maneuvers.size,
-          value: item.system.mastery,
-        })}'>
+        <div class='dueling-style-mastery' data-tooltip='${game.i18n.format(
+          'HONOR_INTRIGUE.Actor.Sheet.Labels.Character.DuelingStyleProgress',
+          {
+            max: item.system.maneuvers.size,
+            value: item.system.mastery,
+          },
+        )}'>
           <span class='dueling-style-mastery-background'></span>
           <span class='dueling-style-mastery-foreground' style='width: ${Math.round((item.system.mastery / item.system.maneuvers.size) * 100)}%'></span>
         </div>
@@ -92,7 +95,7 @@ export function getItemControls(item) {
       }
 
       result.innerHTML += `
-        <div class='item-controls-maneuvers'>${item.maneuvers.map(m => `<button type='button' data-action='rollTaggedManeuver' data-item-uuid='${m.uuid}'>${m.name}</button>`).join('')}</div>
+        <div class='item-controls-maneuvers'>${item.maneuvers.map((m) => `<button type='button' data-action='rollTaggedManeuver' data-item-uuid='${m.uuid}'>${m.name}</button>`).join('')}</div>
         <button type='button' data-action='rollItemDamage'><i class='fa-solid fa-bomb'></i>${game.i18n.localize('HONOR_INTRIGUE.Actor.Sheet.Labels.Maneuvers.Damage')}</button>
       `;
       break;
@@ -117,7 +120,7 @@ export function hasProperty(object, key) {
 export function spread(options) {
   if (!options) return '';
 
-  const entries = Object.entries(options).reduce((acc, [k, v]) => [...acc, `${k}="${v}"`], []);
+  const entries = Object.entries(options).map(([k, v]) => `${k}="${v}"`);
 
   return new Handlebars.SafeString(entries.join(' '));
 }

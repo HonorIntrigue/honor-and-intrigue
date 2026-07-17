@@ -26,9 +26,12 @@ export default class ManeuverModel extends ActionModel {
     const embed = await super.toEmbed();
 
     if (this.mastery) {
-      const masteryTag = await foundry.applications.handlebars.renderTemplate(systemPath('templates/embeds/item/maneuver-mastery.hbs'), {
-        system: this,
-      });
+      const masteryTag = await foundry.applications.handlebars.renderTemplate(
+        systemPath('templates/embeds/item/maneuver-mastery.hbs'),
+        {
+          system: this,
+        },
+      );
       embed.insertAdjacentHTML('beforeend', masteryTag);
     }
 

@@ -18,9 +18,7 @@
       "spent": 0
     },
     "isLoaded": true,
-    "maneuvers": [
-      "Compendium.honor-and-intrigue.maneuvers.Item.8x5ylJwiWf0O65DU"
-    ],
+    "maneuvers": ["Compendium.honor-and-intrigue.maneuvers.Item.8x5ylJwiWf0O65DU"],
     "rangeIncrement": 10,
     "throwable": false,
     "quantity": 1

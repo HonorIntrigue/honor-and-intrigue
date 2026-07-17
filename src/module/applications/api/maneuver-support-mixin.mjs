@@ -1,4 +1,4 @@
-export default base => {
+export default (base) => {
   /**
    * Adds actions for populating and resetting maneuvers to a sheet.
    */
@@ -34,7 +34,7 @@ export default base => {
       }
 
       const docs = await pack.getDocuments();
-      const objs = docs.map(cd => game.items.fromCompendium(cd));
+      const objs = docs.map((cd) => game.items.fromCompendium(cd));
 
       await Item.implementation.createDocuments(objs, { parent: this.actor });
       return this.render({ parts: ['maneuvers'] });
@@ -53,7 +53,10 @@ export default base => {
         });
 
         if (confirm) {
-          await Item.deleteDocuments(maneuvers.map(m => m.id), { parent: this.actor });
+          await Item.deleteDocuments(
+            maneuvers.map((m) => m.id),
+            { parent: this.actor },
+          );
         }
       }
     }

@@ -43,21 +43,11 @@
       "weapon": { "htmlFields": ["description"] }
     }
   },
-  "esmodules": [
-    "honor-and-intrigue.mjs"
-  ],
+  "esmodules": ["honor-and-intrigue.mjs"],
   "flags": {
     "hotReload": {
-      "extensions": [
-        "css",
-        "hbs",
-        "json"
-      ],
-      "paths": [
-        "css",
-        "lang",
-        "templates"
-      ]
+      "extensions": ["css", "hbs", "json"],
+      "paths": ["css", "lang", "templates"]
     }
   },
   "initiative": "1d6 + @qualities.savvy",
@@ -126,7 +116,17 @@
     {
       "name": "Honor + Intrigue",
       "color": "#283343",
-      "packs": ["boons", "careers", "duelingStyles", "equipment", "flaws", "macros", "maneuvers", "ship-boons-flaws", "tome-of-intriguing-options"]
+      "packs": [
+        "boons",
+        "careers",
+        "duelingStyles",
+        "equipment",
+        "flaws",
+        "macros",
+        "maneuvers",
+        "ship-boons-flaws",
+        "tome-of-intriguing-options"
+      ]
     }
   ],
   "primaryTokenAttribute": "lifeblood",

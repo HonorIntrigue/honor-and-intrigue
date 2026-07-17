@@ -37,9 +37,8 @@ export default class DuelingStyle extends BaseItemModel {
   get mastery() {
     if (!this.parent.isEmbedded || !this.parent.actor) return 0;
 
-    return this.parent.actor.itemTypes['maneuver']
-      .filter(m => this.maneuvers.has(m.uuid) || this.maneuvers.has(m._stats.compendiumSource))
-      .filter(m => m.system.isMastered)
-      .length;
+    return this.parent.actor.itemTypes.maneuver
+      .filter((m) => this.maneuvers.has(m.uuid) || this.maneuvers.has(m._stats.compendiumSource))
+      .filter((m) => m.system.isMastered).length;
   }
 }
