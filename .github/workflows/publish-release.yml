@@ -13,16 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Enable corepack
         run: corepack enable
 
       - name: Setup Nodejs
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          cache: yarn
-          node-version: 22
+          cache: pnpm
+          node-version: 24
 
       - name: Extract tag version number
         id: get-version
@@ -30,7 +30,7 @@ jobs:
 
       - name: Substitute links for versioned ones
         id: sub_link_version
-        uses: devops-actions/variable-substitution@v1.2
+        uses: devops-actions/variable-substitution@v2.0.0
         with:
           files: static/system.json
         env:
@@ -40,8 +40,8 @@ jobs:
 
       - name: Build package
         run: |
-          yarn install
-          yarn build
+          pnpm install --frozen-lockfile
+          pnpm build
 
       - name: Create zip
         run: |
