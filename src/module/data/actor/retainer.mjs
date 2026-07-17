@@ -10,6 +10,16 @@ export default class RetainerModel extends BaseActorModel {
   }
 
   /** @inheritDoc */
+  static defineSchema() {
+    const fields = foundry.data.fields;
+    const schema = super.defineSchema();
+
+    schema.level = new fields.NumberField({ required: true, integer: true, initial: 0, min: 0, max: 3 });
+
+    return schema;
+  }
+
+  /** @inheritDoc */
   get baseLifeblood() {
     return 8;
   }

@@ -30,6 +30,14 @@
             <span class='resource-label'>{{localize 'HONOR_INTRIGUE.Sheet.Labels.Composure'}}</span>
           </div>
         {{/if}}
+        {{#if (eq actorType 'retainer')}}
+          <div class='resource-item'>
+            <div class='resource-value'>
+              {{formInput systemFields.level value=this.system.level type='number'}}
+            </div>
+            <span class='resource-label'>{{localize 'HONOR_INTRIGUE.Sheet.Labels.Level'}}</span>
+          </div>
+        {{/if}}
         {{#if (eq actorType 'pawn')}}
           <div class='resource-item'>
             <div class='resource-value'>
