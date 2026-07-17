@@ -22,10 +22,11 @@ if (!foundryPath || !dataPath) {
 const args = [
   'pnpm run dev:code',
   'pnpm run dev:css',
+  'pnpm run dev:static',
   `npx wait-on file:./public/honor-and-intrigue.mjs file:./public/css/honor-and-intrigue.css && node "${foundryPath}" --dataPath="${dataPath}" --hotReload --noupnp --world="hidev"`,
 ];
 
-spawn(`npx concurrently -n "code,css,fvtt" -c "blue,magenta,yellow" ${args.map((arg) => `"${arg}"`).join(' ')}`, {
+spawn(`npx concurrently -n "code,css,static,fvtt" -c "blue,magenta,green,yellow" ${args.map((arg) => `"${arg}"`).join(' ')}`, {
   cwd: process.cwd(),
   shell: true,
   stdio: 'inherit',

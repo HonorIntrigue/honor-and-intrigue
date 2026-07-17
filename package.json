@@ -15,6 +15,7 @@
     "dev:code": "esbuild src/scripts/honor-and-intrigue.mjs --bundle --format=esm --sourcemap --outfile=public/honor-and-intrigue.mjs --watch",
     "dev:css": "npx chokidar 'static/styles/**/*.css' -c 'pnpm build:css'",
     "dev:setup": "node ./tools/setup-dev.mjs",
+    "dev:static": "npx chokidar 'static/**' --ignore 'static/styles/**' -c 'f={path}; d=public/${f#static/}; mkdir -p $(dirname $d); cp $f $d'",
     "lint": "biome check --max-diagnostics 999 src/",
     "lint:fix": "biome check --fix src/",
     "unpack": "node ./tools/pushLDBtoJSON.mjs"
